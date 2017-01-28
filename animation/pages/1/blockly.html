@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
-    <!--<script src="../../../modules/blockly/generators/javascript.js"></script>-->
-    <script src="../../../modules/blockly/msg/js/fr.js"></script>
-    <script src="../../../modules/blockly/blocks_compressed.js"></script>
-    <script src="../../../modules/blockly/javascript_compressed.js"></script>
-    <script src="../../blocks/animation_blocks.js"></script>
-    <script src="../../blocks/animation_blocks_gen.js"></script>
 
-    <style>
+<head>
+  <meta charset="utf-8">
+  <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
+  <!--<script src="../../../modules/blockly/generators/javascript.js"></script>-->
+  <script src="../../../modules/blockly/msg/js/fr.js"></script>
+  <script src="../../../modules/blockly/blocks_compressed.js"></script>
+  <script src="../../../modules/blockly/javascript_compressed.js"></script>
+  <script src="../../blocks/animation_blocks.js"></script>
+  <script src="../../blocks/animation_blocks_gen.js"></script>
+
+  <style>
       html, body {
         background-color: #fff;
         margin: 0;
@@ -23,33 +24,87 @@
         width: 100%;
       }
     </style>
-    
-    <script>
+
+<script>
       function init() {
         Blockly.inject(document.body, {
-            toolbox: document.getElementById('toolbox'),
-            zoom:{
-                controls: true,
-                startScale: 1.0,
-                maxScale: 3,
-                minScale: 0.3,
-                scaleSpeed: 1.2},
-            trashcan: true,
-            scrollbars: true
+          toolbox: document.getElementById('toolbox'),
+          zoom: {
+            controls: true,
+            startScale: 1.0,
+            maxScale: 3,
+            minScale: 0.3,
+            scaleSpeed: 1.2
+          },
+          trashcan: true,
+          scrollbars: true
         });
         // Let the top-level application know that Blockly is ready.
         window.parent.blockly_loaded(Blockly);
-        window.setTimeout(Blockly.Storage.restoreBlocks, 500);
+        //window.setTimeout(Blockly.Storage.restoreBlocks, 500);
+
+        // Load workspace
+        Blockly.Xml.domToWorkspace(document.getElementById('workspace'), Blockly.getMainWorkspace());
       }
     </script>
-  </head>
-  
-  <body onload="init()">
-    <xml id="toolbox" style="display: none">
-        <block type="math_number"></block>
-        <block type="carre"></block>
-        <block type="cercle"></block>
-        <block type="couleur"></block>
-    </xml>
-  </body>
+</head>
+
+<body onload="init()">
+<xml id="toolbox" style="display: none">
+<block type="math_number"></block>
+<block type="carre"></block>
+<block type="cercle"></block>
+<block type="couleur"></block>
+</xml>
+
+<xml id="workspace" style="display: none">
+<block id="zYpM~|8=w~[_z2qXaY`S" type="couleur" x="409" y="130">
+  <field name="fill">#00ff00</field>
+  <next>
+    <block id="qo4[?Hh)4L9C-4FZ#FUI" type="carre">
+      <value name="x">
+        <block id="1uc?B5G%j_-x,9wGa0A;" type="math_number">
+          <field name="NUM">5</field>
+        </block>
+      </value>
+      <value name="y">
+        <block id="?3q=OFK67zdCMn}u`:D]" type="math_number">
+          <field name="NUM">3</field>
+        </block>
+      </value>
+      <value name="size">
+        <block id="}1z1^SiH.xD0-Uy1-0cR" type="math_number">
+          <field name="NUM">4</field>
+        </block>
+      </value>
+      <next>
+        <block id="^D95CN*u};(VSFQl^LBK" type="couleur">
+          <field name="fill">#ff0000</field>
+          <next>
+            <block id="$]9|+R0A:#3K[G+y)CHC" type="cercle">
+              <value name="x">
+                <block id="w)lp)LZ%`Tj2//pC?%Q0" type="math_number">
+                  <field name="NUM">2</field>
+                </block>
+              </value>
+              <value name="y">
+                <block id="eBgksC]n3DlZk(mAyrWi" type="math_number">
+                  <field name="NUM">2</field>
+                </block>
+              </value>
+              <value name="size">
+                <block id="L-}c,b;~-1F-.jJlrs1f" type="math_number">
+                  <field name="NUM">2</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </next>
+    </block>
+  </next>
+</block>
+</xml>
+</body>
+
 </html>
