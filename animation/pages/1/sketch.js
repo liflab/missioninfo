@@ -14,8 +14,7 @@ function checkAnswer() {
             message: '<div class="text-center">Bravo !!!</div>',
             backdrop: true
         });
-        document.getElementById("btn_run_prog").style.display = "none";
-        document.getElementById("btn_next_exercise").style.display = "block";
+        enable_next();
     }
 }
 
@@ -66,4 +65,10 @@ function drawExercise() {
     rectMode(CORNER);
     fill(0,255,0,60);
     rect(300,100,400,400);
+}
+
+function enable_next() {
+    document.getElementById("btn_run_prog").style.display = "none";
+    document.getElementById("btn_next_exercise").style.display = "block";
+    document.getElementById("btn_current_num").className = "btn btn-success";
 }
