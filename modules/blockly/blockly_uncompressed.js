@@ -89,6 +89,7 @@ goog.addDependency("../../../" + dir + "/core/workspace_drag_surface_svg.js", ['
 goog.addDependency("../../../" + dir + "/core/workspace_svg.js", ['Blockly.WorkspaceSvg'], ['Blockly.ConnectionDB', 'Blockly.constants', 'Blockly.Options', 'Blockly.ScrollbarPair', 'Blockly.Touch', 'Blockly.Trashcan', 'Blockly.Workspace', 'Blockly.WorkspaceDragSurfaceSvg', 'Blockly.Xml', 'Blockly.ZoomControls', 'goog.array', 'goog.dom', 'goog.math.Coordinate', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/xml.js", ['Blockly.Xml'], ['goog.asserts', 'goog.dom']);
 goog.addDependency("../../../" + dir + "/core/zoom_controls.js", ['Blockly.ZoomControls'], ['Blockly.Touch', 'goog.dom']);
+goog.addDependency("../../../" + dir + "/core/storage.js", ['Blockly.Storage'], ['Blockly.Xml']);
 goog.addDependency("../../alltests.js", [], []);
 goog.addDependency("../../browser_capabilities.js", [], []);
 goog.addDependency("../../protractor.conf.js", [], []);
@@ -1647,7 +1648,7 @@ goog.addDependency("../../third_party/closure/goog/mochikit/async/deferred.js", 
 goog.addDependency("../../third_party/closure/goog/mochikit/async/deferredlist.js", ['goog.async.DeferredList'], ['goog.async.Deferred']);
 goog.addDependency("../../third_party/closure/goog/osapi/osapi.js", ['goog.osapi'], []);
 goog.addDependency("../../third_party/closure/goog/svgpan/svgpan.js", ['svgpan.SvgPan'], ['goog.Disposable', 'goog.events', 'goog.events.EventType', 'goog.events.MouseWheelHandler']);
-
+goog.addDependency("base.js", [], []);
 // Load Blockly.
 goog.require('Blockly');
 goog.require('Blockly.Block');
@@ -1701,6 +1702,8 @@ goog.require('Blockly.ZoomControls');
 goog.require('Blockly.constants');
 goog.require('Blockly.inject');
 goog.require('Blockly.utils');
+goog.require('Blockly.Storage');
+
 
 delete this.BLOCKLY_DIR;
 delete this.BLOCKLY_BOOT;
