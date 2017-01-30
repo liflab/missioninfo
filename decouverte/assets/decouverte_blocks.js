@@ -11,7 +11,6 @@ Blockly.Blocks['block_1'] = {
 };
 
 Blockly.JavaScript['block_1'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = 'stringAnswer += "O";\n';
   return code;
 };
@@ -33,7 +32,6 @@ Blockly.Blocks['block_2'] = {
 };
 
 Blockly.JavaScript['block_2'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = 'stringAnswer += "K";\n';
   return code;
 };
@@ -51,7 +49,6 @@ Blockly.Blocks['block_delete'] = {
 };
 
 Blockly.JavaScript['block_delete'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = 'stringAnswer += "NO";\n';
   return code;
 };
@@ -75,7 +72,6 @@ Blockly.Blocks['block_help'] = {
 
 Blockly.JavaScript['block_help'] = function(block) {
   var dropdown_choix = block.getFieldValue('choix');
-  // TODO: Assemble JavaScript into code variable.
   var code = 'stringAnswer ="' + dropdown_choix + '";\n';
   return code;
 };
