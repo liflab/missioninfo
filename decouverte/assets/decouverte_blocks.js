@@ -63,10 +63,10 @@ Blockly.Blocks['block_help'] = {
     this.appendDummyInput()
         .setAlign(Blockly.ALIGN_RIGHT)
         .appendField("Choix     ")
-        .appendField(new Blockly.FieldDropdown([[{"src":"https://www.gstatic.com/codesite/ph/images/star_on.gif","width":15,"height":15,"alt":"singe"},"SINGE"], [{"src":"https://www.gstatic.com/codesite/ph/images/star_on.gif","width":15,"height":15,"alt":"chat"},"CHAT"], [{"src":"https://www.gstatic.com/codesite/ph/images/star_on.gif","width":15,"height":15,"alt":"chien"},"CHIEN"]]), "choix");
+        .appendField(new Blockly.FieldDropdown([[{"src":"../../assets/unicorn.png","width":32,"height":32,"alt":"unicorn"},"UNICORN"], [{"src":"../../assets/cat.png","width":32,"height":32,"alt":"chat"},"CHAT"], [{"src":"../../assets/dog.png","width":32,"height":32,"alt":"chien"},"CHIEN"]]), "choix");
     this.setColour(230);
     this.setTooltip('Clique-droit sur moi pour avoir de l\'aide');
-    this.setHelpUrl('');
+    this.setHelpUrl('aide.html');
   }
 };
 
