@@ -39,7 +39,7 @@
         });
         // Let the top-level application know that Blockly is ready.
         window.parent.blockly_loaded(Blockly);
-        //window.setTimeout(Blockly.Storage.restoreBlocks, 500);
+        window.setTimeout(Blockly.Storage.restoreBlocks, 500);
 
         // Load workspace
         Blockly.Xml.domToWorkspace(document.getElementById('workspace'), Blockly.getMainWorkspace());

@@ -28,10 +28,9 @@ function run_code() {
     initAnswer();
     try {
         code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
-        //alert(code);
         eval(code);
         checkAnswer();
-        //save_code();
+        save_code();
     } catch(err) {
         bootbox.alert({
             message: '<div class="text-center">Erreur<br>Il y a un problème dans ton code<br>Demande de l\'aide à l\'animateur<br><br>----------DEBUG----------<br>' + err + '<br><br>----------CODE----------<br>' + code + '</div>',
