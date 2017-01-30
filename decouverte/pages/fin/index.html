@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--##########################################################################################################-->
+
+    <!-- Description -->
+    <meta name="description" content="Page 1 de l'activité découverte : Ajout de blocs">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+    <title>Fin de l'activité</title>
+    <!--##########################################################################################################-->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" size="96x96" href="../../../assets/icon.png">
+    <!--##########################################################################################################-->
+    
+    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
+    <link href="../../../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../modules/jquery/jquery.min.js"></script>
+    <script src="../../../modules/bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap dialog extension -->
+    <script src="../../../modules/bootbox/bootbox.min.js"></script>
+    
+    <!-- Custom styles for this template -->
+    <link href="../../assets/decouverte.css" rel="stylesheet">
+    <!--##########################################################################################################-->
+    
+  </head>
+
+<body onload="allLoaded();">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Activité Découverte</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#">Aide</a></li>
+            </ul>
+            <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a></p>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="loader" class="body-content"></div>
+    
+    <div id="page" style="display:none">
+         <div id="topPage" class="container-fluid body-content">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div id="title">
+                        <h1>Fin</h1>
+
+                        <p>Bravo tu as terminé cette activité !!!</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h1>Progression</h1>
+                    
+                    <div class="btn-group">
+                        <button type="button" onclick="location.href='../1/index.html';" class="btn btn-success">01</button>
+                        <button type="button" onclick="location.href='../2/index.html';" class="btn btn-success">02</button>
+                        <button type="button" onclick="location.href='../3/index.html';" class="btn btn-success">03</button>
+                        <button type="button" onclick="location.href='../4/index.html';" class="btn btn-success">04</button>
+                        <button type="button" id="btn_current_num" onclick="location.href='#';" class="btn btn-success">FIN</button>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> RETOUR</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid" id="bodyPage">
+            <div class="text-center" id="imgFin" style="height:100%;">
+                <img src="../../assets/fin.png" alt="fin" style="height:100%;">
+            </div>
+        </div> 
+    </div>
+
+    <!-- Javascript custom functions -->
+    <script src="../../assets/decouverte_functions.js"></script>
+    <!--##########################################################################################################-->
+
+</body>
+</html>
