@@ -76,9 +76,7 @@ Blockly.Blocks['block_help'] = {
 Blockly.JavaScript['block_help'] = function(block) {
   var dropdown_choix = block.getFieldValue('choix');
   // TODO: Assemble JavaScript into code variable.
-  var code = 'if("' + dropdown_choix + '" === "CHIEN") {\n';
-  code += '\t enable_next();\n';
-  code += '}\n';
+  var code = 'stringAnswer ="' + dropdown_choix + '";\n';
   return code;
 };
 
@@ -86,9 +84,9 @@ Blockly.JavaScript['block_help'] = function(block) {
 
 Blockly.Blocks['affiche'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Affiche")
-        .appendField(new Blockly.FieldTextInput("texte"), "INPUT");
+    this.appendValueInput("input")
+        .setCheck("String")
+        .appendField("Affiche");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -98,9 +96,11 @@ Blockly.Blocks['affiche'] = {
 };
 
 Blockly.JavaScript['affiche'] = function(block) {
-  var text_input = block.getFieldValue('INPUT');
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'alert("' + text_input + '");\n';
+  var value_input = Blockly.JavaScript.valueToCode(block, 'input', Blockly.JavaScript.ORDER_ATOMIC);  // TODO: Assemble JavaScript into code variable.
+  var code = 'blockAfficheDown = true;\n';
+  if(value_input) {
+    code += 'stringAnswer =' + value_input + ';\n';
+  }
   return code;
 };
 
