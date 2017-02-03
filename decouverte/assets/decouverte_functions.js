@@ -40,10 +40,7 @@ function run_code() {
         checkAnswer();
         save_code();
     } catch(err) {
-        bootbox.alert({
-            message: '<div class="text-center">Erreur<br>Il y a un problème dans ton code<br>Demande de l\'aide à l\'animateur<br><br>----------DEBUG----------<br>' + err + '<br><br>----------CODE----------<br>' + code + '</div>',
-            backdrop: true
-        });
+        not_good();
     }
 }
 
