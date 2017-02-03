@@ -42,7 +42,7 @@
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="../index.html">Accueil</a></li>
-                  <li><a href="#">Aide</a></li>
+                  <li><a href="#" onclick="openInNewTab('aide.html')">Aide</a></li>
                 </ul>
               </nav>
             </div>
@@ -67,5 +67,11 @@
       </div>
 
     </div>
+    <script>
+      function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+      }
+    </script>
   </body>
 </html>
