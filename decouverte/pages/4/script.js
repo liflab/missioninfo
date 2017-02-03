@@ -15,6 +15,9 @@ function checkAnswer() {
         callback: enable_next()
         });
     }
+    else {
+        not_good();
+    }
 }
 
 //------------------------------------------------//

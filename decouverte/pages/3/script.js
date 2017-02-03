@@ -9,6 +9,9 @@ function checkAnswer() {
     if(stringAnswer === "CHIEN") {
         enable_next();
     }
+    else {
+        not_good();
+    }
 }
 
 //------------------------------------------------//

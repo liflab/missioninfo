@@ -9,6 +9,9 @@ function checkAnswer() {
     if(stringAnswer === "OK") {
         enable_next();
     }
+    else {
+        not_good();
+    }
 }
 
 //------------------------------------------------//

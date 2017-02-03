@@ -43,6 +43,13 @@ function save_code() {
     window.Blockly.Storage.backupBlocks(window.Blockly.getMainWorkspace());
 }
 
+function not_good() {
+    bootbox.alert({
+            message: '<div class="text-center">Il y a des erreurs dans ton code<br>Essaie encore</div>',
+            backdrop: true
+    });
+}
+
 function enable_next() {
     bootbox.alert({
             message: '<div class="text-center">Bravo !!!<br>Tu as réussi cette étape</div>',
