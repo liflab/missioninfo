@@ -2,8 +2,16 @@
 var bodyPageDiv = document.getElementById('bodyPage');
 
 var onresize = function() {
-    var height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight;
-    console.log(height);
+    var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
+    var height;
+    // Mobile view -> fixed height (scroll)
+    if (width < 768) {
+        height = 600;
+    }
+    // Desktop view -> adapt height
+    else {
+        height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight;
+    }
     bodyPageDiv.style.height = height + 'px';
 };
 window.addEventListener('resize', onresize, false);
