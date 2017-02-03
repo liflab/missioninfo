@@ -53,14 +53,14 @@ function save_code() {
 
 function not_good() {
     bootbox.alert({
-            message: '<div class="text-center">Il y a des erreurs dans ton code<br>Essaie encore</div>',
+            message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/bad.png" alt="Smiley badface" height="100%"></div>',
             backdrop: true
     });
 }
 
 function enable_next() {
     bootbox.alert({
-            message: '<div class="text-center">Bravo !!!<br>Tu as réussi cette étape</div>',
+            message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu sera prêt pour la prochaine activité</div>',
             backdrop: true
     });
     document.getElementById("btn_run_prog").style.display = "none";
