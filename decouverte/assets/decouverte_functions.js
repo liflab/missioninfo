@@ -60,11 +60,18 @@ function not_good() {
 
 function enable_next() {
     bootbox.alert({
-            message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu sera prêt pour la prochaine activité</div>',
+            message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
             backdrop: true
     });
     document.getElementById("btn_run_prog").style.display = "none";
     document.getElementById("btn_next_exercise").style.display = "block";
     document.getElementById("btn_current_num").className = "btn btn-success";
+}
+
+function showHelp() {
+    bootbox.alert({
+        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/decouverte_video_intro.mp4" type="video/mp4"  /> </video></div>',
+        size: 'large'
+    });
 }
 //##########################################################################################################
