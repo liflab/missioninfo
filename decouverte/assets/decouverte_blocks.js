@@ -92,10 +92,10 @@ Blockly.Blocks['affiche'] = {
 };
 
 Blockly.JavaScript['affiche'] = function(block) {
-  var value_input = Blockly.JavaScript.valueToCode(block, 'input', Blockly.JavaScript.ORDER_ATOMIC);  // TODO: Assemble JavaScript into code variable.
-  var code = 'blockAfficheDown = true;\n';
+  var value_input = Blockly.JavaScript.valueToCode(block, 'input', Blockly.JavaScript.ORDER_ATOMIC); 
+  var code = '';
   if(value_input) {
-    code += 'stringAnswer =' + value_input + ';\n';
+    code += 'addText(' + value_input +');\n';
   }
   return code;
 };

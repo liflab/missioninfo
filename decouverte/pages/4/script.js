@@ -1,18 +1,25 @@
 // To check the answer
 var stringAnswer;
-var blockAfficheDown;
+var blocksOK;
 
 function initAnswer() {
    stringAnswer = "";
-   blockAfficheDown = false;
+   blocksOK = false;
+}
+
+function addText(stringToAdd) {
+    if (!(stringToAdd === "")) {
+        blocksOK = true;
+    }
+    stringAnswer += stringToAdd + '<br>';
 }
 
 function checkAnswer() {
-    if (blockAfficheDown && !(stringAnswer === "")) {
+    if (blocksOK) {
         bootbox.alert({
-        message: '<div class="text-center">Voici le texte que tu as affiché<br>'+ stringAnswer +'</div>',
+        message: '<div class="text-center">Voici le texte que tu as affiché :<br>'+ stringAnswer +'</div>',
         backdrop: true,
-        callback: enable_next()
+        callback: function(){ enable_next(); }
         });
     }
     else {
