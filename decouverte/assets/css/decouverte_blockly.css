@@ -6,6 +6,10 @@ html, body {
     height: 100%;
 }
 
+.blocklyMainBackground {
+    fill: #fff !important;
+}
+
 .blocklySvg {
     height: 100%;
     width: 100%;
