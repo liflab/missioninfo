@@ -7,7 +7,12 @@ html, body {
 }
 
 .blocklyMainBackground {
-    fill: #fff !important;
+    fill: #eee !important;
+}
+
+.blocklyFlyoutBackground {
+    fill: #bbb !important;
+    fill-opacity: 0.8 !important;
 }
 
 .blocklySvg {
