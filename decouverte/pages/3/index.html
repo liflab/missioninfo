@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+
+<head>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +13,11 @@
     <meta name="author" content="Vincent PORTA-SCARTA">
     <title>Utilisation de l'aide</title>
     <!--##########################################################################################################-->
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" size="96x96" href="../../../assets/icon.png">
     <!--##########################################################################################################-->
-    
+
     <!-- Bootstrap -->
     <!-- Bootstrap core CSS -->
     <link href="../../../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -25,41 +26,42 @@
     <script src="../../../modules/bootstrap/js/bootstrap.js"></script>
     <!-- Bootstrap dialog extension -->
     <script src="../../../modules/bootbox/bootbox.min.js"></script>
-    
+
     <!-- Custom styles for this template -->
-    <link href="../../assets/decouverte.css" rel="stylesheet">
+    <link href="../../assets/css/decouverte.css" rel="stylesheet">
     <!--##########################################################################################################-->
-    
-  </head>
+
+</head>
 
 <body onload="allLoaded();">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Activité Découverte</a>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Activité Découverte</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../../../index.html">Accueil</a></li>
+                    <li><a href="../../index.html">Retour</a></li>
+                    <li><a href="#" onclick="showHelp()">Aide</a></li>
+                </ul>
+                <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a></p>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="../../../index.html">Accueil</a></li>
-                <li><a href="../../index.html">Retour</a></li>
-                <li><a href="#" onclick="showHelp()">Aide</a></li>
-            </ul>
-            <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a></p>
-        </div>
-      </div>
     </nav>
-    
+
     <div id="loader" class="body-content"></div>
-    
+
     <div id="page" style="display:none">
-         <div id="topPage" class="container-fluid body-content">
+        <div id="topPage" class="container-fluid body-content">
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
@@ -70,7 +72,7 @@
                 </div>
                 <div class="col-sm-6 text-center">
                     <h1>Progression</h1>
-                    
+
                     <div class="btn-group">
                         <button type="button" onclick="location.href='../1/index.html';" class="btn btn-success">01</button>
                         <button type="button" onclick="location.href='../2/index.html';" class="btn btn-success">02</button>
@@ -86,16 +88,17 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container-fluid" id="bodyPage">
-            <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>    
-        </div> 
+            <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+        </div>
     </div>
 
     <!-- Javascript custom functions -->
-    <script src="../../assets/decouverte_functions.js"></script>
+    <script src="../../assets/js/decouverte_functions.js"></script>
     <script src="script.js"></script>
     <!--##########################################################################################################-->
 
 </body>
+
 </html>
