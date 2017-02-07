@@ -42,7 +42,7 @@ function setup() {
 
     drawSpaceIndicators();
     drawExercise();
-    fill(0, 0, 0);
+    stroke(0, 0, 0);
 }
 
 function drawSpaceIndicators() {
