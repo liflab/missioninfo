@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+
+<head>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,51 +22,58 @@
     <!-- Bootstrap core CSS -->
     <link href="../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
     <!-- Cover CSS -->
-    <link href="css/animation_cover.css" rel="stylesheet">
+    <link href="assets/css/animation_cover.css" rel="stylesheet">
     <!-- Bootstrap core JavaScript -->
     <script src="../modules/jquery/jquery.min.js"></script>
     <script src="../modules/bootstrap/js/bootstrap.js"></script>
     <!--##########################################################################################################-->
 
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
+        <div class="site-wrapper-inner">
 
-        <div class="cover-container">
+            <div class="cover-container">
 
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Activité Animation</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="../index.html">Accueil</a></li>
-                  <li><a href="#">Aide</a></li>
-                </ul>
-              </nav>
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Activité Animation</h3>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li class="active"><a href="../index.html">Accueil</a></li>
+                                <li><a href="#" onclick="openInNewTab('aide.html')">Aide</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="inner cover">
+                    <h1 class="cover-heading">Création d'un film d'animation</h1>
+                    <p class="lead">Le but de cette activité est d'apprendre les notions de bases de l'animation<br><br>Création de figures simples sur le plan cartésien<br>Mettre en mouvement les formes pour créer l'animation</p>
+                    <p class="lead">
+                        <a class="btn btn-lg btn-success" href="pages/1/index.html">Lancer l'activité</a>
+                    </p>
+                </div>
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>&copy; 2016 Vincent.P</p>
+                    </div>
+                </div>
+
             </div>
-          </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Animation</h1>
-            <p class="lead">...</p>
-            <p class="lead">
-              <a class="btn btn-lg btn-success" href="pages/1/index.html">Lancer l'activité</a>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>&copy; 2016 Vincent.P</p>
-            </div>
-          </div>
 
         </div>
 
-      </div>
-
     </div>
-  </body>
+    <script>
+        function openInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+    </script>
+</body>
+
 </html>
