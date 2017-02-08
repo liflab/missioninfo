@@ -10,14 +10,95 @@
     <script src="../../../modules/blockly/blockly_init.js"></script>
     <script src="../../assets/js/animation_blocks.js"></script>
     <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00'];
+        Blockly.FieldColour.COLUMNS = 2;
+    </script>
+
 </head>
 
-<body onload="initBlockly(1.0,false,false)">
+<body onload="initBlockly(1.0,false,true)">
     <xml id="toolbox" style="display: none">
         <block type="ligne"></block>
         <block type="couleur"></block>
         <block type="coords"></block>
         <block type="math_number"></block>
+    </xml>
+
+    <xml id="workspace" style="display: none">
+        <block type="couleur" id="mM#.aiq$$[E24,cV`{Z(" x="191" y="63">
+            <field name="fill">#ff0000</field>
+            <next>
+                <block type="ligne" id=")nuRqa0-]x8@QQY-+K-G">
+                    <value name="coord_deb">
+                        <block type="coords" id="A6XG|tqR$MB4DFsebT`!">
+                            <value name="x">
+                                <block type="math_number" id=":NkL3l#=FUx1z=$9dZ~Z">
+                                    <field name="NUM">1</field>
+                                </block>
+                            </value>
+                            <value name="y">
+                                <block type="math_number" id="0^cd#E5VnbeF3r{3r?XK">
+                                    <field name="NUM">2</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <value name="coord_fin">
+                        <block type="coords" id="y!||Cdd]:/n@1G/A7(EF">
+                            <value name="x">
+                                <block type="math_number" id="L:*~BS)FDkAjCXZPm1U4">
+                                    <field name="NUM">3</field>
+                                </block>
+                            </value>
+                            <value name="y">
+                                <block type="math_number" id="nI:?3OPsz:c~{=EUY9qm">
+                                    <field name="NUM">4</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <next>
+                        <block type="couleur" id="d,6U3EyN-.?3LdZOCmqJ">
+                            <field name="fill">#00ff00</field>
+                            <next>
+                                <block type="ligne" id="G{%h5?,H[84:=LXhcZ/9">
+                                    <value name="coord_deb">
+                                        <block type="coords" id="caT2RIG(k-vI6cFFl3M{">
+                                            <value name="x">
+                                                <block type="math_number" id="(^}c1xrX1aJbQe!+@r*X">
+                                                    <field name="NUM">7</field>
+                                                </block>
+                                            </value>
+                                            <value name="y">
+                                                <block type="math_number" id="KIt;nT2qj%7oY1UyH#{L">
+                                                    <field name="NUM">1</field>
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </value>
+                                    <value name="coord_fin">
+                                        <block type="coords" id="ItEyEKo5pne]-757L^TL">
+                                            <value name="x">
+                                                <block type="math_number" id="4LAx.I{Y,,H:om[Nibo]">
+                                                    <field name="NUM">4</field>
+                                                </block>
+                                            </value>
+                                            <value name="y">
+                                                <block type="math_number" id="Ho*$LB|nbvG:P1Kc.(;{">
+                                                    <field name="NUM">5</field>
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </value>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
+                </block>
+            </next>
+        </block>
     </xml>
 </body>
 

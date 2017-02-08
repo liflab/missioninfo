@@ -1,16 +1,29 @@
-// To check the answer
-var matrixAnswer;
+//////////////// To check the answer ///////////////
+var tabAnswer;
 
 function initAnswer() {
     setup();
-    matrixAnswer = new Array(8);
-    for (var i = 0; i < 10; i++) {
-        matrixAnswer[i] = new Array(6);
-    }
+    tabAnswer = [];
 }
 
 function checkAnswer() {
-    if (matrixAnswer[2][2] === 'C-2-#ff0000' && matrixAnswer[5][3] === 'SQ-4-#00ff00') {
+    var cercleRouge = false;
+    var carreVert = false;
+
+    if (tabAnswer.length == 2) {
+        for (var i = 0; i < tabAnswer.length; i++) {
+            JSONstr = JSON.stringify(tabAnswer[i]);
+
+            if (!cercleRouge) {
+                cercleRouge = JSONstr === '{"type":"circle","pos":{"x":2,"y":2},"size":2,"couleur":"#ff0000"}';
+            }
+            if (!carreVert) {
+                carreVert = JSONstr === '{"type":"square","pos":{"x":5,"y":3},"size":4,"couleur":"#00ff00"}';
+            }
+        }
+    }
+
+    if (cercleRouge && carreVert) {
         enable_next();
     }
     else {
@@ -22,68 +35,144 @@ var currentColor = '#000000';
 
 //------------------------------------------------//
 
+///////////////// Create exercise /////////////////
+var axisWidthLength = 8;
+var axisHeightLength = 6;
+var pxUnit = 100;
+
 function setup() {
-    var canvas = createCanvas(800, 600);
+    var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
     noLoop();
 
     drawSpaceIndicators();
     drawExercise();
-    fill(0, 0, 0);
+    fill(0, 0, 0).stroke(0, 0, 0);
 }
 
 function drawSpaceIndicators() {
-    fill(0, 0, 0);
-    stroke(0, 0, 0);
-    textSize(24);
+    var sizeSpaceIndicators = 20;
     textAlign(CENTER);
-    for (var i = 1; i < 6; i++) {
-        strokeWeight(4);
-        line(0, i * 100, 20, i * 100);
-        line(780, i * 100, 800, i * 100);
-        strokeWeight(1);
-        text((6 - i), 40, i * 100 + 8);
+    for (var i = 1; i < axisHeightLength; i++) {
+        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4)
+        line(0, i * pxUnit, sizeSpaceIndicators, i * pxUnit);
+        line((axisWidthLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
+
+        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1)
+        line(0, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
+
+        fill(0, 0, 0).strokeWeight(0).textSize(18)
+        text((axisHeightLength - i), 35, i * pxUnit + 8);
 
     }
-    for (var i = 1; i < 8; i++) {
-        strokeWeight(4);
-        line(i * 100, 0, i * 100, 20);
-        line(i * 100, 580, i * 100, 600);
-        strokeWeight(1);
-        text(i, i * 100, 565);
+    for (var i = 1; i < axisWidthLength; i++) {
+        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4)
+        line(i * pxUnit, 0, i * pxUnit, sizeSpaceIndicators);
+        line(i * pxUnit, (axisHeightLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisHeightLength * pxUnit);
+
+        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1)
+        line(i * pxUnit, 0, i * pxUnit, axisHeightLength * pxUnit);
+
+        fill(0, 0, 0).strokeWeight(0).textSize(18)
+        text(i, i * pxUnit, (axisHeightLength * pxUnit) - 30);
     }
-    text('X', 355, 595);
-    text('Y', 15, 260);
+    fill(50, 50, 255).strokeWeight(0).textSize(24).textStyle(BOLD);
+    text('X', (axisWidthLength * pxUnit) / 2, (axisHeightLength * pxUnit) - 60);
+    text('Y', 60, (axisHeightLength * pxUnit) / 2 + 8);
 }
 
 function drawExercise() {
-    noStroke();
-    fill(255, 0, 0, 60);
-    ellipse(200, 400, 200, 200);
-    rectMode(CORNER);
-    fill(0, 255, 0, 60);
-    rect(300, 100, 400, 400);
+    fill(255, 0, 0, 60).noStroke();
+    drawCircle({ x: 2, y: 2 }, 2, false);
+    fill(0, 255, 0, 60).noStroke();
+    drawSquare({ x: 5, y: 3 }, 4, false);
 }
 
-function drawRect(coord, taille) {
+//------------------------------------------------//
+
+///////////////// Helper functions /////////////////
+function convertCoord(coord) {
+    return {
+        x: (coord.x * pxUnit),
+        y: ((axisHeightLength - coord.y) * pxUnit)
+    };
+}
+
+function convertSize(size) {
+    return size * pxUnit;
+}
+
+function drawSquare(coord, taille, answer) {
     noStroke();
     rectMode(CENTER);
-    matrixAnswer[coord.x][coord.y] = 'SQ-' + taille + '-' + currentColor;
 
-    var sketch_x = coord.x * 100;
-    var sketch_y = 600 - (coord.y * 100);
-    var sketch_taille = taille * 100;
+    if (answer) {
+        tabAnswer.push({
+            type: 'square',
+            pos: coord,
+            size: taille,
+            couleur: currentColor
+        });
+    }
 
-    rect(sketch_x, sketch_y, sketch_taille, sketch_taille);
+    var sketch_coord = convertCoord(coord);
+    var sketch_taille = convertSize(taille);
+
+    rect(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
 }
 
-function drawCircle(coord, taille) {
+function drawRect(coord, hauteur, largeur, answer) {
     noStroke();
-    matrixAnswer[coord.x][coord.y] = 'C-' + taille + '-' + currentColor;
+    rectMode(CENTER);
 
-    var sketch_x = coord.x * 100;
-    var sketch_y = 600 - (coord.y * 100);
-    var sketch_taille = taille * 100;
+    if (answer) {
+        tabAnswer.push({
+            type: 'rect',
+            pos: coord,
+            h: hauteur,
+            w: largeur,
+            couleur: currentColor
+        });
+    }
 
-    ellipse(sketch_x, sketch_y, sketch_taille, sketch_taille);
+    var sketch_coord = convertCoord(coord);
+    var sketch_hauteur = convertSize(hauteur);
+    var sketch_largeur = convertSize(largeur);
+
+    rect(sketch_coord.x, sketch_coord.y, sketch_largeur, sketch_hauteur);
 }
+
+function drawCircle(coord, taille, answer) {
+    noStroke();
+
+    if (answer) {
+        tabAnswer.push({
+            type: 'circle',
+            pos: coord,
+            size: taille,
+            couleur: currentColor
+        });
+    }
+
+    var sketch_coord = convertCoord(coord);
+    var sketch_taille = convertSize(taille);
+
+    ellipse(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
+}
+
+function drawLine(coord_deb, coord_fin, answer) {
+    if (answer) {
+        tabAnswer.push({
+            type: 'line',
+            deb: coord_deb,
+            fin: coord_fin,
+            couleur: currentColor
+        });
+    }
+
+    var sketch_coord_deb = convertCoord(coord_deb);
+    var sketch_coord_fin = convertCoord(coord_fin);
+
+    line(sketch_coord_deb.x, sketch_coord_deb.y, sketch_coord_fin.x, sketch_coord_fin.y);
+}
+//------------------------------------------------//

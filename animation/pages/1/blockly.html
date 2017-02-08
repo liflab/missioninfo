@@ -10,15 +10,78 @@
     <script src="../../../modules/blockly/blockly_init.js"></script>
     <script src="../../assets/js/animation_blocks.js"></script>
     <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00'];
+        Blockly.FieldColour.COLUMNS = 2;
+    </script>
+
 </head>
 
-<body onload="initBlockly(1.0,false,false)">
+<body onload="initBlockly(1.0,false,true)">
     <xml id="toolbox" style="display: none">
         <block type="carre"></block>
         <block type="cercle"></block>
         <block type="couleur"></block>
         <block type="coords"></block>
         <block type="math_number"></block>
+    </xml>
+
+    <xml id="workspace" style="display: none">
+        <block type="couleur" id="~k*C]EUr*Wjaz``kAZOP" x="175" y="39">
+            <field name="fill">#00ff00</field>
+            <next>
+                <block type="carre" id="3!O,#nb).eI7EB%.Wv|n">
+                    <value name="coord_center">
+                        <block type="coords" id=":O(;qZ0deIB=d.N}cy$X">
+                            <value name="x">
+                                <block type="math_number" id="Gf6XMi.T,S1cu^l}n9}9">
+                                    <field name="NUM">5</field>
+                                </block>
+                            </value>
+                            <value name="y">
+                                <block type="math_number" id="R,L!tphu#H3S766Sk`o{">
+                                    <field name="NUM">3</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <value name="taille">
+                        <block type="math_number" id="2+$/BPAO?Kr~AG_KpZb|">
+                            <field name="NUM">4</field>
+                        </block>
+                    </value>
+                    <next>
+                        <block type="couleur" id="=dqIThyZu$VDQMC+IVqU">
+                            <field name="fill">#ff0000</field>
+                            <next>
+                                <block type="cercle" id="3h/T80LSGgL?W,ow0xRg">
+                                    <value name="coord_center">
+                                        <block type="coords" id="z(tJl.0}#k,GK3bGy{Hq">
+                                            <value name="x">
+                                                <block type="math_number" id="{r)fITm`Ph%_ucekq8}:">
+                                                    <field name="NUM">2</field>
+                                                </block>
+                                            </value>
+                                            <value name="y">
+                                                <block type="math_number" id="//~Kzy24X1}(s{[ID!E:">
+                                                    <field name="NUM">2</field>
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </value>
+                                    <value name="taille">
+                                        <block type="math_number" id="e0U/anwtJL^FM`;pe1Bx">
+                                            <field name="NUM">2</field>
+                                        </block>
+                                    </value>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
+                </block>
+            </next>
+        </block>
     </xml>
 </body>
 
