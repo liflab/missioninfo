@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
+    <script src="../../../modules/blockly/msg/js/fr.js"></script>
+    <script src="../../../modules/blockly/blocks_compressed.js"></script>
+    <script src="../../../modules/blockly/javascript_compressed.js"></script>
+    <script src="../../../modules/blockly/blockly_init.js"></script>
+    <script src="../../assets/js/animation_blocks.js"></script>
+    <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff', '#ff9966'];
+        Blockly.FieldColour.COLUMNS = 4;
+    </script>
+</head>
+
+<body onload="initBlockly(1.0,false,true)">
+    <xml id="toolbox" style="display: none">
+        <category name="Formes">
+            <block type="ligne"></block>
+            <block type="cercle"></block>
+            <block type="carre"></block>
+            <block type="rectangle"></block>
+        </category>
+        <category name="Couleur">
+            <block type="couleur"></block>
+        </category>
+        <category name="Position">
+            <block type="coords"></block>
+            <block type="math_number"></block>
+        </category>
+    </xml>
+
+    <xml id="workspace" style="display: none">
+        <block type="couleur" id="j,y,q)gS_:x??,H[5X#}" x="-51" y="7">
+            <field name="fill">#ff9966</field>
+            <next>
+                <block type="cercle" id="Izxvj4~Bx4$ZQY#AuWkB">
+                    <value name="coord_center">
+                        <block type="coords" id="9tH193H,oHZK4~%7f1_K">
+                            <value name="x">
+                                <block type="math_number" id="NZ!qt:HPiLxj;;L4tZmi">
+                                    <field name="NUM">12</field>
+                                </block>
+                            </value>
+                            <value name="y">
+                                <block type="math_number" id="T]VO-_JwuO;uN,aja#}1">
+                                    <field name="NUM">16</field>
+                                </block>
+                            </value>
+                        </block>
+                    </value>
+                    <value name="taille">
+                        <block type="math_number" id="`)W3hKKko@i[v2`:RDkO">
+                            <field name="NUM">2</field>
+                        </block>
+                    </value>
+                    <next>
+                        <block type="couleur" id="JNF;y]kAF^08yMmxOg]F">
+                            <field name="fill">#00ff00</field>
+                            <next>
+                                <block type="rectangle" id="]Y`l|9FjE=F.L.-wjPP!">
+                                    <value name="coord_center">
+                                        <block type="coords" id="e7{Ca|E|+|Y3w0vTHIa0">
+                                            <value name="x">
+                                                <block type="math_number" id="px#bkAgqI|.~#Ph|NmcG">
+                                                    <field name="NUM">12</field>
+                                                </block>
+                                            </value>
+                                            <value name="y">
+                                                <block type="math_number" id="4AdsVAxXNx+?ux!foI+o">
+                                                    <field name="NUM">11</field>
+                                                </block>
+                                            </value>
+                                        </block>
+                                    </value>
+                                    <value name="hauteur">
+                                        <block type="math_number" id="jr3VpwXqoM?Zy@g}efHw">
+                                            <field name="NUM">8</field>
+                                        </block>
+                                    </value>
+                                    <value name="largeur">
+                                        <block type="math_number" id="n)`TH4G4``G,kg`!f7!r">
+                                            <field name="NUM">4</field>
+                                        </block>
+                                    </value>
+                                    <next>
+                                        <block type="couleur" id="n2IR4eHKv.-RGBh=J1y%">
+                                            <field name="fill">#ff0000</field>
+                                            <next>
+                                                <block type="ligne" id="8;[(~W}}Ml}oVKK)1m/u">
+                                                    <value name="coord_deb">
+                                                        <block type="coords" id="4y=h}l8?]Qb*F+.y`E:X">
+                                                            <value name="x">
+                                                                <block type="math_number" id=";U5yHC{Y-fRgF!lNW[1/">
+                                                                    <field name="NUM">10</field>
+                                                                </block>
+                                                            </value>
+                                                            <value name="y">
+                                                                <block type="math_number" id="F|Rj1C/(3*21o*`23dP4">
+                                                                    <field name="NUM">14</field>
+                                                                </block>
+                                                            </value>
+                                                        </block>
+                                                    </value>
+                                                    <value name="coord_fin">
+                                                        <block type="coords" id="Q2KE?wtF()/mO:fe0hTN">
+                                                            <value name="x">
+                                                                <block type="math_number" id="d~]Y%,ei*lu|:z~Nn9~5">
+                                                                    <field name="NUM">6</field>
+                                                                </block>
+                                                            </value>
+                                                            <value name="y">
+                                                                <block type="math_number" id="45i[RY=Y7}?AtdGdJ@GT">
+                                                                    <field name="NUM">12</field>
+                                                                </block>
+                                                            </value>
+                                                        </block>
+                                                    </value>
+                                                    <next>
+                                                        <block type="ligne" id="lXDL*E)/m-k;cJ`Ou{x=">
+                                                            <value name="coord_deb">
+                                                                <block type="coords" id="W|*qW+M^cV:*(#z]-J!p">
+                                                                    <value name="x">
+                                                                        <block type="math_number" id="u1DvV{ZU8[47gPRGyaK/">
+                                                                            <field name="NUM">14</field>
+                                                                        </block>
+                                                                    </value>
+                                                                    <value name="y">
+                                                                        <block type="math_number" id="l9YCwJG_`{)d0Vk(CBat">
+                                                                            <field name="NUM">14</field>
+                                                                        </block>
+                                                                    </value>
+                                                                </block>
+                                                            </value>
+                                                            <value name="coord_fin">
+                                                                <block type="coords" id="W[H$L_q@MVO,icwvm8|7">
+                                                                    <value name="x">
+                                                                        <block type="math_number" id="V]G=f/cZBca9(T=`|6T5">
+                                                                            <field name="NUM">18</field>
+                                                                        </block>
+                                                                    </value>
+                                                                    <value name="y">
+                                                                        <block type="math_number" id="-_V?Q+[4PItUIH_V;?Z.">
+                                                                            <field name="NUM">12</field>
+                                                                        </block>
+                                                                    </value>
+                                                                </block>
+                                                            </value>
+                                                            <next>
+                                                                <block type="couleur" id="Pt7m{.^yk{9Tu,@%P[mO">
+                                                                    <field name="fill">#0000ff</field>
+                                                                    <next>
+                                                                        <block type="ligne" id="Jhyc`m5IqH5=*dHzPf4T">
+                                                                            <value name="coord_deb">
+                                                                                <block type="coords" id="h*F4;7W#fR4Fsa.(9e6V">
+                                                                                    <value name="x">
+                                                                                        <block type="math_number" id="6$r729Lv)t4P/Vcjx%x|">
+                                                                                            <field name="NUM">11</field>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                    <value name="y">
+                                                                                        <block type="math_number" id="I..9yHYvUY==0Yb/iQ_B">
+                                                                                            <field name="NUM">7</field>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                </block>
+                                                                            </value>
+                                                                            <value name="coord_fin">
+                                                                                <block type="coords" id="_Ll-qj_BBFgV-L)MN!LQ">
+                                                                                    <value name="x">
+                                                                                        <block type="math_number" id="*YWjjprvA?yKC[abM)z,">
+                                                                                            <field name="NUM">11</field>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                    <value name="y">
+                                                                                        <block type="math_number" id="7cs/|9j`j(]oE(^31:u(">
+                                                                                            <field name="NUM">2</field>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                </block>
+                                                                            </value>
+                                                                            <next>
+                                                                                <block type="ligne" id="H[|R`uN3((kxZzYZKsdr">
+                                                                                    <value name="coord_deb">
+                                                                                        <block type="coords" id="`!Ja#F4JbpNbP};2h8um">
+                                                                                            <value name="x">
+                                                                                                <block type="math_number" id="EE8vj84Kd_WYmN(?n$m;">
+                                                                                                    <field name="NUM">13</field>
+                                                                                                </block>
+                                                                                            </value>
+                                                                                            <value name="y">
+                                                                                                <block type="math_number" id="?nlDP+9v}qD;5am{4RpF">
+                                                                                                    <field name="NUM">7</field>
+                                                                                                </block>
+                                                                                            </value>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                    <value name="coord_fin">
+                                                                                        <block type="coords" id="u7ea!jCu6qG@8!gs)x=D">
+                                                                                            <value name="x">
+                                                                                                <block type="math_number" id="UzPjS.dnGM:wg;8;l53:">
+                                                                                                    <field name="NUM">13</field>
+                                                                                                </block>
+                                                                                            </value>
+                                                                                            <value name="y">
+                                                                                                <block type="math_number" id="?.BL!uaq}]KSKudkop[,">
+                                                                                                    <field name="NUM">2</field>
+                                                                                                </block>
+                                                                                            </value>
+                                                                                        </block>
+                                                                                    </value>
+                                                                                </block>
+                                                                            </next>
+                                                                        </block>
+                                                                    </next>
+                                                                </block>
+                                                            </next>
+                                                        </block>
+                                                    </next>
+                                                </block>
+                                            </next>
+                                        </block>
+                                    </next>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
+                </block>
+            </next>
+        </block>
+    </xml>
+</body>
+
+</html>
