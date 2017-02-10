@@ -1,3 +1,11 @@
+// Page managment 
+var currentPageNumber = parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1));
+var savedPageNumber = parseInt(window.localStorage.getItem("max_page_animation"));
+if (isNaN(savedPageNumber)) {
+    savedPageNumber = 0;
+}
+//##########################################################################################################
+
 // Adjust height manually to allow blockly to be responsive
 var p5jsDiv = document.getElementById('sketch-holder');
 var blocklyDiv = document.getElementById('blockly-holder');
@@ -16,9 +24,36 @@ window.blockly_loaded = function (blockly) {
 
 // Function execute when all things are loaded
 function allLoaded() {
+    activateButtons();
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     onresize();
+}
+//##########################################################################################################
+
+// Function to activate the right buttons in the progression bar 
+function activateButtons() {
+    var num = max(currentPageNumber, savedPageNumber);
+
+    for (var i = 1; i < num; i++) {
+        document.getElementById("progress_" + i).className = "btn btn-success";
+    }
+    document.getElementById("progress_" + num).className = "btn btn-warning";
+    for (var i = num + 1; i <= 10; i++) {
+        document.getElementById("progress_" + i).className = "btn btn-default disabled"
+    }
+}
+
+function change_page(id_btn) {
+    var num_page = parseInt(id_btn.match(new RegExp("[0-9]+")));
+
+    if (num_page <= max(currentPageNumber, savedPageNumber) && num_page != currentPageNumber) {
+        location.href = '../' + num_page + '/index.html';
+    }
+}
+
+function next_page() {
+    location.href = '../' + (currentPageNumber + 1) + '/index.html';
 }
 //##########################################################################################################
 
@@ -65,7 +100,10 @@ function enable_next() {
     });
     document.getElementById("btn_run_prog").style.display = "none";
     document.getElementById("btn_next_exercise").style.display = "block";
-    document.getElementById("btn_current_num").className = "btn btn-success";
+    document.getElementById("progress_" + currentPageNumber.toString()).className = "btn btn-success";
+
+    // Save num page in local storage
+    window.localStorage.setItem("max_page_animation", max(currentPageNumber + 1, savedPageNumber));
 }
 
 function showHelp() {
