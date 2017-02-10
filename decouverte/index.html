@@ -53,7 +53,7 @@
                     <h1 class="cover-heading">Découverte du fonctionnement des blocs</h1>
                     <p class="lead">Le but de cette activité est d'apprendre les notions de bases pour créer un programme avec des blocs</p>
                     <p class="lead">
-                        <a class="btn btn-lg btn-success" href="pages/1/index.html">Lancer l'activité</a>
+                        <button type="button" id="launch" onclick="openLastPage();" class="btn btn-lg btn-success">Lancer l'activité</button>
                     </p>
                 </div>
 
@@ -72,6 +72,15 @@
         function openInNewTab(url) {
             var win = window.open(url, '_blank');
             win.focus();
+        }
+
+        function openLastPage() {
+            var savedPageNumber = parseInt(window.localStorage.getItem("max_page_decouverte"));
+            if (isNaN(savedPageNumber)) {
+                savedPageNumber = 1;
+            }
+
+            location.href = 'pages/' + savedPageNumber + '/index.html';
         }
     </script>
 </body>
