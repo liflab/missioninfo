@@ -74,17 +74,17 @@
                     <h1>Progression</h1>
 
                     <div class="btn-group">
-                        <button type="button" onclick="location.href='../1/index.html';" class="btn btn-success">01</button>
-                        <button type="button" id="btn_current_num" onclick="location.href='#';" class="btn btn-warning">02</button>
-                        <button type="button" class="btn btn-default disabled">03</button>
-                        <button type="button" class="btn btn-default disabled">04</button>
-                        <button type="button" class="btn btn-default disabled">FIN</button>
+                        <button type="button" id="progress_1" onclick="change_page(this.id);">01</button>
+                        <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
+                        <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
+                        <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
+                        <button type="button" id="progress_5" onclick="change_page(this.id);">FIN</button>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="location.href='../3/index.html';" id="btn_next_exercise" style="display:none" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
-                    <button type="button" onclick="save_code()" class="btn btn-lg btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
+                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display:none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+                    <button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
+                    <button type="button" onclick="save_code()" class="btn btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
 
                 </div>
             </div>
