@@ -33,13 +33,14 @@ function allLoaded() {
 
 // Function to activate the right buttons in the progression bar 
 function activateButtons() {
+    var nb_total_btn = 10;
     var num = max(currentPageNumber, savedPageNumber);
 
     for (var i = 1; i < num; i++) {
         document.getElementById("progress_" + i).className = "btn btn-success";
     }
     document.getElementById("progress_" + num).className = "btn btn-warning";
-    for (var i = num + 1; i <= 10; i++) {
+    for (var i = num + 1; i <= nb_total_btn; i++) {
         document.getElementById("progress_" + i).className = "btn btn-default disabled"
     }
 }
