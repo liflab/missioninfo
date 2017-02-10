@@ -1,0 +1,32 @@
+Dessins à partir de lignes (tortue)
+**Vérifier les figures et les angles
+Système de progression (ex : Faire une étoile à partir de lignes -> débloque le bloc étoile)
+Relier des points
+But : Faire un plan d’une pièce
+
+Idée : Placer dans le coin (en bas à droite) Un repère de distance (exemple 100 = |_______|) et un repère d’angles exemple : (Ou dans la page à quelque part, je sais pas où)
+
+Les trucs à utiliser
+Tracer une ligne d’une distance
+Utiliser l’angle pour tourner de X degrés
+Lever / Poser le crayon
+Couleur
+Boucle
+Avancer / Reculer d’une certaine distance (choix de réponse comme blocky)
+
+Tutoriel : 
+Page 1 : Tracer un truc simple (un carré? sans utiliser la boucle pour le moment)
+    (Bloc avancer de … et Bloc tourner de …)
+Page 2 : Tracer deux lignes en utilisant lever le crayon entre les deux
+    (Bloc Lever le crayon et Bloc Poser le crayon)
+Page 3 : Tracer quelque chose avec une couleur
+    (Bloc couleur)
+Page 3 : On peut réintroduire le carré, mais avec la boucle cette fois-ci afin de montrer ce que ça peut permettre
+    (Bloc boucle)
+Page 4 : ??
+Page 5 :  Relier des points pour faire un dessin simple
+Page 6 : Relier des points afin de faire un dessin complexe
+Page 7 : Tracer une étoile (trop difficile?)
+Page 8 : Tracer un cercle avec une boucle 360 et les 1 degrés?
+Page 9 : Activité défi : Tracer 4 carrés en utilisant des boucles
+Page 10 : Libre (Dessine ce que tu veux / dessine la pièce dans laquelle tu te trouves)
