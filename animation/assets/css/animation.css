@@ -3,6 +3,10 @@
     padding-bottom: 20px;
 }
 
+.range {
+    margin-bottom: 5px;
+}
+
 #sketch-holder {
     float: left;
     width: 100%;
