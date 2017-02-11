@@ -7,7 +7,7 @@ if (isNaN(savedPageNumber)) {
 //##########################################################################################################
 
 // Adjust height manually to allow blockly to be responsive
-var p5jsDiv = document.getElementById('sketch-holder');
+var p5jsDiv = document.getElementById('sketch-col');
 var blocklyDiv = document.getElementById('blockly-holder');
 
 var onresize = function () {
