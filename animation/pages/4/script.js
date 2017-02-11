@@ -54,11 +54,11 @@ function setup() {
 }
 
 function draw() {
-    if (frame != slider.value() && slider.value() >=0 && slider.value() <= 12) {
+    if (frame != slider.value() && slider.value() >= 0 && slider.value() <= 12) {
         frame = slider.value();
-        
+
         clear();
-        document.getElementById("anim-slider-text").innerHTML = Math.floor(frame);
+        document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, {minimumIntegerDigits: 2, useGrouping:false});
         drawSpaceIndicators();
         drawExercise();
         drawResponse();

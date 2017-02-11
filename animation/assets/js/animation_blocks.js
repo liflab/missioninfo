@@ -65,7 +65,7 @@ Blockly.JavaScript['carre'] = function (block) {
 Blockly.Blocks['couleur'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("Couleur")
+            .appendField("Fixer la couleur à ")
             .appendField(new Blockly.FieldColour("#ff0000"), "fill");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -186,7 +186,7 @@ Blockly.JavaScript['rectangle'] = function (block) {
 Blockly.Blocks['for_each_frame'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Pour chaque image faire");
+        .appendField("Pour chaque image dessiner");
     this.appendStatementInput("each_frame")
         .setCheck(null);
     this.setColour(0);
@@ -207,7 +207,7 @@ Blockly.JavaScript['for_each_frame'] = function(block) {
 Blockly.Blocks['num_frame'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Numéro de l'image");
+        .appendField("Variable : Temps");
     this.setOutput(true, "Number");
     this.setColour(270);
     this.setTooltip('Renvoie le numéro de l\'image');
