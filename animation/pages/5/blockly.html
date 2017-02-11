@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
+    <script src="../../../modules/blockly/msg/js/fr.js"></script>
+    <script src="../../../modules/blockly/blocks_compressed.js"></script>
+    <script src="../../../modules/blockly/javascript_compressed.js"></script>
+    <script src="../../../modules/blockly/blockly_init.js"></script>
+    <script src="../../assets/js/animation_blocks.js"></script>
+    <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff', '#ff9966'];
+        Blockly.FieldColour.COLUMNS = 4;
+    </script>
+</head>
+
+<body onload="initBlockly(1.0,true,false)">
+    <xml id="toolbox" style="display: none">
+        <category name="Animation">
+            <block type="for_each_frame"></block>
+            <block type="num_frame"></block>
+        </category>
+        <category name="Calculs">
+            <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+            </block>        
+            <block type="math_arithmetic">
+                <field name="OP">MINUS</field>
+            </block>
+        </category>
+        <category name="Couleur">
+            <block type="couleur"></block>
+        </category>
+        <category name="Formes">
+            <block type="ligne"></block>
+            <block type="cercle"></block>
+            <block type="carre"></block>
+            <block type="rectangle"></block>
+        </category>
+        <category name="Position">
+            <block type="coords"></block>
+            <block type="math_number"></block>
+        </category>
+    </xml>
+
+    <xml id="workspace" style="display: none">     
+    </xml>
+</body>
+
+</html>
