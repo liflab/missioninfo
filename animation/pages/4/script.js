@@ -19,7 +19,7 @@ function checkAnswer() {
         circle = true;
         for (var i = 0; i < 13; i++) {
             JSONstr = JSON.stringify(tabAnswer[i]);
-            circle = circle && JSONstr === '{"type":"circle","pos":{"x":' + i + ',"y":5},"size":2,"couleur":"#ff9966"}';
+            circle = circle && JSONstr === '{"type":"circle","pos":{"x":' + i + ',"y":5},"size":2,"couleur":"#00ff00"}';
         }
     }
 
