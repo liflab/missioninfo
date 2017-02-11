@@ -118,7 +118,7 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(255, 153, 102, 60).noStroke();
+    fill(0, 255, 0, 60).noStroke();
     drawCircle({ x: frame, y: 5 }, 2, false);
 }
 
