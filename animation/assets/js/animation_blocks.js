@@ -126,7 +126,7 @@ Blockly.Blocks['coords'] = {
         this.appendValueInput("y")
             .setCheck("Number")
             .appendField("Y");
-        this.setInputsInline(true);
+        this.setInputsInline(false);
         this.setOutput(true, "coordonnees");
         this.setColour(180);
         this.setTooltip('Position sur le plan');
