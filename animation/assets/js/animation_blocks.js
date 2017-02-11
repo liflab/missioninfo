@@ -80,7 +80,7 @@ Blockly.JavaScript['couleur'] = function (block) {
 
     var code = "fill('" + colour_fill + "');\n";
     code += "stroke('" + colour_fill + "');\n";
-    code += "currentColor = '" + colour_fill + "'\n";
+    code += "currentColor = '" + colour_fill + "';\n";
     return code;
 };
 
@@ -182,3 +182,40 @@ Blockly.JavaScript['rectangle'] = function (block) {
 };
 
 ///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['for_each_frame'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Pour chaque image faire");
+    this.appendStatementInput("each_frame")
+        .setCheck(null);
+    this.setColour(0);
+    this.setTooltip('Execute les blocs pour chaque image');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.JavaScript['for_each_frame'] = function(block) {
+  var statements_each_frame = Blockly.JavaScript.statementToCode(block, 'each_frame').replace(/(\r\n|\n|\r)/gm,"");
+  
+  var code = 'frame = -1; drawResponse = new Function ("' + statements_each_frame + '"); playAnim();\n';
+  return code;
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['num_frame'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Numéro de l'image");
+    this.setOutput(true, "Number");
+    this.setColour(270);
+    this.setTooltip('Renvoie le numéro de l\'image');
+    this.setHelpUrl('');
+  }
+};
+
+Blockly.JavaScript['num_frame'] = function(block) {
+  var code = 'frame';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
