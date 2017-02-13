@@ -1,7 +1,19 @@
-//////////////// To check the answer ///////////////
+// Variables
 var tabAnswer;
 var drawResponse = function () { };
+var currentColor = '#000000';
 
+var slider;
+var frame = 0;
+var objectsPerFrame = 3;
+var totalFrames = 6;
+var isPlaying = false;
+
+var axisWidthLength = 12;
+var axisHeightLength = 10;
+var pxUnit = 50;
+
+//////////////// To check the answer ///////////////
 function initAnswer() {
     setup();
     tabAnswer = [];
@@ -16,17 +28,17 @@ function checkAnswer() {
 
     var circles = false;
 
-    if (tabAnswer.length <= 18) {
+    if (tabAnswer.length <= objectsPerFrame * totalFrames) {
         circles = true;
 
-        for (var i = 0; i <= 5; i++) {
+        for (var i = 0; i < totalFrames; i++) {
 
             var tete = false;
             var oreilleG = false;
             var oreilleD = false;
 
-            for (var j = 0; j <= 2; j++) {
-                JSONstr = JSON.stringify(tabAnswer[i * 3 + j]);
+            for (var j = 0; j < objectsPerFrame; j++) {
+                JSONstr = JSON.stringify(tabAnswer[i * objectsPerFrame + j]);
 
                 if (!tete) {
                     tete = JSONstr === '{"type":"circle","pos":{"x":' + (4 + i) + ',"y":' + (7 - i) + '},"size":4,"couleur":"#0000ff"}';
@@ -50,18 +62,9 @@ function checkAnswer() {
         not_good();
     }
 }
-
-var currentColor = '#000000';
-var frame = 0;
-
 //------------------------------------------------//
 
 ///////////////// Create exercise /////////////////
-var axisWidthLength = 12;
-var axisHeightLength = 10;
-var pxUnit = 50;
-var slider;
-
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
@@ -74,18 +77,18 @@ function setup() {
 }
 
 function draw() {
-    if (frame != slider.value() && slider.value() >= 0 && slider.value() <= 12) {
+    if (frame != slider.value() && slider.value() >= 0 && slider.value() < totalFrames) {
         frame = slider.value();
 
         clear();
         document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
         drawSpaceIndicators();
         drawExercise();
+        fill(0, 0, 0).stroke(0, 0, 0);
         drawResponse();
     }
 }
 
-var isPlaying = false;
 function playAnim() {
     if (!isPlaying) {
         isPlaying = true;
@@ -96,7 +99,7 @@ function playAnim() {
 }
 
 function playAnimWorker() {
-    if (slider.elt.value < 5) {
+    if (slider.elt.value < totalFrames - 1) {
         slider.elt.value++;
         setTimeout(playAnimWorker, 500);
     } else {

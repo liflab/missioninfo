@@ -1,7 +1,18 @@
-//////////////// To check the answer ///////////////
+// Variables
 var tabAnswer;
 var drawResponse = function () { };
+var currentColor = '#000000';
 
+var slider;
+var frame = 0;
+var totalFrames = 13;
+var isPlaying = false;
+
+var axisWidthLength = 12;
+var axisHeightLength = 10;
+var pxUnit = 50;
+
+//////////////// To check the answer ///////////////
 function initAnswer() {
     setup();
     tabAnswer = [];
@@ -15,9 +26,9 @@ function checkAnswer() {
     }
 
     var circle = false;
-    if (tabAnswer.length <= 13) {
+    if (tabAnswer.length >= totalFrames) {
         circle = true;
-        for (var i = 0; i < 13; i++) {
+        for (var i = 0; i < totalFrames; i++) {
             JSONstr = JSON.stringify(tabAnswer[i]);
             circle = circle && JSONstr === '{"type":"circle","pos":{"x":' + i + ',"y":5},"size":2,"couleur":"#00ff00"}';
         }
@@ -30,18 +41,9 @@ function checkAnswer() {
         not_good();
     }
 }
-
-var currentColor = '#000000';
-var frame = 0;
-
 //------------------------------------------------//
 
 ///////////////// Create exercise /////////////////
-var axisWidthLength = 12;
-var axisHeightLength = 10;
-var pxUnit = 50;
-var slider;
-
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
@@ -58,14 +60,14 @@ function draw() {
         frame = slider.value();
 
         clear();
-        document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, {minimumIntegerDigits: 2, useGrouping:false});
+        document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
         drawSpaceIndicators();
         drawExercise();
+        fill(0, 0, 0).stroke(0, 0, 0);
         drawResponse();
     }
 }
 
-var isPlaying = false;
 function playAnim() {
     if (!isPlaying) {
         isPlaying = true;
@@ -76,7 +78,7 @@ function playAnim() {
 }
 
 function playAnimWorker() {
-    if (slider.elt.value < 12) {
+    if (slider.elt.value < totalFrames - 1) {
         slider.elt.value++;
         setTimeout(playAnimWorker, 500);
     } else {
