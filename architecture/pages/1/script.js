@@ -17,20 +17,34 @@ function checkAnswer() {
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
-var axisWidthLength = 8;
-var axisHeightLength = 7;
-var pxUnit = 100;
+var axisWidthLength = 16;
+var axisHeightLength = 14;
+var pxUnit = 50;
+
+var draw_saved = [];
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
     noLoop();
 
-    reset();
+    reset(true);
 }
-function reset(){
+function reset(b){
+    if(b===undefined){
+        b=false;
+    }
+    fill(250);
+    rect(0,0,width,height);
     drawSpaceIndicators();
     drawExercise();
+    if(b){
+        x=4;
+        y=4;
+        ROTATION_CURSOR = 0;
+        drawCursor(4,4);
+        draw_saved = [];
+    }
     fill(0, 0, 0).stroke(0, 0, 0);
 }
 
@@ -46,7 +60,7 @@ function drawSpaceIndicators() {
         line(0, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
 
         fill(0, 0, 0).strokeWeight(0).textSize(18)
-        text((axisHeightLength - i)*pxUnit, 40, i * pxUnit + 8);
+        text((axisHeightLength - i), 40, i * pxUnit + 8);
 
     }
     for (var i = 1; i < axisWidthLength; i++) {
@@ -58,7 +72,7 @@ function drawSpaceIndicators() {
         line(i * pxUnit, 0, i * pxUnit, axisHeightLength * pxUnit);
 
         fill(0, 0, 0).strokeWeight(0).textSize(18)
-        text(i*pxUnit, i * pxUnit, (axisHeightLength * pxUnit) - 30);
+        text(i, i * pxUnit, (axisHeightLength * pxUnit) - 30);
     }
     fill(50, 50, 255).strokeWeight(0).textSize(24).textStyle(BOLD);
     text('X', (axisWidthLength * pxUnit) / 2, (axisHeightLength * pxUnit) - 60);
@@ -66,10 +80,172 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(255, 0, 0, 60).noStroke();
-
+    fill(200, 200, 0, 45).noStroke();
+    rect(
+        4*pxUnit-pxUnit/6,
+        (axisHeightLength-8)*pxUnit,
+        pxUnit/3,
+        4*pxUnit,
+        20
+    );
+    rect(
+        4*pxUnit,
+        (axisHeightLength-8)*pxUnit-pxUnit/6,
+        4*pxUnit,
+        pxUnit/3,
+        20
+    );
+    rect(
+        8*pxUnit-pxUnit/6,
+        (axisHeightLength-8)*pxUnit,
+        pxUnit/3,
+        4*pxUnit,
+        20
+    );
+    rect(
+        4*pxUnit,
+        (axisHeightLength-4)*pxUnit-pxUnit/6,
+        4*pxUnit,
+        pxUnit/3,
+        20
+    );
 }
 
 function run_exercice_code(obj){
-    console.debug(obj);
+    var past_time_max = time_max;
+
+    updateMaxRange(obj.length+1);
+
+    todo_step = obj;
+    reset(true);
+    example_demo = false;
+    timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
+    setTimeout(function(){
+        example_demo = true;
+        todo_step = [];
+        updateMaxRange(past_time_max);
+    },TIME_BETWEEN_INTERVAL*time_max)
 }
+
+// /////////////////////////////////////////////////////
+// PlayTimer
+var current_time = 0;
+var time_max = 8;
+const TIME_BETWEEN_INTERVAL = 500;
+
+var timer_interval;
+var todo_step = null;
+var current_step = null;
+
+var example_demo = true;
+
+var solution = [
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90}];
+function updateMaxRange(max){
+    time_max = max;
+    document.querySelector("#anim-slider").setAttribute("max",max);
+}
+document.querySelector("#anim-slider").oninput = updateTextRanger;
+function updateTextRanger(){
+    document.querySelector("#anim-slider-text").innerHTML="Temps = "+(("0"+ document.querySelector("#anim-slider").value).slice(-2));
+}
+
+function playAnim(){
+    todo_step = solution.slice(0);
+    draw_saved = [];
+    timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
+}
+
+function __draw(){
+    current_time++;
+    setRange(current_time);
+    if(current_time>time_max){
+        current_time = 0;
+        clearInterval(timer_interval);
+        reset(true);
+        return;
+    }
+    current_step = todo_step.shift();
+    if(current_step===undefined){
+        return;
+    }
+    console.log(current_step);
+    reset();
+    for(var i =0;i<draw_saved.length;i++){
+        eval(draw_saved[i]);
+    }
+    switch(current_step["type"]){
+        case "avancer":
+            var start_x = x;
+            var start_y = y;
+
+            x += (Math.sin(radians(ROTATION_CURSOR))*current_step["value"]);
+            y += (Math.cos(radians(ROTATION_CURSOR))*current_step["value"]);
+
+            if(!example_demo){
+                stroke(200,200,0);
+                strokeWeight(14);
+                line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
+                draw_saved.push("stroke(200,200,0);strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);");
+            }
+
+
+            drawCursor(x,y);
+        break;
+        case "tourner":
+            ROTATION_CURSOR+=current_step["value"];
+            drawCursor(x,y);
+        break;
+    }
+    console.log("-----------------");
+}
+function setRange(n){
+    var t = document.querySelector("#anim-slider");
+    if(n>time_max){
+        t.value=0;
+    }else{
+        t.value=n;
+    }
+    updateTextRanger();
+}
+// /////////////////////////////////////////////////////
+// Cursor
+const SIZE_CURSOR       = 40;
+var   ROTATION_CURSOR   = 0;
+
+var x = 4;
+var y = 4;
+
+function drawCursor(x,y) {
+    x = x * pxUnit;
+    y = (axisHeightLength - y) * pxUnit;
+
+
+    translate(x,y);
+    rotate(radians(ROTATION_CURSOR));
+    if(example_demo){
+        fill(200,50,50);
+    }else{
+        fill(100,220,50);
+    }
+
+    stroke(0);
+    strokeWeight(2);
+    var middle_height = Math.sqrt(Math.pow(SIZE_CURSOR,2)-Math.pow(SIZE_CURSOR/2,2));
+    triangle(
+        0,-middle_height/2,
+        SIZE_CURSOR/2,middle_height/2,
+        -SIZE_CURSOR/2,middle_height/2
+    );
+
+    rotate(radians(-ROTATION_CURSOR));
+    translate(-x,-y);
+}
+

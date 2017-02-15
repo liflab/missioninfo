@@ -22,7 +22,7 @@ Blockly.Blocks['tourner'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("Tourner de")
-            .appendField(new Blockly.FieldAngle(300), "ValTurn");
+            .appendField(new Blockly.FieldDropdown([["45° degrés","45"], ["90° degrés","90"], ["120° degrés","120"]]), "Angle");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(20);
@@ -40,13 +40,12 @@ Blockly.Blocks['tourner'] = {
 Blockly.JavaScript['avancer'] = function(block) {
     var value_avancer = Blockly.JavaScript.valueToCode(block, 'Avancer', Blockly.JavaScript.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"avancer":'+value_avancer+'},';
+    var code = '{"type":"avancer","value":'+value_avancer+'},';
     return code;
 };
-
 Blockly.JavaScript['tourner'] = function(block) {
-    var angle_valturn = block.getFieldValue('ValTurn');
+    var dropdown_angle = block.getFieldValue('Angle');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"tourner":'+angle_valturn+'},';
+    var code = '{"type":"tourner","value":'+dropdown_angle+'},';
     return code;
 };
