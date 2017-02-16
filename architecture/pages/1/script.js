@@ -1,9 +1,23 @@
 // To check the answer
 var stringAnswer;
 var canvas;
+var past_code;
+var solution;
 
 function initAnswer() {
-   stringAnswer = "";
+    console.log("---------------- ANSWER -- ");
+    if(past_code===undefined){
+        stringAnswer="NOPE";
+        return;
+    }
+    for(var i=0;i<solution.length;i++){
+        if(past_code[i]===undefined || past_code[i]["type"]!=solution[i]["type"] || past_code[i]["value"]!=solution[i]["value"]){
+            stringAnswer="NOPE";
+            return;
+        }
+        console.log("PASSED N°"+(i));
+    }
+    stringAnswer = "OK";
 }
 
 function checkAnswer() {
@@ -116,7 +130,8 @@ function run_exercice_code(obj){
 
     updateMaxRange(obj.length+1);
 
-    todo_step = obj;
+    todo_step = obj.slice(0);
+    past_code = obj.slice(0);
     reset(true);
     example_demo = false;
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
@@ -124,6 +139,8 @@ function run_exercice_code(obj){
         example_demo = true;
         todo_step = [];
         updateMaxRange(past_time_max);
+        initAnswer();
+        checkAnswer();
     },TIME_BETWEEN_INTERVAL*time_max)
 }
 
@@ -139,15 +156,14 @@ var current_step = null;
 
 var example_demo = true;
 
-var solution = [
+solution = [
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
-    {"type":"avancer","value":4},
-    {"type":"tourner","value":90}];
+    {"type":"avancer","value":4}];
 function updateMaxRange(max){
     time_max = max;
     document.querySelector("#anim-slider").setAttribute("max",max);
