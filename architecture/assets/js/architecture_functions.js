@@ -6,21 +6,12 @@ if (isNaN(savedPageNumber)) {
 }
 //##########################################################################################################
 
-// Adjust bodyPage height manually to allow blockly to be responsive
-var bodyPageDiv = document.getElementById('bodyPage');
+// Adjust height manually to allow blockly to be responsive
+var p5jsDiv = document.getElementById('sketch-col');
+var blocklyDiv = document.getElementById('blockly-holder');
 
 var onresize = function () {
-    var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
-    var height;
-    // Mobile view -> fixed height (scroll)
-    if (width < 768) {
-        height = 600;
-    }
-    // Desktop view -> adapt height
-    else {
-        height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight;
-    }
-    bodyPageDiv.style.height = height + 'px';
+    blocklyDiv.style.height = p5jsDiv.clientHeight + 'px';
 };
 window.addEventListener('resize', onresize, false);
 //##########################################################################################################
