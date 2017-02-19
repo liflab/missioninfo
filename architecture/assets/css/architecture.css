@@ -43,6 +43,10 @@
 #sketch-holder canvas {
     border-style:solid;
     background:#eee;
+    width: 100% !important;
+    height: auto !important;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 @-webkit-keyframes spin {
