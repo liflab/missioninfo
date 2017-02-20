@@ -186,7 +186,7 @@ Blockly.JavaScript['rectangle'] = function (block) {
 Blockly.Blocks['for_each_frame'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Pour chaque image dessiner");
+        .appendField("Pour chaque valeur de temps Faire");
     this.appendStatementInput("each_frame")
         .setCheck(null);
     this.setColour(0);
