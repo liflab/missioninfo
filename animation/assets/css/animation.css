@@ -3,8 +3,19 @@
     padding-bottom: 20px;
 }
 
-.range {
+.anim-area {
     margin-bottom: 5px;
+}
+
+.anim {
+    font-size: 16pt;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+#anim-text {
+    float: right;
 }
 
 #sketch-holder {

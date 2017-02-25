@@ -1,13 +1,17 @@
 // Variables
 var tabAnswer;
 var drawResponse = function () { };
+var initCurseur = new Array(10);
+for (var i = 0; i < 10; i++) {
+    initCurseur[i] = { x: 0, y: 0 };
+}
+var curseur;
 var currentColor = '#000000';
 
-var slider;
-var frame = 0;
-var objectsPerFrame = 2;
+var animator;
+var num_image = 0;
+var objectsPerFrame = 4;
 var totalFrames = 7;
-document.getElementById("anim-slider").max = totalFrames - 1 // On commence  à 0
 var isPlaying = false;
 
 var axisWidthLength = 14;
@@ -18,6 +22,10 @@ var pxUnit = 50;
 function initAnswer() {
     setup();
     tabAnswer = [];
+    var initCurseur = new Array(10);
+    for (var i = 0; i < 10; i++) {
+        initCurseur[i] = { x: 0, y: 0 };
+    }
     drawResponse = function () { };
 }
 
@@ -27,32 +35,40 @@ function checkAnswer() {
         return;
     }
 
-    var lines = false;
+    var face = false;
 
     if (tabAnswer.length <= objectsPerFrame * totalFrames) {
-        lines = true;
+        face = true;
 
         for (var i = 0; i < totalFrames; i++) {
 
-            var linesR = false;
-            var linesG = false;
+            var lineR = false;
+            var lineG = false;
+            var circleR = false;
+            var circleG = false;
 
             for (var j = 0; j < objectsPerFrame; j++) {
                 JSONstr = JSON.stringify(tabAnswer[i * objectsPerFrame + j]);
 
-                if (!linesR) {
-                    linesR = (JSONstr === '{"type":"line","deb":{"x":' + (2 + i/2) + ',"y":' + (7 - i/2) + '},"fin":{"x":' + (4 + i/2) + ',"y":' + (8 - i/2) + '},"couleur":"#ff0000"}') || (JSONstr === '{"type":"line","deb":{"x":' + (4 + i/2) + ',"y":' + (8 - i/2) + '},"fin":{"x":' + (2 + i/2) + ',"y":' + (7 - i/2) + '},"couleur":"#ff0000"}');
+                if (!lineR) {
+                    lineR = (JSONstr === '{"type":"line","deb":{"x":6,"y":7},"fin":{"x":2,"y":' + (5 + i / 2) + '},"couleur":"#ff0000"}') || (JSONstr === '{"type":"line","deb":{"x":2,"y":' + (5 + i / 2) + '},"fin":{"x":6,"y":7},"couleur":"#ff0000"}');
                 }
-                if (!linesG) {
-                    linesG = (JSONstr === '{"type":"line","deb":{"x":13,"y":2},"fin":{"x":' + (13 - i*2) + ',"y":' + (8 - i/2) + '},"couleur":"#00ff00"}') || (JSONstr === '{"type":"line","deb":{"x":' + (13 - i*2) + ',"y":' + (8 - i/2) + '},"fin":{"x":13,"y":2},"couleur":"#00ff00"}');
+                if (!lineG) {
+                    lineG = (JSONstr === '{"type":"line","deb":{"x":8,"y":7},"fin":{"x":12,"y":' + (5 + i / 2) + '},"couleur":"#00ff00"}') || (JSONstr === '{"type":"line","deb":{"x":12,"y":' + (5 + i / 2) + '},"fin":{"x":8,"y":7},"couleur":"#00ff00"}');
+                }
+                if (!circleR) {
+                    circleR = JSONstr === '{"type":"circle","pos":{"x":5,"y":5},"size":2,"couleur":"#ff0000"}';
+                }
+                if (!circleG) {
+                    circleG = JSONstr === '{"type":"circle","pos":{"x":9,"y":5},"size":2,"couleur":"#00ff00"}';
                 }
             }
 
-            lines = lines && linesR && linesG;
+            face = face && lineR && lineG && circleG && circleG;
         }
     }
 
-    if (lines) {
+    if (face) {
         enable_next();
     }
     else {
@@ -65,42 +81,43 @@ function checkAnswer() {
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
-
-    slider = select("#anim-slider");
+    noLoop();
 
     drawSpaceIndicators();
     drawExercise();
-    fill(0, 0, 0).stroke(0, 0, 0);
+    currentColor = '#000000';
 }
 
 function draw() {
-    if (frame != slider.value() && slider.value() >= 0 && slider.value() < totalFrames) {
-        frame = slider.value();
-
-        clear();
-        document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
-        drawSpaceIndicators();
-        drawExercise();
-        fill(0, 0, 0).stroke(0, 0, 0);
-        drawResponse();
-    }
+    clear();
+    document.getElementById("anim-text").innerHTML = "Temps = " + num_image.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
+    currentColor = '#000000';
+    drawSpaceIndicators();
+    drawExercise();
+    drawResponse();
 }
 
 function playAnim() {
     if (!isPlaying) {
+        curseur = initCurseur.slice();
+        num_image = 0
         isPlaying = true;
-        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-ban-circle">'
-        slider.elt.value = 0;
-        setTimeout(playAnimWorker, 500);
+        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-pause">'
+        animator = setTimeout(playAnimWorker, 500);
+    }
+    else {
+        clearTimeout(animator);
+        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-play">'
+        isPlaying = false;
     }
 }
 
 function playAnimWorker() {
-    if (slider.elt.value < totalFrames - 1) {
-        slider.elt.value++;
-        setTimeout(playAnimWorker, 500);
+    draw();
+    if (num_image < totalFrames - 1) {
+        num_image++;
+        animator = setTimeout(playAnimWorker, 500);
     } else {
-        slider.elt.value = 0;
         document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-play">'
         isPlaying = false;
     }
@@ -138,10 +155,12 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(0, 0, 0).stroke(255, 0, 0, 60).strokeWeight(10);
-    drawLine({ x: 2 + frame / 2, y: 7 - frame / 2 }, { x: 4 + frame / 2, y: 8 - frame / 2 }, false);
-    fill(0, 0, 0).stroke(0, 255, 0, 60).strokeWeight(10);
-    drawLine({ x: 13, y: 2 }, { x: 13 - frame * 2, y: 8 - frame / 2 }, false);
+    currentColor = "rgba(255,0,0, 0.25)";
+    drawLine({ x: 2, y: 5 + num_image / 2 }, { x: 6, y: 7 }, false);
+    drawCircle({ x: 5, y: 5 }, 2, false);
+    currentColor = "rgba(0,255,0, 0.25)";
+    drawLine({ x: 8, y: 7 }, { x: 12, y: 5 + num_image / 2 }, false);
+    drawCircle({ x: 9, y: 5 }, 2, false);
 }
 
 //------------------------------------------------//
@@ -159,7 +178,7 @@ function convertSize(size) {
 }
 
 function drawSquare(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -178,7 +197,7 @@ function drawSquare(coord, taille, answer) {
 }
 
 function drawRect(coord, hauteur, largeur, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -199,7 +218,7 @@ function drawRect(coord, hauteur, largeur, answer) {
 }
 
 function drawCircle(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
 
     if (answer) {
         tabAnswer.push({
@@ -217,6 +236,8 @@ function drawCircle(coord, taille, answer) {
 }
 
 function drawLine(coord_deb, coord_fin, answer) {
+    stroke(currentColor).strokeWeight(10);
+
     if (answer) {
         tabAnswer.push({
             type: 'line',

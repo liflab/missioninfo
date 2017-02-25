@@ -183,39 +183,237 @@ Blockly.JavaScript['rectangle'] = function (block) {
 
 ///////////////////////////////////////////////////////////////////
 
-Blockly.Blocks['for_each_frame'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Pour chaque valeur de temps Faire");
-    this.appendStatementInput("each_frame")
-        .setCheck(null);
-    this.setColour(0);
-    this.setTooltip('Execute les blocs pour chaque image');
-    this.setHelpUrl('');
-  }
+Blockly.Blocks['pour_chaque_image'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Pour chaque image Faire");
+        this.appendStatementInput("image")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(0);
+        this.setTooltip('Execute les blocs pour chaque image');
+        this.setHelpUrl('');
+    }
 };
 
-Blockly.JavaScript['for_each_frame'] = function(block) {
-  var statements_each_frame = Blockly.JavaScript.statementToCode(block, 'each_frame').replace(/(\r\n|\n|\r)/gm,"");
-  
-  var code = 'frame = -1; drawResponse = new Function ("' + statements_each_frame + '"); playAnim();\n';
-  return code;
+Blockly.JavaScript['pour_chaque_image'] = function (block) {
+    var statements_image = Blockly.JavaScript.statementToCode(block, 'image').replace(/(\r\n|\n|\r)/gm, "");
+
+    var code = 'num_image = -1; drawResponse = new Function ("' + statements_image + '"); playAnim();\n';
+    return code;
 };
 
 ///////////////////////////////////////////////////////////////////
 
-Blockly.Blocks['num_frame'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Variable : Temps");
-    this.setOutput(true, "Number");
-    this.setColour(270);
-    this.setTooltip('Renvoie le numéro de l\'image');
-    this.setHelpUrl('');
-  }
+Blockly.Blocks['num_image'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Valeur du Temps");
+        this.setOutput(true, "Number");
+        this.setColour(270);
+        this.setTooltip('Renvoie le numéro de l\'image');
+        this.setHelpUrl('');
+    }
 };
 
-Blockly.JavaScript['num_frame'] = function(block) {
-  var code = 'frame';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+Blockly.JavaScript['num_image'] = function (block) {
+    var code = 'num_image';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['init_curseur'] = {
+    init: function () {
+        this.appendValueInput("pos")
+            .setCheck("coordonnees")
+            .appendField("Initialiser Curseur");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(270);
+        this.setTooltip('Initialise le curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['init_curseur'] = function (block) {
+    var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC);
+
+    var code = 'initCurseur = ' + value_pos + ';\n';
+    return code;
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['recup_curseur'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Position Curseur");
+        this.setOutput(true, "coordonnees");
+        this.setColour(270);
+        this.setTooltip('Récupère la position du curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['recup_curseur'] = function (block) {
+    var code = 'curseur';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['recup_curseur_offset'] = {
+    init: function () {
+        this.appendValueInput("relative_pos")
+            .setCheck("coordonnees")
+            .appendField("Position Curseur + Décalage");
+        this.setOutput(true, "coordonnees");
+        this.setColour(270);
+        this.setTooltip('Récupère la position du curseur et ajoute un décalage');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['recup_curseur_offset'] = function (block) {
+    var value_relative_pos = Blockly.JavaScript.valueToCode(block, 'relative_pos', Blockly.JavaScript.ORDER_ATOMIC);
+
+    const regex = /-?[0-9|.]+/g;
+    var num_tab = value_relative_pos.match(regex);
+
+    var code = '{x: curseur.x + ' + num_tab[0] + ',';
+    code += 'y: curseur.y + ' + num_tab[1] + '}';
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['deplace_curseur'] = {
+    init: function () {
+        this.appendValueInput("mouvement")
+            .setCheck("coordonnees")
+            .appendField("Déplacer le curseur de");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(270);
+        this.setTooltip('Déplace le curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['deplace_curseur'] = function (block) {
+    var value_mouvement = Blockly.JavaScript.valueToCode(block, 'mouvement', Blockly.JavaScript.ORDER_ATOMIC);
+
+    const regex = /-?[0-9|.]+/g;
+    var num_tab = value_mouvement.match(regex);
+
+    var code = 'curseur = {x: curseur.x + ' + num_tab[0] + ',';
+    code += 'y: curseur.y + ' + num_tab[1] + '};\n';
+
+    return code;
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['init_curseur_tab'] = {
+    init: function () {
+        this.appendValueInput("pos")
+            .setCheck("coordonnees")
+            .appendField("Initialiser Curseur n°")
+            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(270);
+        this.setTooltip('Initialise le curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['init_curseur_tab'] = function (block) {
+    var number_idx = block.getFieldValue('idx');
+    var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC);
+
+    var code = 'initCurseur[' + number_idx + '] = ' + value_pos + ';\n';
+    return code;
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['recup_curseur_tab'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Position Curseur n°")
+            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx");
+        this.setOutput(true, "coordonnees");
+        this.setColour(270);
+        this.setTooltip('Récupère la position du curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['recup_curseur_tab'] = function (block) {
+    var number_idx = block.getFieldValue('idx');
+    var code = 'curseur[' + number_idx + ']';
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['recup_curseur_offset_tab'] = {
+    init: function () {
+        this.appendValueInput("relative_pos")
+            .setCheck("coordonnees")
+            .appendField("Position Curseur n°")
+            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx")
+            .appendField(" + Décalage");
+        this.setOutput(true, "coordonnees");
+        this.setColour(270);
+        this.setTooltip('Récupère la position du curseur et ajoute un décalage');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['recup_curseur_offset_tab'] = function (block) {
+    var number_idx = block.getFieldValue('idx');
+    var value_relative_pos = Blockly.JavaScript.valueToCode(block, 'relative_pos', Blockly.JavaScript.ORDER_ATOMIC);
+
+    const regex = /-?[0-9|.]+/g;
+    var num_tab = value_relative_pos.match(regex);
+
+    var code = '{x: curseur[' + number_idx + '].x + ' + num_tab[0] + ',';
+    code += 'y: curseur[' + number_idx + '].y + ' + num_tab[1] + '}';
+
+    return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['deplace_curseur_tab'] = {
+    init: function () {
+        this.appendValueInput("mouvement")
+            .setCheck("coordonnees")
+            .appendField("Déplacer le curseur n°")
+            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx")
+            .appendField(" de");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(270);
+        this.setTooltip('Déplace le curseur');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['deplace_curseur_tab'] = function (block) {
+    var number_idx = block.getFieldValue('idx');
+    var value_mouvement = Blockly.JavaScript.valueToCode(block, 'mouvement', Blockly.JavaScript.ORDER_ATOMIC);
+
+    const regex = /-?[0-9|.]+/g;
+    var num_tab = value_mouvement.match(regex);
+
+    var code = 'curseur[' + number_idx + '] = {x: curseur[' + number_idx + '].x + ' + num_tab[0] + ',';
+    code += 'y: curseur[' + number_idx + '].y + ' + num_tab[1] + '};\n';
+
+    return code;
 };

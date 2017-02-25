@@ -1,10 +1,12 @@
 // Variables
 var tabAnswer;
 var drawResponse = function () { };
+var initCurseur = { x: 0, y: 0 };
+var curseur;
 var currentColor = '#000000';
 
-var slider;
-var frame = 0;
+var animator;
+var num_image = 0;
 var objectsPerFrame = 3;
 var totalFrames = 6;
 var isPlaying = false;
@@ -17,6 +19,7 @@ var pxUnit = 50;
 function initAnswer() {
     setup();
     tabAnswer = [];
+    initCurseur = { x: 0, y: 0 };
     drawResponse = function () { };
 }
 
@@ -68,42 +71,44 @@ function checkAnswer() {
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
-
-    slider = select("#anim-slider");
+    noLoop();
 
     drawSpaceIndicators();
     drawExercise();
-    fill(0, 0, 0).stroke(0, 0, 0);
+    currentColor = '#000000';
+
 }
 
 function draw() {
-    if (frame != slider.value() && slider.value() >= 0 && slider.value() < totalFrames) {
-        frame = slider.value();
-
-        clear();
-        document.getElementById("anim-slider-text").innerHTML = "Temps = " + frame.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
-        drawSpaceIndicators();
-        drawExercise();
-        fill(0, 0, 0).stroke(0, 0, 0);
-        drawResponse();
-    }
+    clear();
+    document.getElementById("anim-text").innerHTML = "Temps = " + num_image.toLocaleString(undefined, { minimumIntegerDigits: 2, useGrouping: false });
+    currentColor = '#000000';
+    drawSpaceIndicators();
+    drawExercise();
+    drawResponse();
 }
 
 function playAnim() {
     if (!isPlaying) {
+        curseur = initCurseur;
+        num_image = 0
         isPlaying = true;
-        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-ban-circle">'
-        slider.elt.value = 0;
-        setTimeout(playAnimWorker, 500);
+        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-pause">'
+        animator = setTimeout(playAnimWorker, 500);
+    }
+    else {
+        clearTimeout(animator);
+        document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-play">'
+        isPlaying = false;
     }
 }
 
 function playAnimWorker() {
-    if (slider.elt.value < totalFrames - 1) {
-        slider.elt.value++;
-        setTimeout(playAnimWorker, 500);
+    draw();
+    if (num_image < totalFrames - 1) {
+        num_image++;
+        animator = setTimeout(playAnimWorker, 500);
     } else {
-        slider.elt.value = 0;
         document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-play">'
         isPlaying = false;
     }
@@ -141,11 +146,11 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(0, 0, 255, 60).noStroke();
-    drawCircle({ x: 4 + frame, y: 7 - frame }, 4, false);
-    fill(255, 0, 0, 60).noStroke();
-    drawCircle({ x: 2 + frame, y: 9 - frame }, 2, false);
-    drawCircle({ x: 6 + frame, y: 9 - frame }, 2, false);
+    currentColor = "rgba(0,0,255, 0.25)";
+    drawCircle({ x: 4 + num_image, y: 7 - num_image }, 4, false);
+    currentColor = "rgba(255,0,0, 0.25)";
+    drawCircle({ x: 2 + num_image, y: 9 - num_image }, 2, false);
+    drawCircle({ x: 6 + num_image, y: 9 - num_image }, 2, false);
 }
 
 //------------------------------------------------//
@@ -163,7 +168,7 @@ function convertSize(size) {
 }
 
 function drawSquare(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -182,7 +187,7 @@ function drawSquare(coord, taille, answer) {
 }
 
 function drawRect(coord, hauteur, largeur, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -203,7 +208,7 @@ function drawRect(coord, hauteur, largeur, answer) {
 }
 
 function drawCircle(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
 
     if (answer) {
         tabAnswer.push({
@@ -221,6 +226,8 @@ function drawCircle(coord, taille, answer) {
 }
 
 function drawLine(coord_deb, coord_fin, answer) {
+    stroke(currentColor).strokeWeight(10);
+
     if (answer) {
         tabAnswer.push({
             type: 'line',

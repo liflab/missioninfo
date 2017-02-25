@@ -12,30 +12,16 @@
     <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
 
     <script>
-        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff', '#ff9966'];
-        Blockly.FieldColour.COLUMNS = 4;
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff'];
+        Blockly.FieldColour.COLUMNS = 3;
     </script>
 </head>
 
 <body onload="initBlockly(1.0,true,false)">
     <xml id="toolbox" style="display: none">
         <category name="Animation">
-            <block type="for_each_frame"></block>
-            <block type="num_frame"></block>
-        </category>
-        <category name="Calculs">
-            <block type="math_arithmetic">
-                <field name="OP">ADD</field>
-            </block>
-            <block type="math_arithmetic">
-                <field name="OP">MINUS</field>
-            </block>
-            <block type="math_arithmetic">
-                <field name="OP">MULTIPLY</field>
-            </block>
-            <block type="math_arithmetic">
-                <field name="OP">DIVIDE</field>
-            </block>
+            <block type="pour_chaque_image"></block>
+            <block type="num_image"></block>
         </category>
         <category name="Couleur">
             <block type="couleur"></block>
@@ -60,105 +46,29 @@
                 <field name="OP">GT</field>
             </block>
         </category>
-        <category name="Position">
-            <block type="coords"></block>
+        <category name="Nombre & Math">
             <block type="math_number"></block>
+        </category>
+        <category name="Position">
+            <block type="coords">
+                <value name="x">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+                <value name="y">
+                    <shadow type="math_number">
+                        <field name="NUM">1</field>
+                        </shadow>
+                    </value>
+            </block>
+            <block type="init_curseur"></block>
+            <block type="recup_curseur"></block>
+            <block type="deplace_curseur"></block>
         </category>
     </xml>
 
     <xml id="workspace" style="display: none">
-        <block type="for_each_frame" id="$}kFmeZ]$mvKQ|fy,OT2" x="-1" y="17">
-            <statement name="each_frame">
-                <block type="controls_if" id=":HyIrGa;O3-1:hWiczPI">
-                    <mutation else="1"></mutation>
-                    <value name="IF0">
-                        <block type="logic_compare" id="DMBG2J]d(knP$qRqcK!k">
-                            <field name="OP">GT</field>
-                            <value name="A">
-                                <block type="math_number" id="+J^nboL~7k.gRaDNVWQn">
-                                    <field name="NUM">5</field>
-                                </block>
-                            </value>
-                            <value name="B">
-                                <block type="num_frame" id="x1m*CV5c=d?1U24!CRNg"></block>
-                            </value>
-                        </block>
-                    </value>
-                    <statement name="DO0">
-                        <block type="couleur" id="}{Hc4|Tw%+DGlF4YL+[%">
-                            <field name="fill">#0000ff</field>
-                            <next>
-                                <block type="rectangle" id="1m.knXP;a5G=P5di6Ey3">
-                                    <value name="coord_center">
-                                        <block type="coords" id="M}cC+bC7l8@S{E}URbHx">
-                                            <value name="x">
-                                                <block type="math_arithmetic" id="kddvO3[tM~{QEwFO+BEu">
-                                                    <field name="OP">ADD</field>
-                                                    <value name="A">
-                                                        <block type="math_number" id="]Qc-8y1`-JneC!k7-qsM">
-                                                            <field name="NUM">2</field>
-                                                        </block>
-                                                    </value>
-                                                    <value name="B">
-                                                        <block type="num_frame" id="1SVNB9.pQUbmt:RbMl|7"></block>
-                                                    </value>
-                                                </block>
-                                            </value>
-                                            <value name="y">
-                                                <block type="math_number" id=",]9qTNLV}2#pL(h|nK7/">
-                                                    <field name="NUM">5</field>
-                                                </block>
-                                            </value>
-                                        </block>
-                                    </value>
-                                    <value name="hauteur">
-                                        <block type="math_number" id="hmVNVh;9o9!{1k^gHE4A">
-                                            <field name="NUM">2</field>
-                                        </block>
-                                    </value>
-                                    <value name="largeur">
-                                        <block type="math_number" id="@A~6z[POQ|3V`BpN_x]1">
-                                            <field name="NUM">1</field>
-                                        </block>
-                                    </value>
-                                </block>
-                            </next>
-                        </block>
-                    </statement>
-                    <statement name="ELSE">
-                        <block type="couleur" id="3KsU`,3GaZAL;bs0wulH">
-                            <field name="fill">#ff0000</field>
-                            <next>
-                                <block type="rectangle" id="[O.u5@u3z@KN!d()Ri{z">
-                                    <value name="coord_center">
-                                        <block type="coords" id="2WnB2[,GE[CXhA@@__5}">
-                                            <value name="x">
-                                                <block type="math_number" id="HpS+%iGQ.5`+4ODbn]Ol">
-                                                    <field name="NUM">7</field>
-                                                </block>
-                                            </value>
-                                            <value name="y">
-                                                <block type="num_frame" id="WFP^sE;T9YB/d|Gg2*TN"></block>
-                                            </value>
-                                        </block>
-                                    </value>
-                                    <value name="hauteur">
-                                        <block type="math_number" id="M#aEL5$(Gr$Li7e(eBWE">
-                                            <field name="NUM">2</field>
-                                        </block>
-                                    </value>
-                                    <value name="largeur">
-                                        <block type="math_number" id="1[/YfuH!e9:IO[Q9ogwS">
-                                            <field name="NUM">1</field>
-                                        </block>
-                                    </value>
-                                </block>
-                            </next>
-                        </block>
-                    </statement>
-                </block>
-            </statement>
-        </block>
     </xml>
 </body>
 

@@ -104,10 +104,9 @@
         <div class="container-fluid" id="bodyPage">
             <div class="row">
                 <div class="col-sm-6" id="sketch-col">
-                    <div class="range range-primary">
-                        <output id="anim-play" onclick="playAnim();"><span class="glyphicon glyphicon-play"></output>
-                        <input  id="anim-slider" type="range" name="range" min="0" value="0">
-                        <output id="anim-slider-text">Temps = 00</output>
+                    <div class="anim-area">
+                        <span id="anim-play" onclick="playAnim();" class="anim label label-primary" ><span class="glyphicon glyphicon-play"></span></span>
+                        <span id="anim-text" class="anim align-right label label-primary" >Temps = 00</span>
                     </div>
                     <div id="sketch-holder"></div>
                 </div>

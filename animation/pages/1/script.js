@@ -1,6 +1,11 @@
-//////////////// To check the answer ///////////////
+// Variables
 var tabAnswer;
+var currentColor = '#000000';
+var axisWidthLength = 8;
+var axisHeightLength = 6;
+var pxUnit = 100;
 
+//////////////// To check the answer ///////////////
 function initAnswer() {
     setup();
     tabAnswer = [];
@@ -31,15 +36,9 @@ function checkAnswer() {
     }
 }
 
-var currentColor = '#000000';
-
 //------------------------------------------------//
 
 ///////////////// Create exercise /////////////////
-var axisWidthLength = 8;
-var axisHeightLength = 6;
-var pxUnit = 100;
-
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
@@ -47,7 +46,7 @@ function setup() {
 
     drawSpaceIndicators();
     drawExercise();
-    fill(0, 0, 0).stroke(0, 0, 0);
+    currentColor = '#000000';
 }
 
 function drawSpaceIndicators() {
@@ -82,9 +81,9 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(255, 0, 0, 60).noStroke();
+    currentColor = "rgba(255,0,0, 0.25)";
     drawCircle({ x: 2, y: 2 }, 2, false);
-    fill(0, 255, 0, 60).noStroke();
+    currentColor = "rgba(0,255,0, 0.25)";
     drawSquare({ x: 5, y: 3 }, 4, false);
 }
 
@@ -103,7 +102,7 @@ function convertSize(size) {
 }
 
 function drawSquare(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -122,7 +121,7 @@ function drawSquare(coord, taille, answer) {
 }
 
 function drawRect(coord, hauteur, largeur, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
     rectMode(CENTER);
 
     if (answer) {
@@ -143,7 +142,7 @@ function drawRect(coord, hauteur, largeur, answer) {
 }
 
 function drawCircle(coord, taille, answer) {
-    noStroke();
+    fill(currentColor).noStroke();
 
     if (answer) {
         tabAnswer.push({
@@ -161,6 +160,8 @@ function drawCircle(coord, taille, answer) {
 }
 
 function drawLine(coord_deb, coord_fin, answer) {
+    stroke(currentColor).strokeWeight(10);
+
     if (answer) {
         tabAnswer.push({
             type: 'line',
