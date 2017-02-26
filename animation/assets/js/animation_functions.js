@@ -11,7 +11,12 @@ var p5jsDiv = document.getElementById('sketch-col');
 var blocklyDiv = document.getElementById('blockly-holder');
 
 var onresize = function () {
-    blocklyDiv.style.height = p5jsDiv.clientHeight + 'px';
+    try {
+        blocklyDiv.style.height = p5jsDiv.clientHeight + 'px';
+    }
+    catch(err) {    // To resize img on last page
+        document.getElementById('bodyPage').style.height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight + 'px';
+    }
 };
 window.addEventListener('resize', onresize, false);
 //##########################################################################################################
@@ -34,7 +39,7 @@ function allLoaded() {
 // Function to activate the right buttons in the progression bar 
 function activateButtons() {
     var nb_total_btn = 10;
-    var num = max(currentPageNumber, savedPageNumber);
+    var num = Math.max(currentPageNumber, savedPageNumber);
 
     for (var i = 1; i < num; i++) {
         document.getElementById("progress_" + i).className = "btn btn-success";
@@ -48,7 +53,7 @@ function activateButtons() {
 function change_page(id_btn) {
     var num_page = parseInt(id_btn.match(new RegExp("[0-9]+")));
 
-    if (num_page <= max(currentPageNumber, savedPageNumber) && num_page != currentPageNumber) {
+    if (num_page <= Math.max(currentPageNumber, savedPageNumber) && num_page != currentPageNumber) {
         location.href = '../' + num_page + '/index.html';
     }
 }
@@ -104,7 +109,7 @@ function enable_next() {
     document.getElementById("progress_" + currentPageNumber.toString()).className = "btn btn-success";
 
     // Save num page in local storage
-    window.localStorage.setItem("max_page_animation", max(currentPageNumber + 1, savedPageNumber));
+    window.localStorage.setItem("max_page_animation", Math.max(currentPageNumber + 1, savedPageNumber));
 }
 
 function showHelp() {
