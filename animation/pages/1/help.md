@@ -12,7 +12,7 @@ Pour  mettre les valeurs, tu as deux choix :
 - Sois tu écris directement les nombres dans les cases : 
 ![Bloc XY nombre][img2]
 
-- Sois utiliser des blocs comme celui-ci : 
+- Sois tu utilises des blocs comme celui-ci : 
 ![Bloc nombre][img3]
 
 N'oublie pas de mettre une couleur à ta forme!
