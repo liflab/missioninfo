@@ -17,7 +17,7 @@ function addText(stringToAdd) {
 function checkAnswer() {
     if (blocksOK) {
         bootbox.alert({
-        message: '<div class="text-center">Voici le texte que tu as affiché :<br>'+ stringAnswer +'</div>',
+        message: '<div class="text-center"><p>Voici le texte que tu as affiché :</p><h3>'+ stringAnswer +'</h3></div>',
         backdrop: true,
         callback: function(){ enable_next(); }
         });

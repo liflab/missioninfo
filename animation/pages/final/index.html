@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--##########################################################################################################-->
+
+    <!-- Description -->
+    <meta name="description" content="Page finale de l'activité animation">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+    <title>Crée ton propre film</title>
+    <!--##########################################################################################################-->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" size="96x96" href="../../../assets/icon.png">
+    <!--##########################################################################################################-->
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
+    <link href="../../../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../modules/jquery/jquery.min.js"></script>
+    <script src="../../../modules/bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap dialog extension -->
+    <script src="../../../modules/bootbox/bootbox.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/animation.css" rel="stylesheet">
+    <!--##########################################################################################################-->
+
+    <!-- p5js -->
+    <script language="javascript" type="text/javascript" src="../../../modules/p5js/p5.js"></script>
+    <script language="javascript" src="../../../modules/p5js/p5.dom.js"></script>
+    <!--<script language="javascript" src="modules/p5js/p5.sound.js"></script>-->
+    <!--##########################################################################################################-->
+
+</head>
+
+<body onload="allLoaded();">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Activité Animation</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="../../../index.html">Accueil</a></li>
+                    <li><a href="../../index.html">Retour</a></li>
+                    <li><a href="#" onclick="showHelp()">Aide</a></li>
+                </ul>
+                <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a> et <a href="#" class="navbar-link">p5.js</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loader" class="body-content"></div>
+
+    <div id="page" style="display:none">
+        <div id="topPage" class="container-fluid body-content">
+            <div class="row vertical-align">
+                <div class="col-sm-3 vertical-align">
+                    <div id="title">
+                        <h2>Crée ton propre film</h2>
+
+                        <p>But : Utilise tous les blocs pour faire ton film</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 vertical-align">
+                    <button type="button" onclick="change_code();" id="btn_change_code" style="display:none; margin: 0" class="btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-list-alt"></span> RETOUR AU CODE</button>
+                    <button type="button" onclick="run_code()" id="btn_run_prog" style="margin: 0" class="btn btn-success btn-block  btn-lg"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
+                </div>
+                <div class="col-sm-3 vertical-align">
+                    <button type="button" onclick="save_code()" class="btn btn-info btn-block btn-lg"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
+                </div>
+                <div class="col-sm-3 vertical-align">
+                    <button type="button" onclick="reinit_code()" class="btn btn-danger btn-block btn-lg"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="bodyPage">
+            <div id="sketch-div" style="display:none">
+                <div class="anim-area">
+                    <span id="anim-play" onclick="playAnim();" class="anim label label-primary"><span class="glyphicon glyphicon-play"></span></span>
+                    
+                    <span class="checkbox checkbox-primary checkbox-circle">
+                        <input class="styled" id="checkbox-grid" type="checkbox" checked onclick="changeGrid(this)">
+                        <label for="checkbox-grid">
+                            Activer la grille
+                        </label>
+                    </span>
+                    
+                    <span class="anim divider-vertical"></span>
+
+                    <span class="radio radio-primary radio-inline">
+                        <input name="speed" id="inlineRadio-slow" type="radio" value="slow" onclick="changeSpeed(this)">
+                        <label for="inlineRadio-slow"> Vitesse Lente </label>
+                    </span>
+                    <span class="radio radio-primary radio-inline">
+                        <input name="speed" id="inlineRadio-normal" type="radio" checked value="normal" onclick="changeSpeed(this)">
+                        <label for="inlineRadio-normal"> Vitesse Normale </label>
+                    </span>
+                    <span class="radio radio-primary radio-inline">
+                        <input name="speed" id="inlineRadio-fast" type="radio" value="fast" onclick="changeSpeed(this)">
+                        <label for="inlineRadio-fast"> Vitesse Rapide </label>
+                    </span>
+                    
+                    <span id="anim-text" class="anim align-right label label-primary">Temps = 00</span>
+                </div>
+                <div id="sketch-holder"></div>
+            </div>
+            <div id="blockly-div">
+                <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript custom functions -->
+    <script src="script.js"></script>
+    <!--##########################################################################################################-->
+
+</body>
+
+</html>

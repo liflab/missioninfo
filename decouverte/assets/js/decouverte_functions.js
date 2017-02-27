@@ -93,14 +93,14 @@ function save_code() {
 
 function not_good() {
     bootbox.alert({
-        message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/img/bad.png" alt="Smiley badface" height="100%"></div>',
+        message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/img/bad.svg" alt="Smiley badface" height="200px"></div>',
         backdrop: true
     });
 }
 
 function enable_next() {
     bootbox.alert({
-        message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/img/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
+        message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/img/good.svg" alt="Smiley goodface" height="200px"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
         backdrop: true
     });
     document.getElementById("btn_run_prog").style.display = "none";
@@ -112,9 +112,10 @@ function enable_next() {
 }
 
 function showHelp() {
-    bootbox.alert({
-        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/vid/decouverte_video_intro.mp4" type="video/mp4"  /> </video></div>',
-        size: 'large'
-    });
+    var helpfile = "decouverte_p" + currentPageNumber + "_aide.md";
+    var url = "../../../aide/aide.html?file=" + helpfile;
+
+    var win = window.open(url, '_blank');
+    win.focus();
 }
 //##########################################################################################################

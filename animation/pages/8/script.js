@@ -37,7 +37,7 @@ function checkAnswer() {
 
     var figures = false;
 
-    if (tabAnswer.length <= objectsPerFrame * totalFrames) {
+    if (tabAnswer.length >= objectsPerFrame * totalFrames) {
         figures = true;
 
         for (var i = 0; i < totalFrames; i++) {
@@ -117,10 +117,16 @@ function playAnim() {
 
 function playAnimWorker() {
     draw();
-    if (num_image < totalFrames - 1) {
+    if (num_image < totalFrames) {
         num_image++;
         animator = setTimeout(playAnimWorker, 500);
-    } else {
+    }
+    else {
+        // reinit view
+        curseur = initCurseur.slice();
+        num_image = 0
+        draw();
+
         document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-play">'
         isPlaying = false;
     }
