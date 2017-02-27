@@ -112,9 +112,10 @@ function enable_next() {
 }
 
 function showHelp() {
-    bootbox.alert({
-        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/vid/decouverte_video_intro.mp4" type="video/mp4"  /> </video></div>',
-        size: 'large'
-    });
+    var helpfile = "decouverte_p" + currentPageNumber + "_aide.md";
+    var url = "../../../aide/aide.html?file=" + helpfile;
+
+    var win = window.open(url, '_blank');
+    win.focus();
 }
 //##########################################################################################################

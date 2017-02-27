@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--##########################################################################################################-->
+
+    <!-- Description -->
+    <meta name="description" content="Aide">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+    <title>Aide</title>
+    <!--##########################################################################################################-->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" size="96x96" href="../assets/icon.png">
+    <!--##########################################################################################################-->
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
+    <link href="../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script src="../modules/jquery/jquery.min.js"></script>
+    <script src="../modules/bootstrap/js/bootstrap.js"></script>
+    <!--##########################################################################################################-->
+
+    <!-- showdown -->
+    <script language="javascript" type="text/javascript" src="../../../modules/showdown/showdown.js"></script>
+    <!--##########################################################################################################-->
+
+</head>
+
+<body onload="loadHelp();">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Page d'aide</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <p class="navbar-text navbar-right">N'hésite pas à demander de l'aide aux animateurs si tu es bloqué !</a></p>
+            </div>
+        </div>
+    </nav>
+
+    <div id="page">
+        <div class="container-fluid" id="bodyPage" style="width: 75%; padding-top: 60px; padding-bottom: 20px;">
+            <h1 class="text-center">Aide non disponible</h1>
+        </div>
+
+        <div class="text-center">
+            <button type="button" onclick="JavaScript:window.close()" id="btn_next_exercise" style="width:25%;margin-bottom: 5px;" class="btn btn-primary"><span class="glyphicon glyphicon-ok-circle"></span> RETOUR</button>
+        </div>
+    </div>
+
+    <!-- Javascript custom functions -->
+    <script>
+        function loadHelp() {
+            try {
+                var helpFile = findGetParameter("file");
+                showHelp(helpFile);
+            }
+            catch (err) {
+                console.log(err + " No file parameter!!!");
+            }
+        }
+
+        function findGetParameter(parameterName) {
+            var result = null,
+                tmp = [];
+            location.search
+                .substr(1)
+                .split("&")
+                .forEach(function (item) {
+                    tmp = item.split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                });
+            return result;
+        }
+
+        function showHelp(file) {
+            $.get(file, function (data) {
+                var converter = new showdown.Converter();
+                html = converter.makeHtml(data);
+
+                document.getElementById("bodyPage").innerHTML = html;
+            });
+        }
+    </script>
+    <!--##########################################################################################################-->
+
+</body>
+
+</html>

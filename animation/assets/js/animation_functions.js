@@ -113,14 +113,10 @@ function enable_next() {
 }
 
 function showHelp() {
-    $.get('help.md', function (data) {
-        var converter = new showdown.Converter();
-        html = converter.makeHtml(data);
+    var helpfile = "animation_p" + currentPageNumber + "_aide.md";
+    var url = "../../../aide/aide.html?file=" + helpfile;
 
-        bootbox.alert({
-            message: html,
-            size: 'large'
-        });
-    });
+    var win = window.open(url, '_blank');
+    win.focus();
 }
 //##########################################################################################################
