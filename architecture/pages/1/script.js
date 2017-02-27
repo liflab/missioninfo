@@ -2,32 +2,21 @@
 var stringAnswer;
 var canvas;
 var past_code;
-var solution;
-
-function initAnswer() {
-    console.log("---------------- ANSWER -- ");
-    if(past_code===undefined){
-        stringAnswer="NOPE";
-        return;
-    }
-    for(var i=0;i<solution.length;i++){
-        if(past_code[i]===undefined || past_code[i]["type"]!=solution[i]["type"] || past_code[i]["value"]!=solution[i]["value"]){
-            stringAnswer="NOPE";
-            return;
-        }
-        console.log("PASSED N°"+(i));
-    }
-    stringAnswer = "OK";
-}
-
-function checkAnswer() {
-    if(stringAnswer === "OK") {
-        enable_next();
-    }
-    else {
-        not_good();
-    }
-}
+var solution = [
+    {"type":"line","coord1":{"x":4,"y":4},"coord2":{"x": 4,"y":8}},
+    {"type":"line","coord1":{"x":4,"y":8},"coord2":{"x": 8,"y":8}},
+    {"type":"line","coord1":{"x":8,"y":8},"coord2":{"x": 8,"y":4}},
+    {"type":"line","coord1":{"x":8,"y":4},"coord2":{"x": 4,"y":4}}
+];
+var solution_example = [
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":4}
+];
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
@@ -36,6 +25,7 @@ var axisHeightLength = 14;
 var pxUnit = 50;
 
 var draw_saved = [];
+var draw_gen_saved = [];
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
@@ -58,6 +48,7 @@ function reset(b){
         ROTATION_CURSOR = 0;
         drawCursor(4,4);
         draw_saved = [];
+        draw_gen_saved = [];
     }
     fill(0, 0, 0).stroke(0, 0, 0);
 }
@@ -139,7 +130,6 @@ function run_exercice_code(obj){
         example_demo = true;
         todo_step = [];
         updateMaxRange(past_time_max);
-        initAnswer();
         checkAnswer();
     },TIME_BETWEEN_INTERVAL*time_max)
 }
@@ -156,14 +146,6 @@ var current_step = null;
 
 var example_demo = true;
 
-solution = [
-    {"type":"avancer","value":4},
-    {"type":"tourner","value":90},
-    {"type":"avancer","value":4},
-    {"type":"tourner","value":90},
-    {"type":"avancer","value":4},
-    {"type":"tourner","value":90},
-    {"type":"avancer","value":4}];
 function updateMaxRange(max){
     time_max = max;
     document.querySelector("#anim-slider").setAttribute("max",max);
@@ -174,8 +156,8 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    updateMaxRange(solution.length+1);
-    todo_step = solution.slice(0);
+    updateMaxRange(solution_example.length+1);
+    todo_step = solution_example.slice(0);
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
 }
@@ -206,21 +188,22 @@ function __draw(){
             x += (Math.sin(radians(ROTATION_CURSOR))*current_step["value"]);
             y += (Math.cos(radians(ROTATION_CURSOR))*current_step["value"]);
 
+            x = Math.round(x*100)/100;
+            y = Math.round(y*100)/100;
+
             if(!example_demo){
                 stroke(200,200,0);
                 strokeWeight(14);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
                 draw_saved.push("stroke(200,200,0);strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);");
+                draw_gen_saved.push({"type":"line","coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
             }
-
-
-            drawCursor(x,y);
         break;
         case "tourner":
             ROTATION_CURSOR+=current_step["value"];
-            drawCursor(x,y);
         break;
     }
+    drawCursor(x,y);
     console.log("-----------------");
 }
 function setRange(n){

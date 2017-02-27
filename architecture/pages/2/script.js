@@ -1,9 +1,20 @@
 // To check the answer
-var stringAnswer;
 var canvas;
 var past_code;
 
 var solution = [
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":4},"coord2":{"x":10,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":8},"coord2":{"x":14,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":8},"coord2":{"x":14,"y":4}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":4},"coord2":{"x":10,"y":4}},
+
+    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":4},"coord2":{"x":4,"y":4}},
+    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":4},"coord2":{"x":4,"y":8}},
+    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":8},"coord2":{"x":8,"y":8}},
+    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":8},"coord2":{"x":8,"y":4}},
+];
+
+var solution_example = [
     {"type":"crayon_color","value":"#0000ff"},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
@@ -26,31 +37,6 @@ var solution = [
 ];
 var Crayon;
 
-function initAnswer() {
-    console.log("---------------- ANSWER -- ");
-    if(past_code===undefined){
-        stringAnswer="NOPE";
-        return;
-    }
-    for(var i=0;i<solution.length;i++){
-        if(past_code[i]===undefined || past_code[i]["type"]!=solution[i]["type"] || past_code[i]["value"]!=solution[i]["value"]){
-            stringAnswer="NOPE";
-            return;
-        }
-        console.log("PASSED N°"+(i));
-    }
-    stringAnswer = "OK";
-}
-
-function checkAnswer() {
-    if(stringAnswer === "OK") {
-        enable_next();
-    }
-    else {
-        not_good();
-    }
-}
-
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
@@ -60,6 +46,7 @@ var pxUnit = 50;
 const START_COORD = {"x":10,"y":4};
 
 var draw_saved = [];
+var draw_gen_saved = [];
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
@@ -82,6 +69,7 @@ function reset(b){
         Crayon["rotation"] = 0;
         drawCursor(x,y);
         draw_saved = [];
+        draw_gen_saved = [];
     }
     fill(0, 0, 0).stroke(0, 0, 0);
 }
@@ -193,7 +181,6 @@ function run_exercice_code(obj){
         example_demo = true;
         todo_step = [];
         updateMaxRange(past_time_max);
-        initAnswer();
         checkAnswer();
     },TIME_BETWEEN_INTERVAL*time_max)
 }
@@ -220,8 +207,8 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    updateMaxRange(solution.length+1);
-    todo_step = solution.slice(0);
+    updateMaxRange(solution_example.length+1);
+    todo_step = solution_example.slice(0);
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
 }
@@ -252,6 +239,9 @@ function __draw(){
             x += (Math.sin(radians(Crayon["rotation"]))*current_step["value"]);
             y += (Math.cos(radians(Crayon["rotation"]))*current_step["value"]);
 
+            x = Math.round(x*100)/100;
+            y = Math.round(y*100)/100;
+
             if(!example_demo && !Crayon["leve"]){
                 stroke(Crayon["color"]);
                 strokeWeight(14);
@@ -259,6 +249,7 @@ function __draw(){
                 var cmd = "stroke('"+Crayon["color"]+"');strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);";
                 console.log(cmd);
                 draw_saved.push(cmd);
+                draw_gen_saved.push({"type":"line","color":Crayon["color"],"coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
             }
         break;
         case "tourner":

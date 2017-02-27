@@ -5,6 +5,17 @@ var past_code;
 var past_code_generated;
 
 var solution = [
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":4},"coord2":{"x":10,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":8},"coord2":{"x":14,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":8},"coord2":{"x":14,"y":4}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":4},"coord2":{"x":10,"y":4}},
+
+    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":4},"coord2":{"x":4,"y":4}},
+    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":4},"coord2":{"x":4,"y":8}},
+    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":8},"coord2":{"x":8,"y":8}},
+    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":8},"coord2":{"x":8,"y":4}},
+];
+var solution_example = [
     {"type":"crayon_color","value":"#0000ff"},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
@@ -26,44 +37,23 @@ var solution = [
     {"type":"avancer","value":4}
 ];
 var Crayon;
-
-function initAnswer() {
-    console.log("---------------- ANSWER -- ");
-    if(past_code_generated===undefined || past_code===undefined){
-        stringAnswer="NOPE";
-        return;
-    }
-    for(var i=0;i<solution.length;i++){
-        if(past_code_generated[i]===undefined || past_code_generated[i]["type"]!=solution[i]["type"] || past_code_generated[i]["value"]!=solution[i]["value"]){
-            stringAnswer="NOPE";
-            return;
-        }
-        console.log("PASSED N°"+(i));
-    }
-    var nb_boucle = 2;
-    // Vérification qu'il y a des boucles
-    for(var i=0;i<past_code.length;i++){
-        var code_item = past_code[i];
-        if(code_item["type"]=="boucle"){
-            nb_boucle--;
-        }
-    }
-    if(nb_boucle<=0){
-        stringAnswer = "OK";
-    }else{
-        stringAnswer = "NOPE";
-    }
-}
-
 function checkAnswer() {
-    if(stringAnswer === "OK") {
+    console.log("custom overriden");
+    if(custom_validation(draw_gen_saved,solution) && two_or_more(past_code)){
         enable_next();
-    }
-    else {
+    }else{
         not_good();
     }
 }
-
+function two_or_more(past_code){
+    var nb_boucle = 2;
+    for(var i=0;i<past_code.length;i++){
+        if(past_code[i]["type"]=="boucle"){
+            nb_boucle--;
+        }
+    }
+    return nb_boucle <=0;
+}
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
@@ -73,6 +63,7 @@ var pxUnit = 50;
 const START_COORD = {"x":10,"y":4};
 
 var draw_saved = [];
+var draw_gen_saved = [];
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
@@ -212,7 +203,6 @@ function run_exercice_code(obj){
         example_demo = true;
         todo_step = [];
         updateMaxRange(past_time_max);
-        initAnswer();
         checkAnswer();
     },TIME_BETWEEN_INTERVAL*time_max)
 }
@@ -259,8 +249,8 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    updateMaxRange(solution.length+1);
-    todo_step = solution.slice(0);
+    updateMaxRange(solution_example.length+1);
+    todo_step = solution_example.slice(0);
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
 }
@@ -293,12 +283,17 @@ function action(current_step){
             x += (Math.sin(radians(Crayon["rotation"]))*current_step["value"]);
             y += (Math.cos(radians(Crayon["rotation"]))*current_step["value"]);
 
+            x = Math.round(x*100)/100;
+            y = Math.round(y*100)/100;
+
             if(!example_demo && !Crayon["leve"]){
                 stroke(Crayon["color"]);
                 strokeWeight(14);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
                 var cmd = "stroke('"+Crayon["color"]+"');strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);";
                 draw_saved.push(cmd);
+                draw_gen_saved.push({"type":"line","color":Crayon["color"],"coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
+
             }
         break;
         case "tourner":
@@ -310,20 +305,6 @@ function action(current_step){
         case "crayon_color":
             Crayon["color"] = current_step["value"];
         break;
-        /*
-        case "boucle":
-            console.log("Boucle : ");
-            console.log(current_step);
-            for(var i=0;i<current_step["nb_iteration"];i++){
-                var steps_todo = current_step["value"];
-                console.log("-- #"+(i));
-                for(var j=0;j<steps_todo.length;j++){
-                    var step = steps_todo[j];
-                    console.log(step);
-                    action(step);
-                }
-            }
-        break;*/
     }
     drawCursor(x,y);
 }

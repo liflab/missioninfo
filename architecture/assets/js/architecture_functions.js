@@ -61,7 +61,6 @@ function next_page() {
 
 // Functions for blocks coding
 function run_code() {
-    initAnswer();
     try {
         code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
         /*
@@ -119,3 +118,57 @@ function showHelp() {
     });
 }
 //##########################################################################################################
+
+function checkAnswer() {
+    if(custom_validation(draw_gen_saved,solution)){
+        enable_next();
+    }else{
+        not_good();
+    }
+}
+
+function custom_validation(drawing_gen, solution){
+    //console.log(drawing_gen);
+    //console.log(solution);
+
+    if(drawing_gen.length!=solution.length){
+        return false;
+    }
+    var t_result = [];
+    for(var i=0;i<drawing_gen.length;i++){
+        var draw_done = drawing_gen[i];
+        //console.log("Looking for "+str_draw(draw_done));
+        for(var j=0;j<solution.length;j++){
+            if(is_equivalent(draw_done,solution[j])){
+                //console.log("OUI");
+                t_result.push(true);
+                break;
+            }
+        }
+        if(t_result.length!=i+1){
+            return false;
+        }
+    }
+    return true;
+};
+
+function is_equivalent(d1,d2){
+    //console.log("Is it "+str_draw(d2)+" ?");
+    var v_coord = (
+        (
+            d1["coord1"]["x"]==d2["coord1"]["x"] && d1["coord1"]["y"]==d2["coord1"]["y"] &&
+            d1["coord2"]["x"]==d2["coord2"]["x"] && d1["coord2"]["y"]==d2["coord2"]["y"]
+        ) ||
+        (
+            d1["coord1"]["x"]==d2["coord2"]["x"] && d1["coord1"]["y"]==d2["coord2"]["y"] &&
+            d1["coord2"]["x"]==d2["coord1"]["x"] && d1["coord2"]["y"]==d2["coord1"]["y"]
+        )
+    );
+
+    return d1["type"]==d2["type"] && v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]))
+
+}
+
+function str_draw(d){
+    return d["type"]+"( {x:"+d["coord1"]["x"]+", y:"+d["coord1"]["y"]+"} => {x:"+d["coord2"]["x"]+", y:"+d["coord2"]["y"]+"})";
+}
