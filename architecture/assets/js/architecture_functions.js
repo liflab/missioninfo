@@ -78,6 +78,7 @@ function run_code() {
     code = "["+code.trim().substring(0,code.length-1)+"]";
     code = code.replace(/\,([\}\]])/ig,"$1");
     code = code.replace(/ {2}/ig," ");
+
     json_obj = JSON.parse(code);
     run_exercice_code(json_obj);
 }

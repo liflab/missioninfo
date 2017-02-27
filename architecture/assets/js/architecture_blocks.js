@@ -125,6 +125,6 @@ Blockly.JavaScript['boucle'] = function(block) {
     var number_iteration = block.getFieldValue('ITERATION');
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"type":"boucle","nb_iteration":'+number_iteration+',"value":'+statements_name+'},';
+    var code = '{"type":"boucle","nb_iteration":'+number_iteration+',"value":['+statements_name+']},';
     return code;
 };
