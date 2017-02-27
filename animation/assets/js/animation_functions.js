@@ -94,14 +94,14 @@ function reinit_code() {
 
 function not_good() {
     bootbox.alert({
-        message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/img/bad.png" alt="Smiley badface" height="100%"></div>',
+        message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/img/bad.svg" alt="Smiley badface" height="200px"></div>',
         backdrop: true
     });
 }
 
 function enable_next() {
     bootbox.alert({
-        message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/img/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
+        message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/img/good.svg" alt="Smiley goodface" height="200px"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
         backdrop: true
     });
     document.getElementById("btn_run_prog").style.display = "none";
