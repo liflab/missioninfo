@@ -30,6 +30,28 @@ Blockly.Blocks['tourner'] = {
         this.setHelpUrl('');
     }
 };
+Blockly.Blocks['lever_le_crayon'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Lever le crayon");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(30);
+        this.setTooltip('Lever le crayon');
+        this.setHelpUrl('');
+    }
+};
+Blockly.Blocks['poser_le_crayon'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Poser le crayon");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(30);
+        this.setTooltip('Poser le crayon');
+        this.setHelpUrl('');
+    }
+};
 /*
  * ===============================================================================================================
  * ===============================================================================================================
@@ -47,5 +69,16 @@ Blockly.JavaScript['tourner'] = function(block) {
     var dropdown_angle = block.getFieldValue('Angle');
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"tourner","value":'+dropdown_angle+'},';
+    return code;
+};
+Blockly.JavaScript['lever_le_crayon'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"crayon_leve","value":true},';
+    return code;
+};
+
+Blockly.JavaScript['poser_le_crayon'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"crayon_leve","value":false},';
     return code;
 };

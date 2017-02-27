@@ -76,6 +76,7 @@ function run_code() {
         return;
     }
     code = "["+code.trim().substring(0,code.length-1)+"]";
+    console.log(code);
     json_obj = JSON.parse(code);
     run_exercice_code(json_obj);
 }

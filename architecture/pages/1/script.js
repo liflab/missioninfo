@@ -174,6 +174,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
+    updateMaxRange(solution.length+1);
     todo_step = solution.slice(0);
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
