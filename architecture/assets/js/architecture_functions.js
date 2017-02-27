@@ -77,7 +77,8 @@ function run_code() {
     code = "["+code.trim().substring(0,code.length-1)+"]";
     code = code.replace(/\,([\}\]])/ig,"$1");
     code = code.replace(/ {2}/ig," ");
-
+    code = code.replace(/\/\/.+\n/ig,"");
+    console.log(code);
     json_obj = JSON.parse(code);
     run_exercice_code(json_obj);
 }
@@ -128,7 +129,7 @@ function checkAnswer() {
 }
 
 function custom_validation(drawing_gen, solution){
-    //console.log(drawing_gen);
+    console.log(drawing_gen);
     //console.log(solution);
 
     if(drawing_gen.length!=solution.length){
@@ -171,4 +172,8 @@ function is_equivalent(d1,d2){
 
 function str_draw(d){
     return d["type"]+"( {x:"+d["coord1"]["x"]+", y:"+d["coord1"]["y"]+"} => {x:"+d["coord2"]["x"]+", y:"+d["coord2"]["y"]+"})";
+}
+//##########################################################################################################
+function drawLine(x1,y1,x2,y2){
+    line(x1*pxUnit,(axisHeightLength-y1)*pxUnit,x2*pxUnit,(axisHeightLength-y2)*pxUnit);
 }

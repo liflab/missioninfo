@@ -10,9 +10,9 @@ Blockly.FieldColour.COLUMNS = 3;
 
 Blockly.Blocks['avancer'] = {
     init: function() {
-        this.appendValueInput("Avancer")
-            .setCheck("Number")
-            .appendField("Avancer");
+        this.appendDummyInput()
+            .appendField("Avancer de")
+            .appendField(new Blockly.FieldNumber(4, 0, 50), "Avancer");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -25,7 +25,15 @@ Blockly.Blocks['tourner'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("Tourner de")
-            .appendField(new Blockly.FieldDropdown([["45° degrés","45"], ["90° degrés","90"], ["120° degrés","120"]]), "Angle");
+            .appendField(new Blockly.FieldDropdown([
+                ["45° degrés","45"],
+                ["72° degrés","72"],
+                ["90° degrés","90"],
+                ["135° degrés","135"],
+                ["144° degrés","144"],
+                ["180° degrés","180"],
+                ["270° degrés","270"]
+            ]), "Angle");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(20);
@@ -91,9 +99,9 @@ Blockly.Blocks['boucle'] = {
  * ===============================================================================================================
  */
 Blockly.JavaScript['avancer'] = function(block) {
-    var value_avancer = Blockly.JavaScript.valueToCode(block, 'Avancer', Blockly.JavaScript.ORDER_ATOMIC);
+    var number_avancer = block.getFieldValue('Avancer');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"type":"avancer","value":'+value_avancer+'},';
+    var code = '{"type":"avancer","value":'+number_avancer+'},';
     return code;
 };
 Blockly.JavaScript['tourner'] = function(block) {
