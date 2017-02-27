@@ -29,8 +29,66 @@ var solution = [
 
 ];
 var solution_example = [
-    {"type":"crayon_color","value":"#0000ff"}
-
+    {"type":"crayon_leve","value":true},
+    {"type":"avancer","value":1},
+    {"type":"tourner","value":90},
+    {"type":"avancer","value":1},
+    {"type":"crayon_leve","value":false},
+    {"type":"crayon_color","value":"#ff0000"},
+    {"type":"boucle","nb_iteration":4,"value":[
+        {"type":"tourner","value":90},
+        {"type":"avancer","value":2}
+    ]},
+    {"type":"crayon_leve","value":true},
+    {"type":"avancer","value":2},
+    {"type":"tourner","value":270},
+    {"type":"avancer","value":2},
+    {"type":"tourner","value":180},
+    {"type":"crayon_leve","value":false},
+    {"type":"crayon_color","value":"#0000ff"},
+    {"type":"boucle","nb_iteration":4,"value":[
+        {"type":"avancer","value":6},
+        {"type":"tourner","value":90}
+    ]},
+    {"type":"tourner","value":45},
+    {"type":"crayon_color","value":"#ffff00"},
+    {"type":"avancer","value":2.83},
+    {"type":"tourner","value":45},
+    {"type":"crayon_leve","value":true},
+    {"type":"avancer","value":2},
+    {"type":"tourner","value":45},
+    {"type":"crayon_leve","value":false},
+    {"type":"avancer","value":2.83},
+    {"type":"tourner","value":135},
+    {"type":"tourner","value":90},
+    {"type":"crayon_leve","value":true},
+    {"type":"avancer","value":6},
+    {"type":"tourner","value":135},
+    {"type":"tourner","value":90},
+    {"type":"crayon_color","value":"#ffff00"},
+    {"type":"crayon_leve","value":false},
+    {"type":"avancer","value":2.83},
+    {"type":"tourner","value":45},
+    {"type":"crayon_leve","value":true},
+    {"type":"avancer","value":2},
+    {"type":"tourner","value":45},
+    {"type":"crayon_leve","value":false},
+    {"type":"avancer","value":2.83},
+    {"type":"crayon_leve","value":true},
+    {"type":"tourner","value":45},
+    {"type":"tourner","value":180},
+    {"type":"avancer","value":3},
+    {"type":"tourner","value":270},
+    {"type":"avancer","value":3},
+    {"type":"boucle","nb_iteration":4,"value":[
+        {"type":"avancer","value":1},
+        {"type":"crayon_leve","value":false},
+        {"type":"avancer","value":2},
+        {"type":"crayon_leve","value":true},
+        {"type":"tourner","value":180},
+        {"type":"avancer","value":3},
+        {"type":"tourner","value":270}
+    ]}
 ];
 var Crayon;
 //------------------------------------------------//
@@ -193,7 +251,7 @@ function updateTextRanger(){
 
 function playAnim(){
     updateMaxRange(solution_example.length+1);
-    todo_step = solution_example.slice(0);
+    todo_step = formatExerciceCode(solution_example.slice(0));
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
 }
