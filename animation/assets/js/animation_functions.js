@@ -14,7 +14,7 @@ var onresize = function () {
     try {
         blocklyDiv.style.height = p5jsDiv.clientHeight + 'px';
     }
-    catch(err) {    // To resize img on last page
+    catch (err) {    // To resize img on last page
         document.getElementById('bodyPage').style.height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight + 'px';
     }
 };
@@ -113,9 +113,14 @@ function enable_next() {
 }
 
 function showHelp() {
-    bootbox.alert({
-        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/vid/decouverte_video_intro.mp4" type="video/mp4"  /> </video></div>',
-        size: 'large'
+    $.get('help.md', function (data) {
+        var converter = new showdown.Converter();
+        html = converter.makeHtml(data);
+
+        bootbox.alert({
+            message: html,
+            size: 'large'
+        });
     });
 }
 //##########################################################################################################
