@@ -67,6 +67,22 @@ Blockly.Blocks['crayon_de_couleur'] = {
         this.setHelpUrl('');
     }
 };
+Blockly.Blocks['boucle'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Faire")
+            .appendField(new Blockly.FieldNumber(0, 0, 10, 1), "ITERATION")
+            .appendField("fois ...");
+        this.appendStatementInput("NAME")
+            .setCheck(null);
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(150);
+        this.setTooltip('Boucle ');
+        this.setHelpUrl('');
+    }
+};
+
 /*
  * ===============================================================================================================
  * ===============================================================================================================
@@ -102,5 +118,13 @@ Blockly.JavaScript['crayon_de_couleur'] = function(block) {
     var colour_color = block.getFieldValue('COLOR');
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"crayon_color","value":"'+colour_color+'"},';
+    return code;
+};
+
+Blockly.JavaScript['boucle'] = function(block) {
+    var number_iteration = block.getFieldValue('ITERATION');
+    var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"boucle","nb_iteration":'+number_iteration+',"value":'+statements_name+'},';
     return code;
 };
