@@ -5,6 +5,9 @@
  * ===============================================================================================================
  * ===============================================================================================================
  */
+Blockly.FieldColour.COLOURS = ['#f00','#ff0','#00f'];
+Blockly.FieldColour.COLUMNS = 3;
+
 Blockly.Blocks['avancer'] = {
     init: function() {
         this.appendValueInput("Avancer")
@@ -52,6 +55,18 @@ Blockly.Blocks['poser_le_crayon'] = {
         this.setHelpUrl('');
     }
 };
+Blockly.Blocks['crayon_de_couleur'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Crayon de couleur")
+            .appendField(new Blockly.FieldColour("#ff0000"), "COLOR");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(30);
+        this.setTooltip('Crayon de couleur');
+        this.setHelpUrl('');
+    }
+};
 /*
  * ===============================================================================================================
  * ===============================================================================================================
@@ -80,5 +95,12 @@ Blockly.JavaScript['lever_le_crayon'] = function(block) {
 Blockly.JavaScript['poser_le_crayon'] = function(block) {
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"crayon_leve","value":false},';
+    return code;
+};
+
+Blockly.JavaScript['crayon_de_couleur'] = function(block) {
+    var colour_color = block.getFieldValue('COLOR');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"crayon_color","value":"'+colour_color+'"},';
     return code;
 };

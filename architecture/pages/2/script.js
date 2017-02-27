@@ -2,7 +2,9 @@
 var stringAnswer;
 var canvas;
 var past_code;
+
 var solution = [
+    {"type":"crayon_color","value":"#0000ff"},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
@@ -13,6 +15,7 @@ var solution = [
     {"type":"crayon_leve","value":true},
     {"type":"avancer","value":2},
     {"type":"crayon_leve","value":false},
+    {"type":"crayon_color","value":"#ffff00"},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
@@ -21,6 +24,7 @@ var solution = [
     {"type":"tourner","value":90},
     {"type":"avancer","value":4}
 ];
+var Crayon;
 
 function initAnswer() {
     console.log("---------------- ANSWER -- ");
@@ -75,7 +79,7 @@ function reset(b){
     if(b){
         x=START_COORD['x'];
         y=START_COORD['y'];
-        ROTATION_CURSOR = 0;
+        Crayon["rotation"] = 0;
         drawCursor(x,y);
         draw_saved = [];
     }
@@ -114,7 +118,7 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(200, 200, 0, 45).noStroke();
+    fill(255, 255, 0, 45).noStroke();
     rect(
         4*pxUnit-pxUnit/6,
         (axisHeightLength-8)*pxUnit,
@@ -143,6 +147,7 @@ function drawExercise() {
         pxUnit/3,
         20
     );
+    fill(0, 0, 255, 45).noStroke();
     rect(
         10*pxUnit,                              // 10 = Coordonnée X
         (axisHeightLength-4)*pxUnit-pxUnit/6,   // 4  = Coordonnée Y
@@ -204,8 +209,6 @@ var todo_step = null;
 var current_step = null;
 
 var example_demo = true;
-var crayon_leve = false;
-
 
 function updateMaxRange(max){
     time_max = max;
@@ -246,21 +249,26 @@ function __draw(){
             var start_x = x;
             var start_y = y;
 
-            x += (Math.sin(radians(ROTATION_CURSOR))*current_step["value"]);
-            y += (Math.cos(radians(ROTATION_CURSOR))*current_step["value"]);
+            x += (Math.sin(radians(Crayon["rotation"]))*current_step["value"]);
+            y += (Math.cos(radians(Crayon["rotation"]))*current_step["value"]);
 
-            if(!example_demo && !crayon_leve){
-                stroke(200,200,0);
+            if(!example_demo && !Crayon["leve"]){
+                stroke(Crayon["color"]);
                 strokeWeight(14);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
-                draw_saved.push("stroke(200,200,0);strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);");
+                var cmd = "stroke('"+Crayon["color"]+"');strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);";
+                console.log(cmd);
+                draw_saved.push(cmd);
             }
         break;
         case "tourner":
-            ROTATION_CURSOR+=current_step["value"];
+            Crayon["rotation"]+=current_step["value"];
         break;
         case "crayon_leve":
-            crayon_leve = current_step["value"];
+            Crayon["leve"] = current_step["value"];
+        break;
+        case "crayon_color":
+            Crayon["color"] = current_step["value"];
         break;
     }
     drawCursor(x,y);
@@ -278,7 +286,6 @@ function setRange(n){
 // /////////////////////////////////////////////////////
 // Cursor
 const SIZE_CURSOR       = 40;
-var   ROTATION_CURSOR   = 0;
 
 var x = 4;
 var y = 4;
@@ -289,7 +296,7 @@ function drawCursor(x,y) {
 
 
     translate(x,y);
-    rotate(radians(ROTATION_CURSOR));
+    rotate(radians(Crayon["rotation"]));
     if(example_demo){
         fill(200,50,50);
     }else{
@@ -305,7 +312,13 @@ function drawCursor(x,y) {
         -SIZE_CURSOR/2,middle_height/2
     );
 
-    rotate(radians(-ROTATION_CURSOR));
+    rotate(radians(-Crayon["rotation"]));
     translate(-x,-y);
 }
+
+Crayon = {
+    "leve":false,
+    "color":"#000000",
+    "rotation":0
+};
 
