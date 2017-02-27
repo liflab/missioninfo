@@ -20,6 +20,10 @@ html, body {
     width: 100%;
 }
 
+.blocklyText {
+    font-family: monospace !important;
+}
+
 .blocklyFlyoutLabel {
     font-family: sans-serif;
 }
