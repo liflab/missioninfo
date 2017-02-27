@@ -231,10 +231,11 @@ function not_good() {
 }
 
 function showHelp() {
-    bootbox.alert({
-        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/vid/decouverte_video_intro.mp4" type="video/mp4"  /> </video></div>',
-        size: 'large'
-    });
+    var helpfile = "animation_final_aide.md";
+    var url = "../../../aide/aide.html?file=" + helpfile;
+
+    var win = window.open(url, '_blank');
+    win.focus();
 }
 
 function changeGrid(checkbox) {
