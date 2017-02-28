@@ -173,6 +173,14 @@ function is_equivalent(d1,d2){
 function str_draw(d){
     return d["type"]+"( {x:"+d["coord1"]["x"]+", y:"+d["coord1"]["y"]+"} => {x:"+d["coord2"]["x"]+", y:"+d["coord2"]["y"]+"})";
 }
+function solution_length(solution){
+    var nb = 0;
+    for(var i=0;i<solution.length;i++){
+        if(solution[i]["type"]!="boucle")   nb++;
+        else                                nb+=solution[i]["nb_iteration"]*solution[i]["value"].length;
+    }
+    return nb;
+}
 //##########################################################################################################
 function drawLine(x1,y1,x2,y2){
     line(x1*pxUnit,(axisHeightLength-y1)*pxUnit,x2*pxUnit,(axisHeightLength-y2)*pxUnit);

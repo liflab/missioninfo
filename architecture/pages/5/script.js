@@ -250,7 +250,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    updateMaxRange(solution_example.length+1);
+    updateMaxRange(solution_length(solution_example));
     todo_step = formatExerciceCode(solution_example.slice(0));
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
