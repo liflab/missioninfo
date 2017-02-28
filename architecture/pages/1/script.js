@@ -45,7 +45,7 @@ function reset(b){
     if(b){
         x=4;
         y=4;
-        ROTATION_CURSOR = 0;
+        Crayon["rotation"] = 0;
         drawCursor(4,4);
         draw_saved = [];
         draw_gen_saved = [];
@@ -185,8 +185,8 @@ function __draw(){
             var start_x = x;
             var start_y = y;
 
-            x += (Math.sin(radians(ROTATION_CURSOR))*current_step["value"]);
-            y += (Math.cos(radians(ROTATION_CURSOR))*current_step["value"]);
+            x += (Math.sin(radians(Crayon["rotation"]))*current_step["value"]);
+            y += (Math.cos(radians(Crayon["rotation"]))*current_step["value"]);
 
             x = Math.round(x*100)/100;
             y = Math.round(y*100)/100;
@@ -200,7 +200,7 @@ function __draw(){
             }
         break;
         case "tourner":
-            ROTATION_CURSOR+=current_step["value"];
+            Crayon["rotation"]+=current_step["value"];
         break;
     }
     drawCursor(x,y);
@@ -217,35 +217,6 @@ function setRange(n){
 }
 // /////////////////////////////////////////////////////
 // Cursor
-const SIZE_CURSOR       = 40;
-var   ROTATION_CURSOR   = 0;
-
 var x = 4;
 var y = 4;
-
-function drawCursor(x,y) {
-    x = x * pxUnit;
-    y = (axisHeightLength - y) * pxUnit;
-
-
-    translate(x,y);
-    rotate(radians(ROTATION_CURSOR));
-    if(example_demo){
-        fill(200,50,50);
-    }else{
-        fill(100,220,50);
-    }
-
-    stroke(0);
-    strokeWeight(2);
-    var middle_height = Math.sqrt(Math.pow(SIZE_CURSOR,2)-Math.pow(SIZE_CURSOR/2,2));
-    triangle(
-        0,-middle_height/2,
-        SIZE_CURSOR/2,middle_height/2,
-        -SIZE_CURSOR/2,middle_height/2
-    );
-
-    rotate(radians(-ROTATION_CURSOR));
-    translate(-x,-y);
-}
 

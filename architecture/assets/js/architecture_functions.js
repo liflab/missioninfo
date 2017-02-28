@@ -185,3 +185,37 @@ function solution_length(solution){
 function drawLine(x1,y1,x2,y2){
     line(x1*pxUnit,(axisHeightLength-y1)*pxUnit,x2*pxUnit,(axisHeightLength-y2)*pxUnit);
 }
+
+const SIZE_CURSOR = 40;
+
+Crayon = {
+    "leve":false,
+    "color":"#000000",
+    "rotation":0
+};
+
+function drawCursor(x,y) {
+    x = x * pxUnit;
+    y = (axisHeightLength - y) * pxUnit;
+
+
+    translate(x,y);
+    rotate(radians(Crayon["rotation"]));
+    if(example_demo){
+        fill(200,50,50);
+    }else{
+        fill(100,220,50);
+    }
+
+    stroke(0);
+    strokeWeight(2);
+    var middle_height = Math.sqrt(Math.pow(SIZE_CURSOR,2)-Math.pow(SIZE_CURSOR/2,2));
+    triangle(
+        0,-middle_height/2,
+        SIZE_CURSOR/2,middle_height/2,
+        -SIZE_CURSOR/2,middle_height/2
+    );
+
+    rotate(radians(-Crayon["rotation"]));
+    translate(-x,-y);
+}
