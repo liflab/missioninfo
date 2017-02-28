@@ -417,3 +417,44 @@ Blockly.JavaScript['deplace_curseur_tab'] = function (block) {
 
     return code;
 };
+
+///////////////////////////////////////////////////////////////////
+
+Blockly.Blocks['bonhomme'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Bonhomme");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Couleur du T-shirt")
+            .appendField(new Blockly.FieldColour("#000000"), "shirt");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Couleur du Pantalon")
+            .appendField(new Blockly.FieldColour("#3366ff"), "pants");
+        this.appendDummyInput()
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Bras levés")
+            .appendField(new Blockly.FieldCheckbox("TRUE"), "hands_up");
+        this.appendValueInput("coord_center")
+            .setCheck("coordonnees")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Position");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(135);
+        this.setTooltip('Dessine un bonhomme');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.JavaScript['bonhomme'] = function (block) {
+    var colour_shirt = block.getFieldValue('shirt');
+    var colour_pants = block.getFieldValue('pants');
+    var checkbox_hands_up = block.getFieldValue('hands_up') == 'TRUE';
+    var value_coord_center = Blockly.JavaScript.valueToCode(block, 'coord_center', Blockly.JavaScript.ORDER_ATOMIC);
+    
+    var code = 'drawMan(' + value_coord_center + ',\'' + colour_shirt + '\',\'' + colour_pants + '\',' + checkbox_hands_up + ');\n';
+    
+    return code;
+};

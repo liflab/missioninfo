@@ -59,6 +59,9 @@ function change_page(id_btn) {
 }
 
 function next_page() {
+    // Save num page in local storage
+    window.localStorage.setItem("max_page_animation", Math.max(currentPageNumber + 1, savedPageNumber));
+
     location.href = '../' + (currentPageNumber + 1) + '/index.html';
 }
 //##########################################################################################################
@@ -108,8 +111,6 @@ function enable_next() {
     document.getElementById("btn_next_exercise").style.display = "block";
     document.getElementById("progress_" + currentPageNumber.toString()).className = "btn btn-success";
 
-    // Save num page in local storage
-    window.localStorage.setItem("max_page_animation", Math.max(currentPageNumber + 1, savedPageNumber));
 }
 
 function showHelp() {
