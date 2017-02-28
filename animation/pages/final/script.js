@@ -132,6 +132,17 @@ function drawRect(coord, hauteur, largeur, answer) {
     rect(sketch_coord.x, sketch_coord.y, sketch_largeur, sketch_hauteur);
 }
 
+function drawRect(coord, hauteur, largeur, coins, answer) {
+    fill(currentColor).noStroke();
+    rectMode(CENTER);
+
+    var sketch_coord = convertCoord(coord);
+    var sketch_hauteur = convertSize(hauteur);
+    var sketch_largeur = convertSize(largeur);
+
+    rect(sketch_coord.x, sketch_coord.y, sketch_largeur, sketch_hauteur, coins);
+}
+
 function drawCircle(coord, taille, answer) {
     fill(currentColor).noStroke();
 
@@ -148,6 +159,27 @@ function drawLine(coord_deb, coord_fin, answer) {
     var sketch_coord_fin = convertCoord(coord_fin);
 
     line(sketch_coord_deb.x, sketch_coord_deb.y, sketch_coord_fin.x, sketch_coord_fin.y);
+}
+
+function drawMan(coord_center, color_shirt, color_pents, hands_up) {
+    currentColor = "#FFC83D";
+    drawCircle({ x: coord_center.x, y: coord_center.y + 0.75 }, 0.5, false);
+    drawLine({ x: coord_center.x - 0.375, y: coord_center.y + 0.375 }, { x: coord_center.x - 0.625, y: coord_center.y - 0.125 }, false);
+    if (hands_up) {
+        drawLine({ x: coord_center.x + 0.375, y: coord_center.y + 0.375 }, { x: coord_center.x + 0.625, y: coord_center.y + 0.875 }, false);
+    }
+    else {
+        drawLine({ x: coord_center.x + 0.375, y: coord_center.y + 0.375 }, { x: coord_center.x + 0.625, y: coord_center.y - 0.125 }, false);
+    }
+
+    currentColor = color_pents;
+    drawLine({ x: coord_center.x - 0.25, y: coord_center.y - 0.5 }, { x: coord_center.x - 0.25, y: coord_center.y - 1.25 }, false);
+    drawLine({ x: coord_center.x + 0.25, y: coord_center.y - 0.5 }, { x: coord_center.x + 0.25, y: coord_center.y - 1.25 }, false);
+
+    currentColor = color_shirt;
+    drawRect(coord_center, 1, 0.75, 5, false);
+    drawRect({ x: coord_center.x - 0.375, y: coord_center.y + 0.375 }, 0.25, 0.25, 5, false);
+    drawRect({ x: coord_center.x + 0.375, y: coord_center.y + 0.375 }, 0.25, 0.25, 5, false);
 }
 //------------------------------------------------//
 
