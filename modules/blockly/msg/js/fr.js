@@ -42,7 +42,7 @@ Blockly.Msg.CONTROLS_FOR_TITLE = "compter avec %1 de %2 à %3 par %4";
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = "Faire prendre à la variable « %1 » les valeurs depuis le nombre de début jusqu’au nombre de fin, en s’incrémentant du pas spécifié, et exécuter les instructions spécifiées.";
 Blockly.Msg.CONTROLS_IF_ELSEIF_TOOLTIP = "Ajouter une condition au bloc si.";
 Blockly.Msg.CONTROLS_IF_ELSE_TOOLTIP = "Ajouter une condition finale fourre-tout au bloc si.";
-Blockly.Msg.CONTROLS_IF_HELPURL = "https://github.com/google/blockly/wiki/IfElse";  // untranslated
+Blockly.Msg.CONTROLS_IF_HELPURL = "../../../aide/aide.html?file=logique.md";  // untranslated
 Blockly.Msg.CONTROLS_IF_IF_TOOLTIP = "Ajouter, supprimer ou réordonner les sections pour reconfigurer ce bloc si.";
 Blockly.Msg.CONTROLS_IF_MSG_ELSE = "sinon";
 Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "sinon si";
@@ -158,7 +158,7 @@ Blockly.Msg.LOGIC_BOOLEAN_FALSE = "faux";
 Blockly.Msg.LOGIC_BOOLEAN_HELPURL = "https://github.com/google/blockly/wiki/Logic#values";  // untranslated
 Blockly.Msg.LOGIC_BOOLEAN_TOOLTIP = "Renvoie soit vrai soit faux.";
 Blockly.Msg.LOGIC_BOOLEAN_TRUE = "vrai";
-Blockly.Msg.LOGIC_COMPARE_HELPURL = "https://fr.wikipedia.org/wiki/Inegalite_(mathematiques)";
+Blockly.Msg.LOGIC_COMPARE_HELPURL = "../../../aide/aide.html?file=logique.md";
 Blockly.Msg.LOGIC_COMPARE_TOOLTIP_EQ = "Renvoyer vrai si les deux entrées sont égales.";
 Blockly.Msg.LOGIC_COMPARE_TOOLTIP_GT = "Renvoyer vrai si la première entrée est plus grande que la seconde.";
 Blockly.Msg.LOGIC_COMPARE_TOOLTIP_GTE = "Renvoyer vrai si la première entrée est plus grande ou égale à la seconde.";
@@ -209,7 +209,7 @@ Blockly.Msg.MATH_MODULO_HELPURL = "https://en.wikipedia.org/wiki/Modulo_operatio
 Blockly.Msg.MATH_MODULO_TITLE = "reste de %1 ÷ %2";
 Blockly.Msg.MATH_MODULO_TOOLTIP = "Renvoyer le reste de la division euclidienne des deux nombres.";
 Blockly.Msg.MATH_MULTIPLICATION_SYMBOL = "×";  // untranslated
-Blockly.Msg.MATH_NUMBER_HELPURL = "https://fr.wikipedia.org/wiki/Nombre";
+Blockly.Msg.MATH_NUMBER_HELPURL = "../../../aide/aide.html?file=math_number.md";
 Blockly.Msg.MATH_NUMBER_TOOLTIP = "Un nombre.";
 Blockly.Msg.MATH_ONLIST_HELPURL = "";  // untranslated
 Blockly.Msg.MATH_ONLIST_OPERATOR_AVERAGE = "moyenne de la liste";
