@@ -151,8 +151,16 @@ function playAnim(){
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL*speed);
     invertButtons();
 }
-function stopAnim(){
+function stopAnim(b){
+    if(b===undefined) b=false;
     //debug_generate_code(draw_gen_saved);
+
+    if(!example_demo){
+        example_demo = true;
+        if(!b){
+            checkAnswer();
+        }
+    }
 
     todo_step = [];
     current_time = 0;
@@ -161,10 +169,6 @@ function stopAnim(){
     invertButtons();
     document.querySelector("#anim-slider").value="0";
     updateTextRanger();
-    if(!example_demo){
-        checkAnswer();
-        example_demo = true;
-    }
 }
 
 function __draw(){

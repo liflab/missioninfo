@@ -142,18 +142,18 @@ function checkAnswer() {
 }
 
 function custom_validation(drawing_gen, solution){
-    console.log(JSON.stringify(drawing_gen));
+    //console.log(JSON.stringify(drawing_gen));
     //console.log(solution);
 
     if(drawing_gen.length!=solution.length){
         return false;
     }
     var t_result = [];
-    for(var i=0;i<drawing_gen.length;i++){
-        var draw_done = drawing_gen[i];
+    for(var i=0;i<solution.length;i++){
+        var draw_done = solution[i];
         //console.log("Looking for "+str_draw(draw_done));
-        for(var j=0;j<solution.length;j++){
-            if(is_equivalent(draw_done,solution[j])){
+        for(var j=0;j<drawing_gen.length;j++){
+            if(is_equivalent(draw_done,drawing_gen[j])){
                 //console.log("OUI");
                 t_result.push(true);
                 break;
