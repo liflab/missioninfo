@@ -190,7 +190,7 @@ function solution_length(solution){
     var nb = 0;
     for(var i=0;i<solution.length;i++){
         if(solution[i]["type"]!="boucle")   nb++;
-        else                                nb+=solution[i]["nb_iteration"]*solution[i]["value"].length;
+        else                                nb+=solution[i]["nb_iteration"]*solution_length(solution[i]["value"]);
     }
     return nb;
 }
@@ -241,5 +241,8 @@ function debug_generate_code(code){
         if(next===undefined) next=code[0];
         s += "drawLine("+code[i]["coord2"]["x"]+","+code[i]["coord2"]["y"]+","+next["coord1"]["x"]+","+next["coord1"]["y"]+");\n";
     }
+    console.log("------------ SOLUTION ------------");
+    console.log(js);
+    console.log("------------ DESSINS  ------------");
     console.log(s);
 }
