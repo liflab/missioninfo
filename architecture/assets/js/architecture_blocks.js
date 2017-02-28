@@ -26,6 +26,7 @@ Blockly.Blocks['tourner'] = {
         this.appendDummyInput()
             .appendField("Tourner de")
             .appendField(new Blockly.FieldDropdown([
+                ["1° degrés","1"],
                 ["45° degrés","45"],
                 ["72° degrés","72"],
                 ["90° degrés","90"],
@@ -79,7 +80,7 @@ Blockly.Blocks['boucle'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("Faire")
-            .appendField(new Blockly.FieldNumber(0, 0, 10, 1), "ITERATION")
+            .appendField(new Blockly.FieldNumber(0, 0, 360, 1), "ITERATION")
             .appendField("fois ...");
         this.appendStatementInput("NAME")
             .setCheck(null);

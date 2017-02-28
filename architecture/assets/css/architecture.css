@@ -58,3 +58,13 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.icon-large, #speed{
+    display:table-cell;
+}
+.range {
+    width:100%;
+}
+#anim-play.hidden, #anim-stop.hidden{
+    display:none;
+}

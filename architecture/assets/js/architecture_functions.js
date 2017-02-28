@@ -78,7 +78,9 @@ function run_code() {
     code = code.replace(/\,([\}\]])/ig,"$1");
     code = code.replace(/ {2}/ig," ");
     code = code.replace(/\/\/.+\n/ig,"");
+
     console.log(code);
+
     json_obj = JSON.parse(code);
     run_exercice_code(json_obj);
 }
@@ -118,6 +120,17 @@ function showHelp() {
         size: 'large'
     });
 }
+var play_show = true;
+function invertButtons(){
+    play_show = !play_show;
+    if(play_show){
+        document.querySelector("#anim-play").className="";
+        document.querySelector("#anim-stop").className="hidden";
+    }else{
+        document.querySelector("#anim-play").className="hidden";
+        document.querySelector("#anim-stop").className="";
+    }
+}
 //##########################################################################################################
 
 function checkAnswer() {
@@ -129,7 +142,7 @@ function checkAnswer() {
 }
 
 function custom_validation(drawing_gen, solution){
-    console.log(drawing_gen);
+    console.log(JSON.stringify(drawing_gen));
     //console.log(solution);
 
     if(drawing_gen.length!=solution.length){
@@ -218,4 +231,15 @@ function drawCursor(x,y) {
 
     rotate(radians(-Crayon["rotation"]));
     translate(-x,-y);
+}
+
+function debug_generate_code(code){
+    var js = JSON.stringify(code);
+    var s = "drawLine("+code[0]["coord1"]["x"]+","+code[0]["coord1"]["y"]+","+code[0]["coord2"]["x"]+","+code[0]["coord2"]["y"]+");\n";
+    for(var i=0;i<code.length;i++){
+        var next = code[i];
+        if(next===undefined) next=code[0];
+        s += "drawLine("+code[i]["coord2"]["x"]+","+code[i]["coord2"]["y"]+","+next["coord1"]["x"]+","+next["coord1"]["y"]+");\n";
+    }
+    console.log(s);
 }
