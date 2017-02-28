@@ -112,7 +112,7 @@ function enable_next() {
 }
 
 function showHelp() {
-    var helpfile = "decouverte_p" + currentPageNumber + "_aide.md";
+    var helpfile = "decouverte_aide.md";
     var url = "../../../aide/aide.html?file=" + helpfile;
 
     var win = window.open(url, '_blank');
