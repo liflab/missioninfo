@@ -36,7 +36,7 @@ Blockly.Blocks['tourner'] = {
             ]), "Angle");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
-        this.setColour(20);
+        this.setColour(230);
         this.setTooltip('Tourner de ... degrés');
         this.setHelpUrl('');
     }
