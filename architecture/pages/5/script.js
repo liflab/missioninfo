@@ -250,7 +250,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    updateMaxRange(solution_example.length+1);
+    updateMaxRange(solution_length(solution_example));
     todo_step = formatExerciceCode(solution_example.slice(0));
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
@@ -320,40 +320,6 @@ function setRange(n){
 }
 // /////////////////////////////////////////////////////
 // Cursor
-const SIZE_CURSOR       = 40;
 
 var x = 4;
 var y = 4;
-
-function drawCursor(x,y) {
-    x = x * pxUnit;
-    y = (axisHeightLength - y) * pxUnit;
-
-
-    translate(x,y);
-    rotate(radians(Crayon["rotation"]));
-    if(example_demo){
-        fill(200,50,50);
-    }else{
-        fill(100,220,50);
-    }
-
-    stroke(0);
-    strokeWeight(2);
-    var middle_height = Math.sqrt(Math.pow(SIZE_CURSOR,2)-Math.pow(SIZE_CURSOR/2,2));
-    triangle(
-        0,-middle_height/2,
-        SIZE_CURSOR/2,middle_height/2,
-        -SIZE_CURSOR/2,middle_height/2
-    );
-
-    rotate(radians(-Crayon["rotation"]));
-    translate(-x,-y);
-}
-
-Crayon = {
-    "leve":false,
-    "color":"#000000",
-    "rotation":0
-};
-
