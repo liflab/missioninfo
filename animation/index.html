@@ -43,7 +43,6 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="../index.html">Accueil</a></li>
-                                <li><a href="#" onclick="openInNewTab('aide.html')">Aide</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -69,11 +68,6 @@
 
     </div>
     <script>
-        function openInNewTab(url) {
-            var win = window.open(url, '_blank');
-            win.focus();
-        }
-
         function openLastPage() {
             var savedPageNumber = parseInt(window.localStorage.getItem("max_page_animation"));
             if (isNaN(savedPageNumber)) {
