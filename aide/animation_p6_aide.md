@@ -1,10 +1,11 @@
 #<center>Aide : Anime plusieurs figures</center>
 
-<center>Ici, tu dois faire bouger deux lignes de façons différentes. Tu ne peux donc pas utiliser la même technique que pour la page 5.</center>
+<center>Ici, tu dois faire bouger deux lignes de façons différentes. Tu vas devoir utiliser les mêmes blocs que pour la page 5. Mais fais attention certaines parties restent fixes.</center>
 
 ***
+#### Rappel
 
-C’est pourquoi tes blocs `Curseur` sont différents : 
+Les nouveaux blocs `Curseur` : 
 
 ![Blocs multiples curseurs][curseur_tab]
 

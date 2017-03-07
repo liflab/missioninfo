@@ -1,56 +1,24 @@
 #<center>Aide : Anime plusieurs figures</center>
 
-<center>Comme tu as pu le remarquer, il faut faire bouger 3 cercles en même temps.</center>
+<center>Ici, tu dois faire bouger trois cercles en même temps. Tu ne peux donc pas utiliser la même technique que pour la page 4.</center>
 
 ***
 
-La première chose à savoir, c’est que tu peux mettre dans le bloc ![Bloc déplacement curseur][bloc_dep_curseur] une valeur négative. 
+C’est pourquoi tes blocs `Curseur` sont différents : 
 
-####Exemple :  
-Si je met -1 comme valeur à X, cela aura pour effet de faire déplacer une forme vers la gauche.  
-Si la valeur de X initiale était de 5, on reculerait pour prendre les valeurs : 4, 3, 2, 1. Tout ça en faisant -1 à chaque fois.
+![Blocs multiples curseurs][curseur_tab]
 
-***
-
-Deuxième chose à savoir : comment faire bouger plusieurs formes dans le même sens?
-
-Tu dois utiliser un seul «curseur» (![Bloc Init Curseur][bloc_init_curseur]).
-
-Ce qui veut dire que pour les autres cercles, tu vas devoir utiliser ce nouveau bloc :  
-![Bloc position curseur avec décalage][bloc_pos_curseur_offset]
+Tu vas devoir utiliser plus d’un curseur. N’oublie pas de référer au bon «curseur» lorsque tu feras ton animation. 
 
 ***
 
-Le décalage c’est la différence entre les coordonnées de deux centres par exemple.
+Voici un exemple de ce à quoi ça peut ressembler : 
 
-<center>![Exemple decalage formes][ex_p5_formes]</center>
-
-Ici, si on utilise les coordonnées du carré 1 pour le curseur, il faudra un décalage pour faire bouger le carré 2 de la même façon. 
-
-Puisque les coordonnées du centre du carré 1 sont (3,5), il faut faire un décalage de :  
-
-<center>X : +4<br>Y : +1</center>
-
-Pour arriver au centre du carré 2 (7,6).
+![Exemple plusieurs curseurs][ex_p6]
 
 ***
-
-Voilà ce que ça donnerait : 
-
-![Exemple decalage blocs][ex_p5_blocs]
-
-Il faudrait bien sûr ajouter les autres blocs nécessaires pour concevoir l’animation.
-
-***
-
-Je te donne un indice : Pour réussir cette page tu devrais utiliser un bloc ![Bloc position curseur][bloc_pos_curseur] et deux blocs ![Bloc position curseur avec décalage][bloc_pos_curseur_offset].
-
 
 ##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
 
-[bloc_dep_curseur]: img/dep_curseur.png
-[bloc_init_curseur]: img/init_curseur.png
-[bloc_pos_curseur_offset]: img/pos_curseur_offset.png
-[bloc_pos_curseur]: img/pos_curseur.png
-[ex_p5_formes]: img/ex_p5_formes.png
-[ex_p5_blocs]: img/ex_p5_blocs.png
+[curseur_tab]: img/curseur_tab.png
+[ex_p6]: img/ex_p6.png
