@@ -4,9 +4,9 @@ function initBlockly(initZoom,loadSauv,loadWorkspace) {
         zoom: {
             controls: true,
             startScale: initZoom,
-            maxScale: 5,
-            minScale: 1.0,
-            scaleSpeed: 1.2
+            maxScale: initZoom * (1.0 + (1/3)),
+            minScale: initZoom / (1.0 + (1/3)),
+            scaleSpeed: 1.0 + (1/3)
         },
         trashcan: true,
         scrollbars: true
