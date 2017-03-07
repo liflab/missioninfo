@@ -22,7 +22,7 @@ var pxUnit = 50;
 function initAnswer() {
     setup();
     tabAnswer = [];
-    var initCurseur = new Array(10);
+    initCurseur = new Array(10);
     for (var i = 0; i < 10; i++) {
         initCurseur[i] = { x: 0, y: 0 };
     }

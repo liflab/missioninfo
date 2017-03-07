@@ -1,7 +1,10 @@
 // Variables
 var tabAnswer;
 var drawResponse = function () { };
-var initCurseur = { x: 0, y: 0 };
+var initCurseur = new Array(10);
+for (var i = 0; i < 10; i++) {
+    initCurseur[i] = { x: 0, y: 0 };
+}
 var curseur;
 var currentColor = '#000000';
 
@@ -19,7 +22,10 @@ var pxUnit = 50;
 function initAnswer() {
     setup();
     tabAnswer = [];
-    initCurseur = { x: 0, y: 0 };
+    initCurseur = new Array(10);
+    for (var i = 0; i < 10; i++) {
+        initCurseur[i] = { x: 0, y: 0 };
+    }
     drawResponse = function () { };
 }
 
@@ -90,7 +96,7 @@ function draw() {
 
 function playAnim() {
     if (!isPlaying) {
-        curseur = initCurseur;
+        curseur = initCurseur.slice();
         num_image = 0
         isPlaying = true;
         document.getElementById("anim-play").innerHTML = '<span class="glyphicon glyphicon-pause">'
