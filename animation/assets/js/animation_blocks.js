@@ -322,7 +322,7 @@ Blockly.Blocks['init_curseur_tab'] = {
         this.appendValueInput("pos")
             .setCheck("coordonnees")
             .appendField("Initialiser Curseur n°")
-            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx");
+            .appendField(new Blockly.FieldNumber(1, 1, 10), "idx");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(270);
@@ -335,7 +335,7 @@ Blockly.JavaScript['init_curseur_tab'] = function (block) {
     var number_idx = block.getFieldValue('idx');
     var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'initCurseur[' + number_idx + '] = ' + value_pos + ';\n';
+    var code = 'initCurseur[' + (number_idx - 1) + '] = ' + value_pos + ';\n';
     return code;
 };
 
@@ -345,7 +345,7 @@ Blockly.Blocks['recup_curseur_tab'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Position Curseur n°")
-            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx");
+            .appendField(new Blockly.FieldNumber(1, 1, 10), "idx");
         this.setOutput(true, "coordonnees");
         this.setColour(270);
         this.setTooltip('Récupère la position du curseur');
@@ -355,7 +355,7 @@ Blockly.Blocks['recup_curseur_tab'] = {
 
 Blockly.JavaScript['recup_curseur_tab'] = function (block) {
     var number_idx = block.getFieldValue('idx');
-    var code = 'curseur[' + number_idx + ']';
+    var code = 'curseur[' + (number_idx - 1) + ']';
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
@@ -366,7 +366,7 @@ Blockly.Blocks['recup_curseur_offset_tab'] = {
         this.appendValueInput("relative_pos")
             .setCheck("coordonnees")
             .appendField("Position Curseur n°")
-            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx")
+            .appendField(new Blockly.FieldNumber(1, 1, 10), "idx")
             .appendField(" + Décalage");
         this.setOutput(true, "coordonnees");
         this.setColour(270);
@@ -382,8 +382,8 @@ Blockly.JavaScript['recup_curseur_offset_tab'] = function (block) {
     const regex = /-?[0-9|.]+/g;
     var num_tab = value_relative_pos.match(regex);
 
-    var code = '{x: curseur[' + number_idx + '].x + ' + num_tab[0] + ',';
-    code += 'y: curseur[' + number_idx + '].y + ' + num_tab[1] + '}';
+    var code = '{x: curseur[' + (number_idx - 1) + '].x + ' + num_tab[0] + ',';
+    code += 'y: curseur[' + (number_idx - 1) + '].y + ' + num_tab[1] + '}';
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -395,7 +395,7 @@ Blockly.Blocks['deplace_curseur_tab'] = {
         this.appendValueInput("mouvement")
             .setCheck("coordonnees")
             .appendField("Déplacer le curseur n°")
-            .appendField(new Blockly.FieldNumber(0, 0, 10), "idx")
+            .appendField(new Blockly.FieldNumber(1, 1, 10), "idx")
             .appendField(" de");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
@@ -412,8 +412,8 @@ Blockly.JavaScript['deplace_curseur_tab'] = function (block) {
     const regex = /-?[0-9|.]+/g;
     var num_tab = value_mouvement.match(regex);
 
-    var code = 'curseur[' + number_idx + '] = {x: curseur[' + number_idx + '].x + ' + num_tab[0] + ',';
-    code += 'y: curseur[' + number_idx + '].y + ' + num_tab[1] + '};\n';
+    var code = 'curseur[' + (number_idx - 1) + '] = {x: curseur[' + (number_idx - 1) + '].x + ' + num_tab[0] + ',';
+    code += 'y: curseur[' + (number_idx - 1) + '].y + ' + num_tab[1] + '};\n';
 
     return code;
 };
