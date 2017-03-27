@@ -1,4 +1,7 @@
 //
+
+displayInfo();
+
 function changeBit(elem) {
     if (elem.innerHTML === "0") {
         elem.innerHTML = "1"
@@ -17,7 +20,7 @@ function convertBit() {
         var elem = document.getElementById("bit" + i);
 
         if (elem.innerHTML === "1") {
-            res += Math.pow(2,i);
+            res += Math.pow(2, i);
         }
     }
 
