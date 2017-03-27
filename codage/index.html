@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--##########################################################################################################-->
+
+    <!-- Description -->
+    <meta name="description" content="Page d'accueil de l'activité codage">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+    <title>Communique avec le continent</title>
+    <!--##########################################################################################################-->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" size="96x96" href="/assets/icon.png">
+    <!--##########################################################################################################-->
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
+    <link href="/modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Cover CSS -->
+    <link href="assets/css/cover.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script src="/modules/jquery/jquery.min.js"></script>
+    <script src="/modules/bootstrap/js/bootstrap.js"></script>
+    <!--##########################################################################################################-->
+
+</head>
+
+<body>
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Robinson Crusoé et l'île des ordinateurs</h3>
+                        <nav>
+                            <ul class="nav masthead-nav">
+                                <li class="active"><a href="../index.html">Accueil</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="inner cover">
+                    <h1 class="cover-heading">Communique avec le continent</h1>
+                    <p class="lead">Mise en contexte ...</p>
+                    <p class="lead">
+                        <button type="button" id="launch" onclick="openLastPage();" class="btn btn-lg btn-success">Lancer l'activité</button>
+                    </p>
+                </div>
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>&copy; 2017 Les Débrouillards</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        function openLastPage() {
+            var savedPageNumber = parseInt(window.localStorage.getItem("max_page_codage"));
+            if (isNaN(savedPageNumber)) {
+                savedPageNumber = 1;
+            }
+
+            location.href = 'pages/' + savedPageNumber + '/index.html';
+        }
+    </script>
+</body>
+
+</html>
