@@ -23,3 +23,8 @@ html, body {
     height: 100%;
     width: 100%;
 }
+
+.goog-palette-colorswatch {
+    height: 25px !important;
+    width: 25px !important;
+}

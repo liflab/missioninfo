@@ -68,17 +68,26 @@ function next_page() {
 
 // Functions for blocks coding
 function run_code() {
-    initAnswer();
+    // Wait to finish animation before another run
+    var status = false;
     try {
-        code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
-        console.log(code);
-        eval(code);
-        checkAnswer();
-        save_code();
+        status = isPlaying;
     }
-    catch (err) {
-        not_good();
-        console.log(err);
+    catch (err) {}
+
+    if (!status) {
+        initAnswer();
+        try {
+            code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
+            console.log(code);
+            eval(code);
+            checkAnswer();
+            save_code();
+        }
+        catch (err) {
+            not_good();
+            console.log(err);
+        }
     }
 }
 
