@@ -154,7 +154,6 @@ function __draw(){
     if(current_time>time_max){
         current_time = 0;
         clearInterval(timer_interval);
-        reset(true);
         return;
     }
     current_step = todo_step.shift();

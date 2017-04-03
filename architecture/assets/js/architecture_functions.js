@@ -253,6 +253,9 @@ function drawCursor(x,y) {
 }
 
 function debug_generate_code(code){
+    if(code.length==0){
+        return;
+    }
     var js = JSON.stringify(code);
     var s = "drawLine("+code[0]["coord1"]["x"]+","+code[0]["coord1"]["y"]+","+code[0]["coord2"]["x"]+","+code[0]["coord2"]["y"]+");\n";
     for(var i=0;i<code.length;i++){
@@ -271,4 +274,4 @@ function debug_generate_code(code){
 var image_background;
 
 const ADDR_BACKGROUND_IMAGE_1 = "../../assets/img/background-1.png";
-const ADDR_BACKGROUND_IMAGE_2 = "../../assets/img/background-1.png";
+const ADDR_BACKGROUND_IMAGE_2 = "../../assets/img/background-2.png";
