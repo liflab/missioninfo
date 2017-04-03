@@ -3,11 +3,12 @@ var stringAnswer;
 var canvas;
 var past_code;
 var solution = [
-    {"type":"line","coord1":{"x":4,"y":4},"coord2":{"x": 4,"y":8}},
-    {"type":"line","coord1":{"x":4,"y":8},"coord2":{"x": 8,"y":8}},
-    {"type":"line","coord1":{"x":8,"y":8},"coord2":{"x": 8,"y":4}},
-    {"type":"line","coord1":{"x":8,"y":4},"coord2":{"x": 4,"y":4}}
+    {"type":"line","coord1":{"x":10,"y":2},"coord2":{"x": 10,"y":6}},
+    {"type":"line","coord1":{"x":10,"y":2},"coord2":{"x": 14,"y":2}},
+    {"type":"line","coord1":{"x":14,"y":2},"coord2":{"x": 14,"y":6}},
+    {"type":"line","coord1":{"x":14,"y":6},"coord2":{"x": 10,"y":6}}
 ];
+
 var solution_example = [
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
@@ -27,6 +28,12 @@ var pxUnit = 50;
 var draw_saved = [];
 var draw_gen_saved = [];
 
+function preload(){
+    image_robotino = loadImage(ADDR_ROBOTINO);
+    image_background = loadImage(ADDR_BACKGROUND_IMAGE_1);
+    setup();
+}
+
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
@@ -38,15 +45,16 @@ function reset(b){
     if(b===undefined){
         b=false;
     }
-    fill(250);
-    rect(0,0,width,height);
+    //fill(250);
+    image(image_background,0,0);
+    //rect(0,0,width,height);
     drawSpaceIndicators();
     drawExercise();
     if(b){
-        x=4;
-        y=4;
+        x=10;
+        y=2;
         Crayon["rotation"] = 0;
-        drawCursor(4,4);
+        drawCursor(x,y);
         draw_saved = [];
         draw_gen_saved = [];
     }
@@ -85,35 +93,12 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(200, 200, 0, 45).noStroke();
-    rect(
-        4*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
-    rect(
-        4*pxUnit,
-        (axisHeightLength-8)*pxUnit-pxUnit/6,
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
-    rect(
-        8*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
-    rect(
-        4*pxUnit,
-        (axisHeightLength-4)*pxUnit-pxUnit/6,
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
+    strokeWeight(14);
+    stroke(200, 0, 0, 70).noFill();
+    drawLine(10,2,10,6);
+    drawLine(10,2,14,2);
+    drawLine(14,2,14,6);
+    drawLine(14,6,10,6);
 }
 
 function run_exercice_code(obj){
@@ -192,11 +177,12 @@ function __draw(){
             y = Math.round(y*100)/100;
 
             if(!example_demo){
-                stroke(200,200,0);
+                stroke(200, 0, 0, 255);
                 strokeWeight(14);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
-                draw_saved.push("stroke(200,200,0);strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);");
+                draw_saved.push("stroke(200, 0, 0, 255);strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);strokeWeight(0);");
                 draw_gen_saved.push({"type":"line","coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
+                strokeWeight(0);
             }
         break;
         case "tourner":
@@ -217,6 +203,6 @@ function setRange(n){
 }
 // /////////////////////////////////////////////////////
 // Cursor
-var x = 4;
-var y = 4;
+var x = 10;
+var y = 2;
 

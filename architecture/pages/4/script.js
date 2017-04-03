@@ -279,8 +279,3 @@ function setRange(n){
     }
     updateTextRanger();
 }
-// /////////////////////////////////////////////////////
-// Cursor
-
-var x = 4;
-var y = 4;

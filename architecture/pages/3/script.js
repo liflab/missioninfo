@@ -5,18 +5,20 @@ var past_code;
 var past_code_generated;
 
 var solution = [
-    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":4},"coord2":{"x":10,"y":8}},
-    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":8},"coord2":{"x":14,"y":8}},
-    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":8},"coord2":{"x":14,"y":4}},
-    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":4},"coord2":{"x":10,"y":4}},
+    {"type":"line","color":"#ff0000","coord1":{"x":10,"y":6},"coord2":{"x":14,"y":6}},
+    {"type":"line","color":"#ff0000","coord1":{"x":14,"y":6},"coord2":{"x":14,"y":2}},
+    {"type":"line","color":"#ff0000","coord1":{"x":14,"y":2},"coord2":{"x":10,"y":2}},
+    {"type":"line","color":"#ff0000","coord1":{"x":10,"y":2},"coord2":{"x":10,"y":6}},
 
-    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":4},"coord2":{"x":4,"y":4}},
-    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":4},"coord2":{"x":4,"y":8}},
-    {"type":"line","color":"#ffff00","coord1":{"x":4,"y":8},"coord2":{"x":8,"y":8}},
-    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":8},"coord2":{"x":8,"y":4}},
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":12},"coord2":{"x":14,"y":12}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":12},"coord2":{"x":14,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":14,"y":8},"coord2":{"x":10,"y":8}},
+    {"type":"line","color":"#0000ff","coord1":{"x":10,"y":8},"coord2":{"x":10,"y":12}},
 ];
+
 var solution_example = [
     {"type":"crayon_color","value":"#0000ff"},
+    {"type":"tourner","value":90},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
@@ -60,10 +62,18 @@ var axisWidthLength = 16;
 var axisHeightLength = 14;
 var pxUnit = 50;
 
-const START_COORD = {"x":10,"y":4};
+const START_COORD = {"x":10,"y":6};
 
 var draw_saved = [];
 var draw_gen_saved = [];
+
+
+function preload(){
+    image_robotino = loadImage(ADDR_ROBOTINO);
+    image_background = loadImage(ADDR_BACKGROUND_IMAGE_2);
+    setup();
+}
+
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
@@ -76,11 +86,11 @@ function reset(b){
     if(b===undefined){
         b=false;
     }
-    fill(250);
-    rect(0,0,width,height);
+    image(image_background,0,0);
     drawSpaceIndicators();
     drawExercise();
     if(b){
+        draw_gen_saved = [];
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = 0;
@@ -124,65 +134,18 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    fill(255, 255, 0, 45).noStroke();
-    rect(
-        4*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
-    rect(
-        4*pxUnit,
-        (axisHeightLength-8)*pxUnit-pxUnit/6,
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
-    rect(
-        8*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
-    rect(
-        4*pxUnit,
-        (axisHeightLength-4)*pxUnit-pxUnit/6,
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
-    fill(0, 0, 255, 45).noStroke();
-    rect(
-        10*pxUnit,                              // 10 = Coordonnée X
-        (axisHeightLength-4)*pxUnit-pxUnit/6,   // 4  = Coordonnée Y
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
-    rect(
-        10*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
-    rect(
-        10*pxUnit,
-        (axisHeightLength-8)*pxUnit-pxUnit/6,
-        4*pxUnit,
-        pxUnit/3,
-        20
-    );
+    strokeWeight(14);
+    stroke(200, 0, 0, 70).noFill();
+    drawLine(10,2,10,6);
+    drawLine(10,2,14,2);
+    drawLine(14,2,14,6);
+    drawLine(14,6,10,6);
 
-    rect(
-        14*pxUnit-pxUnit/6,
-        (axisHeightLength-8)*pxUnit,
-        pxUnit/3,
-        4*pxUnit,
-        20
-    );
+    stroke(0, 0, 200, 70).noFill();
+    drawLine(10,8,10,12);
+    drawLine(10,8,14,8);
+    drawLine(14,8,14,12);
+    drawLine(14,12,10,12);
 }
 
 function run_exercice_code(obj){
@@ -318,9 +281,3 @@ function setRange(n){
     }
     updateTextRanger();
 }
-// /////////////////////////////////////////////////////
-// Cursor
-
-var x = 4;
-var y = 4;
-

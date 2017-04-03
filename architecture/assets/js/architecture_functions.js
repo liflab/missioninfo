@@ -4,6 +4,9 @@ var savedPageNumber = parseInt(window.localStorage.getItem("max_page_architectur
 if (isNaN(savedPageNumber)) {
     savedPageNumber = 0;
 }
+window.onbeforeunload = function(){
+    save_code();
+};
 //##########################################################################################################
 
 // Adjust height manually to allow blockly to be responsive
@@ -142,10 +145,15 @@ function checkAnswer() {
 }
 
 function custom_validation(drawing_gen, solution){
-    //console.log(JSON.stringify(drawing_gen));
-    //console.log(solution);
-
+    var str = "";
     if(drawing_gen.length!=solution.length){
+        str += ("++++++++++++++++++++++++++++++++++++++");
+        str += (JSON.stringify(drawing_gen));
+        str += ("======================================");
+        str += (JSON.stringify(solution));
+        str += ("++++++++++++++++++++++++++++++++++++++");
+        alert(str);
+        console.log(str);
         return false;
     }
     var t_result = [];
@@ -160,6 +168,12 @@ function custom_validation(drawing_gen, solution){
             }
         }
         if(t_result.length!=i+1){
+            str += ("++++++++++++++++++++++++++++++++++++++");
+            str += (JSON.stringify(drawing_gen));
+            str += (JSON.stringify(solution));
+            str += ("--------------------------------------");
+            alert(str);
+            console.log(str);
             return false;
         }
     }
@@ -199,8 +213,18 @@ function drawLine(x1,y1,x2,y2){
     line(x1*pxUnit,(axisHeightLength-y1)*pxUnit,x2*pxUnit,(axisHeightLength-y2)*pxUnit);
 }
 
-const SIZE_CURSOR = 40;
+const SIZE_CURSOR = 60;
+const ADDR_ROBOTINO = "../../../assets/img/robotino/drive-1296591.svg";
 
+var image_robotino;
+var x;
+var y;
+
+
+/*
+image_robotino.height = SIZE_CURSOR;
+image_robotino.width = 0.921875 * SIZE_CURSOR;
+*/
 Crayon = {
     "leve":false,
     "color":"#000000",
@@ -211,15 +235,12 @@ function drawCursor(x,y) {
     x = x * pxUnit;
     y = (axisHeightLength - y) * pxUnit;
 
-
     translate(x,y);
     rotate(radians(Crayon["rotation"]));
-    if(example_demo){
-        fill(200,50,50);
-    }else{
-        fill(100,220,50);
-    }
 
+    image(image_robotino, -(0.921875 * SIZE_CURSOR)/2, -(SIZE_CURSOR)/2, 0.921875 * SIZE_CURSOR, SIZE_CURSOR);
+
+    /*
     stroke(0);
     strokeWeight(2);
     var middle_height = Math.sqrt(Math.pow(SIZE_CURSOR,2)-Math.pow(SIZE_CURSOR/2,2));
@@ -228,6 +249,7 @@ function drawCursor(x,y) {
         SIZE_CURSOR/2,middle_height/2,
         -SIZE_CURSOR/2,middle_height/2
     );
+    */
 
     rotate(radians(-Crayon["rotation"]));
     translate(-x,-y);
@@ -246,3 +268,10 @@ function debug_generate_code(code){
     console.log("------------ DESSINS  ------------");
     console.log(s);
 }
+
+
+
+var image_background;
+
+const ADDR_BACKGROUND_IMAGE_1 = "../../assets/img/background-1.png";
+const ADDR_BACKGROUND_IMAGE_2 = "../../assets/img/background-1.png";
