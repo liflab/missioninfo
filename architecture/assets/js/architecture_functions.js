@@ -4,9 +4,7 @@ var savedPageNumber = parseInt(window.localStorage.getItem("max_page_architectur
 if (isNaN(savedPageNumber)) {
     savedPageNumber = 0;
 }
-window.onbeforeunload = function(){
-    save_code();
-};
+
 //##########################################################################################################
 
 // Adjust height manually to allow blockly to be responsive
@@ -58,6 +56,7 @@ function change_page(id_btn) {
 }
 
 function next_page() {
+    save_code();
     location.href = '../' + (currentPageNumber + 1) + '/index.html';
 }
 //##########################################################################################################

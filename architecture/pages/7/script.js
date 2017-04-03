@@ -18,6 +18,11 @@ const START_COORD = {"x":2.5,"y":7};
 var draw_saved = [];
 var draw_gen_saved = [];
 
+
+function preload(){
+    image_robotino = loadImage(ADDR_ROBOTINO);
+    setup();
+}
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
