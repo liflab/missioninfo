@@ -146,13 +146,12 @@ function checkAnswer() {
 function custom_validation(drawing_gen, solution){
     var str = "";
     if(drawing_gen.length!=solution.length){
-        str += ("++++++++++++++++++++++++++++++++++++++");
-        str += (JSON.stringify(drawing_gen));
-        str += ("======================================");
-        str += (JSON.stringify(solution));
-        str += ("++++++++++++++++++++++++++++++++++++++");
-        alert(str);
-        console.log(str);
+        str += ("++++++++++++++++++++++++++++++++++++++<br />");
+        str += (JSON.stringify(drawing_gen)+"<br />");
+        str += ("======================================<br />");
+        str += (JSON.stringify(solution)+"<br />");
+        str += ("++++++++++++++++++++++++++++++++++++++<br />");
+        document.querySelector("#logging").innerHTML=str;
         return false;
     }
     var t_result = [];
@@ -171,8 +170,7 @@ function custom_validation(drawing_gen, solution){
             str += (JSON.stringify(drawing_gen));
             str += (JSON.stringify(solution));
             str += ("--------------------------------------");
-            alert(str);
-            console.log(str);
+            document.querySelector("#logging").innerHTML=str;
             return false;
         }
     }
