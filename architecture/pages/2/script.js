@@ -210,6 +210,7 @@ function __draw(){
                 console.log(cmd);
                 draw_saved.push(cmd);
                 draw_gen_saved.push({"type":"line","color":Crayon["color"],"coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
+                strokeWeight(0);
             }
         break;
         case "tourner":
