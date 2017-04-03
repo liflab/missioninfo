@@ -48,6 +48,7 @@ function reset(b){
         draw_saved = [];
     }
     fill(0, 0, 0).stroke(0, 0, 0);
+    strokeWeight(0);
 }
 
 function drawSpaceIndicators() {

@@ -100,6 +100,7 @@ function reset(b){
         draw_saved = [];
     }
     fill(0, 0, 0).stroke(0, 0, 0);
+    strokeWeight(0);
 }
 
 function drawSpaceIndicators() {
@@ -240,6 +241,7 @@ function action(current_step){
     for(var i =0;i<draw_saved.length;i++){
         eval(draw_saved[i]);
     }
+
     switch(current_step["type"]){
         case "avancer":
             var start_x = x;
