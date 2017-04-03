@@ -46,6 +46,7 @@ function reset(b){
         Crayon["color"] = "#000000";
         drawCursor(x,y);
         draw_saved = [];
+        draw_gen_saved = [];
     }
     fill(0, 0, 0).stroke(0, 0, 0);
     strokeWeight(0);
