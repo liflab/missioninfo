@@ -19,8 +19,10 @@ var draw_saved = [];
 var draw_gen_saved = [];
 
 
+
 function preload(){
-    image_robotino = loadImage(ADDR_ROBOTINO);
+    image_robotino = loadImage(ADDR_ROBOTINO_AIR);
+    image_background = loadImage(ADDR_BACKGROUND_IMAGE_3);
     setup();
 }
 function setup() {
@@ -34,8 +36,7 @@ function reset(b){
     if(b===undefined){
         b=false;
     }
-    fill(250);
-    rect(0,0,width,height);
+    image(image_background,0,0,800,700);
     drawSpaceIndicators();
     drawExercise();
     if(b){

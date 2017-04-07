@@ -40,6 +40,10 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
             ["180° degrés","180"],
         ];
     break;
+    default:
+        dropdown_angle = [
+            ["90° degrés","90"]
+        ];
 }
 
 Blockly.Blocks['avancer'] = {
@@ -121,6 +125,31 @@ Blockly.Blocks['boucle'] = {
         this.setHelpUrl('');
     }
 };
+Blockly.Blocks['courbe'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Accéder au point");
+        this.appendDummyInput()
+            .appendField("X : ")
+            .appendField(new Blockly.FieldNumber(0, 0, 200), "end_x");
+        this.appendDummyInput()
+            .appendField("Y : ")
+            .appendField(new Blockly.FieldNumber(0, 0, 200), "end_y");
+        this.appendDummyInput()
+            .appendField("En passant par le point");
+        this.appendDummyInput()
+            .appendField("X : ")
+            .appendField(new Blockly.FieldNumber(0, 0, 200), "mid_x");
+        this.appendDummyInput()
+            .appendField("Y : ")
+            .appendField(new Blockly.FieldNumber(0, 0, 200), "mid_y");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('Courbe');
+        this.setHelpUrl('');
+    }
+};
 
 /*
  * ===============================================================================================================
@@ -166,5 +195,14 @@ Blockly.JavaScript['boucle'] = function(block) {
     var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"boucle","nb_iteration":'+number_iteration+',"value":['+statements_name+']},';
+    return code;
+};
+Blockly.JavaScript['courbe'] = function(block) {
+    var number_end_x = block.getFieldValue('end_x');
+    var number_end_y = block.getFieldValue('end_y');
+    var number_mid_x = block.getFieldValue('mid_x');
+    var number_mid_y = block.getFieldValue('mid_y');
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"courbe","end":{"x":'+number_end_x+',"y":'+number_end_y+'},"mid":{"x":'+number_mid_x+',"y":'+number_mid_y+'}},';
     return code;
 };
