@@ -211,7 +211,8 @@ function drawLine(x1,y1,x2,y2){
 }
 
 const SIZE_CURSOR = 60;
-const ADDR_ROBOTINO = "../../../assets/img/robotino/drive-1296591.svg";
+const ADDR_ROBOTINO_LAND = "../../../assets/img/robotino/drive-1296591.svg";
+const ADDR_ROBOTINO_AIR = "../../../assets/img/robotino/happy-1296589.svg";
 
 var image_robotino;
 var x;
@@ -275,3 +276,4 @@ var image_background;
 
 const ADDR_BACKGROUND_IMAGE_1 = "../../assets/img/background-1.png";
 const ADDR_BACKGROUND_IMAGE_2 = "../../assets/img/background-2.png";
+const ADDR_BACKGROUND_IMAGE_3 = "../../assets/img/background-3.png";

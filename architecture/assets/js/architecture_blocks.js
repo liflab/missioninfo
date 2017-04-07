@@ -5,8 +5,42 @@
  * ===============================================================================================================
  * ===============================================================================================================
  */
+
+
 Blockly.FieldColour.COLOURS = ['#f00','#ff0','#00f'];
 Blockly.FieldColour.COLUMNS = 3;
+
+var dropdown_angle;
+/*
+ ["1° degrés","1"],
+ ["45° degrés","45"],
+ ["72° degrés","72"],
+ ["135° degrés","135"],
+ ["144° degrés","144"],
+ ["180° degrés","180"]
+ */
+switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1))){
+    case 1:
+    case 2:
+    case 3:
+        dropdown_angle = [
+            ["90° degrés","90"]
+        ];
+    break;
+    case 4:
+        dropdown_angle = [
+            ["90° degrés","90"],
+            ["144° degrés","144"]
+        ];
+    break;
+    case 5:
+        dropdown_angle = [
+            ["90° degrés","90"],
+            ["26.42° degrés","26.42"],
+            ["180° degrés","180"],
+        ];
+    break;
+}
 
 Blockly.Blocks['avancer'] = {
     init: function() {
@@ -20,21 +54,17 @@ Blockly.Blocks['avancer'] = {
         this.setHelpUrl('');
     }
 };
-
 Blockly.Blocks['tourner'] = {
     init: function() {
         this.appendDummyInput()
             .appendField("Tourner de")
+            .appendField(new Blockly.FieldDropdown(dropdown_angle), "Angle");
+        this.appendDummyInput()
+            .appendField("vers la ")
             .appendField(new Blockly.FieldDropdown([
-                ["1° degrés","1"],
-                ["45° degrés","45"],
-                ["72° degrés","72"],
-                ["90° degrés","90"],
-                ["135° degrés","135"],
-                ["144° degrés","144"],
-                ["180° degrés","180"],
-                ["270° degrés","270"]
-            ]), "Angle");
+                ["Droite","1"],
+                ["Gauche","-1"]
+            ]), "Direction");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -106,9 +136,10 @@ Blockly.JavaScript['avancer'] = function(block) {
     return code;
 };
 Blockly.JavaScript['tourner'] = function(block) {
-    var dropdown_angle = block.getFieldValue('Angle');
+    var dropdown_angle = parseFloat(block.getFieldValue('Angle'));
+    var dropdown_direction = parseFloat(block.getFieldValue('Direction'));
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"type":"tourner","value":'+dropdown_angle+'},';
+    var code = '{"type":"tourner","value":'+(dropdown_angle*dropdown_direction)+'},';
     return code;
 };
 Blockly.JavaScript['lever_le_crayon'] = function(block) {

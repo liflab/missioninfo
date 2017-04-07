@@ -4,92 +4,8 @@ var canvas;
 var past_code;
 var past_code_generated;
 
-var solution = [
-    {"type":"line","color":"#0000ff","coord1":{"x":5,"y":10},"coord2":{"x":11,"y":10}},
-    {"type":"line","color":"#0000ff","coord1":{"x":11,"y":10},"coord2":{"x":11,"y":4}},
-    {"type":"line","color":"#0000ff","coord1":{"x":11,"y":4},"coord2":{"x":5,"y":4}},
-    {"type":"line","color":"#0000ff","coord1":{"x":5,"y":4},"coord2":{"x":5,"y":10}},
-
-    {"type":"line","color":"#ff0000","coord1":{"x":7,"y":8},"coord2":{"x":9,"y":8}},
-    {"type":"line","color":"#ff0000","coord1":{"x":9,"y":8},"coord2":{"x":9,"y":6}},
-    {"type":"line","color":"#ff0000","coord1":{"x":9,"y":6},"coord2":{"x":7,"y":6}},
-    {"type":"line","color":"#ff0000","coord1":{"x":7,"y":6},"coord2":{"x":7,"y":8}},
-
-    {"type":"line","color":"#ffff00","coord1":{"x":5,"y":10},"coord2":{"x":7,"y":8}},
-    {"type":"line","color":"#ffff00","coord1":{"x":5,"y":4},"coord2":{"x":7,"y":6}},
-    {"type":"line","color":"#ffff00","coord1":{"x":11,"y":4},"coord2":{"x":9,"y":6}},
-    {"type":"line","color":"#ffff00","coord1":{"x":11,"y":10},"coord2":{"x":9,"y":8}},
-
-    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":10},"coord2":{"x":8,"y":8}},
-    {"type":"line","color":"#ffff00","coord1":{"x":8,"y":6},"coord2":{"x":8,"y":4}},
-    {"type":"line","color":"#ffff00","coord1":{"x":5,"y":7},"coord2":{"x":7,"y":7}},
-    {"type":"line","color":"#ffff00","coord1":{"x":9,"y":7},"coord2":{"x":11,"y":7}},
-
-
-
-];
-var solution_example = [
-    {"type":"crayon_leve","value":true},
-    {"type":"avancer","value":1},
-    {"type":"tourner","value":90},
-    {"type":"avancer","value":1},
-    {"type":"crayon_leve","value":false},
-    {"type":"crayon_color","value":"#ff0000"},
-    {"type":"boucle","nb_iteration":4,"value":[
-        {"type":"tourner","value":90},
-        {"type":"avancer","value":2}
-    ]},
-    {"type":"crayon_leve","value":true},
-    {"type":"avancer","value":2},
-    {"type":"tourner","value":270},
-    {"type":"avancer","value":2},
-    {"type":"tourner","value":180},
-    {"type":"crayon_leve","value":false},
-    {"type":"crayon_color","value":"#0000ff"},
-    {"type":"boucle","nb_iteration":4,"value":[
-        {"type":"avancer","value":6},
-        {"type":"tourner","value":90}
-    ]},
-    {"type":"tourner","value":45},
-    {"type":"crayon_color","value":"#ffff00"},
-    {"type":"avancer","value":2.83},
-    {"type":"tourner","value":45},
-    {"type":"crayon_leve","value":true},
-    {"type":"avancer","value":2},
-    {"type":"tourner","value":45},
-    {"type":"crayon_leve","value":false},
-    {"type":"avancer","value":2.83},
-    {"type":"tourner","value":135},
-    {"type":"tourner","value":90},
-    {"type":"crayon_leve","value":true},
-    {"type":"avancer","value":6},
-    {"type":"tourner","value":135},
-    {"type":"tourner","value":90},
-    {"type":"crayon_color","value":"#ffff00"},
-    {"type":"crayon_leve","value":false},
-    {"type":"avancer","value":2.83},
-    {"type":"tourner","value":45},
-    {"type":"crayon_leve","value":true},
-    {"type":"avancer","value":2},
-    {"type":"tourner","value":45},
-    {"type":"crayon_leve","value":false},
-    {"type":"avancer","value":2.83},
-    {"type":"crayon_leve","value":true},
-    {"type":"tourner","value":45},
-    {"type":"tourner","value":180},
-    {"type":"avancer","value":3},
-    {"type":"tourner","value":270},
-    {"type":"avancer","value":3},
-    {"type":"boucle","nb_iteration":4,"value":[
-        {"type":"avancer","value":1},
-        {"type":"crayon_leve","value":false},
-        {"type":"avancer","value":2},
-        {"type":"crayon_leve","value":true},
-        {"type":"tourner","value":180},
-        {"type":"avancer","value":3},
-        {"type":"tourner","value":270}
-    ]}
-];
+var solution = [{"type":"line","color":"#0000ff","coord1":{"x":4,"y":4},"coord2":{"x":4,"y":8}},{"type":"line","color":"#0000ff","coord1":{"x":4,"y":8},"coord2":{"x":8,"y":8}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":8},"coord2":{"x":8,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":7,"y":2.5},"coord2":{"x":7,"y":6.5}},{"type":"line","color":"#0000ff","coord1":{"x":7,"y":6.5},"coord2":{"x":11,"y":6.5}},{"type":"line","color":"#0000ff","coord1":{"x":11,"y":6.5},"coord2":{"x":11,"y":2.5}},{"type":"line","color":"#0000ff","coord1":{"x":11,"y":6.5},"coord2":{"x":8,"y":7.99}},{"type":"line","color":"#0000ff","coord1":{"x":7,"y":6.5},"coord2":{"x":4,"y":7.99}}];
+var solution_example = [{"type":"crayon_color","value":"#0000ff"},{"type":"boucle","nb_iteration":3,"value":[ {"type":"tourner","value":90},{"type":"avancer","value":4}]},{"type":"crayon_leve","value":true},{"type":"avancer","value":1.5},{"type":"tourner","value":90},{"type":"avancer","value":1},{"type":"crayon_leve","value":false},{"type":"boucle","nb_iteration":3,"value":[ {"type":"tourner","value":90},{"type":"avancer","value":4}]},{"type":"crayon_leve","value":true},{"type":"tourner","value":180},{"type":"avancer","value":4},{"type":"tourner","value":-90},{"type":"tourner","value":26.42},{"type":"crayon_leve","value":false},{"type":"avancer","value":3.35},{"type":"crayon_leve","value":true},{"type":"tourner","value":180},{"type":"avancer","value":3.35},{"type":"tourner","value":-26.42},{"type":"tourner","value":180},{"type":"avancer","value":4},{"type":"tourner","value":26.42},{"type":"crayon_leve","value":false},{"type":"avancer","value":3.35}];
 var Crayon;
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
@@ -97,14 +13,15 @@ var axisWidthLength = 16;
 var axisHeightLength = 14;
 var pxUnit = 50;
 
-const START_COORD = {"x":8,"y":7};
+const START_COORD = {"x":4,"y":4};
 
 var draw_saved = [];
 var draw_gen_saved = [];
 
 
 function preload(){
-    image_robotino = loadImage(ADDR_ROBOTINO);
+    image_robotino = loadImage(ADDR_ROBOTINO_AIR);
+    image_background = loadImage(ADDR_BACKGROUND_IMAGE_3);
     setup();
 }
 function setup() {
@@ -118,14 +35,14 @@ function reset(b){
     if(b===undefined){
         b=false;
     }
-    fill(250);
-    rect(0,0,width,height);
+    image(image_background,0,0,800,700);
     drawSpaceIndicators();
     drawExercise();
     if(b){
+        debug_generate_code(draw_gen_saved);
         x=START_COORD['x'];
         y=START_COORD['y'];
-        Crayon["rotation"] = 0;
+        Crayon["rotation"] = -90;
         Crayon["leve"] = false;
         Crayon["color"] = "#000000";
         drawCursor(x,y);
@@ -169,28 +86,22 @@ function drawSpaceIndicators() {
 
 function drawExercise() {
     strokeWeight(14);
+    stroke(255,0,0,255).noFill();
+    drawLine(4,4,7,2.5);
+    drawLine(7,2.5,11,2.5);
+    drawLine(11,2.5,8,4);
+    drawLine(8,4,4,4);
+
     stroke(0, 0, 255, 45).noFill();
-    drawLine(5,4,11,4);
-    drawLine(5,4,5,10);
-    drawLine(5,10,11,10);
-    drawLine(11,4,11,10);
+    drawLine(4,4,4,8);
+    drawLine(8,4,8,8);
+    drawLine(7,2.5,7,6.5);
+    drawLine(11,2.5,11,6.5);
 
-    stroke(255, 255, 0, 45).noFill();
-    drawLine(8,8,8,10);
-    drawLine(7,7,5,7);
-    drawLine(8,6,8,4);
-    drawLine(9,7,11,7);
-    drawLine(5,10,7,8);
-    drawLine(5,4,7,6);
-    drawLine(9,6,11,4);
-    drawLine(9,8,11,10);
-
-
-    stroke(255, 0, 0, 45).noFill();
-    drawLine(7,8,9,8);
-    drawLine(9,8,9,6);
-    drawLine(9,6,7,6);
-    drawLine(7,6,7,8);
+    drawLine(4,8,8,8);
+    drawLine(8,8,11,6.5);
+    drawLine(11,6.5,7,6.5);
+    drawLine(7,6.5,4,8);
 }
 
 function run_exercice_code(obj){

@@ -76,7 +76,7 @@ var draw_saved = [];
 var draw_gen_saved = [];
 
 function preload(){
-    image_robotino = loadImage("../../../assets/img/robotino/happy-1296589.svg");
+    image_robotino = loadImage(ADDR_ROBOTINO_AIR);
     image_background = loadImage(ADDR_BACKGROUND_IMAGE_2);
     setup();
 }
@@ -95,7 +95,6 @@ function reset(b){
     drawSpaceIndicators();
     drawExercise();
     if(b){
-        debug_generate_code(draw_gen_saved);
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = 0;
