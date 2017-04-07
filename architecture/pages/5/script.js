@@ -39,7 +39,6 @@ function reset(b){
     drawSpaceIndicators();
     drawExercise();
     if(b){
-        debug_generate_code(draw_gen_saved);
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = -90;

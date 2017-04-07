@@ -5,6 +5,15 @@ if (isNaN(savedPageNumber)) {
     savedPageNumber = 0;
 }
 
+Math.radians = function(degrees) {
+    return degrees * Math.PI / 180;
+};
+
+// Converts from radians to degrees.
+Math.degrees = function(radians) {
+    return radians * 180 / Math.PI;
+};
+
 //##########################################################################################################
 
 // Adjust height manually to allow blockly to be responsive
@@ -179,19 +188,31 @@ function custom_validation(drawing_gen, solution){
 
 function is_equivalent(d1,d2){
     //console.log("Is it "+str_draw(d2)+" ?");
-    var v_coord = (
-        (
-            d1["coord1"]["x"]==d2["coord1"]["x"] && d1["coord1"]["y"]==d2["coord1"]["y"] &&
-            d1["coord2"]["x"]==d2["coord2"]["x"] && d1["coord2"]["y"]==d2["coord2"]["y"]
-        ) ||
-        (
-            d1["coord1"]["x"]==d2["coord2"]["x"] && d1["coord1"]["y"]==d2["coord2"]["y"] &&
-            d1["coord2"]["x"]==d2["coord1"]["x"] && d1["coord2"]["y"]==d2["coord1"]["y"]
-        )
-    );
-
-    return d1["type"]==d2["type"] && v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]))
-
+    if(d1["type"]!=d2["type"]){
+        return false;
+    }
+    console.log("Types equivalents");
+    switch(d1["type"]){
+        case "line":
+            var v_coord = (
+                (
+                    d1["coord1"]["x"]==d2["coord1"]["x"] && d1["coord1"]["y"]==d2["coord1"]["y"] &&
+                    d1["coord2"]["x"]==d2["coord2"]["x"] && d1["coord2"]["y"]==d2["coord2"]["y"]
+                ) ||
+                (
+                    d1["coord1"]["x"]==d2["coord2"]["x"] && d1["coord1"]["y"]==d2["coord2"]["y"] &&
+                    d1["coord2"]["x"]==d2["coord1"]["x"] && d1["coord2"]["y"]==d2["coord1"]["y"]
+                )
+            );
+            return v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]));
+        break;
+        case "arc":
+            // TODO
+            return false;
+        break;
+        default:
+            return false;
+    }
 }
 
 function str_draw(d){
@@ -208,6 +229,15 @@ function solution_length(solution){
 //##########################################################################################################
 function drawLine(x1,y1,x2,y2){
     line(x1*pxUnit,(axisHeightLength-y1)*pxUnit,x2*pxUnit,(axisHeightLength-y2)*pxUnit);
+}
+
+function drawArc(x,y,taille,rad_start_rotation,rad_end_rotation,reversed){
+    if(reversed){
+        var tmp = rad_start_rotation;
+        rad_start_rotation = rad_end_rotation;
+        rad_end_rotation = tmp;
+    }
+    arc(x*pxUnit, (axisHeightLength - y) * pxUnit, taille*pxUnit, taille*pxUnit, rad_start_rotation, rad_end_rotation);
 }
 
 const SIZE_CURSOR = 60;
@@ -258,12 +288,23 @@ function debug_generate_code(code){
         return;
     }
     var js = JSON.stringify(code);
-    var s = "drawLine("+code[0]["coord1"]["x"]+","+code[0]["coord1"]["y"]+","+code[0]["coord2"]["x"]+","+code[0]["coord2"]["y"]+");\n";
+    console.log("++++++++++++++++++++++++++++++");
+    var s = "";//"drawLine("+code[0]["coord1"]["x"]+","+code[0]["coord1"]["y"]+","+code[0]["coord2"]["x"]+","+code[0]["coord2"]["y"]+");\n";
     for(var i=0;i<code.length;i++){
         var next = code[i];
         if(next===undefined) next=code[0];
-        s += "drawLine("+code[i]["coord2"]["x"]+","+code[i]["coord2"]["y"]+","+next["coord1"]["x"]+","+next["coord1"]["y"]+");\n";
+        switch(next["type"]){
+            case "line":
+                s += "drawLine("+next["coord2"]["x"]+","+next["coord2"]["y"]+","+next["coord1"]["x"]+","+next["coord1"]["y"]+");\n";
+            break;
+            case "arc":
+                s += "drawArc("+next["middle"]["x"]+","+next["middle"]["y"]+","+next["size"]+","+next["start_angle"]+","+next["end_angle"]+","+(next["reversed"]?("true"):("false"))+");\n";
+            break;
+            default:
+                console.log(next["type"]+" not set !");
+        }
     }
+    console.log("==============================");
     console.log("------------ SOLUTION ------------");
     console.log(js);
     console.log("------------ DESSINS  ------------");

@@ -34,6 +34,7 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
         ];
     break;
     case 5:
+    case 6:
         dropdown_angle = [
             ["90° degrés","90"],
             ["26.42° degrés","26.42"],
@@ -73,6 +74,21 @@ Blockly.Blocks['tourner'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Tourner de ... degrés');
+        this.setHelpUrl('');
+    }
+};
+
+Blockly.Blocks['tourner_arc'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField("Tourner de")
+            .appendField(new Blockly.FieldDropdown(dropdown_angle), "Angle");
+        this.appendDummyInput()
+            .appendField("vers la ")
+            .appendField(new Blockly.FieldDropdown([["Droite","1"], ["Gauche","-1"]]), "Direction");
+        this.setPreviousStatement(true, null);
+        this.setColour(230);
+        this.setTooltip('');
         this.setHelpUrl('');
     }
 };
@@ -125,24 +141,16 @@ Blockly.Blocks['boucle'] = {
         this.setHelpUrl('');
     }
 };
-Blockly.Blocks['courbe'] = {
+Blockly.Blocks['arc_de_cercle'] = {
     init: function() {
         this.appendDummyInput()
-            .appendField("Accéder au point");
+            .appendField("Dessin d'un arc de cercle");
         this.appendDummyInput()
-            .appendField("X : ")
-            .appendField(new Blockly.FieldNumber(0, 0, 200), "end_x");
-        this.appendDummyInput()
-            .appendField("Y : ")
-            .appendField(new Blockly.FieldNumber(0, 0, 200), "end_y");
-        this.appendDummyInput()
-            .appendField("En passant par le point");
-        this.appendDummyInput()
-            .appendField("X : ")
-            .appendField(new Blockly.FieldNumber(0, 0, 200), "mid_x");
-        this.appendDummyInput()
-            .appendField("Y : ")
-            .appendField(new Blockly.FieldNumber(0, 0, 200), "mid_y");
+            .appendField("Taille: ")
+            .appendField(new Blockly.FieldNumber(0, 0, 200), "Taille");
+        this.appendStatementInput("Rotation")
+            .setCheck(null)
+            .appendField("Rotation");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -150,7 +158,6 @@ Blockly.Blocks['courbe'] = {
         this.setHelpUrl('');
     }
 };
-
 /*
  * ===============================================================================================================
  * ===============================================================================================================
@@ -167,6 +174,13 @@ Blockly.JavaScript['avancer'] = function(block) {
 Blockly.JavaScript['tourner'] = function(block) {
     var dropdown_angle = parseFloat(block.getFieldValue('Angle'));
     var dropdown_direction = parseFloat(block.getFieldValue('Direction'));
+    // TODO: Assemble JavaScript into code variable.
+    var code = '{"type":"tourner","value":'+(dropdown_angle*dropdown_direction)+'},';
+    return code;
+};
+Blockly.JavaScript['tourner_arc'] = function(block) {
+    var dropdown_angle = block.getFieldValue('Angle');
+    var dropdown_direction = block.getFieldValue('Direction');
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"tourner","value":'+(dropdown_angle*dropdown_direction)+'},';
     return code;
@@ -197,12 +211,10 @@ Blockly.JavaScript['boucle'] = function(block) {
     var code = '{"type":"boucle","nb_iteration":'+number_iteration+',"value":['+statements_name+']},';
     return code;
 };
-Blockly.JavaScript['courbe'] = function(block) {
-    var number_end_x = block.getFieldValue('end_x');
-    var number_end_y = block.getFieldValue('end_y');
-    var number_mid_x = block.getFieldValue('mid_x');
-    var number_mid_y = block.getFieldValue('mid_y');
+Blockly.JavaScript['arc_de_cercle'] = function(block) {
+    var number_taille = block.getFieldValue('Taille');
+    var statements_rotation = Blockly.JavaScript.statementToCode(block, 'Rotation');
     // TODO: Assemble JavaScript into code variable.
-    var code = '{"type":"courbe","end":{"x":'+number_end_x+',"y":'+number_end_y+'},"mid":{"x":'+number_mid_x+',"y":'+number_mid_y+'}},';
+    var code = '{"type":"arc","taille":'+number_taille+',"rotation":'+statements_rotation+'},';
     return code;
 };
