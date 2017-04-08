@@ -1,6 +1,6 @@
 //
 
-displayInfo();
+displayInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n qu'avec des 0 et des 1! \n Appuie sur les nombres en rouge pour fabriquer des nombres binaires. \n Essaie de trouver la bonne combinaison pour écrire le nombre 29");
 
 function changeBit(elem) {
     if (elem.innerHTML === "0") {
@@ -24,6 +24,9 @@ function convertBit() {
         }
     }
 
+    if(res == 29) {
+        document.getElementById("btn_next_exercise").style.display = "block";
+    }
     document.getElementById("res").innerHTML = res;
 }
 
