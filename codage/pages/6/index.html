@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 1 de l'activité codage : Fonctionnement d'un ordinateur'">
+    <meta name="description" content="Page FIN de l'activité codage">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Comment fonctionne un ordinateur ?</title>
+    <title>Fin de l'activité</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -45,13 +45,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                <a class="navbar-brand" href="#">Communique avec le continent</a>
+                    <a class="navbar-brand" href="#">Communique avec le continent</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="../../../index.html">Accueil</a></li>
                     <li><a href="../../index.html">Retour</a></li>
-                    <li><a href="#" onclick="showHelp('codage_aide.md')">Aide</a></li>
                 </ul>
             </div>
         </div>
@@ -64,7 +63,9 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h2>Comment fonctionne un ordinateur ?</h2>
+                        <h1>Fin</h1>
+
+                        <p>Bravo tu as terminé cette activité !!!</p>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -80,20 +81,21 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <object id="slide-holder" onload="addEndListener()" name="slide" type="text/html" data="slide.html" style="height: 100%; width: 100%;"></object>
+            <div class="text-center" id="imgFin" style="height:100%;">
+                <!--<img src="../../assets/img/diplome.svg" alt="fin" style="height:100%;">-->
+            </div>
         </div>
     </div>
 
     <!-- Javascript custom functions -->
     <script src="../../../assets/js/globals.js"></script>
     <script src="../../assets/js/functions.js"></script>
-    <script defer src="script.js"></script>
     <!--##########################################################################################################-->
 
 </body>

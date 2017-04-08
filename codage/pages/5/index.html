@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page FIN de l'activité codage">
+    <meta name="description" content="Page 4 de l'activité codage : Codage des lettres'">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Fin de l'activité</title>
+    <title>Code une lettre en nombre</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -45,12 +45,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Communique avec le continent</a>
+                <a class="navbar-brand" href="#">Communique avec le continent</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="../../../index.html">Accueil</a></li>
                     <li><a href="../../index.html">Retour</a></li>
+                    <li><a href="#" onclick="showHelp()">Aide</a></li>
                 </ul>
             </div>
         </div>
@@ -63,9 +64,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h1>Fin</h1>
-
-                        <p>Bravo tu as terminé cette activité !!!</p>
+                        <h2>Code une lettre en nombre</h2>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -76,18 +75,31 @@
                         <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
                         <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
                         <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
-                        <button type="button" id="progress_5" onclick="change_page(this.id);">FIN</button>
+                        <button type="button" id="progress_5" onclick="change_page(this.id);">05</button>
+                        <button type="button" id="progress_6" onclick="change_page(this.id);">FIN</button>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR</button>
+                    <button type="button" onclick="next_page();" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+                    <button type="button" onclick="ASCII2String()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> CONVERTIR</button>
+                    <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <div class="text-center" id="imgFin" style="height:100%;">
-                <!--<img src="../../assets/img/diplome.svg" alt="fin" style="height:100%;">-->
+            <div class="row text-center">
+                <info>Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres¤ pour coder les lettres comme les agents secrets. Entraine-toi à ecrire¤ des messages codés en tapant les chiffres qui correspondent.</info>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <img src="../../assets/img/ASCII.png" alt="ASCII codes" height="300px">
+                </div>
+                <div class="col-sm-6">
+                    <textarea id="ASCII_numbers" style="font-family:monospace; font-size: 20px;" rows="4" cols="40">66 79 78 74 79 85 82 32 65 32 84 79 73</textarea>
+                    <div id="res" style="margin-top: 20px; font-family:monospace; font-weight: bold; font-size: 24px; word-wrap: break-word;">Clique sur CONVERTIR pour afficher le texte</div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,6 +107,7 @@
     <!-- Javascript custom functions -->
     <script src="../../../assets/js/globals.js"></script>
     <script src="../../assets/js/functions.js"></script>
+    <script src="script.js"></script>
     <!--##########################################################################################################-->
 
 </body>

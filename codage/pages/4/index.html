@@ -75,12 +75,13 @@
                         <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
                         <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
                         <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
-                        <button type="button" id="progress_5" onclick="change_page(this.id);">FIN</button>
+                        <button type="button" id="progress_5" onclick="change_page(this.id);">05</button>
+                        <button type="button" id="progress_6" onclick="change_page(this.id);">FIN</button>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <button type="button" onclick="next_page();" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="ASCII2String()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> CONVERTIR</button>
+                    <button type="button" onclick="verifiyString()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> VERIFIER</button>
                     <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
                 </div>
             </div>
@@ -88,7 +89,7 @@
 
         <div class="container-fluid" id="bodyPage">
             <div class="row text-center">
-                <info>Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres¤ pour coder les lettres comme les agents secrets. Entraine-toi à ecrire¤ des messages codés en tapant les chiffres qui correspondent.</info>
+                <info>Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres¤ pour coder les lettres comme les agents secrets. Entraine-toi à ecrire¤ des messages codés en tapant les lettres qui correspondent.</info>
             </div>
             
             <div class="row text-center">
@@ -96,8 +97,8 @@
                     <img src="../../assets/img/ASCII.png" alt="ASCII codes" height="300px">
                 </div>
                 <div class="col-sm-6">
-                    <textarea id="ASCII_numbers" style="font-family:monospace; font-size: 20px;" rows="4" cols="40">66 79 78 74 79 85 82 32 97 32 116 111 105</textarea>
-                    <div id="res" style="margin-top: 20px; font-family:monospace; font-weight: bold; font-size: 24px; word-wrap: break-word;">Clique sur CONVERTIR pour afficher le texte</div>
+                    <div id="res" style="margin-top: 20px; font-family:monospace; font-weight: bold; font-size: 24px; word-wrap: break-word;">Converti ces nombres en texte et écrit le ci-dessous<br>66 79 78 74 79 85 82 32 65 32 84 79 73</div>
+                    <textarea id="ASCII_text" style="font-family:monospace; font-size: 20px;" rows="4" cols="40"></textarea>
                 </div>
             </div>
         </div>

@@ -2,28 +2,19 @@
 
 displayInfo();
 
-function ASCII2String() {
-    var res = "";
+function verifiyString() {
 
-    var str_ASCII_number = document.getElementById("ASCII_numbers").value;
-    var list_ASCII_number = str_ASCII_number.split(" ");
+    var str_value = document.getElementById("ASCII_text").value;
 
-    for (var i = 0; i < list_ASCII_number.length; i++) {
-        var code = list_ASCII_number[i];
-        
-        if (code == 32 || (code >= 48 && code <= 57) || (code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
-            res += String.fromCharCode(code);
-        }
-        else {
-            res += "?";
-        }
+    if(str_value === "BONJOUR A TOI") {
+        popupGood();
     }
-
-    document.getElementById("res").innerHTML = res;
+    else {
+        popupNotGood();
+    }
 }
 
 function reinit_text() {
-    document.getElementById("ASCII_numbers").value = "";
-    document.getElementById("res").innerHTML = "Entre des nombres en haut et Clique sur CONVERTIR pour afficher le texte";
+    document.getElementById("ASCII_text").value = "";
 }
 //------------------------------------------------//
