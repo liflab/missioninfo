@@ -83,33 +83,48 @@ function popupGood() {
     });
 }
 
-function displayInfo() {
+function popupInfo(info_text) {
+    bootbox.alert({
+        message: '<div class="text-center">' + displayInfo(info_text,true) + '</div>',
+        size: "xlarge",
+        backdrop: true
+    });
+}
+
+function displayInfo(info_text, popup = false) {
     // Get SVG text
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "../../../assets/img/info.svg", false);
     xmlHttp.send(null);
 
     var svg_text = xmlHttp.responseText;
-    //console.log(svg_text);
 
-    // Get info tag in page
-    var infos = document.getElementsByTagName("info");
-    for (var i = 0; i < infos.length; i++) {
-        var info_text = infos[i].textContent;
-        var info_text_line = info_text.split("¤");
+    var info_text_line = info_text.split("\n");
 
-        var svg_modify = svg_text;
-
-        for (var ligne = 0; ligne < 4; ligne++) {
-            if (typeof info_text_line[ligne] !== 'undefined') {
-                svg_modify = svg_modify.replace("$text" + (ligne + 1) + "$", info_text_line[ligne].trim());
-            }
-            else {
-                svg_modify = svg_modify.replace("$text" + (ligne + 1) + "$", "");
-            }
+    // Add custom text
+    var svg_modify = svg_text;
+    for (var ligne = 0; ligne < 4; ligne++) {
+        if (typeof info_text_line[ligne] !== 'undefined') {
+            svg_modify = svg_modify.replace("$text" + (ligne + 1) + "$", info_text_line[ligne].trim());
         }
-        infos[i].innerHTML = svg_modify
+        else {
+            svg_modify = svg_modify.replace("$text" + (ligne + 1) + "$", "");
+        }
     }
+
+    // Return text or add it in html tree
+    if (popup) {
+        return svg_modify;
+    } else {
+        var infos_html = document.getElementsByTagName("info");
+        if (infos_html.length > 0) {
+            infos_html[0].innerHTML = svg_modify;
+        }
+        else {
+            console.log("No info tag in html page!");
+        }
+    }
+
 }
 
 function showHelp(helpfile) {

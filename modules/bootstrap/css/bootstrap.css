@@ -6364,6 +6364,11 @@ button.close {
     width: 900px;
   }
 }
+@media (min-width: 1292px) {
+  .modal-xlg {
+    width: 1200px;
+  }
+}
 .tooltip {
   position: absolute;
   z-index: 1070;
