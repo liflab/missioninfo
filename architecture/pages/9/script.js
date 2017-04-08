@@ -19,6 +19,28 @@ const START_COORD = {"x":5,"y":7};
 var draw_saved = [];
 var draw_gen_saved = [];
 
+function checkAnswer() {
+    console.log("custom overriden");
+    if(custom_validation(draw_gen_saved,solution) && two_imbriqued(past_code)){
+        enable_next();
+    }else{
+        not_good();
+    }
+}
+function two_imbriqued(past_code){
+    for(var i=0;i<past_code.length;i++){
+        if(past_code[i]["type"]=="boucle"){
+            var next_code = past_code[i]["value"];
+            for(var j=0;j<next_code.length;j++){
+                if(next_code[j]["type"]=="boucle"){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 function preload(){
     image_robotino = loadImage(ADDR_ROBOTINO_AIR);
     image_background = loadImage(ADDR_BACKGROUND_IMAGE_3);
