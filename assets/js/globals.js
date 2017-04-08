@@ -33,7 +33,7 @@ var onresize = function () {
     }
     // Desktop view -> adapt height
     else {
-        height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('navbar').offsetHeight - document.getElementById('topPage').offsetHeight;
+        height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('topPage').offsetHeight - 10;
     }
     bodyPageDiv.style.height = height + 'px';
 };
