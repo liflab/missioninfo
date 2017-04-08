@@ -54,7 +54,14 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
             ["180° degrés","180"],
             ["90° degrés","90"],
         ];
-        break;
+    break;
+    case 9:
+        dropdown_angle = [
+            ["180° degrés","180"],
+            ["120° degrés","120"],
+            ["90° degrés","90"],
+        ];
+    break;
     default:
         dropdown_angle = [
             ["90° degrés","90"]
