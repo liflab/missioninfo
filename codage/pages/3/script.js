@@ -5,6 +5,7 @@ function addEndListener() {
         if (Reveal.getProgress() == 1) {
             document.getElementById("btn_next_exercise").style.display = "block";
         }
+        writeToLog(activity, "Slide changed : " + Reveal.getProgress());
     } );
 }
 //------------------------------------------------//
