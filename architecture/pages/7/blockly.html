@@ -16,10 +16,24 @@
     <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
         <category name="Mouvements">
             <block type="avancer">
-                <field name="Avancer">0.1</field>
+                <field name="Avancer">4</field>
             </block>
+            <block type="avancer">
+                <field name="Avancer">3.35</field>
+            </block>
+
             <block type="tourner">
                 <field name="Angle">90</field>
+            </block>
+
+            <block type="arc_de_cercle">
+                <field name="Taille">0</field>
+                <statement name="Rotation">
+                    <block type="tourner_arc">
+                        <field name="Angle">90</field>
+                        <field name="Direction">1</field>
+                    </block>
+                </statement>
             </block>
         </category>
         <category name="Crayon">
