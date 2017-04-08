@@ -11,7 +11,7 @@ function ASCII2String() {
     for (var i = 0; i < list_ASCII_number.length; i++) {
         var code = list_ASCII_number[i];
         
-        if (code == 32 || (code >= 48 && code <= 57) || (code >= 65 && code <= 90) || (code >= 97 && code <= 122)) {
+        if (code == 32 || (code >= 65 && code <= 90)) {
             res += String.fromCharCode(code);
         }
         else {
