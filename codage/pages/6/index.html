@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 4 de l'activité codage : Codage des lettres'">
+    <meta name="description" content="Page FIN de l'activité codage">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Code une lettre en nombre</title>
+    <title>Fin de l'activité</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -45,13 +45,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                <a class="navbar-brand" href="#">Communique avec le continent</a>
+                    <a class="navbar-brand" href="#">Communique avec le continent</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="../../../index.html">Accueil</a></li>
                     <li><a href="../../index.html">Retour</a></li>
-                    <li><a href="#" onclick="showHelp()">Aide</a></li>
                 </ul>
             </div>
         </div>
@@ -64,8 +63,9 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h2>Code une lettre en nombre</h2>
-                        <p>But : Encode les lettres de ton message et remplit le bloc avec les nombres correspondants.</p>
+                        <h1>Fin</h1>
+
+                        <p>Bravo tu as terminé cette activité !!!</p>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -81,20 +81,14 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="ASCII2String()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> CONVERTIR</button>
-                    <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
+                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <div class="text-center">
-                <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
-            </div>
-            <div style="text-align:center;margin: 5vh auto 0 auto;width:90%;">
-                <textarea id="ASCII_numbers" style="text-align:center;font-family:monospace; font-size: 48px;" rows="1" cols="50">66 79 78 74 79 85 82 32 65 32 84 79 73</textarea>
-                <div id="res" style="text-align:center;margin-top: 2vh;font-family:monospace; font-weight: bold; font-size: 36px; word-wrap: break-word;">Clique sur CONVERTIR pour afficher le texte</div>
+            <div class="text-center" id="imgFin" style="height:100%;">
+                <!--<img src="../../assets/img/diplome.svg" alt="fin" style="height:100%;">-->
             </div>
         </div>
     </div>
@@ -102,7 +96,6 @@
     <!-- Javascript custom functions -->
     <script src="../../../assets/js/globals.js"></script>
     <script src="../../assets/js/functions.js"></script>
-    <script src="script.js"></script>
     <!--##########################################################################################################-->
 
 </body>

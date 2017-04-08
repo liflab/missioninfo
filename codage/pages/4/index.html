@@ -65,6 +65,7 @@
                 <div class="col-sm-3">
                     <div id="title">
                         <h2>Code une lettre en nombre</h2>
+                        <p>But : Décode les chiffres et remplit les cases par les lettres correspondantes.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -75,29 +76,50 @@
                         <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
                         <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
                         <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
-                        <button type="button" id="progress_5" onclick="change_page(this.id);">FIN</button>
+                        <button type="button" id="progress_5" onclick="change_page(this.id);">05</button>
+                        <button type="button" id="progress_6" onclick="change_page(this.id);">FIN</button>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="ASCII2String()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> CONVERTIR</button>
+                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+                    <button type="button" onclick="verifiyString()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> VERIFIER</button>
                     <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <div class="row text-center">
-                <info>Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres¤ pour coder les lettres comme les agents secrets. Entraine-toi à ecrire¤ des messages codés en tapant les chiffres qui correspondent.</info>
+            <div class="text-center">
+                <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
             </div>
-            
-            <div class="row text-center">
-                <div class="col-sm-6">
-                    <img src="../../assets/img/ASCII.png" alt="ASCII codes" height="300px">
+            <div style="margin: 5vh 20px 0 20px;">
+                <div class="row text-center" style="font-family:monospace; font-weight: bold;  font-size: 48px; color: crimson">
+                    <div id="ASCII_1" class="col-sm-1">83</div>
+                    <div id="ASCII_2" class="col-sm-1">65</div>
+                    <div id="ASCII_3" class="col-sm-1">76</div>
+                    <div id="ASCII_4" class="col-sm-1">85</div>
+                    <div id="ASCII_5" class="col-sm-1">84</div>
+                    <div id="ASCII_6" class="col-sm-1">32</div>
+                    <div id="ASCII_7" class="col-sm-1">65</div>
+                    <div id="ASCII_8" class="col-sm-1">32</div>
+                    <div id="ASCII_9" class="col-sm-1">84</div>
+                    <div id="ASCII_10" class="col-sm-1">79</div>
+                    <div id="ASCII_11" class="col-sm-1">85</div>
+                    <div id="ASCII_12" class="col-sm-1">83</div>
                 </div>
-                <div class="col-sm-6">
-                    <textarea id="ASCII_numbers" style="font-family:monospace; font-size: 20px;" rows="4" cols="40">66 79 78 74 79 85 82 32 97 32 116 111 105</textarea>
-                    <div id="res" style="margin-top: 20px; font-family:monospace; font-weight: bold; font-size: 24px; word-wrap: break-word;">Clique sur CONVERTIR pour afficher le texte</div>
+                <div class="row" style="font-family:monospace;font-size: 48px;">
+                    <input style="text-align:center;" id="letter_1" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_2" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_3" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_4" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_5" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_6" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_7" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_8" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_9" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_10" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_11" size="1" maxlength="1" class="col-sm-1"></input>
+                    <input style="text-align:center;" id="letter_12" size="1" maxlength="1" class="col-sm-1"></input>
                 </div>
             </div>
         </div>

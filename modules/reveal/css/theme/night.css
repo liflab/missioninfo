@@ -173,7 +173,7 @@ body {
 
 .reveal table th,
 .reveal table td {
-  text-align: left;
+  /*text-align: left;*/
   padding: 0.2em 0.5em 0.2em 0.5em;
   border-bottom: 1px solid; }
 
@@ -234,6 +234,7 @@ body {
 
 .reveal section img.plain {
   border: 0;
+  background: none;
   box-shadow: none; }
 
 .reveal a img {

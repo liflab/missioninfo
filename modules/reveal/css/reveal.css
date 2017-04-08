@@ -136,11 +136,19 @@ body {
     visibility: inherit; }
 
 .reveal .slides section .fragment.highlight-red,
-.reveal .slides section .fragment.highlight-current-red,
 .reveal .slides section .fragment.highlight-green,
-.reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-orange,
+.reveal .slides section .fragment.highlight-purple,
+.reveal .slides section .fragment.highlight-yellow,
+.reveal .slides section .fragment.highlight-cyan,
 .reveal .slides section .fragment.highlight-blue,
-.reveal .slides section .fragment.highlight-current-blue {
+.reveal .slides section .fragment.highlight-current-red,
+.reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-current-blue,
+.reveal .slides section .fragment.highlight-current-orange,
+.reveal .slides section .fragment.highlight-current-purple,
+.reveal .slides section .fragment.highlight-current-yellow,
+.reveal .slides section .fragment.highlight-current-cyan {
   opacity: 1;
   visibility: inherit; }
 
@@ -153,6 +161,18 @@ body {
 .reveal .slides section .fragment.highlight-blue.visible {
   color: #1b91ff; }
 
+.reveal .slides section .fragment.highlight-orange.visible {
+  color: #ff7a2d; }
+
+.reveal .slides section .fragment.highlight-purple.visible {
+  color: #d52dff; }
+  
+.reveal .slides section .fragment.highlight-yellow.visible {
+  color: #fff12d; }
+
+.reveal .slides section .fragment.highlight-cyan.visible {
+  color: #2df1ff; }
+
 .reveal .slides section .fragment.highlight-current-red.current-fragment {
   color: #ff2c2d; }
 
@@ -161,6 +181,18 @@ body {
 
 .reveal .slides section .fragment.highlight-current-blue.current-fragment {
   color: #1b91ff; }
+
+.reveal .slides section .fragment.highlight-current-orange.current-fragment {
+  color: #ff7a2d; }
+
+.reveal .slides section .fragment.highlight-current-purple.current-fragment {
+  color: #d52dff; }
+  
+.reveal .slides section .fragment.highlight-current-yellow.current-fragment {
+  color: #fff12d; }
+
+.reveal .slides section .fragment.highlight-current-cyan.current-fragment {
+  color: #2df1ff; }
 
 /*********************************************
  * DEFAULT ELEMENT STYLES
