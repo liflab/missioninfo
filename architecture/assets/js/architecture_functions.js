@@ -191,7 +191,6 @@ function is_equivalent(d1,d2){
     if(d1["type"]!=d2["type"]){
         return false;
     }
-    console.log("Types equivalents");
     switch(d1["type"]){
         case "line":
             var v_coord = (
@@ -207,7 +206,15 @@ function is_equivalent(d1,d2){
             return v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]));
         break;
         case "arc":
-            // TODO
+            if(d1["size"]!=d2["size"] || d1["color"]!=d2["color"] || d1["middle"]["x"]!=d2["middle"]["x"] || d1["middle"]["y"]!=d2["middle"]["y"]){
+                return false;
+            }
+            if(
+                d1["reversed"]==d2["reversed"] && d1["start_angle"]==d2["start_angle"] && d1["end_angle"]==d2["end_angle"] ||
+                d1["reversed"]!=d2["reversed"] && d1["start_angle"]==d2["end_angle"] && d1["end_angle"]==d2["start_angle"]
+            ){
+                return true;
+            }
             return false;
         break;
         default:
