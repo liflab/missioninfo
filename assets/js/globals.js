@@ -59,13 +59,20 @@ function createButtons(nb_total_btn) {
             }
         }
         else if (i == savedPageNumber) {
-            btn_html += '<button class="btn btn-warning" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
-        }
-        else if (i == nb_total_btn) {
-            btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
+            if (i == nb_total_btn) {
+                btn_html += '<button class="btn btn-success" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
+            }
+            else {
+                btn_html += '<button class="btn btn-warning" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            }
         }
         else {
-            btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            if (i == nb_total_btn) {
+                btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
+            }
+            else {
+                btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            }
         }
     }
 
