@@ -6,7 +6,7 @@ var isOnLocalhost = document.location.hostname.indexOf("localhost") == 0;
 var pathTab = document.location.pathname.split('/');
 
 var activity = 'accueil';
-var currentPageNumber = 0;
+var currentPageNumber = 1;
 if (isOnLocalhost) {
     activity = pathTab[1]
     currentPageNumber = parseInt(pathTab[3]);
@@ -18,7 +18,12 @@ else { // To handle github sub-folder path
 
 var savedPageNumber = parseInt(window.localStorage.getItem("max_page_" + activity));
 if (isNaN(savedPageNumber)) {
-    savedPageNumber = 0;
+    savedPageNumber = 1;
+}
+
+function openLastPage() {
+    writeToLog(activity, "First page (" + savedPageNumber + ")");
+    location.href = 'pages/' + savedPageNumber + '/index.html';
 }
 
 //-----------------------UI : SIZE-----------------------//
@@ -40,6 +45,34 @@ var onresize = function () {
 window.addEventListener('resize', onresize, false);
 
 //-----------------------UI : PROGRESS BAR-----------------------//
+function createButtons(nb_total_btn) {
+    var btn_div = document.getElementById("button_place");
+    var btn_html = '<div class="btn-group">';
+
+    for (var i = 1; i <= nb_total_btn; i++) {
+        if (i < savedPageNumber) {
+            if (i == currentPageNumber) {
+                btn_html += '<button class="btn btn-primary" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            }
+            else {
+                btn_html += '<button class="btn btn-success" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            }
+        }
+        else if (i == savedPageNumber) {
+            btn_html += '<button class="btn btn-warning" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+        }
+        else if (i == nb_total_btn) {
+            btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
+        }
+        else {
+            btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+        }
+    }
+
+    btn_html += '</div>'
+    btn_div.innerHTML = btn_html;
+}
+
 function activateButtons(nb_total_btn) {
     var num = Math.max(currentPageNumber, savedPageNumber);
 
@@ -85,7 +118,7 @@ function popupGood() {
 
 function popupInfo(info_text) {
     bootbox.alert({
-        message: '<div class="text-center">' + displayInfo(info_text,true) + '</div>',
+        message: '<div class="text-center">' + displayInfo(info_text, true) + '</div>',
         size: "xlarge",
         backdrop: true
     });
