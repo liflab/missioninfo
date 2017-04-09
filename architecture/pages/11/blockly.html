@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
+    <script src="../../../modules/blockly/msg/js/fr.js"></script>
+    <script src="../../../modules/blockly/blocks_compressed.js"></script>
+    <script src="../../../modules/blockly/javascript_compressed.js"></script>
+    <script src="../../../modules/blockly/blockly_init.js"></script>
+    <script src="../../assets/js/architecture_blocks.js"></script>
+    <link href="../../assets/css/architecture_blockly.css" rel="stylesheet">
+</head>
+
+<body onload="initBlockly(1,true,false)">
+    <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+        <category name="Mouvements">
+            <block type="avancer">
+                <field name="Avancer">4</field>
+            </block>
+            <block type="avancer">
+                <field name="Avancer">3.35</field>
+            </block>
+
+            <block type="tourner">
+                <field name="Angle">120</field>
+            </block>
+
+            <block type="arc_de_cercle">
+                <field name="Taille">0</field>
+                <statement name="Rotation">
+                    <block type="tourner_arc">
+                        <field name="Angle">90</field>
+                        <field name="Direction">1</field>
+                    </block>
+                </statement>
+            </block>
+        </category>
+        <category name="Crayon">
+            <block type="lever_le_crayon"></block>
+            <block type="poser_le_crayon"></block>
+            <block type="crayon_de_couleur"></block>
+        </category>
+        <category name="Boucles">
+            <block type="boucle"></block>
+        </category>
+    </xml>
+    <xml id="workspace" style="display:none;">
+
+    </xml>
+</body>
+
+</html>

@@ -5,6 +5,11 @@ if (isNaN(savedPageNumber)) {
     savedPageNumber = 0;
 }
 
+if(currentPageNumber >  11){
+    currentPageNumber = savedPageNumber;
+}
+console.log(currentPageNumber);
+
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
 };

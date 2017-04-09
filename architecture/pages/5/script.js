@@ -114,7 +114,7 @@ function run_exercice_code(obj){
     todo_step = obj.slice(0);
     past_code_generated = obj.slice(0);
 
-    reset(true);
+    //reset(true);
     example_demo = false;
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL);
     setTimeout(function(){
