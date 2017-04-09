@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 2 de l'activité découverte : Suppresion de blocs">
+    <meta name="description" content="Page 2 de l'activité découverte : Ajout de blocs">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Suppresion de blocs</title>
+    <title>Ajout de blocs</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -28,7 +28,7 @@
     <script src="../../../modules/bootbox/bootbox.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="../../assets/css/decouverte.css" rel="stylesheet">
+    <link href="../../assets/css/page.css" rel="stylesheet">
     <!--##########################################################################################################-->
 
 </head>
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Activité Découverte</a>
+                    <a class="navbar-brand" href="#">Découvre l'île</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -64,27 +64,19 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h1>Suppresion de blocs</h1>
+                        <h1>Ajout de blocs</h1>
 
-                        <p>But : Supprime le bloc présent pour valider l'exercice.</p>
+                        <p>But : Ajoute deux blocs pour créer un programme.</p>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
                     <h1>Progression</h1>
-
-                    <div class="btn-group">
-                        <button type="button" id="progress_1" onclick="change_page(this.id);">01</button>
-                        <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
-                        <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
-                        <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
-                        <button type="button" id="progress_5" onclick="change_page(this.id);">FIN</button>
-                    </div>
+                    <div id="button_place"></div>
                 </div>
                 <div class="col-sm-3">
                     <button type="button" onclick="next_page();" id="btn_next_exercise" style="display:none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
                     <button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
                     <button type="button" onclick="save_code()" class="btn btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
-
                 </div>
             </div>
         </div>
@@ -95,7 +87,8 @@
     </div>
 
     <!-- Javascript custom functions -->
-    <script src="../../assets/js/decouverte_functions.js"></script>
+    <script src="../../../assets/js/globals.js"></script>
+    <script src="../../assets/js/functions.js"></script>
     <script src="script.js"></script>
     <!--##########################################################################################################-->
 

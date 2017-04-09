@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 5 de l'activité découverte : Afficher du texte">
+    <meta name="description" content="Page FIN de l'activité découverte">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Afficher du texte</title>
+    <title>Fin de la découverte</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -45,13 +45,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Découvre l'île</a>
+                <a class="navbar-brand" href="#">Découverte de l'île</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="../../../index.html">Accueil</a></li>
                     <li><a href="../../index.html">Retour</a></li>
-                    <li><a href="#" onclick="showHelp()">Aide</a></li>
                 </ul>
             </div>
         </div>
@@ -64,9 +63,9 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h1>Afficher du texte</h1>
+                        <h1>Fin</h1>
 
-                        <p>But : Affiche du texte à l'écran à l'aide du bloc 'Affiche'.</p>
+                        <p>Bravo tu as terminé cette activité !!!</p>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -74,22 +73,21 @@
                     <div id="button_place"></div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display:none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
-                    <button type="button" onclick="save_code()" class="btn btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
+                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+            <div class="text-center" id="imgFin" style="height:100%;">
+                <img src="../../assets/img/decouverte_diplome.svg" alt="fin" style="height:100%;">
+            </div>
         </div>
     </div>
 
     <!-- Javascript custom functions -->
     <script src="../../../assets/js/globals.js"></script>
     <script src="../../assets/js/functions.js"></script>
-    <script src="script.js"></script>
     <!--##########################################################################################################-->
 
 </body>

@@ -8,14 +8,16 @@
     <script src="../../../modules/blockly/blocks_compressed.js"></script>
     <script src="../../../modules/blockly/javascript_compressed.js"></script>
     <script src="../../../modules/blockly/blockly_init.js"></script>
-    <script src="../../assets/js/decouverte_blocks.js"></script>
-    <link href="../../assets/css/decouverte_blockly.css" rel="stylesheet">
+    <script src="../../assets/js/blocks.js"></script>
+    <link href="../../assets/css/blockly.css" rel="stylesheet">
 </head>
 
 <body onload="initBlockly(1.5,false,false)">
     <xml id="toolbox" style="display: none">
-        <block type="block_1"></block>
-        <block type="block_2"></block>
+        <block type="affiche"></block>
+        <block type="text">
+            <field name="TEXTE"></field>
+        </block>
     </xml>
 </body>
 

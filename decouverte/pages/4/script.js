@@ -1,26 +1,15 @@
+popupInfo("On va apprendre à utiliser l'aide. \n L'aide sera toujours présente si jamais tu es bloqué. Si jamais tu ne trouve \n pas ta réponse demande alors de l'aide aux animateurs. \n Utilise le clic droit (ou l'appui long) sur le bloc pour trouver l'aide.")
+
 // To check the answer
 var stringAnswer;
-var blocksOK;
 
 function initAnswer() {
    stringAnswer = "";
-   blocksOK = false;
-}
-
-function addText(stringToAdd) {
-    if (!(stringToAdd === "")) {
-        blocksOK = true;
-    }
-    stringAnswer += stringToAdd + '<br>';
 }
 
 function checkAnswer() {
-    if (blocksOK) {
-        bootbox.alert({
-        message: '<div class="text-center"><p>Voici le texte que tu as affiché :</p><h3>'+ stringAnswer +'</h3></div>',
-        backdrop: true,
-        callback: function(){ enable_next(); }
-        });
+    if(stringAnswer === "CHIEN") {
+        enable_next();
     }
     else {
         not_good();

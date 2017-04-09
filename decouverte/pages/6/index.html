@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 5 de l'activité découverte : Afficher du texte">
+    <meta name="description" content="Page 6 de l'activité découverte : Bienvenue sur l'île">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Afficher du texte</title>
+    <title>Microbit</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Découvre l'île</a>
+                <a class="navbar-brand" href="#">Découvre l'île</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -64,9 +64,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h1>Afficher du texte</h1>
-
-                        <p>But : Affiche du texte à l'écran à l'aide du bloc 'Affiche'.</p>
+                        <h2>Microbit</h2>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -74,15 +72,13 @@
                     <div id="button_place"></div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display:none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
-                    <button type="button" onclick="save_code()" class="btn btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
+                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
                 </div>
             </div>
         </div>
 
         <div class="container-fluid" id="bodyPage">
-            <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+            <object id="slide-holder" name="slide" onload="addEndListener()" type="text/html" data="slide.html" style="height: 100%; width: 100%;"></object>
         </div>
     </div>
 
