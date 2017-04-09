@@ -67,16 +67,7 @@
         </div>
 
     </div>
-    <script>
-        function openLastPage() {
-            var savedPageNumber = parseInt(window.localStorage.getItem("max_page_codage"));
-            if (isNaN(savedPageNumber)) {
-                savedPageNumber = 1;
-            }
-
-            location.href = 'pages/' + savedPageNumber + '/index.html';
-        }
-    </script>
+    <script src="../assets/js/globals.js"></script>
 </body>
 
 </html>
