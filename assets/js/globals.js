@@ -131,7 +131,10 @@ function popupInfo(info_text) {
     });
 }
 
-function displayInfo(info_text, popup = false) {
+function displayInfo(info_text, popup) {
+    if(popup===undefined){
+        popup = false;  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
+    }
     // Get SVG text
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "../../../assets/img/info.svg", false);
