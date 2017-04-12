@@ -340,6 +340,7 @@ const ADDR_BACKGROUND_IMAGE_3 = "../../assets/img/background-3.png";
  */
 
 function run_exercice_code(obj){
+    reset(true);
     stopAnim(true);
     var past_time_max = time_max;
 
@@ -400,6 +401,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
+    reset(true);
     stopAnim(true);
     updateMaxRange(solution_length(solution_example));
     todo_step = formatExerciceCode(solution_example.slice(0));
@@ -424,7 +426,7 @@ function stopAnim(b){
     todo_step = [];
     current_time = 0;
     clearInterval(timer_interval);
-    reset(true);
+    //reset(true);
     invertButtons();
     document.querySelector("#anim-slider").value="0";
     updateTextRanger();
