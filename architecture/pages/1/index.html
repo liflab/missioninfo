@@ -21,6 +21,7 @@
     <!-- Bootstrap -->
     <!-- Bootstrap core CSS -->
     <link href="../../../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../modules/bootstrap/css/bootstrap.icon-large.min.css" rel="stylesheet">
     <!-- Bootstrap core JavaScript -->
     <script src="../../../modules/jquery/jquery.min.js"></script>
     <script src="../../../modules/bootstrap/js/bootstrap.js"></script>
@@ -59,7 +60,7 @@
                     <li><a href="../../index.html">Retour</a></li>
                     <li><a href="#" onclick="showHelp()">Aide</a></li>
                 </ul>
-                <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a></p>
+                <p class="navbar-text navbar-right">Fonctionne grâce à <a href="#" class="navbar-link">Blockly</a>, <a href="http://www.glyphicons.com">Glyphicons</a></p>
             </div>
         </div>
     </nav>
@@ -104,7 +105,13 @@
             <div class="row">
                 <div class="col-sm-6" id="sketch-col">
                     <div class="range range-primary">
+                        <span class="icon-large icon-turtle"></span>
+                        <input id="speed" type="range" name="range" min="0.01" max="0.99" step="0.01" value="0.01">
+                        <span class="icon-large icon-rabbit"></span>
+                    </div>
+                    <div class="range range-primary">
                         <output id="anim-play" onclick="playAnim();"><span class="glyphicon glyphicon-play"></span></output>
+                        <output id="anim-stop" class="hidden" onclick="stopAnim(true);"><span class="glyphicon glyphicon-stop"></span></output>
                         <input id="anim-slider" type="range" name="range" min="0" value="0">
                         <output id="anim-slider-text">Temps = 00</output>
                     </div>

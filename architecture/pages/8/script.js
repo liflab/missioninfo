@@ -118,6 +118,7 @@ function drawExercise() {
 }
 
 function run_exercice_code(obj){
+    stopAnim(true);
     var past_time_max = time_max;
 
     past_code = obj.slice(0);
@@ -177,6 +178,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
+    stopAnim(true);
     updateMaxRange(solution_length(solution_example));
     todo_step = formatExerciceCode(solution_example.slice(0));
 
