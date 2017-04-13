@@ -1,8 +1,6 @@
 // To check the answer
-var stringAnswer;
 var canvas;
 var past_code;
-var past_code_generated;
 
 var solution = [
     {"type":"line","color":"#ff0000","coord1":{"x":10,"y":6},"coord2":{"x":14,"y":6}},
@@ -39,23 +37,7 @@ var solution_example = [
     {"type":"avancer","value":4}
 ];
 var Crayon;
-function checkAnswer() {
-    console.log("custom overriden");
-    if(custom_validation(draw_gen_saved,solution) && two_or_more(past_code)){
-        enable_next();
-    }else{
-        not_good();
-    }
-}
-function two_or_more(past_code){
-    var nb_boucle = 2;
-    for(var i=0;i<past_code.length;i++){
-        if(past_code[i]["type"]=="boucle"){
-            nb_boucle--;
-        }
-    }
-    return nb_boucle <=0;
-}
+
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
@@ -74,7 +56,6 @@ function preload(){
     setup();
 }
 
-
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
     canvas.parent('sketch-holder');
@@ -90,12 +71,9 @@ function reset(b){
     drawSpaceIndicators();
     drawExercise();
     if(b){
-        draw_gen_saved = [];
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = 0;
-        Crayon["leve"] = false;
-        Crayon["color"] = "#000000";
         drawCursor(x,y);
         draw_saved = [];
         draw_gen_saved = [];

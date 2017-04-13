@@ -5,7 +5,7 @@ if (isNaN(savedPageNumber)) {
     savedPageNumber = 0;
 }
 
-if(currentPageNumber >  11){
+if(currentPageNumber >  14){
     currentPageNumber = savedPageNumber;
 }
 console.log(currentPageNumber);
