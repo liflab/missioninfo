@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--##########################################################################################################-->
+
+    <!-- Description -->
+    <meta name="description" content="Page 1 de l'activité découverte : Bienvenue sur l'île">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+    <title>Bienvenue</title>
+    <!--##########################################################################################################-->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" size="96x96" href="../../../assets/icon.png">
+    <!--##########################################################################################################-->
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap core CSS -->
+    <link href="../../../modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    <script src="../../../modules/jquery/jquery.min.js"></script>
+    <script src="../../../modules/bootstrap/js/bootstrap.js"></script>
+    <!-- Bootstrap dialog extension -->
+    <script src="../../../modules/bootbox/bootbox.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/architecture.css" rel="stylesheet">
+    <!--##########################################################################################################-->
+
+</head>
+
+<body onload="allLoaded();">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Activité Dessine ta cabane</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="loader" class="body-content"></div>
+
+<div id="page" style="display:none">
+    <div id="topPage" class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="title">
+                    <h2>Dessine ta cabane</h2>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center">
+                <h1>Progression</h1>
+                <div id="btn-group" class="btn-group">
+                    <button type="button" id="progress_1" onclick="change_page(this.id);">01</button>
+                    <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
+                    <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
+                    <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
+                    <button type="button" id="progress_5" onclick="change_page(this.id);">05</button>
+                    <button type="button" id="progress_6" onclick="change_page(this.id);">06</button>
+                    <button type="button" id="progress_7" onclick="change_page(this.id);">07</button>
+                    <button type="button" id="progress_8" onclick="change_page(this.id);">08</button>
+                    <button type="button" id="progress_9" onclick="change_page(this.id);">09</button>
+                    <button type="button" id="progress_10" onclick="change_page(this.id);">10</button>
+                    <button type="button" id="progress_11" onclick="change_page(this.id);">11</button>
+                    <button type="button" id="progress_12" onclick="change_page(this.id);">12</button>
+                    <button type="button" id="progress_13" onclick="change_page(this.id);">FIN</button>
+                    <button type="button" id="progress_14" onclick="change_page(this.id);">Suite</button>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="bodyPage">
+        <object id="slide-holder" name="slide" onload="addEndListener()" type="text/html" data="slide.html" style="height: 100%; width: 100%;"></object>
+    </div>
+</div>
+
+<!-- Javascript custom functions -->
+<script src="../../../assets/js/globals.js"></script>
+<script src="../../assets/js/architecture_functions.js"></script>
+<script src="script.js"></script>
+<!--##########################################################################################################-->
+
+</body>
+
+</html>

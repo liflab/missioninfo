@@ -41,7 +41,9 @@ var onresize = function () {
         height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('topPage').offsetHeight - 10;
     }
     bodyPageDiv.style.height = height + 'px';
-    document.getElementById("blockly-holder").style.height = height + 'px';
+    if(document.getElementById("blockly-holder")){
+        document.getElementById("blockly-holder").style.height = height + 'px';
+    }
 };
 window.addEventListener('resize', onresize, false);
 

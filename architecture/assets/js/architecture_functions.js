@@ -351,7 +351,10 @@ function updateMaxRange(max){
     time_max = max;
     document.querySelector("#anim-slider").setAttribute("max",max);
 }
-document.querySelector("#anim-slider").oninput = updateTextRanger;
+if(document.querySelector("#anim-slider")){
+    document.querySelector("#anim-slider").oninput = updateTextRanger;
+}
+
 function updateTextRanger(){
     document.querySelector("#anim-slider-text").innerHTML="Temps = "+document.querySelector("#anim-slider").value;
 }
