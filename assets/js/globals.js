@@ -8,8 +8,8 @@ var pathTab = document.location.pathname.split('/');
 var activity = 'accueil';
 var currentPageNumber = 1;
 if (isOnLocalhost) {
-    activity = pathTab[1]
-    currentPageNumber = parseInt(pathTab[3]);
+    activity = pathTab[2]
+    currentPageNumber = parseInt(pathTab[4]);
 }
 else { // To handle github sub-folder path
     activity = pathTab[2]
@@ -41,6 +41,7 @@ var onresize = function () {
         height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('topPage').offsetHeight - 10;
     }
     bodyPageDiv.style.height = height + 'px';
+    document.getElementById("blockly-holder").style.height = height + 'px';
 };
 window.addEventListener('resize', onresize, false);
 
