@@ -1,15 +1,3 @@
-// Page managment 
-var currentPageNumber = parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1));
-var savedPageNumber = parseInt(window.localStorage.getItem("max_page_architecture"));
-if (isNaN(savedPageNumber)) {
-    savedPageNumber = 0;
-}
-
-if(currentPageNumber >  14){
-    currentPageNumber = savedPageNumber;
-}
-console.log(currentPageNumber);
-
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
 };
@@ -22,19 +10,12 @@ Math.degrees = function(radians) {
 //##########################################################################################################
 
 // Adjust height manually to allow blockly to be responsive
+/*
 var p5jsDiv = document.getElementById('sketch-col');
 var blocklyDiv = document.getElementById('blockly-holder');
-
-var onresize = function () {
-    blocklyDiv.style.height = p5jsDiv.clientHeight + 'px';
-};
-window.addEventListener('resize', onresize, false);
+*/
 //##########################################################################################################
 
-// Export blockly namespace into parent page
-window.blockly_loaded = function (blockly) {
-    return window.Blockly = blockly;
-}
 //##########################################################################################################
 
 // Function execute when all things are loaded
@@ -59,19 +40,6 @@ function activateButtons() {
     for (var i = num + 1; i <= nb_total_btn; i++) {
         document.getElementById("progress_" + i).className = "btn btn-default disabled"
     }
-}
-
-function change_page(id_btn) {
-    var num_page = parseInt(id_btn.match(new RegExp("[0-9]+")));
-
-    if (num_page <= Math.max(currentPageNumber, savedPageNumber) && num_page != currentPageNumber) {
-        location.href = '../' + num_page + '/index.html';
-    }
-}
-
-function next_page() {
-    save_code();
-    location.href = '../' + (currentPageNumber + 1) + '/index.html';
 }
 //##########################################################################################################
 
@@ -111,17 +79,11 @@ function save_code() {
 }
 
 function not_good() {
-    bootbox.alert({
-        message: '<div class="text-center">Il y a des erreurs dans ton code. Essaie encore !<br><br><img src="../../assets/img/bad.png" alt="Smiley badface" height="100%"></div>',
-        backdrop: true
-    });
+    popupNotGood();
 }
 
 function enable_next() {
-    bootbox.alert({
-        message: '<div class="text-center">Bravo !!! Tu as réussi cette étape<br><br><img src="../../assets/img/good.png" alt="Smiley goodface" height="100%"><br><br>Clique sur SUIVANT quand tu seras prêt pour la prochaine activité</div>',
-        backdrop: true
-    });
+    popupGood();
     document.getElementById("btn_run_prog").style.display = "none";
     document.getElementById("btn_next_exercise").style.display = "block";
     document.getElementById("progress_" + currentPageNumber.toString()).className = "btn btn-success";
@@ -130,12 +92,6 @@ function enable_next() {
     window.localStorage.setItem("max_page_architecture", Math.max(currentPageNumber + 1, savedPageNumber));
 }
 
-function showHelp() {
-    bootbox.alert({
-        message: '<div class="text-center"><video width="100%" autoplay loop> <source src="../../assets/vid/architecture_video_intro.mp4" type="video/mp4"  /> </video></div>',
-        size: 'large'
-    });
-}
 var play_show = true;
 function invertButtons(){
     play_show = !play_show;
