@@ -64,8 +64,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h2>Code une lettre en nombre</h2>
-                        <p>But : Encode les lettres de ton message et remplit le bloc avec les nombres correspondants.</p>
+                        <h3>Code une lettre en nombre</h3>
+                        <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span class="glyphicon glyphicon-info-sign"></span> INFO</button>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -73,7 +73,7 @@
                     <div id="button_place"></div>
                 </div>
                 <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
+                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
                     <button type="button" onclick="ASCII2String()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> CONVERTIR</button>
                     <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
                 </div>
@@ -85,7 +85,7 @@
                 <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
             </div>
             <div style="text-align:center;margin: 5vh auto 0 auto;width:90%;">
-                <textarea id="ASCII_numbers" style="text-align:center;font-family:monospace; font-size: 48px;" rows="1" cols="50">66 79 78 74 79 85 82 32 65 32 84 79 73</textarea>
+                <textarea id="ASCII_numbers" style="text-align:center;font-family:monospace; font-size: 48px;" rows="1" cols="50"></textarea>
                 <div id="res" style="text-align:center;margin-top: 2vh;font-family:monospace; font-weight: bold; font-size: 36px; word-wrap: break-word;">Clique sur CONVERTIR pour afficher le texte</div>
             </div>
         </div>

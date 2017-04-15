@@ -64,7 +64,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div id="title">
-                        <h2>Code un nombre en binaire</h2>
+                        <h3>Code un nombre en binaire</h3>
+                        <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span class="glyphicon glyphicon-info-sign"></span> INFO</button>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
@@ -85,7 +86,7 @@
             <div class="text-center" style="margin-top:30px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none"
                 unselectable="on">
                 <h2>Nombre binaire</h2>
-                <div class="row" style="font-family:monospace; font-weight: bold;  font-size: 64px; color: crimson">
+                <div class="row" style="font-family:monospace; font-weight: bold;  font-size: 120px; color: crimson">
                     <div class="col-sm-2" id="bit5" onclick="changeBit(this)">0</div>
                     <div class="col-sm-2" id="bit4" onclick="changeBit(this)">0</div>
                     <div class="col-sm-2" id="bit3" onclick="changeBit(this)">0</div>
@@ -93,7 +94,7 @@
                     <div class="col-sm-2" id="bit1" onclick="changeBit(this)">0</div>
                     <div class="col-sm-2" id="bit0" onclick="changeBit(this)">0</div>
                 </div>
-                <div class="row" style="font-family:monospace;">
+                <div class="row" style="font-family:monospace; font-size: 32px;">
                     <div class="col-sm-2">32</div>
                     <div class="col-sm-2">16</div>
                     <div class="col-sm-2">8</div>
@@ -102,7 +103,7 @@
                     <div class="col-sm-2">1</div>
                 </div>
                 <h2>Nombre normaux</h2>
-                <div id="res" style="font-weight: 900;  font-size: 64px; color:dodgerblue">0</div>
+                <div id="res" style="font-weight: 900;  font-size: 120px; color:dodgerblue">0</div>
             </div>
         </div>
     </div>

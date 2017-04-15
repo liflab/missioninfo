@@ -1,6 +1,6 @@
 //
 
-popupInfo("Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres \n pour coder les lettres comme les agents secrets. Entraine-toi à ecrire \n des messages codés en retrouvant les lettres qui correspondent \n à chaque nombre. Ecrit chaque lettre dans la case associée.");
+popupInfo("Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres \n pour coder les lettres comme les agents secrets. Entraine-toi à ecrire \n des messages codés en retrouvant les lettres qui correspondent \n à chaque nombre. <tspan style=\"font-weight:bold\">Ecrit chaque lettre dans la case associée.</tspan>");
 
 function verifiyString() {
 

@@ -1,6 +1,6 @@
 //
 
-displayInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n qu'avec des 0 et des 1! \n Appuie sur les nombres en rouge pour fabriquer des nombres binaires. \n Essaie de trouver la bonne combinaison pour écrire le nombre 29");
+popupInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n qu'avec des 0 et des 1! \n Appuie sur les nombres en rouge pour fabriquer des nombres binaires. \n <tspan style=\"font-weight:bold\">Essaie de trouver la bonne combinaison pour écrire le nombre 29</tspan>");
 
 function changeBit(elem) {
     if (elem.innerHTML === "0") {

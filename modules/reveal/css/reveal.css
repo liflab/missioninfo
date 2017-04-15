@@ -47,6 +47,15 @@ body {
   background-color: #fff;
   color: #000; }
 
+.scrollable {
+    overflow-y: auto  !important;
+    overflow-x: hidden !important;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 /*********************************************
  * VIEW FRAGMENTS
  *********************************************/

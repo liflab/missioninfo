@@ -3,7 +3,7 @@ function allLoaded() {
     createButtons(7);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
-    onresize();
+    autoResize();
 }
 
 // Functions for blocks coding

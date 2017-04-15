@@ -1,8 +1,9 @@
 //
 
-popupInfo("Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres \n pour coder les lettres comme les agents secrets. Entraine-toi à ecrire\n des messages codés en tapant les chiffres qui correspondent au\n message que tu veux envoyer.")
+popupInfo("Maintenant on va faire le contraire. \n\n <tspan style=\"font-weight:bold\">Entraine-toi à ecrire des messages codés en tapant les chiffres</tspan> \n <tspan style=\"font-weight:bold\">qui correspondent au message que tu veux envoyer.</tspan>")
 
 function ASCII2String() {
+    var good = true;
     var res = "";
 
     var str_ASCII_number = document.getElementById("ASCII_numbers").value;
@@ -16,10 +17,19 @@ function ASCII2String() {
         }
         else {
             res += "?";
+            good = false;
         }
     }
 
     document.getElementById("res").innerHTML = res;
+
+    if(good) {
+        popupGood();
+        document.getElementById("btn_next_exercise").style.display = "block";
+    }
+    else {
+        popupNotGood();
+    }
 }
 
 function reinit_text() {

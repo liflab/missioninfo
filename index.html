@@ -56,7 +56,7 @@
     <div class="jumbotron" style="background-image: url(assets/img/fond_accueil.png); background-size: cover">
         <div class="container text-center" style="color: white; text-shadow: 3px 3px 6px #333, -3px -3px 6px #333, -3px 3px 6px #333, 3px -3px 6px #333;">
             <h1>Bienvenue</h1>
-            <p>Je m'appelle Robotino, je serai ton guide<br>pour partir à la découverte de l'île et de tous ses secrets
+            <p>Je m'appelle {ROBOT_NAME}, je serai ton guide<br>pour partir à la découverte de l'île et de tous ses secrets
             </p>
         </div>
     </div>
@@ -70,13 +70,13 @@
             </div>
             <div class="col-md-4">
                 <h3>Communique avec le continent</h3>
-                <p style="text-align: justify">Après la grosse tempête qui t'as fait échouer sur l'île, des personnes sur le continent se demande si tu vas
+                <p style="text-align: justify">Après la grosse tempête qui t'a fait échouer sur l'île, des personnes sur le continent se demande si tu vas
                     bien. Envoie leur un message pour leur dire que tout se passe bien</p>
                 <p><a class="btn btn-warning" href="codage/index.html" role="button">Lancer le module &raquo;</a></p>
             </div>
             <div class="col-md-4">
                 <h3>Répare ton matériel</h3>
-                <p style="text-align: justify">Ton matériel électronique a été endommagé lors de la tempête. Répare le avec l'aide de Robotino pour pouvoir l'utiliser à nouveau</p>
+                <p style="text-align: justify">Ton matériel électronique a été endommagé lors de la tempête. Répare-le avec l'aide de Robotino pour pouvoir l'utiliser à nouveau</p>
                 <p><a class="btn btn-warning" href="logique/index.html" role="button">Lancer le module &raquo;</a></p>
             </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h3>Dessine les plans de ta cabane</h3>
-                <p style="text-align: justify">Une autre tempête semble arriver sur l'île. Tu te dépêches pour construire une petite cabane mais tu n'as plus de force. Robotino propose de t'aider si tu lui fabrique un plan de ta futur cabane</p>
+                <p style="text-align: justify">Une autre tempête semble arriver sur l'île. Tu te dépêches pour construire une petite cabane mais tu n'as plus de force. Robotino propose de t'aider si tu lui fabriques un plan de ta futur cabane</p>
                 <p><a class="btn btn-warning" href="architecture/index.html" role="button">Lancer le module &raquo;</a></p>
             </div>
             <div class="col-md-4">
@@ -115,39 +115,14 @@
         <hr>
 
         <footer>
-            <p>&copy; 2017 Les Débrouillards</p>
+            <p>&copy; 2017</p>
         </footer>
     </div>
-    <script>
-        function clearLocalStorage() {
-            try {
-                window.localStorage.clear();
-            } catch (err) {
-                console.log("No local storage");
-            }
-            bootbox.alert('Réinitialisation effectuée !')
-        }
 
-        function showCredits() {
-            bootbox.alert(`
-            <h3>Développement</h3>
-            <div class="text-center">
-                <p><b>CDT/CEE UQAC</b></p>
-                <p>Maxime BOIVIN - Marianne BOLDUC - Kévin CHAPRON - Laura COTE - Patrick GIROUX - Sylvain HALLE - Vincent PORTA-SCARTA</p>
-            </div>
+    <!-- Javascript custom functions -->
+    <script src="assets/js/globals.js"></script>
+    <!--##########################################################################################################-->
 
-            <h3>Librairies</h3>
-            <ul>
-                <li><a href="http://getbootstrap.com/">bootstrap</a></li>
-                <li><a href="http://bootboxjs.com/">bootbox</a></li>
-                <li><a href="https://developers.google.com/blockly/">blockly</a></li>
-                <li><a href="https://p5js.org/">p5.js</a></li>
-                <li><a href="http://lab.hakim.se/reveal-js">reveal</a></li>
-                <li><a href="http://showdownjs.github.io/demo/">showdown</a></li>
-            </ul>
-            `);
-        }
-    </script>
 </body>
 
 </html>

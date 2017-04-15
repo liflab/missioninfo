@@ -3,7 +3,7 @@ function allLoaded() {
     createButtons(2);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
-    onresize();
+    autoResize();
 }
 
 // Objects used in this activity

@@ -1,19 +1,20 @@
 //-----------------------CONSTANTES-----------------------//
-const ROBOT_NAME = "ROBOTINO";
+const ROBOT_NAME = "Robotino";
+document.body.innerHTML = document.body.innerHTML.replace(/{ROBOT_NAME}/g, ROBOT_NAME);
 
 //-----------------------PAGE MANAGMENT-----------------------//
 var isOnLocalhost = document.location.hostname.indexOf("localhost") == 0;
 var pathTab = document.location.pathname.split('/');
 
-var activity = 'accueil';
-var currentPageNumber = 1;
+var activity;
+var currentPageNumber;
 if (isOnLocalhost) {
-    activity = pathTab[2]
-    currentPageNumber = parseInt(pathTab[4]);
+    activity = pathTab[1] || 'accueil'
+    currentPageNumber = parseInt(pathTab[3]) || 0;
 }
 else { // To handle github sub-folder path
-    activity = pathTab[2]
-    currentPageNumber = parseInt(pathTab[4]);
+    activity = pathTab[2] || 'accueil'
+    currentPageNumber = parseInt(pathTab[4]) || 0;
 }
 
 var savedPageNumber = parseInt(window.localStorage.getItem("max_page_" + activity));
@@ -27,7 +28,7 @@ function openLastPage() {
 }
 
 //-----------------------UI : SIZE-----------------------//
-var onresize = function () {
+var autoResize = function () {
     var bodyPageDiv = document.getElementById('bodyPage');
 
     var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
@@ -41,11 +42,14 @@ var onresize = function () {
         height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('topPage').offsetHeight - 10;
     }
     bodyPageDiv.style.height = height + 'px';
-    if(document.getElementById("blockly-holder")){
+    if (document.getElementById("blockly-holder")) {
         document.getElementById("blockly-holder").style.height = height + 'px';
     }
 };
-window.addEventListener('resize', onresize, false);
+if (currentPageNumber != 0) {
+    window.addEventListener('resize', autoResize, false);
+    console.log("Resize OK");
+}
 
 //-----------------------UI : PROGRESS BAR-----------------------//
 function createButtons(nb_total_btn) {
@@ -126,7 +130,15 @@ function popupGood() {
     });
 }
 
+var info_text_saved = "";
 function popupInfo(info_text) {
+    if (info_text === undefined) {
+        info_text = info_text_saved;  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
+    }
+    else {
+        info_text_saved = info_text;
+    }
+
     bootbox.alert({
         message: '<div class="text-center">' + displayInfo(info_text, true) + '</div>',
         size: "xlarge",
@@ -135,7 +147,7 @@ function popupInfo(info_text) {
 }
 
 function displayInfo(info_text, popup) {
-    if(popup===undefined){
+    if (popup === undefined) {
         popup = false;  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
     }
     // Get SVG text
@@ -214,6 +226,16 @@ function saveAs(blob, fileName) {
     }, 1000);
 }
 
+//-----------------------STORAGE-----------------------//
+function clearLocalStorage() {
+    try {
+        window.localStorage.clear();
+    } catch (err) {
+        console.log("No local storage");
+    }
+    bootbox.alert('Réinitialisation effectuée !')
+}
+
 //-----------------------NAMESPACE EXPORT-----------------------//
 window.reveal_loaded = function (reveal) {
     return window.Reveal = reveal;
@@ -221,4 +243,25 @@ window.reveal_loaded = function (reveal) {
 
 window.blockly_loaded = function (blockly) {
     return window.Blockly = blockly;
+}
+
+//-----------------------CREDITS-----------------------//
+function showCredits() {
+    bootbox.alert(`
+            <h3>Développement</h3>
+            <div class="text-center">
+                <p><b>CDT/CEE UQAC</b></p>
+                <p>Maxime BOIVIN - Marianne BOLDUC - Kévin CHAPRON - Laura COTE - Patrick GIROUX - Sylvain HALLE - Vincent PORTA-SCARTA</p>
+            </div>
+
+            <h3>Librairies</h3>
+            <ul>
+                <li><a href="http://getbootstrap.com/">bootstrap</a></li>
+                <li><a href="http://bootboxjs.com/">bootbox</a></li>
+                <li><a href="https://developers.google.com/blockly/">blockly</a></li>
+                <li><a href="https://p5js.org/">p5.js</a></li>
+                <li><a href="http://lab.hakim.se/reveal-js">reveal</a></li>
+                <li><a href="http://showdownjs.github.io/demo/">showdown</a></li>
+            </ul>
+            `);
 }
