@@ -13,7 +13,7 @@
     float: left;
     width: 100%;
     display: table;
-    border-style: solid;
+    /*border-style: solid;*/
 }
 
 #sketch-holder canvas {

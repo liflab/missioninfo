@@ -1,23 +1,24 @@
-var blocks = [];
-
-blocks.push(new LogicBlock("B1", 3, "(this.inputs[0].value && this.inputs[1].value) || !this.inputs[2].value"));
-blocks.push(new LogicBlock("B2", 4, "(this.inputs[0].value || this.inputs[1].value) && (!this.inputs[2].value || this.inputs[3].value)"));
-blocks.push(new LogicBlock("B3", 2, "this.inputs[0].value || this.inputs[1].value"));
-blocks.push(new LogicBlock("B4", 2, "this.inputs[0].value && !this.inputs[1].value"));
-
-var board = new LogicBoard(blocks, 800);
+function preload() {
+    img = loadImage("../../assets/img/factory.svg");
+}
 
 function setup() {
     var canvas = createCanvas(800, 600);
     canvas.parent('sketch-holder');
     noLoop();
 
-    board.update();
-    board.show();
-}
+    image(img, 154, 0, 493, 600);
 
-function mouseClicked() {
-    board.handleInput(mouseX,mouseY);
-    // console.log(mouseX + "/" + mouseY);
-    return false;
+    rectMode(CENTER);
+    fill("blue");
+    noStroke();
+    rect(380, 55, 50, 50);
+    fill("black");
+    rect(392, 520, 50, 50);
+    fill("green");
+    ellipse(238, 520, 50, 50);
+
+    fill("red");
+    textSize(24);
+    text("ROUGE", 510, 530);
 }
