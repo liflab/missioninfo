@@ -3,19 +3,14 @@ const ROBOT_NAME = "Robotino";
 document.body.innerHTML = document.body.innerHTML.replace(/{ROBOT_NAME}/g, ROBOT_NAME);
 
 //-----------------------PAGE MANAGMENT-----------------------//
-var isOnLocalhost = document.location.hostname.indexOf("localhost") == 0;
+var isOnLocalhost = document.location.hostname.indexOf("localhost") === 0;
 var pathTab = document.location.pathname.split('/');
 
 var activity;
 var currentPageNumber;
-if (isOnLocalhost) {
-    activity = pathTab[1] || 'accueil'
-    currentPageNumber = parseInt(pathTab[3]) || 0;
-}
-else { // To handle github sub-folder path
-    activity = pathTab[2] || 'accueil'
-    currentPageNumber = parseInt(pathTab[4]) || 0;
-}
+
+activity = pathTab[2] || 'accueil';
+currentPageNumber = parseInt(pathTab[4]) || 0;
 
 var savedPageNumber = parseInt(window.localStorage.getItem("max_page_" + activity));
 if (isNaN(savedPageNumber)) {
@@ -46,7 +41,7 @@ var autoResize = function () {
         document.getElementById("blockly-holder").style.height = height + 'px';
     }
 };
-if (currentPageNumber != 0) {
+if (currentPageNumber !== 0) {
     window.addEventListener('resize', autoResize, false);
     console.log("Resize OK");
 }
@@ -58,32 +53,44 @@ function createButtons(nb_total_btn) {
 
     for (var i = 1; i <= nb_total_btn; i++) {
         if (i < savedPageNumber) {
-            if (i == currentPageNumber) {
-                btn_html += '<button class="btn btn-primary" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+            if (i === currentPageNumber) {
+                btn_html += '<button class="btn btn-primary" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', {
+                        minimumIntegerDigits: 2,
+                        useGrouping: false
+                    }) + '</button>'
             }
             else {
-                btn_html += '<button class="btn btn-success" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+                btn_html += '<button class="btn btn-success" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', {
+                        minimumIntegerDigits: 2,
+                        useGrouping: false
+                    }) + '</button>'
             }
         }
-        else if (i == savedPageNumber) {
-            if (i == nb_total_btn) {
+        else if (i === savedPageNumber) {
+            if (i === nb_total_btn) {
                 btn_html += '<button class="btn btn-success" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
             }
             else {
-                btn_html += '<button class="btn btn-warning" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+                btn_html += '<button class="btn btn-warning" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', {
+                        minimumIntegerDigits: 2,
+                        useGrouping: false
+                    }) + '</button>'
             }
         }
         else {
-            if (i == nb_total_btn) {
+            if (i === nb_total_btn) {
                 btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">FIN</button>'
             }
             else {
-                btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', { minimumIntegerDigits: 2, useGrouping: false }) + '</button>'
+                btn_html += '<button class="btn btn-default disabled" type="button" id="progress_' + i + '" onclick="change_page(this.id);">' + (i).toLocaleString('fr-FR', {
+                        minimumIntegerDigits: 2,
+                        useGrouping: false
+                    }) + '</button>'
             }
         }
     }
 
-    btn_html += '</div>'
+    btn_html += '</div>';
     btn_div.innerHTML = btn_html;
 }
 
@@ -94,7 +101,7 @@ function activateButtons(nb_total_btn) {
         document.getElementById("progress_" + i).className = "btn btn-success";
     }
     document.getElementById("progress_" + num).className = "btn btn-primary";
-    for (var i = num + 1; i <= nb_total_btn; i++) {
+    for (i = num + 1; i <= nb_total_btn; i++) {
         document.getElementById("progress_" + i).className = "btn btn-default disabled"
     }
 }
@@ -102,7 +109,7 @@ function activateButtons(nb_total_btn) {
 function change_page(id_btn) {
     var num_page = parseInt(id_btn.match(new RegExp("[0-9]+")));
 
-    if (num_page <= Math.max(currentPageNumber, savedPageNumber) && num_page != currentPageNumber) {
+    if (num_page <= Math.max(currentPageNumber, savedPageNumber) && num_page !== currentPageNumber) {
         writeToLog(activity, "Change page to " + num_page);
         location.href = '../' + num_page + '/index.html';
     }
@@ -195,14 +202,14 @@ function showHelp(helpfile) {
 //-----------------------LOG-----------------------//
 function writeToLog(logName, data) {
     var old_data = window.localStorage.getItem("log_" + logName);
-    if (old_data == null) {
+    if (old_data === null) {
         old_data = "";
     }
     window.localStorage.setItem("log_" + logName, old_data + "[" + Date.now() + "] " + data + "\n");
 }
 
 function saveLog(logName) {
-    var log_blob = new Blob([window.localStorage.getItem("log_" + logName)], { type: 'text/plain' });
+    var log_blob = new Blob([window.localStorage.getItem("log_" + logName)], {type: 'text/plain'});
     saveAs(log_blob, "log_" + logName + ".txt");
 }
 
@@ -239,11 +246,11 @@ function clearLocalStorage() {
 //-----------------------NAMESPACE EXPORT-----------------------//
 window.reveal_loaded = function (reveal) {
     return window.Reveal = reveal;
-}
+};
 
 window.blockly_loaded = function (blockly) {
     return window.Blockly = blockly;
-}
+};
 
 //-----------------------CREDITS-----------------------//
 function showCredits() {
