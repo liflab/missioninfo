@@ -6,115 +6,221 @@ function allLoaded() {
     autoResize();
 }
 
-// Objects used in this activity
-function LogicBoard(blocks, width) {
-    // Blocks
-    this.blocks = blocks;
+var img_background;
+function preload() {
+    img_background = loadImage("../../assets/img/factory.svg");
+}
 
-    // Methods
-    this.update = function () {
-        for (var i = 0; i < this.blocks.length; i++) {
-            this.blocks[i].update();
-        }
+// Functions for animation & checking
+var num_image = 0;
+var isPlaying = false;
+var animator;
+
+var logicExercise;
+var res = true;
+var code = "";
+
+// Functions for blocks coding
+function run_code() {
+    // Wait to finish animation before another run
+    var status = false;
+    try {
+        status = isPlaying;
+    }
+    catch (err) {
     }
 
-    // Display
-    this.show = function () {
-        background(220);
-        resetMatrix();
-        translate((width - 615) / 2, 0);
-        for (var i = 0; i < this.blocks.length; i++) {
-            this.blocks[i].show();
-            translate(0, this.blocks[i].height);
-        }
-    }
-
-    // Events
-    this.handleInput = function (x, y) {
-        var sum_height = 0;
-        for (var i = 0; i < this.blocks.length; i++) {
-            if (y < sum_height + this.blocks[i].height) {
-                // console.log("block clicked : " + i);
-                this.blocks[i].handleInput(x - ((width - 615) / 2), y - sum_height);
-                break;
-            }
-            sum_height += this.blocks[i].height;
-        }
-        this.show();
+    if (!status) {
+        //try {
+        code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
+        console.log(code);
+        save_code();
+        playAnim();
+        checkAnswer();
+        /*}
+         catch (err) {
+         popupNotGood();
+         console.log(err);
+         }*/
     }
 }
 
-function LogicBlock(block_name, nb_inputs, rule) {
-    this.name = block_name;
+function save_code() {
+    try {
+        window.Blockly.Storage.backupBlocks(window.Blockly.getMainWorkspace());
+    }
+    catch (err) {
+        console.log("Local Storage not available")
+    }
+}
 
-    // Create Inputs
-    this.inputs = [];
-    for (var i = 0; i < nb_inputs; i++) {
-        this.inputs.push({
-            name: block_name + "_" + String.fromCharCode(65 + i),
-            value: false
-        });
+function checkAnswer() {
+    if (logicExercise === undefined) {
+        return;
     }
 
-    // Create Output
-    this.output = false
-
-    // Create Rule / Format : "this.inputs[0].value && this.inputs[1].value || !this.inputs[2].value"
-    this.rule = rule;
-
-    // Methods
-    this.changeInputState = function (idx) {
-        this.inputs[idx].value = !(this.inputs[idx].value);
-        this.update();
+    if (isPlaying) {
+        setTimeout(checkAnswer, 500);
+        return;
     }
 
-    this.update = function () {
-        this.output = eval(rule);
+    if (res) {
+        popupGood();
+    }
+    else {
+        popupNotGood();
+    }
+}
+
+function playAnim() {
+    if (!isPlaying) {
+        num_image = 0;
+        isPlaying = true;
+        animator = setTimeout(playAnimWorker, 500);
+    }
+    else {
+        clearTimeout(animator);
+        isPlaying = false;
+    }
+}
+
+function playAnimWorker() {
+    if (num_image < logicExercise.shapes.length) {
+        logicExercise.draw(num_image);
+
+        var shape2Test = logicExercise.shapes[num_image];
+        var idx_bucket = eval('(function() {' + code + '\n}())');
+
+        if (idx_bucket === undefined) {
+            // On vérifie tous les cas
+            var res_undefined = false;
+            for (var i = 0; i < logicExercise.buckets.length; i++) {
+                res_undefined = res_undefined || logicExercise.buckets[i].checkShape(shape2Test);
+            }
+            res = !res_undefined;
+            console.log("no bucket");
+        } else {
+            console.log("bucket num : " + idx_bucket);
+            res = logicExercise.buckets[idx_bucket - 1].checkShape(shape2Test);// Array begins at 0
+        }
+
+        num_image++;
+
+        if (res) {
+            animator = setTimeout(playAnimWorker, 2000);
+        }
+        else {
+            isPlaying = false;
+        }
+    }
+    else {
+        isPlaying = false;
+    }
+}
+
+
+// Objects used in this activity
+
+var colorsAllowed = ["#ff0000", "#00ff00", "#0000ff"];
+var shapesAllowed = ["square", "circle", "triangle"];
+
+function LogicSystem(bucketsProperties) {
+
+    // Init all shapes
+    this.shapes = [];
+    for (var i = 0; i < shapesAllowed.length; i++) {
+        for (var j = 0; j < colorsAllowed.length; j++) {
+            this.shapes.push(new Shape(shapesAllowed[i], colorsAllowed[j]));
+        }
+    }
+    arrayShuffle(this.shapes);
+
+    // Init all buckets
+    this.buckets = [];
+    for (var i = 0; i < bucketsProperties.rules.length; i++) {
+        this.buckets.push(new Bucket(bucketsProperties.elems[i], bucketsProperties.rules[i]));
     }
 
     // Display
-    this.height = 40 + this.inputs.length * 40;
+    this.draw = function (idx_shape) {
+        clear();
+        background(255);
+        resetMatrix();
 
-    this.show = function () {
-        // Show Inputs
-        for (var i = 0; i < this.inputs.length; i++) {
-            if (this.inputs[i].value) {
-                fill("red");
-            }
-            else {
-                fill("black");
-            }
-            stroke("darkcyan"), strokeWeight(5);
-            line(0, 40 + i * 40, 200, 40 + i * 40);
-            noStroke();
-            ellipse(0, 40 + i * 40, 30);
-            text(this.inputs[i].name, 20, 34 + i * 40);
-        }
-        // Show Output
-        if (this.output) {
-            fill("red");
-        }
-        else {
-            fill("black");
-        }
-        stroke("darkcyan"), strokeWeight(5);
-        line(400, 20 + this.inputs.length * 20, 600, 20 + this.inputs.length * 20);
+        image(img_background, 54, 0, 493, 600);
+
+        translate(280, 55);
+        if (idx_shape >= 0 && idx_shape < this.shapes.length)
+            this.shapes[idx_shape].draw();
+        translate(-142, 465);
+        this.buckets[0].draw();
+        translate(158, 0);
+        this.buckets[1].draw();
+        translate(158, 0);
+        this.buckets[2].draw();
+
+    };
+}
+
+function Shape(style, color) {
+    this.style = style;     //Must be "square", "circle" or "triangle"
+    this.color = color;
+    this.size = 50;
+
+    this.draw = function () {
+        fill(this.color);
         noStroke();
-        ellipse(600, 20 + this.inputs.length * 20, 30);
-        text(this.name, 500, 15 + this.inputs.length * 20);
-        // Show box
-        fill("green");
-        rect(200, 20, 200, this.inputs.length * 40);
-    }
 
-    // Events
-    this.handleInput = function (x, y) {
-        if (x > -15 && x < 15) {
-            var idx = Math.round((y - 40) / 40);
-            console.log("Input clicked : " + idx);
-            if (idx >= 0 && idx < this.inputs.length) {
-                this.changeInputState(idx);
-            }
+        if (this.style === "square") {
+            rectMode(CENTER);
+            rect(0, 0, this.size, this.size);
         }
+        else if (this.style === "circle") {
+            ellipse(0, 0, this.size, this.size);
+        }
+        else if (this.style === "triangle") {
+            triangle(-this.size / 2, +this.size / 2, +this.size / 2, +this.size / 2, 0, -this.size / 2);
+        }
+    };
+}
+
+function TextShape(textStr, color) {
+    this.textStr = textStr;     //Must be "square", "circle" or "triangle"
+    this.color = color;
+    this.size = 25;
+
+    this.draw = function () {
+        textSize(this.size);
+        fill(this.color);
+        noStroke();
+
+        var txtW = textWidth(this.textStr);
+        text(this.textStr, -(txtW / 2), this.size / 2);
+    };
+}
+
+function Bucket(elem, rule) {
+    this.elem = elem;
+    this.rule = rule;
+
+    this.draw = function () {
+        this.elem.draw();
+    };
+
+    this.checkShape = function (shape) {
+        return eval('(function() {' + rule + '\n}())');
+    };
+}
+
+function arrayShuffle(array) {
+    // fisherYates algo
+    var count = array.length,
+        randomnumber,
+        temp;
+    while (count) {
+        randomnumber = Math.random() * count-- | 0;
+        temp = array[count];
+        array[count] = array[randomnumber];
+        array[randomnumber] = temp
     }
 }

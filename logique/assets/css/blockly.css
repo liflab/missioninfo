@@ -1,0 +1,30 @@
+html, body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+.blocklyMainBackground {
+    fill: #eee !important;
+}
+
+.blocklyFlyoutBackground {
+    fill: #bbb !important;
+    fill-opacity: 0.8 !important;
+}
+
+.blocklyText {
+    font-family: monospace !important;
+}
+
+.blocklySvg {
+    height: 100%;
+    width: 100%;
+}
+
+.goog-palette-colorswatch {
+    height: 25px !important;
+    width: 25px !important;
+}
