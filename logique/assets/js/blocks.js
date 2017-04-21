@@ -2,7 +2,7 @@ Blockly.Blocks['test_shape'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Forme =")
-            .appendField(new Blockly.FieldDropdown([["Cercle", "circle"], ["Carré", "square"], ["Triangle", "triangle"]]), "shape_type");
+            .appendField(new Blockly.FieldDropdown([["Tête", "head"], ["Bras", "arm"], ["Corps", "body"], ["Jambe", "leg"], ["Autre", "other"]]), "shape_type");
         this.setOutput(true, "Boolean");
         this.setColour(230);
         this.setTooltip('Test le type de forme');
@@ -13,7 +13,7 @@ Blockly.Blocks['test_shape'] = {
 Blockly.JavaScript['test_shape'] = function (block) {
     var dropdown_shape_type = block.getFieldValue('shape_type');
 
-    var code = 'shape2Test.style === "' + dropdown_shape_type + '"';
+    var code = 'item.shape === "' + dropdown_shape_type + '"';
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -35,7 +35,7 @@ Blockly.Blocks['test_color'] = {
 Blockly.JavaScript['test_color'] = function (block) {
     var colour_shape = block.getFieldValue('shape');
 
-    var code = 'shape2Test.color === "' + colour_shape + '"';
+    var code = 'item.color === "' + colour_shape + '"';
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -46,7 +46,7 @@ Blockly.Blocks['bucket'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("Mettre dans le seau")
-            .appendField(new Blockly.FieldDropdown([["1", "1"], ["2", "2"], ["3", "3"]]), "bucket_idx");
+            .appendField(new Blockly.FieldDropdown([["Tête", "0"], ["Bras", "1"], ["Corps", "2"], ["Jambe", "3"], ["Autre", "4"]]), "bucket_idx");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(345);

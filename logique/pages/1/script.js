@@ -1,13 +1,17 @@
 bucketsExercise = {
     elems: [
-        new Shape("square", "#00ff00"),
-        new Shape("circle", "#000000"),
-        new TextShape("ROUGE", "#ff0000")
+        new TextShape("Tête", "#fff"),
+        new TextShape("Bras",  "#fff"),
+        new TextShape("Corps", "#fff"),
+        new TextShape("Jambe", "#fff"),
+        new TextShape("Autre", "#fff"),
     ],
     rules: [
-        "return shape.style === \"square\" && shape.color === \"#00ff00\";",
-        "return shape.style === \"circle\";",
-        "return shape.color === \"#ff0000\";"
+        "return item.shape === \"head\";",
+        "return item.shape === \"arm\";",
+        "return item.shape === \"body\";",
+        "return item.shape === \"leg\";",
+        "return item.shape === \"other\";"
     ]
 };
 
