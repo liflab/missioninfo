@@ -38,6 +38,10 @@ var solution_example = [
 ];
 var Crayon;
 
+var text_info = "Pour dessiner, tu as un crayon. \n" +
+    "Tu peux le lever pour arrêter d'écrire, et le poser pour continuer. \n" +
+    "Tu as différentes couleurs disponibles également. \n" +
+    "Essaies de faire ces deux fondations!";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

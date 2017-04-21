@@ -39,6 +39,14 @@ var solution_example = [
     {"type":"avancer","value":4}
 ];
 var Crayon;
+
+
+
+var text_info = "Dans le dernier schéma, tu devais faire deux fondations.\n" +
+    "Essaies maintenant de les faire en utilisant une boucle !\n" +
+    "N'oublie pas que celle-ci exécute son contenu plusieurs fois !";
+
+
 function checkAnswer() {
     console.log("custom overriden");
     if(custom_validation(draw_gen_saved,solution) && two_or_more(past_code)){

@@ -8,6 +8,9 @@ var solution = [{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2"
 var solution_example = [{"type":"crayon_color","value":"#0000ff"},{"type":"tourner","value":180},{"type":"boucle","nb_iteration":4,"value":[ {"type":"boucle","nb_iteration":2,"value":[ {"type":"crayon_leve","value":false},{"type":"boucle","nb_iteration":3,"value":[ {"type":"avancer","value":1.5},{"type":"tourner","value":120}]},{"type":"crayon_leve","value":true},{"type":"avancer","value":1.5}]},{"type":"tourner","value":-90}]}];
 
 var Crayon;
+
+var text_info = "\nEssaies aussi cet autre type de fondations !\n" +
+    "Attention, il faut utiliser des boucles dans des boucles !";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

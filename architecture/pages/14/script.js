@@ -5,6 +5,8 @@ var past_code;
 var past_code_generated;
 
 var Crayon;
+
+var text_info = "\nTu as réussi à faire tout les premiers exemples !\nFais maintenant ton propre dessin de cabane !";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

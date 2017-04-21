@@ -8,6 +8,11 @@ var solution = [{"type":"arc","color":"#ff0000","middle":{"x":8,"y":5},"size":4,
 var solution_example = [{"type":"crayon_color","value":"#ff0000"},{"type":"boucle","nb_iteration":24,"value":[ {"type":"arc","taille":4,"rotation": {"type":"tourner","value":5}},{"type":"tourner","value":10}]},{"type":"crayon_color","value":"#0000ff"},{"type":"boucle","nb_iteration":24,"value":[ {"type":"arc","taille":5,"rotation": {"type":"tourner","value":5}},{"type":"tourner","value":10}]},{"type":"crayon_color","value":"#ffff00"},{"type":"boucle","nb_iteration":24,"value":[ {"type":"arc","taille":6,"rotation": {"type":"tourner","value":5}},{"type":"tourner","value":10}]}];
 
 var Crayon;
+
+
+var text_info = "Pour te familiariser avec le concept des arcs de cercles, \n" +
+    "Essaies de dessiner ce défi. \n" +
+    "Il faut utiliser les arcs de cercle, et les boucles !";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

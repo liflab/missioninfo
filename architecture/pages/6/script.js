@@ -64,6 +64,13 @@ var solution_example = [
     ]}
 ];
 var Crayon;
+
+
+var text_info = "Beau travail de fondations ! Tu t'asseois maintenant sur celle-ci.\n" +
+    "Tu peux voir les étoiles dans le ciel, cependant il n'y en a \n" +
+    "pas assez selon toi. Dessines les autres étoiles \n" +
+    "en t'aidant des boucles et des angles !";
+
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

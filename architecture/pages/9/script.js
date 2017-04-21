@@ -8,6 +8,10 @@ var solution = [{"type":"arc","color":"#ff0000","middle":{"x":6,"y":8},"size":4,
 var solution_example = [{"type":"crayon_leve","value":true},{"type":"avancer","value":4},{"type":"tourner","value":90},{"type":"avancer","value":2},{"type":"crayon_color","value":"#ff0000"},{"type":"crayon_leve","value":false},{"type":"arc","taille":4,"rotation": {"type":"tourner","value":-180}},{"type":"crayon_leve","value":true},{"type":"tourner","value":-90},{"type":"avancer","value":1.5},{"type":"tourner","value":-90},{"type":"avancer","value":3},{"type":"crayon_leve","value":false},{"type":"arc","taille":4,"rotation": {"type":"tourner","value":-180}},{"type":"crayon_leve","value":true},{"type":"tourner","value":90},{"type":"avancer","value":2},{"type":"tourner","value":-90},{"type":"tourner","value":26.42},{"type":"crayon_leve","value":false},{"type":"avancer","value":3.35}];
 
 var Crayon;
+
+var text_info = "Une fois les murs dressés, un toit arrondi serait plaisant, non ?\n" +
+    "Essaies d'en faire un en utilisant \n" +
+    "le nouveau bloc \"Dessin d'un Arc de Cercle\".";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
