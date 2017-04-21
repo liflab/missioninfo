@@ -17,7 +17,7 @@ function setup() {
     var canvas = createCanvas(600, 600);
     canvas.parent('sketch-holder');
     noLoop();
+    initParams();
 
     logicExercise.draw(-1);
-
 }

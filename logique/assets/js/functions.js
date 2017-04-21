@@ -7,8 +7,12 @@ function allLoaded() {
 }
 
 var img_background;
+var img_bucket;
+var img_status_robotino;
 function preload() {
-    img_background = loadImage("../../assets/img/factory.svg");
+    img_background      = loadImage("../../assets/img/factory.svg");
+    img_bucket          = loadImage("../../assets/img/cup.svg");
+    img_status_robotino = loadImage("../../assets/img/uncompleted_"+currentPageNumber+".png");
 }
 
 // Functions for animation & checking
@@ -126,6 +130,11 @@ var shapesAllowed = ["square", "circle", "triangle"];
 
 function LogicSystem(bucketsProperties) {
 
+    this.buckets_center = [];
+    this.joint_factory  = {"x":0,"y":0};
+    this.joints_buckets = [];
+
+
     // Init all shapes
     this.shapes = [];
     for (var i = 0; i < shapesAllowed.length; i++) {
@@ -143,12 +152,51 @@ function LogicSystem(bucketsProperties) {
 
     // Display
     this.draw = function (idx_shape) {
+        this.joint_factory = {"x":width/2-JOINT_SIZE/2,"y":FACTORY_HEIGHT};
+
         clear();
         background(255);
         resetMatrix();
 
-        image(img_background, 54, 0, 493, 600);
+        image(img_background, FACTORY_X, FACTORY_Y, FACTORY_WIDTH, FACTORY_HEIGHT);
+        image(img_status_robotino, 0, 0, 100, 114);
 
+
+        var margin = 20;
+        var width_bucket = (width-margin*(1+this.buckets.length)) / this.buckets.length;
+        var height_bucket = width_bucket*1.41;
+
+        if(height_bucket > 150){
+            height_bucket = 150;
+            width_bucket = height_bucket * 0.71;
+            margin = (width - (width_bucket*this.buckets.length))/(this.buckets.length+1);
+        }
+
+        for(var i=0;i<this.buckets.length;i++){
+            image(img_bucket,margin+i*(margin+width_bucket),600-height_bucket,width_bucket,height_bucket);
+            if(this.buckets_center.length<3){
+                this.buckets_center.push({"x":margin+i*(margin+width_bucket)+width_bucket/2,"y":600-height_bucket/2});
+                this.joints_buckets.push({"x":margin+i*(margin+width_bucket)+width_bucket/2,"y":600-height_bucket-10});
+            }
+        }
+
+
+        stroke(0,0,0).fill(60,60,60);
+
+        arc(this.joint_factory.x,this.joint_factory.y,JOINT_SIZE,JOINT_SIZE,0,Math.PI*2);
+        for(var i=0;i<this.buckets.length;i++){
+
+            arc(this.joints_buckets[i].x,this.joints_buckets[i].y,JOINT_SIZE,JOINT_SIZE,0,Math.PI*2);
+            strokeWeight(JOINT_SIZE+4);
+            stroke(0,0,0);
+            line(this.joints_buckets[i].x,this.joints_buckets[i].y,this.joint_factory.x,this.joint_factory.y);
+            strokeWeight(JOINT_SIZE);
+            stroke(60,60,60);
+            line(this.joints_buckets[i].x,this.joints_buckets[i].y,this.joint_factory.x,this.joint_factory.y);
+            strokeWeight(1);
+        }
+
+        /*
         translate(280, 55);
         if (idx_shape >= 0 && idx_shape < this.shapes.length)
             this.shapes[idx_shape].draw();
@@ -158,6 +206,7 @@ function LogicSystem(bucketsProperties) {
         this.buckets[1].draw();
         translate(158, 0);
         this.buckets[2].draw();
+        */
 
     };
 }
