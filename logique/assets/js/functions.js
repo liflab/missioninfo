@@ -1,6 +1,6 @@
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(2);
+    createButtons(6);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
@@ -89,9 +89,13 @@ function checkAnswer() {
 
     if (res) {
         popupGood();
+        document.querySelector("#btn_run").style.display="none";
+        document.querySelector("#btn_next_exercise").style.display="block";
     }
     else {
         popupNotGood();
+        document.querySelector("#btn_run").style.display="block";
+        document.querySelector("#btn_next_exercise").style.display="none";
     }
 }
 
