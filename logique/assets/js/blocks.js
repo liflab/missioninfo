@@ -10,6 +10,10 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
         shape_per_page = [["Arrondi", "rounded"], ["Oval", "oval"]];
         put_in_bucket  = [["Bleu Arrondi","0"],["Gris","1"],["Beige","2"]];
     break;
+    case 4:
+        shape_per_page = [["Oeil", "eye"], ["Chapeau", "hat"]];
+        put_in_bucket  = [["Chapeau & Oeil","0"],["Autre Oeil","1"],["Autre chapeaux","2"]];
+    break;
 }
 
 Blockly.Blocks['test_shape'] = {
