@@ -1,3 +1,5 @@
+text_info = "\nIl y a beaucoup de choses à trier ... \nRépartis les objets en fonction de leur forme !";
+
 bucketsExercise = {
     elems: [
         new TextShape("Tête", "#fff"),
@@ -39,4 +41,5 @@ function _preload(){
     items.push({"img":loadImage("../../assets/img/helmet_r2d2.png") ,"shape":"head"   ,"color":"blue"});
     items.push({"img":loadImage("../../assets/img/body_other.png")  ,"shape":"body"   ,"color":"white"});
     items.push({"img":loadImage("../../assets/img/wheel.png")       ,"shape":"other"  ,"color":"grey"});
+    items.push({"img":loadImage("../../assets/img/human_head.png")  ,"shape":"head"   ,"color":"beige"});
 }

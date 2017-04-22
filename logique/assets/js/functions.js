@@ -4,9 +4,16 @@ function allLoaded() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
+    if(text_info !== undefined && text_info!=null){
+        popupInfo(text_info);
+    }
 }
 
 var img_background;
+
+var img_factory;
+var img_factory_red;
+
 var img_bucket;
 var img_bucket_red;
 var img_status_robotino;
@@ -21,11 +28,13 @@ const NB_ITERATION_MOVING_ITEM = 30;
 const FRAME_PER_SECOND         = 30;
 
 function preload() {
-    img_background      = loadImage("../../assets/img/background/factory.svg");
+    img_factory         = loadImage("../../assets/img/background/factory.svg");
+    img_factory_red     = loadImage("../../assets/img/background/factory_red.svg");
     img_bucket          = loadImage("../../assets/img/background/cup.png");
     img_bucket_red      = loadImage("../../assets/img/background/cup_red.png");
     img_status_robotino = loadImage("../../assets/img/uncompleted/uncompleted_"+currentPageNumber+".png");
 
+    img_background = img_factory;
     _preload();
 
 }
@@ -52,7 +61,9 @@ function run_code() {
         //try {
         answers = [];
         code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
-        var f = eval("(function(item){\n"+code+"\nreturn null;})");
+        var f_body = "(function(item){\n"+code+"\nreturn null;})";
+        console.log(f_body);
+        var f = eval(f_body);
         save_code();
         playAnim(f);
         checkAnswer();
@@ -132,6 +143,7 @@ function playAnimWorker(func) {
         is_allowed = logicExercise.buckets[bucket_predicted].check(item);
     }
     answers.push(is_allowed);
+    console.log(bucket_predicted+" => "+is_allowed);
 
     var w = item.img.width;
     var h = item.img.height;
@@ -148,12 +160,19 @@ function playAnimWorker(func) {
     image(item.img,width/2-w/2-20,20,w,h);
 
     iteration_pipe  = 0;
-    moving_interval = setInterval(function(){
-        inPipe(item,bucket_predicted,w,h);
-    },1000/FRAME_PER_SECOND);
+    if(bucket_predicted!=null){
+        moving_interval = setInterval(function(){
+            inPipe(item,bucket_predicted,w,h);
+        },1000/FRAME_PER_SECOND);
+    }else{
+        img_background = img_factory_red;
+        setTimeout(function(){
+            img_background = img_factory;
+        },2000);
+    }
 
     setTimeout(function(){
-        if(!is_allowed){
+        if(!is_allowed && bucket_predicted!=null){
             logicExercise.buckets[bucket_predicted].red = true;
             setTimeout(function(){
                 logicExercise.buckets[bucket_predicted].red = false;
