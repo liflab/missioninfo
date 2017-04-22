@@ -8,29 +8,25 @@ function allLoaded() {
 
 var img_background;
 var img_bucket;
+var img_bucket_red;
 var img_status_robotino;
 
 var items = [];
 var _items = [];
+
+var answers = [];
+
+var moving_interval;
+const NB_ITERATION_MOVING_ITEM = 30;
+const FRAME_PER_SECOND         = 30;
+
 function preload() {
     img_background      = loadImage("../../assets/img/background/factory.svg");
-    img_bucket          = loadImage("../../assets/img/background/cup.svg");
+    img_bucket          = loadImage("../../assets/img/background/cup.png");
+    img_bucket_red      = loadImage("../../assets/img/background/cup_red.png");
     img_status_robotino = loadImage("../../assets/img/uncompleted/uncompleted_"+currentPageNumber+".png");
 
-    switch(currentPageNumber){
-        case 1:
-            items.push({"img":loadImage("../../assets/img/antenna.png")     ,"shape":"other"  ,"color":"blue"});
-            items.push({"img":loadImage("../../assets/img/arm.png")         ,"shape":"arm"      ,"color":"orange"});
-            items.push({"img":loadImage("../../assets/img/eye.png")         ,"shape":"other"      ,"color":"blue"});
-            items.push({"img":loadImage("../../assets/img/eye_white.png")   ,"shape":"other"      ,"color":"white"});
-            items.push({"img":loadImage("../../assets/img/foot_other.png")  ,"shape":"leg"     ,"color":"grey"});
-            items.push({"img":loadImage("../../assets/img/hand.png")        ,"shape":"other"     ,"color":"white"});
-            items.push({"img":loadImage("../../assets/img/hat.png")         ,"shape":"other"      ,"color":"orange"});
-            items.push({"img":loadImage("../../assets/img/head.png")        ,"shape":"head"     ,"color":"blue"});
-            items.push({"img":loadImage("../../assets/img/helmet_r2d2.png") ,"shape":"head"     ,"color":"blue"});
-            items.push({"img":loadImage("../../assets/img/wheel.png")       ,"shape":"other"     ,"color":"grey"});
-        break;
-    }
+    _preload();
 
 }
 
@@ -40,7 +36,6 @@ var isPlaying = false;
 var animator;
 
 var logicExercise;
-var res = true;
 var code = "";
 
 // Functions for blocks coding
@@ -55,8 +50,9 @@ function run_code() {
 
     if (!status) {
         //try {
+        answers = [];
         code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
-        var f = eval("(function(item){\n"+code+"})");
+        var f = eval("(function(item){\n"+code+"\nreturn null;})");
         save_code();
         playAnim(f);
         checkAnswer();
@@ -83,6 +79,14 @@ function checkAnswer() {
         return;
     }
 
+    var res = true;
+    for(var i=0;i<answers.length;i++){
+        if(!answers[i]){
+            res = false;
+            break;
+        }
+    }
+
     if (res) {
         popupGood();
     }
@@ -96,6 +100,9 @@ function playAnim(func) {
         num_item = 0;
         isPlaying = true;
         _items = JSON.parse(JSON.stringify(items));
+        for( var i =0;i<_items.length;i++){
+            _items[i]["img"] = items[i]["img"];
+        }
 
         animator = setTimeout(function(){
             playAnimWorker(func);
@@ -115,44 +122,63 @@ function playAnimWorker(func) {
 
     var item = _items.shift();
     var bucket_predicted = func(item);
-    console.log(bucket_predicted);
-    animator = setTimeout(function(){
-        playAnimWorker(func);
-    }, 500);
 
-    /*
-    if (num_item < logicExercise.shapes.length) {
-        logicExercise.draw(num_item);
-
-        var shape2Test = logicExercise.shapes[num_item];
-        var idx_bucket = eval('(function() {' + code + '\n}())');
-
-        if (idx_bucket === undefined) {
-            // On vérifie tous les cas
-            var res_undefined = false;
-            for (var i = 0; i < logicExercise.buckets.length; i++) {
-                res_undefined = res_undefined || logicExercise.buckets[i].checkShape(shape2Test);
-            }
-            res = !res_undefined;
-            console.log("no bucket");
-        } else {
-            console.log("bucket num : " + idx_bucket);
-            res = logicExercise.buckets[idx_bucket - 1].checkShape(shape2Test);// Array begins at 0
-        }
-
-        num_item++;
-
-        if (res) {
-            animator = setTimeout(playAnimWorker, 2000);
-        }
-        else {
-            isPlaying = false;
-        }
+    var is_allowed = false;
+    if(bucket_predicted != null){
+        is_allowed = logicExercise.buckets[bucket_predicted].check(item);
     }
-    else {
-        isPlaying = false;
+    answers.push(is_allowed);
+
+    var w = item.img.width;
+    var h = item.img.height;
+    if(h > w && h>50){
+        w = w*50/h;
+        h = 50;
     }
-    */
+    if(w > h && w > 50){
+        h = h*50/w;
+        w = 50;
+    }
+    fill(255).noStroke();
+    rect(234,18,97,58);
+    image(item.img,width/2-w/2-20,20,w,h);
+
+    iteration_pipe  = 0;
+    moving_interval = setInterval(function(){
+        inPipe(item,bucket_predicted,w,h);
+    },1000/FRAME_PER_SECOND);
+
+    setTimeout(function(){
+        if(!is_allowed){
+            logicExercise.buckets[bucket_predicted].red = true;
+            setTimeout(function(){
+                logicExercise.buckets[bucket_predicted].red = false;
+            },2000);
+        }
+        clearInterval(moving_interval);
+        animator = setTimeout(function(){
+            playAnimWorker(func);
+        }, 500);
+    },NB_ITERATION_MOVING_ITEM*1000/FRAME_PER_SECOND);
+
+}
+
+var iteration_pipe = 0;
+
+function inPipe(item, bucket,width_image,height_image){
+    var from = logicExercise.joint_factory;
+    var to   = logicExercise.joints_buckets[bucket];
+
+    var diff_x = (to.x-from.x)/NB_ITERATION_MOVING_ITEM;
+    var diff_y = (to.y-from.y)/NB_ITERATION_MOVING_ITEM;
+
+    logicExercise.draw();
+
+    image(item.img,width/2-width_image/2-20,20,width_image,height_image);
+    image(item.img,from.x+diff_x*iteration_pipe-width_image/2,from.y+diff_y*iteration_pipe-height_image/2,width_image,height_image);
+
+    //console.log("{\"x\":"+from.x+",\"y\":"+from.y+"} // {\"x\":"+to.x+",\"y\":"+to.y+"} == {\"x\":"+diff_x+",\"y\":"+diff_y+"}");
+    iteration_pipe++;
 }
 
 
@@ -194,7 +220,11 @@ function LogicSystem(bucketsProperties) {
         }
 
         for(var i=0;i<this.buckets.length;i++){
-            image(img_bucket,margin+i*(margin+width_bucket),600-height_bucket,width_bucket,height_bucket);
+            if(this.buckets[i].red){
+                image(img_bucket_red,margin+i*(margin+width_bucket),600-height_bucket,width_bucket,height_bucket);
+            }else{
+                image(img_bucket,margin+i*(margin+width_bucket),600-height_bucket,width_bucket,height_bucket);
+            }
             if(this.buckets_center.length<this.buckets.length){
                 this.buckets_center.push({"x":margin+i*(margin+width_bucket)+width_bucket/2,"y":600-height_bucket/2});
                 this.joints_buckets.push({"x":margin+i*(margin+width_bucket)+width_bucket/2,"y":600-height_bucket-10});
@@ -263,19 +293,14 @@ function TextShape(textStr, color) {
 function Bucket(elem, rule) {
     this.elem = elem;
     this.rule = rule;
+    this.red  = false;
 
     this.draw = function () {
         this.elem.draw();
     };
 
     this.check = function (item) {
-        return this._check(item);
-    };
-
-    this._check = function(item){
-        var f = eval('function(item) {' + rule + '\n}');
-        console.log(f);
-        console.log(f(item));
+        var f = eval('(function(item) {' + this.rule + '\n})');
         return f(item);
-    }
+    };
 }
