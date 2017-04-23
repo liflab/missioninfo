@@ -25,6 +25,7 @@ function openLastPage() {
 //-----------------------UI : SIZE-----------------------//
 var autoResize = function () {
     var bodyPageDiv = document.getElementById('bodyPage');
+    var topPageDiv = document.getElementById('topPage');
 
     var width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
     var height;
@@ -34,14 +35,19 @@ var autoResize = function () {
     }
     // Desktop view -> adapt height
     else {
-        height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - document.getElementById('topPage').offsetHeight - 10;
+        if (topPageDiv) {
+            height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - topPageDiv.offsetHeight - 10;
+        }
+        else {
+            height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 10;
+        }
     }
     bodyPageDiv.style.height = height + 'px';
     if (document.getElementById("blockly-holder")) {
         document.getElementById("blockly-holder").style.height = height + 'px';
     }
 };
-if (currentPageNumber !== 0) {
+if (activity !== "accueil") {
     window.addEventListener('resize', autoResize, false);
     console.log("Resize OK");
 }

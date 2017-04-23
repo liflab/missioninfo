@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Contexte</title>
+
+    <meta name="description" content="Mise en contexte'">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+
+    <meta name="viewport"
+          content="width=device-width, height=device-height initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../modules/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../modules/reveal/css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/bulles.css">
+</head>
+
+<body>
+
+<div class="reveal scrollable">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h3>Après un long moment ...</h3>
+        </section>
+
+        <section data-background-image="assets/img/cover_1.png">
+            <div style="position: absolute; left: 50vw; width: 40vw; background-color: rgba(255,255,255,0.7); color:black; border-radius: 25px; overflow: auto;">
+                <p><strong>Vous êtes en train de naviguer fièrement sur votre magnifique bateau à la recherche d’un
+                    trésor disparu.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-image="assets/img/cover_2.png">
+            <div style="position: absolute; left: 50vw; width: 40vw; background-color: rgba(255,255,255,0.7); color:black; border-radius: 25px; overflow: auto;">
+                <p><strong>Soudainement, une grosse tempête s’abat sur vous.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-image="assets/img/cover_3.png">
+            <div style="position: absolute; left: 10vw; width: 40vw; background-color: rgba(255,255,255,0.7); color:black; border-radius: 25px; overflow: auto;">
+                <p><strong>Par chance, vous n’avez rien, mais votre bateau s’est échoué sur une île
+                    mystérieuse.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-image="assets/img/cover_3.png">
+            <div style="position: absolute; left: 10vw; width: 40vw; background-color: rgba(255,255,255,0.7); color:black; border-radius: 25px; overflow: auto;">
+                <p><strong>En effet, l'île est peuplée d’objets un peu bizarre: des <span style="color: red">ordinateurs-robots</span>
+                    qui parlent.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-image="assets/img/cover_4.svg">
+            <blockquote class="oval-thought-border">
+                <p>Bonjour, je m’appelle Robotino. J’habite sur cette île avec mes compagnons. Je peux te faire
+                    découvrir l'île si tu veux!</p>
+            </blockquote>
+            <img class="plain" src="assets/img/cover_robot.svg" style="height: 35vh">
+        </section>
+
+        <section data-background-image="assets/img/cover_4.svg">
+            <blockquote class="oval-thought-border">
+                <p>Sur cette île, il y a plein d’objets amusants! Avant de partir à l’aventure, il faut que tu apprennes
+                    à te servir de ces objets.</p>
+            </blockquote>
+            <img class="plain" src="assets/img/cover_robot.svg" style="height: 35vh">
+        </section>
+
+        <section data-background-image="assets/img/cover_4.svg">
+            <blockquote class="oval-thought-border">
+                <p>Montre-moi que tu sais comment utiliser ces objets et nous pourrons ensuite faire le tour de l’île
+                    ensemble! Suis-moi!</p>
+            </blockquote>
+            <img class="plain" src="assets/img/cover_robot.svg" style="height: 35vh">
+        </section>
+    </div>
+
+</div>
+
+<script src="../modules/reveal/lib/js/head.min.js"></script>
+<script src="../modules/reveal/js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        width: "100%",
+        height: "100%",
+        autoSlide: 10000,
+        controls: false,
+        progress: true,
+        history: false,
+        center: true,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        backgroundTransition: 'fade',
+    });
+
+    // Let the top-level application know that Reveal is ready.
+    try {
+        window.parent.reveal_loaded(Reveal);
+    }
+    catch (err) {
+        console.log("Launch without parent page")
+    }
+</script>
+
+</body>
+
+</html>
