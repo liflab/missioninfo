@@ -64,7 +64,7 @@
     function addEndListener() {
         Reveal.addEventListener('slidechanged', function (event) {
             if (Reveal.getProgress() == 1) {
-                setTimeout(openLastPage, 10000);
+                setTimeout(openLastPage, 3000);
             }
             writeToLog(activity, "Slide changed : " + Reveal.getProgress());
         });
