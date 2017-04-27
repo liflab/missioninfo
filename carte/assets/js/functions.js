@@ -1,19 +1,21 @@
 // Constants
-WIDTH = 600;
-HEIGHT = 600;
-COLS = 10;
-ROWS = 10;
-DEBUG = false;
+const WIDTH = 600;
+const HEIGHT = 600;
+const COLS = 10;
+const ROWS = 10;
+const DEBUG = false;
 
 // Globals variables
-var img_road_deb;
-var img_road_1;
-var img_road_2;
-var img_road_3;
-var img_road_4;
-var img_road_fin;
-var img_player;
-var img_bg;
+var img_road_deb, img_road_1, img_road_2, img_road_3, img_road_4, img_road_fin, img_player, img_bg;
+
+var answer;
+
+var num_item = 0;
+var isPlaying = false;
+var animator;
+
+var cityMap;
+var code = "";
 
 // Functions to load assets
 function preload() {
@@ -47,12 +49,11 @@ function preload() {
     img_bg = loadImage("../../assets/img/p1_bg.png");
 }
 
-
 // Objects used in this section
 function Map() {
 
     // this.background = bg;
-    this.player = {row: 0, col: 0};
+    this.player = {row: 0, col: 0, dir: "N"};
     this.roads = new Array(ROWS);
     for (var row = 0; row < ROWS; row++) {
         this.roads[row] = new Array(COLS);
@@ -70,20 +71,20 @@ function Map() {
         }
     };
 
-    this.roadAvailable = function (dir) {
+    this.roadAvailable = function () {
         var res = false;
 
         try {
-            if (dir === "N") {
+            if (this.player.dir === "N") {
                 res = this.roads[this.player.row - 1][this.player.col] !== undefined;
             }
-            else if (dir === "S") {
+            else if (this.player.dir === "S") {
                 res = this.roads[this.player.row + 1][this.player.col] !== undefined;
             }
-            else if (dir === "W") {
+            else if (this.player.dir === "W") {
                 res = this.roads[this.player.row][this.player.col - 1] !== undefined;
             }
-            else if (dir === "E") {
+            else if (this.player.dir === "E") {
                 res = this.roads[this.player.row][this.player.col + 1] !== undefined;
             }
         }
@@ -107,24 +108,29 @@ function Map() {
         return res;
     };
 
-    this.movePlayer = function (dir) {
-        if (this.roadAvailable(dir)) {
-            if (dir === "N") {
+    this.changeDirPlayer = function (dir) {
+        this.player.dir = dir;
+    };
+
+    this.movePlayer = function () {
+        if (this.roadAvailable(this.player.dir)) {
+            if (this.player.dir === "N") {
                 this.player.row = this.player.row - 1;
             }
-            else if (dir === "S") {
+            else if (this.player.dir === "S") {
                 this.player.row = this.player.row + 1;
             }
-            else if (dir === "W") {
+            else if (this.player.dir === "W") {
                 this.player.col = this.player.col - 1;
             }
-            else if (dir === "E") {
+            else if (this.player.dir === "E") {
                 this.player.col = this.player.col + 1;
             }
 
             this.draw();
         }
         else {
+            isPlaying = false;
             throw "Bad direction";
         }
     };
@@ -174,8 +180,59 @@ function Map() {
     }
 }
 
-function Player() {
+// Functions for blocks coding
+function run_code() {
+    // Wait to finish animation before another run
+    var status = false;
+    try {
+        status = isPlaying;
+    }
+    catch (err) {
+    }
 
+    if (!status) {
+        reinit_code();
+
+        try {
+            code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
+            console.log(code);
+            eval("answer = async function() { isPlaying = true;\n" + code + "isPlaying = false;}");
+            save_code();
+            answer();
+            checkAnswer();
+        }
+        catch (err) {
+            popupNotGood();
+            console.log(err);
+        }
+    }
+}
+
+function save_code() {
+    try {
+        window.Blockly.Storage.backupBlocks(window.Blockly.getMainWorkspace());
+    }
+    catch (err) {
+        console.log("Local Storage not available")
+    }
+}
+
+function checkAnswer() {
+    if (cityMap === undefined) {
+        return;
+    }
+
+    if (isPlaying) {
+        setTimeout(checkAnswer, 500);
+        return;
+    }
+
+    if (cityMap.isFinished()) {
+        popupGood();
+    }
+    else {
+        popupNotGood();
+    }
 }
 
 // Function execute when all things are loaded

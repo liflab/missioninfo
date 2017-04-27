@@ -8,8 +8,8 @@
     <script src="../../../modules/blockly/blocks_compressed.js"></script>
     <script src="../../../modules/blockly/javascript_compressed.js"></script>
     <script src="../../../modules/blockly/blockly_init.js"></script>
-    <script src="../../../logique/assets/js/blocks.js"></script>
-    <link href="../../../logique/assets/css/blockly.css" rel="stylesheet">
+    <script src="../../assets/js/blocks.js"></script>
+    <link href="../../assets/css/blockly.css" rel="stylesheet">
 
     <script>
         Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff'];
@@ -19,18 +19,10 @@
 
 <body onload="initBlockly(1.0,true,false)">
 <xml id="toolbox" style="display: none;">
-    <block type="controls_if"></block>
-    <!--
-    <block type="logic_operation">
-        <field name="OP">AND</field>
+    <block type="changeDirection">
+        <field name="dir">N</field>
     </block>
-    <block type="logic_negate"></block>-->
-    <block type="test_shape">
-        <field name="shape_type">head</field>
-    </block>
-    <block type="bucket">
-        <field name="bucket_idx">1</field>
-    </block>
+    <block type="avance"></block>
 </xml>
 </xml>
 

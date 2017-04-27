@@ -249,6 +249,11 @@ function clearLocalStorage() {
     bootbox.alert('Réinitialisation effectuée !')
 }
 
+//-----------------------SLEEP-----------------------//
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 //-----------------------NAMESPACE EXPORT-----------------------//
 window.reveal_loaded = function (reveal) {
     return window.Reveal = reveal;

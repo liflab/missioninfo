@@ -27,3 +27,10 @@ function setup() {
     cityMap.init(p1_map);
     cityMap.draw();
 }
+
+function reinit_code() {
+    cityMap.init(p1_map);
+    cityMap.draw();
+}
+
+
