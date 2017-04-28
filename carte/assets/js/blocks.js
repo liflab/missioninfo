@@ -55,7 +55,7 @@ Blockly.Blocks['jusque_fin'] = {
 Blockly.JavaScript['jusque_fin'] = function (block) {
     var statements_to_repeat = Blockly.JavaScript.statementToCode(block, 'to_repeat');
 
-    var code = 'while(!cityMap.isFinished()) {\n' + statements_to_repeat + '};\n';
+    var code = 'while(!cityMap.isFinished() && isPlaying) {\n' + statements_to_repeat + ';await sleep(100);\n};\n';
     return code;
 };
 
