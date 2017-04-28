@@ -3,7 +3,7 @@ const WIDTH = 600;
 const HEIGHT = 600;
 const COLS = 10;
 const ROWS = 10;
-const DEBUG = false;
+const DEBUG = true;
 
 // Globals variables
 var img_road_deb, img_road_1, img_road_2, img_road_3, img_road_4, img_road_fin, img_player, img_bg;
@@ -14,7 +14,8 @@ var num_item = 0;
 var isPlaying = false;
 var animator;
 
-var cityMap;
+var cityMap = new Map();
+var page_map;
 var code = "";
 
 // Functions to load assets
@@ -44,16 +45,31 @@ function preload() {
         loadImage("../../assets/img/fin_2.png"),
         loadImage("../../assets/img/fin_3.png")];
 
-    img_player = loadImage("../../assets/img/player.png");
+    img_player = {
+        "E": loadImage("../../assets/img/player_E.png"),
+        "W": loadImage("../../assets/img/player_W.png"),
+        "N": loadImage("../../assets/img/player_N.png"),
+        "S": loadImage("../../assets/img/player_S.png")
+    };
 
     img_bg = loadImage("../../assets/img/p1_bg.png");
+}
+
+function createMap() {
+    cityMap.init(page_map);
+    cityMap.draw();
+}
+
+function reinitMap() {
+    cityMap.init(page_map);
+    cityMap.draw();
 }
 
 // Objects used in this section
 function Map() {
 
     // this.background = bg;
-    this.player = {row: 0, col: 0, dir: "N"};
+    this.player = {};
     this.roads = new Array(ROWS);
     for (var row = 0; row < ROWS; row++) {
         this.roads[row] = new Array(COLS);
@@ -67,24 +83,114 @@ function Map() {
             if (listRoads[i].data.style === "deb") {
                 this.player.row = listRoads[i].row;
                 this.player.col = listRoads[i].col;
+                if (listRoads[i].data.type === 0) {
+                    this.player.dir = "N";
+                }
+                else if (listRoads[i].data.type === 1) {
+                    this.player.dir = "E";
+                }
+                else if (listRoads[i].data.type === 2) {
+                    this.player.dir = "S";
+                }
+                else if (listRoads[i].data.type === 3) {
+                    this.player.dir = "W";
+                }
             }
         }
     };
 
-    this.roadAvailable = function () {
+    this.styleRoad = function () {
+        return this.roads[this.player.row][this.player.col].style;
+    };
+
+    this.directionOriente = function (dir, orientation) {
+        if (dir === "N") {
+            if (orientation === "L") {
+                return "W";
+            }
+            else if (orientation === "R") {
+                return "E";
+            }
+            else if (orientation === "F") {
+                return "N";
+            }
+            else if (orientation === "R") {
+                return "S";
+            }
+            else {
+                throw "Bad direction"
+            }
+        }
+        else if (dir === "S") {
+            if (orientation === "L") {
+                return "E";
+            }
+            else if (orientation === "R") {
+                return "W";
+            }
+            else if (orientation === "F") {
+                return "S";
+            }
+            else if (orientation === "R") {
+                return "N";
+            }
+            else {
+                throw "Bad direction"
+            }
+        }
+        else if (dir === "W") {
+            if (orientation === "L") {
+                return "S";
+            }
+            else if (orientation === "R") {
+                return "N";
+            }
+            else if (orientation === "F") {
+                return "W";
+            }
+            else if (orientation === "R") {
+                return "E";
+            }
+            else {
+                throw "Bad direction"
+            }
+        }
+        else if (dir === "E") {
+            if (orientation === "L") {
+                return "N";
+            }
+            else if (orientation === "R") {
+                return "S";
+            }
+            else if (orientation === "F") {
+                return "E";
+            }
+            else if (orientation === "R") {
+                return "W";
+            }
+            else {
+                throw "Bad direction"
+            }
+        }
+        else {
+            throw "Bad direction"
+        }
+    };
+
+    this.roadAvailable = function (dir) {
         var res = false;
 
         try {
-            if (this.player.dir === "N") {
+            if (dir === "N") {
                 res = this.roads[this.player.row - 1][this.player.col] !== undefined;
             }
-            else if (this.player.dir === "S") {
+            else if (dir === "S") {
                 res = this.roads[this.player.row + 1][this.player.col] !== undefined;
             }
-            else if (this.player.dir === "W") {
+            else if (dir === "W") {
                 res = this.roads[this.player.row][this.player.col - 1] !== undefined;
             }
-            else if (this.player.dir === "E") {
+            else if (dir === "E") {
                 res = this.roads[this.player.row][this.player.col + 1] !== undefined;
             }
         }
@@ -108,8 +214,17 @@ function Map() {
         return res;
     };
 
+    this.testTurn = function (orientation) {
+        return this.roadAvailable(this.directionOriente(this.player.dir, orientation));
+    };
+
+    this.turn = function (orientation) {
+        this.changeDirPlayer(this.directionOriente(this.player.dir, orientation));
+    };
+
     this.changeDirPlayer = function (dir) {
         this.player.dir = dir;
+        this.draw();
     };
 
     this.movePlayer = function () {
@@ -139,7 +254,7 @@ function Map() {
         clear();
         background(255);
 
-        image(img_bg, 0, 0);
+        //image(img_bg, 0, 0);
 
         for (var row = 0; row < ROWS; row++) {
             for (var col = 0; col < COLS; col++) {
@@ -176,28 +291,22 @@ function Map() {
             }
         }
 
-        image(img_player, this.player.col * (WIDTH / COLS), this.player.row * (HEIGHT / ROWS));
+        image(img_player[this.player.dir], this.player.col * (WIDTH / COLS), this.player.row * (HEIGHT / ROWS));
     }
 }
 
 // Functions for blocks coding
-function run_code() {
+function runCode() {
     // Wait to finish animation before another run
-    var status = false;
-    try {
-        status = isPlaying;
-    }
-    catch (err) {
-    }
-
-    if (!status) {
-        reinit_code();
+    if (!isPlaying) {
+        reinitMap();
 
         try {
             code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
             console.log(code);
-            eval("answer = async function() { isPlaying = true;\n" + code + "isPlaying = false;}");
-            save_code();
+            eval("answer = async function() { isPlaying = true;\n\nawait sleep(200);\n" + code + "isPlaying = false;}");
+            saveCode();
+            document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-pause"></span> ARRETER';
             answer();
             checkAnswer();
         }
@@ -205,10 +314,12 @@ function run_code() {
             popupNotGood();
             console.log(err);
         }
+    } else {
+        isPlaying = false;
     }
 }
 
-function save_code() {
+function saveCode() {
     try {
         window.Blockly.Storage.backupBlocks(window.Blockly.getMainWorkspace());
     }
@@ -227,8 +338,11 @@ function checkAnswer() {
         return;
     }
 
+    document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-play"></span> DEMARRER';
     if (cityMap.isFinished()) {
         popupGood();
+        document.getElementById("btn_run").style.display = "none";
+        document.getElementById("btn_next_exercise").style.display = "block";
     }
     else {
         popupNotGood();
@@ -237,7 +351,7 @@ function checkAnswer() {
 
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(6);
+    createButtons(10);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
