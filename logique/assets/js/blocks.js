@@ -39,7 +39,7 @@ Blockly.Blocks['test_shape'] = {
 Blockly.JavaScript['test_shape'] = function (block) {
     var dropdown_shape_type = block.getFieldValue('shape_type');
 
-    var code = 'item.shape === "' + dropdown_shape_type + '"';
+    var code = '(item.shape === "' + dropdown_shape_type + '")';
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -61,11 +61,10 @@ Blockly.Blocks['test_color'] = {
 Blockly.JavaScript['test_color'] = function (block) {
     var colour_shape = block.getFieldValue('shape');
 
-    var code = 'item.color === "' + colour_shape + '"';
+    var code = '(item.color === "' + colour_shape + '")';
 
     return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
-
 ///////////////////////////////////////////////////////////////////
 
 Blockly.Blocks['bucket'] = {
@@ -80,10 +79,9 @@ Blockly.Blocks['bucket'] = {
         this.setHelpUrl('');
     }
 };
-
 Blockly.JavaScript['bucket'] = function (block) {
     var dropdown_bucket_idx = block.getFieldValue('bucket_idx');
 
-    var code = 'return ' + dropdown_bucket_idx + ';\n';
+    var code = 'return (' + dropdown_bucket_idx + ');\n';
     return code;
 };
