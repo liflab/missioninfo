@@ -37,6 +37,10 @@ function preload() {
     img_background = img_factory;
     _preload();
 
+    for(var i=0;i<items.length;i++){
+        items[i].img = loadImage(items[i].img_url);
+    }
+
 }
 
 // Functions for animation & checking
@@ -67,7 +71,6 @@ function run_code() {
         save_code();
         playAnim(f);
         checkAnswer();
-
     }
 }
 
@@ -102,6 +105,7 @@ function checkAnswer() {
         popupGood();
         document.querySelector("#btn_run").style.display="none";
         document.querySelector("#btn_next_exercise").style.display="block";
+        window.localStorage.setItem("max_page_logique", Math.max(currentPageNumber + 1, savedPageNumber));
     }
     else {
         popupNotGood();
@@ -132,6 +136,7 @@ function playAnim(func) {
 function playAnimWorker(func) {
     if(_items.length ==0){
         isPlaying = false;
+        logicExercise.draw();
         return;
     }
 
@@ -326,4 +331,16 @@ function Bucket(elem, rule) {
         var f = eval('(function(item) {' + this.rule + '\n})');
         return f(item);
     };
+}
+
+function popupItems(){
+    var str = "";
+    str += "<h3>Objets</h3>";
+    str += "<div class=\"text-center\">";
+        for(var i=0;i<items.length;i++){
+            var item = items[i];
+            str += "<img class='margin-right' src='"+item.img_url+"' alt='Objet' height='30' />";
+        }
+    str += "</div>";
+    bootbox.alert(str);
 }

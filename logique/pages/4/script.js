@@ -1,4 +1,4 @@
-text_info = "\nJ'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\nMon chapeau est constité de petits ronds oranges.\nMes yeux sont bleus, retrouves-les !";
+text_info = "J'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\nMon chapeau est constité de petits ronds oranges.\nMes yeux sont bleus, retrouves-les !\n**Utilises le bloc \"OU\" et le bloc \"ET\" !**";
 
 bucketsExercise = {
     elems: [
@@ -25,11 +25,11 @@ function setup() {
 }
 
 function _preload(){
-    items.push({"img":loadImage("../../assets/img/eye.png")             ,"shape":"eye"       ,"color":"#0000ff"});
-    items.push({"img":loadImage("../../assets/img/eye_white.png")       ,"shape":"eye"       ,"color":"#ffffff"});
-    items.push({"img":loadImage("../../assets/img/eye_green.png")       ,"shape":"eye"       ,"color":"#00ff00"});
-    items.push({"img":loadImage("../../assets/img/hat.png")             ,"shape":"hat"       ,"color":"#ffa500"});
-    items.push({"img":loadImage("../../assets/img/hat_red.png")         ,"shape":"hat"       ,"color":"#ff0000"});
-    items.push({"img":loadImage("../../assets/img/hat_graduation.png")  ,"shape":"hat"       ,"color":"#000000"});
+    items.push({"img_url":"../../assets/img/eye.png"             ,"shape":"eye"       ,"color":"#0000ff"});
+    items.push({"img_url":"../../assets/img/eye_white.png"       ,"shape":"eye"       ,"color":"#ffffff"});
+    items.push({"img_url":"../../assets/img/eye_green.png"       ,"shape":"eye"       ,"color":"#00ff00"});
+    items.push({"img_url":"../../assets/img/hat.png"             ,"shape":"hat"       ,"color":"#ffa500"});
+    items.push({"img_url":"../../assets/img/hat_red.png"         ,"shape":"hat"       ,"color":"#ff0000"});
+    items.push({"img_url":"../../assets/img/hat_graduation.png"  ,"shape":"hat"       ,"color":"#000000"});
 
 }
