@@ -11,7 +11,7 @@ var Crayon;
 
 var text_info = "Il faut retourner à la création de notre cabane !\n" +
     "Nous avions fait une première fondation rouge au début.\n" +
-    "Il faut dresser les premiers murs et le toit !";
+    "Il faut dresser les premiers murs et le toit en bleu !";
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
