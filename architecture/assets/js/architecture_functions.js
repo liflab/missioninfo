@@ -399,6 +399,7 @@ function updateTextRanger(){
 }
 
 function playAnim(){
+    invertButtons();
     reset(true);
     stopAnim(true);
     updateMaxRange(solution_length(solution_example));
@@ -408,7 +409,6 @@ function playAnim(){
 
     draw_saved = [];
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL*speed);
-    invertButtons();
 }
 function stopAnim(b){
     if(b===undefined) b=false;
@@ -448,6 +448,14 @@ function action(current_step){
     for(var i =0;i<draw_saved.length;i++){
         eval(draw_saved[i]);
     }
+
+    var v = Crayon["color"].substr(1);
+    var color_red   = parseInt(v.substr(0,2),16);
+    var color_green = parseInt(v.substr(2,4),16);
+    var color_blue  = parseInt(v.substr(4),16);
+    const OPACITY_EXAMPLE = 0.5;
+    var opacity = (example_demo)?(OPACITY_EXAMPLE):(1);
+
     switch(current_step["type"]){
         case "avancer":
             var start_x = x;
@@ -459,11 +467,15 @@ function action(current_step){
             x = Math.round(x*100)/100;
             y = Math.round(y*100)/100;
 
-            if(!example_demo && !Crayon["leve"]){
-                stroke(Crayon["color"]);
+            if(!Crayon["leve"]){
+                if(!example_demo){
+                    stroke(color_red,color_green,color_blue);
+                }else{
+                    stroke(color_red,color_green,color_blue,OPACITY_EXAMPLE*255);
+                }
                 strokeWeight(14);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
-                var cmd = "stroke('"+Crayon["color"]+"');strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);strokeWeight(0);";
+                var cmd = "stroke("+color_red+","+color_green+","+color_blue+","+(opacity*255)+");strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);strokeWeight(0);";
                 draw_saved.push(cmd);
                 draw_gen_saved.push({"type":"line","color":Crayon["color"],"coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
                 strokeWeight(0);
@@ -489,12 +501,16 @@ function action(current_step){
 
             var reversed = rotation_todo["value"] < 0;
 
-            if(!example_demo && !Crayon["leve"]) {
-                stroke(Crayon["color"]).noFill();
+            if(!Crayon["leve"]){
+                if(!example_demo){
+                    stroke(color_red,color_green,color_blue);
+                }else{
+                    stroke(color_red,color_green,color_blue,OPACITY_EXAMPLE*255);
+                }
+                noFill();
                 strokeWeight(14);
-
                 drawArc(x,y,taille,rad_start_rotation,rad_end_rotation,reversed);
-                var cmd = "stroke('"+Crayon["color"]+"').noFill();";
+                var cmd = "stroke("+color_red+","+color_green+","+color_blue+","+(opacity*255)+").noFill();";
                 cmd+= "strokeWeight(14);";
                 cmd+= "drawArc("+x+", "+y+", "+(taille)+", "+(rad_start_rotation)+", "+(rad_end_rotation)+","+(reversed?("true"):("false"))+");";
                 cmd+= "strokeWeight(0);";
@@ -510,6 +526,7 @@ function action(current_step){
                 });
                 strokeWeight(0);
             }
+
             Crayon["rotation"] += rotation_todo["value"];
             break;
     }
