@@ -352,7 +352,7 @@ Blockly.Blocks['arc_de_cercle'] = {
         this.appendDummyInput()
             .appendField("Dessin d'un arc de cercle");
         this.appendDummyInput()
-            .appendField("Taille: ")
+            .appendField("Rayon: ")
             .appendField(new Blockly.FieldNumber(0, 0, 200), "Taille");
         this.appendStatementInput("Rotation")
             .setCheck(null)
@@ -418,8 +418,9 @@ Blockly.JavaScript['boucle'] = function(block) {
     return code;
 };
 Blockly.JavaScript['arc_de_cercle'] = function(block) {
-    var number_taille = block.getFieldValue('Taille');
+    var number_taille = block.getFieldValue('Taille') * 2; // * 2 pour faire le diamètre
     var statements_rotation = Blockly.JavaScript.statementToCode(block, 'Rotation');
+
     // TODO: Assemble JavaScript into code variable.
     var code = '{"type":"arc","taille":'+number_taille+',"rotation":'+statements_rotation+'},';
     return code;
