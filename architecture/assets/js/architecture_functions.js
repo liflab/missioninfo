@@ -254,29 +254,35 @@ function drawCursor(x,y) {
 }
 
 function drawSpaceIndicators() {
+
+    const VALUE_RED     = 0;
+    const VALUE_GREEN   = 0;
+    const VALUE_BLUE    = 0;
+    const GRID_OPACITY  = 0.3;
+
     var sizeSpaceIndicators = 20;
     textAlign(CENTER);
     for (var i = 1; i < axisHeightLength; i++) {
-        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).stroke(VALUE_RED, VALUE_GREEN, VALUE_BLUE).strokeWeight(4)
         line(0, i * pxUnit, sizeSpaceIndicators, i * pxUnit);
         line((axisWidthLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
 
-        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).stroke(VALUE_RED, VALUE_GREEN, VALUE_BLUE, GRID_OPACITY*255).strokeWeight(1)
         line(0, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
 
-        fill(0, 0, 0).strokeWeight(0).textSize(18)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).strokeWeight(0).textSize(18)
         text((axisHeightLength - i), 40, i * pxUnit + 8);
 
     }
     for (var i = 1; i < axisWidthLength; i++) {
-        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).stroke(VALUE_RED, VALUE_GREEN, VALUE_BLUE).strokeWeight(4)
         line(i * pxUnit, 0, i * pxUnit, sizeSpaceIndicators);
         line(i * pxUnit, (axisHeightLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisHeightLength * pxUnit);
 
-        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).stroke(VALUE_RED, VALUE_GREEN, VALUE_BLUE, GRID_OPACITY*255).strokeWeight(1)
         line(i * pxUnit, 0, i * pxUnit, axisHeightLength * pxUnit);
 
-        fill(0, 0, 0).strokeWeight(0).textSize(18)
+        fill(VALUE_RED, VALUE_GREEN, VALUE_BLUE).strokeWeight(0).textSize(18)
         text(i, i * pxUnit, (axisHeightLength * pxUnit) - 30);
     }
     fill(50, 50, 255).strokeWeight(0).textSize(24).textStyle(BOLD);
