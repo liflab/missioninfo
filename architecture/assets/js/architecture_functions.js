@@ -85,6 +85,7 @@ function not_good() {
 
 function enable_next() {
     popupGood();
+    save_code();
     document.getElementById("btn_run_prog").style.display = "none";
     document.getElementById("btn_next_exercise").style.display = "block";
     document.getElementById("progress_" + currentPageNumber.toString()).className = "btn btn-success";
