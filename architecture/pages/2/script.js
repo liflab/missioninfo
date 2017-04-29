@@ -56,6 +56,7 @@ function reset(b){
         x=10;
         y=2;
         Crayon["rotation"] = 0;
+        Crayon["leve"] = false;
         drawCursor(x,y);
         draw_saved = [];
         draw_gen_saved = [];

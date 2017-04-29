@@ -224,7 +224,7 @@ image_robotino.height = SIZE_CURSOR;
 image_robotino.width = 0.921875 * SIZE_CURSOR;
 */
 Crayon = {
-    "leve":false,
+    "leve":true,
     "color":"#000000",
     "rotation":0
 };
