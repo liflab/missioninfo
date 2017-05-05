@@ -3,7 +3,7 @@ const WIDTH = 600;
 const HEIGHT = 600;
 const COLS = 10;
 const ROWS = 10;
-const DEBUG = true;
+const DEBUG = false;
 
 // Globals variables
 var img_road_deb, img_road_1, img_road_2, img_road_3, img_road_4, img_road_fin, img_player, img_bg;
@@ -52,7 +52,7 @@ function preload() {
         "S": loadImage("../../assets/img/player_S.png")
     };
 
-    img_bg = loadImage("../../assets/img/p1_bg.png");
+    img_bg = loadImage("../../assets/img/p" + currentPageNumber + "_bg.png");
 }
 
 function createMap() {
@@ -254,7 +254,7 @@ function Map() {
         clear();
         background(255);
 
-        //image(img_bg, 0, 0);
+        image(img_bg, 0, 0);
 
         for (var row = 0; row < ROWS; row++) {
             for (var col = 0; col < COLS; col++) {
