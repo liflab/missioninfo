@@ -16,6 +16,7 @@ var animator;
 
 var cityMap = new Map();
 var page_map;
+var maxBlocks;
 var code = "";
 
 // Functions to load assets
@@ -340,9 +341,18 @@ function checkAnswer() {
 
     document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-play"></span> DEMARRER';
     if (cityMap.isFinished()) {
-        popupGood();
-        document.getElementById("btn_run").style.display = "none";
-        document.getElementById("btn_next_exercise").style.display = "block";
+        if (maxBlocks === undefined || maxBlocks >= Blockly.getMainWorkspace().getAllBlocks().length) {
+            popupGood();
+            document.getElementById("btn_run").style.display = "none";
+            document.getElementById("btn_next_exercise").style.display = "block";
+        }
+        else {
+            bootbox.alert({
+                message: '<div class="text-center">Attention tu as mis trop de blocs!<br><h3>Il faut mettre au maximum : ' + maxBlocks + ' blocs.</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
+                backdrop: true
+            });
+        }
+
     }
     else {
         popupNotGood();
