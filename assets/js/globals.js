@@ -221,7 +221,7 @@ function saveLog(logName) {
 
 function getLogs() {
     var logNames = ["decouverte", "codage", "logique", "architecture", "carte"];
-    for (var i = 0; i < logNames; i++) {
+    for (var i = 0; i < logNames.length; i++) {
         var log_blob = new Blob([window.localStorage.getItem("log_" + logNames[i])], {type: 'text/plain'});
         saveAs(log_blob, "log_" + logNames[i] + ".txt");
     }
