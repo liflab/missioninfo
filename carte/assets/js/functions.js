@@ -3,7 +3,7 @@ const WIDTH = 600;
 const HEIGHT = 600;
 const COLS = 10;
 const ROWS = 10;
-const DEBUG = true;
+const DEBUG = false;
 
 // Globals variables
 var img_road_deb, img_road_1, img_road_2, img_road_3, img_road_4, img_road_fin, img_player, img_bg;
@@ -16,6 +16,7 @@ var animator;
 
 var cityMap = new Map();
 var page_map;
+var maxBlocks;
 var code = "";
 
 // Functions to load assets
@@ -52,7 +53,7 @@ function preload() {
         "S": loadImage("../../assets/img/player_S.png")
     };
 
-    img_bg = loadImage("../../assets/img/p1_bg.png");
+    img_bg = loadImage("../../assets/img/p" + currentPageNumber + "_bg.png");
 }
 
 function createMap() {
@@ -254,7 +255,7 @@ function Map() {
         clear();
         background(255);
 
-        //image(img_bg, 0, 0);
+        image(img_bg, 0, 0);
 
         for (var row = 0; row < ROWS; row++) {
             for (var col = 0; col < COLS; col++) {
@@ -340,9 +341,18 @@ function checkAnswer() {
 
     document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-play"></span> DEMARRER';
     if (cityMap.isFinished()) {
-        popupGood();
-        document.getElementById("btn_run").style.display = "none";
-        document.getElementById("btn_next_exercise").style.display = "block";
+        if (maxBlocks === undefined || maxBlocks >= Blockly.getMainWorkspace().getAllBlocks().length) {
+            popupGood();
+            document.getElementById("btn_run").style.display = "none";
+            document.getElementById("btn_next_exercise").style.display = "block";
+        }
+        else {
+            bootbox.alert({
+                message: '<div class="text-center">Attention tu as mis trop de blocs!<br><h3>Il faut mettre au maximum : ' + maxBlocks + ' blocs.</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
+                backdrop: true
+            });
+        }
+
     }
     else {
         popupNotGood();

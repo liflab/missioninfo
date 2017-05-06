@@ -8,6 +8,8 @@ page_map = [
     {row: 4, col: 6, data: {style: "fin", type: 3}}
 ];
 
+maxBlocks = 2;
+
 function setup() {
     var canvas = createCanvas(600, 600);
     canvas.parent('sketch-holder');
