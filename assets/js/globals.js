@@ -219,6 +219,14 @@ function saveLog(logName) {
     saveAs(log_blob, "log_" + logName + ".txt");
 }
 
+function getLogs() {
+    var logNames = ["decouverte", "codage", "logique", "architecture", "carte"];
+    for (var i = 0; i < logNames; i++) {
+        var log_blob = new Blob([window.localStorage.getItem("log_" + logNames[i])], {type: 'text/plain'});
+        saveAs(log_blob, "log_" + logNames[i] + ".txt");
+    }
+}
+
 function saveAs(blob, fileName) {
     var url = window.URL.createObjectURL(blob);
 
