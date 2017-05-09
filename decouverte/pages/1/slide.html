@@ -117,9 +117,13 @@
             <h2>Voici un exemple...</h2>
         </section>
         <section>
-            <video style="height: 80vh" autoplay muted loop>
+            <video id="video-exemple" style="height: 80vh" muted>
                 <source data-src="../../assets/vid/decouverte.mp4" type="video/mp4"/>
             </video>
+            <div>
+                <a style="cursor:pointer" onclick="document.getElementById('video-exemple').play();">CLIQUE ICI POUR
+                    LANCER LA VIDEO</a>
+            </div>
         </section>
         <section>
             <h2>A toi de jouer !</h2>
@@ -155,6 +159,7 @@
     // Let the top-level application know that Reveal is ready.
     try {
         window.parent.reveal_loaded(Reveal);
+        window.parent.setSlideFocus();
     }
     catch (err) {
         console.log("Launch without parent page")

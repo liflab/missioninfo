@@ -22,6 +22,12 @@ function openLastPage() {
     location.href = 'pages/' + savedPageNumber + '/index.html';
 }
 
+//-----------------------UI : FOCUS-----------------------//
+function setSlideFocus() {
+    var fr = document.getElementById("slide-holder");
+    fr.contentWindow.focus();
+}
+
 //-----------------------UI : SIZE-----------------------//
 var autoResize = function () {
     var bodyPageDiv = document.getElementById('bodyPage');
@@ -49,7 +55,7 @@ var autoResize = function () {
 };
 if (activity !== "accueil") {
     window.addEventListener('resize', autoResize, false);
-    console.log("Resize OK");
+    //console.log("Resize OK");
 }
 
 //-----------------------UI : PROGRESS BAR-----------------------//
