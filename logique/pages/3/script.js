@@ -26,6 +26,6 @@ function setup() {
 
 function _preload(){
     items.push({"img_url":"../../assets/img/head.png"        ,"shape":"rounded"   ,"color":"#2223ff"});
-    items.push({"img_url":"../../assets/img/helmet_r2d2.png" ,"shape":"rounded"   ,"color":"#eeeeee"});
+    items.push({"img_url":"../../assets/img/helmet_r2d2.png" ,"shape":"rounded"   ,"color":"#aaaaaa"});
     items.push({"img_url":"../../assets/img/human_head.png"  ,"shape":"oval"      ,"color":"#e0ac69"});
 }

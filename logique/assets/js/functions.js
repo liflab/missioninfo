@@ -148,7 +148,9 @@ function playAnimWorker(func) {
         is_allowed = logicExercise.buckets[bucket_predicted].check(item);
     }
     answers.push(is_allowed);
+
     console.log(bucket_predicted+" => "+is_allowed);
+
 
     var w = item.img.width;
     var h = item.img.height;
@@ -184,9 +186,17 @@ function playAnimWorker(func) {
             },2000);
         }
         clearInterval(moving_interval);
-        animator = setTimeout(function(){
-            playAnimWorker(func);
-        }, 500);
+
+
+        if(!is_allowed || bucket_predicted == null){
+            isPlaying = false;
+            logicExercise.draw();
+        }else{
+            animator = setTimeout(function(){
+                playAnimWorker(func);
+            }, 500);
+        }
+
     },NB_ITERATION_MOVING_ITEM*1000/FRAME_PER_SECOND);
 
 }
