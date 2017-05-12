@@ -3,8 +3,8 @@ var put_in_bucket  = [];
 
 switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1))){
     case 2:
-        shape_per_page = [["Tête", "head"], ["Bras", "arm"], ["Corps", "body"], ["Jambe", "leg"], ["Autre", "other"]];
-        put_in_bucket  = [["Tête", "0"], ["Bras", "1"], ["Corps", "2"], ["Jambe", "3"], ["Autre", "4"]];
+        shape_per_page = [["Tête", "head"], ["Bras", "arm"], ["Corps", "body"], ["Roue", "leg"]];
+        put_in_bucket  = [["Tête", "0"], ["Bras", "1"], ["Corps", "2"], ["Roue", "3"]];
     break;
     case 3:
         shape_per_page = [["Arrondi", "rounded"], ["Ovale", "oval"]];
