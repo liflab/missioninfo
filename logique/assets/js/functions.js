@@ -50,6 +50,8 @@ var animator;
 
 var logicExercise;
 var code = "";
+var required_box = [];
+
 
 // Functions for blocks coding
 function run_code() {
@@ -65,9 +67,9 @@ function run_code() {
         //try {
         answers = [];
         code = window.Blockly.JavaScript.workspaceToCode(window.Blockly.getMainWorkspace());
-        var f_body = "(function(item){\n"+code+"\nreturn null;})";
-        console.log(f_body);
-        var f = eval(f_body);
+        code = "(function(item){\n"+code+"\nreturn null;})";
+
+        var f = eval(code);
         save_code();
         playAnim(f);
         checkAnswer();
@@ -93,6 +95,23 @@ function checkAnswer() {
         return;
     }
 
+    console.log(required_box);
+    if(required_box.length>0){
+        for(var i=0;i<required_box.length;i++){
+            var r = required_box[i];
+            var val = r.value;
+            var name = r.name;
+            if(code.indexOf(val)==-1){
+                popupNotGood("Il manque le bloc \""+name+"\" !");
+                document.querySelector("#btn_run").style.display="block";
+                document.querySelector("#btn_next_exercise").style.display="none";
+                return;
+            }
+        }
+    }
+
+    console.log(code);
+
     var res = true;
     for(var i=0;i<answers.length;i++){
         if(!answers[i]){
@@ -101,17 +120,17 @@ function checkAnswer() {
         }
     }
 
-    if (res) {
-        popupGood();
-        document.querySelector("#btn_run").style.display="none";
-        document.querySelector("#btn_next_exercise").style.display="block";
-        window.localStorage.setItem("max_page_logique", Math.max(currentPageNumber + 1, savedPageNumber));
-    }
-    else {
-        popupNotGood();
+    if(!res){
+        popupNotGood("Au moins un des objets n'est pas bien trié !");
         document.querySelector("#btn_run").style.display="block";
         document.querySelector("#btn_next_exercise").style.display="none";
+        return;
     }
+
+    popupGood();
+    document.querySelector("#btn_run").style.display="none";
+    document.querySelector("#btn_next_exercise").style.display="block";
+    window.localStorage.setItem("max_page_logique", Math.max(currentPageNumber + 1, savedPageNumber));
 }
 
 function playAnim(func) {

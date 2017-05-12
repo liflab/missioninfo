@@ -135,9 +135,12 @@ function next_page() {
 }
 
 //-----------------------UI : POPUP & INFO-----------------------//
-function popupNotGood() {
+function popupNotGood(opt_text) {
+    if(opt_text===undefined){
+        opt_text = "";
+    }
     bootbox.alert({
-        message: '<div class="text-center">Il y a des erreurs. Essaie encore !<br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
+        message: '<div class="text-center">'+((opt_text.length>0)?(opt_text):('Il y a des erreurs. Essaie encore !'))+'<br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
         backdrop: true
     });
 }

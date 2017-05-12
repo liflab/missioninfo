@@ -1,5 +1,7 @@
 text_info = "Commençons par mon début ! Ma tête !\nTrions les trois têtes que tu as triés tout à l'heure.\nLa mienne est bleue et arrondie !\n**Utilise le bloc \"ET\" !**";
 
+required_box.push({"name":"ET","value":"&&"});
+
 bucketsExercise = {
     elems: [
         new TextShape("Bleu arrondi", "#2223ff"),
