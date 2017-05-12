@@ -68,7 +68,7 @@ function reset(b){
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = 0;
-        Crayon["leve"] = false;
+        Crayon["leve"] = true;
         Crayon["color"] = "#000000";
         drawCursor(x,y);
         draw_saved = [];

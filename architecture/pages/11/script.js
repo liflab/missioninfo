@@ -9,7 +9,7 @@ var solution_example = [{"type":"crayon_color","value":"#ff0000"},{"type":"boucl
 
 var Crayon;
 
-var text_info = "\nLa deuxième fondation que tu avais faite, essaies de la modifier.\n" +
+var text_info = "\nLa deuxième fondation que tu avais faite, essaie de la modifier.\n" +
     "Ca pourrait faire un beau jardin, d'avoir des bords arrondis !";
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
@@ -63,7 +63,7 @@ function reset(b){
         x=START_COORD['x'];
         y=START_COORD['y'];
         Crayon["rotation"] = 90;
-        Crayon["leve"] = false;
+        Crayon["leve"] = true;
         Crayon["color"] = "#000000";
         drawCursor(x,y);
         draw_saved = [];

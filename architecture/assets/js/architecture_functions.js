@@ -6,6 +6,7 @@ Math.radians = function(degrees) {
 Math.degrees = function(radians) {
     return radians * 180 / Math.PI;
 };
+var play_show = true;
 
 //##########################################################################################################
 
@@ -41,6 +42,16 @@ function activateButtons() {
     for (var i = num + 1; i <= nb_total_btn; i++) {
         document.getElementById("progress_" + i).className = "btn btn-default disabled"
     }
+
+    if(document.querySelector("#btn-holder")){
+        var bts = '<button type="button" onclick="next_page()" id="btn_next_exercise" style="display:none" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>';
+        bts+= '<button type="button" onclick="run_code()" id="btn_run_prog" class="btn btn-success btn-block"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>';
+        bts+= '<button type="button" onclick="stopAnim(true)" id="btn_stop_prog" class="btn btn-warning btn-block hidden"><span class="glyphicon glyphicon-stop"></span> STOP</button>';
+        bts+= '<button type="button" onclick="reset(true)" id="btn_reinit_prog" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-backward"></span> REINITIALISER</button>';
+        bts+= '<button type="button" onclick="save_code()" class="btn btn-info btn-block"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>';
+        document.querySelector("#btn-holder").innerHTML = bts;
+    }
+
 }
 //##########################################################################################################
 
@@ -96,15 +107,26 @@ function enable_next() {
     window.localStorage.setItem("max_page_architecture", Math.max(currentPageNumber + 1, savedPageNumber));
 }
 
-var play_show = true;
 function invertButtons(){
     play_show = !play_show;
+
+    console.log("Invert ...");
     if(play_show){
         document.querySelector("#anim-play").className="";
         document.querySelector("#anim-stop").className="hidden";
+
+        document.querySelector("#btn_run_prog").className="btn btn-success btn-block";
+        document.querySelector("#btn_stop_prog").className="btn btn-success btn-block hidden";
+
+        document.querySelector("#btn_reinit_prog").className="btn btn-warning btn-block";
     }else{
         document.querySelector("#anim-play").className="hidden";
         document.querySelector("#anim-stop").className="";
+
+        document.querySelector("#btn_run_prog").className="btn btn-success btn-block hidden";
+        document.querySelector("#btn_stop_prog").className="btn btn-success btn-block";
+        document.querySelector("#btn_reinit_prog").className="btn btn-warning btn-block hidden";
+
     }
 }
 //##########################################################################################################
@@ -339,6 +361,7 @@ const ADDR_BACKGROUND_IMAGE_3 = "../../assets/img/background-3.png";
 function run_exercice_code(obj){
     reset(true);
     stopAnim(true);
+
     var past_time_max = time_max;
 
     past_code = obj.slice(0);
@@ -353,7 +376,6 @@ function run_exercice_code(obj){
     example_demo = false;
     var speed = 1-document.querySelector("#speed").value;
     timer_interval = setInterval(__draw,TIME_BETWEEN_INTERVAL*speed);
-    invertButtons();
 }
 function formatExerciceCode(obj){
     var r_obj = [];
