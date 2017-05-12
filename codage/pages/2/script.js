@@ -1,6 +1,15 @@
 //
 
-popupInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n qu'avec des 0 et des 1! \n Appuie sur les nombres en rouge pour fabriquer des nombres binaires. \n <tspan style=\"font-weight:bold\">Essaie de trouver la bonne combinaison pour écrire le nombre 29</tspan>");
+popupInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n qu'avec des 0 et des 1! \n Appuie sur les nombres en rouge pour fabriquer des nombres binaires. \n <tspan style=\"font-weight:bold\">Essaie de trouver la bonne combinaison pour écrire le nombre indiqué</tspan>");
+
+const nb_min_tries = 5;
+var nb_tries = 0;
+var number_to_find;
+
+function chooseNumber() {
+    number_to_find = Math.floor((Math.random() * 63) + 1);
+    document.getElementById("number").innerHTML = number_to_find;
+}
 
 function changeBit(elem) {
     if (elem.innerHTML === "0") {
@@ -24,10 +33,25 @@ function convertBit() {
         }
     }
 
-    if(res == 29) {
-        document.getElementById("btn_next_exercise").style.display = "block";
-    }
     document.getElementById("res").innerHTML = res;
+
+    if (res == number_to_find) {
+        nb_tries++;
+
+        if (nb_tries < nb_min_tries) {
+            bootbox.alert({
+                message: '<div class="text-center">Bravo !!! Tu as trouvé le nombre <strong>' + number_to_find + '</strong> en binaire<br><br><img src="../../../assets/img/good.svg" alt="Robot goodface" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> nombres à trouver et tu seras prêt pour la prochaine étape</div>',
+                backdrop: true
+            });
+        }
+        else {
+            document.getElementById("btn_next_exercise").style.display = "block";
+            popupGood();
+        }
+
+        chooseNumber();
+
+    }
 }
 
 //------------------------------------------------//

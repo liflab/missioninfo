@@ -33,7 +33,7 @@
 
 </head>
 
-<body onload="allLoaded();">
+<body onload="allLoaded();chooseNumber();">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -85,6 +85,10 @@
 
             <div class="text-center" style="margin-top:30px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none"
                 unselectable="on">
+                <h2>Essaie de trouver ce nombre : <span id="number" style="font-weight: bold">XX</span></h2>
+
+                <hr>
+
                 <h2>Nombre binaire</h2>
                 <div class="row" style="font-family:monospace; font-weight: bold;  font-size: 120px; color: crimson">
                     <div class="col-sm-2" id="bit5" onclick="changeBit(this)">0</div>
