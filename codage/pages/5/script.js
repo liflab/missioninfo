@@ -1,6 +1,6 @@
 //
 
-popupInfo("Maintenant on va faire le contraire. \n\n <tspan style=\"font-weight:bold\">Entraine-toi à ecrire des messages codés en tapant les chiffres</tspan> \n <tspan style=\"font-weight:bold\">qui correspondent au message que tu veux envoyer.</tspan>")
+popupInfo("Maintenant on va faire le contraire. \n\n <tspan style=\"font-weight:bold\">Entraine-toi à ecrire des messages codés en tapant les nombres</tspan> \n <tspan style=\"font-weight:bold\">qui correspondent au message que tu veux envoyer.</tspan>")
 
 const nb_min_tries = 5;
 var nb_tries = 0;
@@ -14,14 +14,16 @@ function ASCII2String() {
     var list_ASCII_number = str_ASCII_number.split(" ");
 
     for (var i = 0; i < list_ASCII_number.length; i++) {
-        var code = list_ASCII_number[i];
+        if (list_ASCII_number[i] !== "") {
+            var code = parseInt(list_ASCII_number[i]);
 
-        if (code == 32 || (code >= 65 && code <= 90)) {
-            res += String.fromCharCode(code);
-        }
-        else {
-            res += "?";
-            good = false;
+            if (code === 32 || (code >= 65 && code <= 90)) {
+                res += String.fromCharCode(code);
+            }
+            else {
+                res += "?";
+                good = false;
+            }
         }
     }
 
@@ -48,8 +50,15 @@ function ASCII2String() {
     }
 }
 
+function checkInput(ob) {
+    var invalidChars = /[^0-9\s]/gi
+    if (invalidChars.test(ob.value)) {
+        ob.value = ob.value.replace(invalidChars, "");
+    }
+}
+
 function reinit_text() {
     document.getElementById("ASCII_numbers").value = "";
-    document.getElementById("res").innerHTML = "Entre des nombres et Clique sur CONVERTIR pour afficher le texte";
+    document.getElementById("res").innerHTML = "Entre des nombres séparés par des espaces pour former un code et clique sur DECODER pour afficher le texte";
 }
 //------------------------------------------------//
