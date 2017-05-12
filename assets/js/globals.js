@@ -205,6 +205,10 @@ function displayInfo(info_text, popup) {
 }
 
 function showHelp(helpfile) {
+    if (helpfile === undefined) {
+        helpfile = activity + "_p" + currentPageNumber + "_aide.md";  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
+    }
+
     var url = "../../../aide/aide.html?file=" + helpfile;
 
     var win = window.open(url, '_blank');
