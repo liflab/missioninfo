@@ -43,7 +43,7 @@ function preload() {
 
 }
 
-// Functions for animation & checking
+// Functions for animation et checking
 var num_item = 0;
 var isPlaying = false;
 var animator;

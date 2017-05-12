@@ -1,4 +1,4 @@
-text_info = "Commençons par mon début ! Ma tête !\nTrions les trois que tu as triés tout à l'heure.\nMa tête est la bleue et arrondie !\n**Utilises le bloc \"ET\" !**";
+text_info = "Commençons par mon début ! Ma tête !\nTrions les trois têtes que tu as triés tout à l'heure.\nLa mienne est bleue et arrondie !\n**Utilise le bloc \"ET\" !**";
 
 bucketsExercise = {
     elems: [

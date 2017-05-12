@@ -2,7 +2,7 @@ text_info = "Bravo pour avoir récupérer mes deux objets !\nIl faudrait cette f
 
 bucketsExercise = {
     elems: [
-        new TextShape("Bras & Main", "#ffa500"),
+        new TextShape("Bras et Main", "#ffa500"),
         new TextShape("Corps Bleu",  "#0000ff"),
         new TextShape("Autre Corps", "#c0c0c0"),
     ],

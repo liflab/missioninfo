@@ -2,7 +2,7 @@ text_info = "Je suis quasiment entier, il ne me manque plus que de quoi me dépl
 
 bucketsExercise = {
     elems: [
-        new TextShape("Roue & Fusée", "#c0c0c0"),
+        new TextShape("Roue et Fusée", "#c0c0c0"),
         new TextShape("Collection",  "#ffffff"),
         new TextShape("Inutile", "#ffffff"),
     ],

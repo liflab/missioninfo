@@ -2,7 +2,7 @@ text_info = "J'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\n
 
 bucketsExercise = {
     elems: [
-        new TextShape("Chapeau & Oeil", "#ffffff"),
+        new TextShape("Chapeau et Oeil", "#ffffff"),
         new TextShape("Autre Oeil",     "#ffffff"),
         new TextShape("Autre chapeau",  "#ffffff"),
     ],
