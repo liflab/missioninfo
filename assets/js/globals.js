@@ -230,7 +230,7 @@ function saveLog(logName) {
 }
 
 function getLogs() {
-    var logNames = ["decouverte", "codage", "logique", "architecture", "carte"];
+    var logNames = ["decouverte", "codage", "logique", "architecture", "carte", "animation"];
     for (var i = 0; i < logNames.length; i++) {
         var log_blob = new Blob([window.localStorage.getItem("log_" + logNames[i])], {type: 'text/plain'});
         saveAs(log_blob, "log_" + logNames[i] + ".txt");
@@ -299,5 +299,9 @@ function showCredits() {
                 <li><a href="http://lab.hakim.se/reveal-js">reveal</a></li>
                 <li><a href="http://showdownjs.github.io/demo/">showdown</a></li>
             </ul>
-            `);
+            
+            <h3>Administration</h3>
+            <p><a class="btn btn-info btn-block" href="#" onclick="getLogs();">Télécharger les logs</a></p>
+            <p><a class="btn btn-danger btn-block" href="#" onclick="clearLocalStorage();">Réinitialiser l'application</a></p>
+`);
 }
