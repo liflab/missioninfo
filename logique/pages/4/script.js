@@ -1,10 +1,13 @@
 text_info = "J'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\nMon chapeau est constité de petits ronds oranges.\nMes yeux sont bleus, retrouves-les !\n**Utilises le bloc \"OU\" et le bloc \"ET\" !**";
 
+required_box.push({"name":"OU","value":"||"});
+required_box.push({"name":"ET","value":"&&"});
+
 bucketsExercise = {
     elems: [
         new TextShape("Chapeau et Oeil", "#ffffff"),
-        new TextShape("Autre Oeil",     "#ffffff"),
-        new TextShape("Autre chapeau",  "#ffffff"),
+        new TextShape("Autre Oeil",      "#ffffff"),
+        new TextShape("Autre chapeau",   "#ffffff"),
     ],
     rules: [
         "return item.shape == \"eye\" && item.color == \"#0000ff\" || item.shape == \"hat\" && item.color == \"#ffa500\";",

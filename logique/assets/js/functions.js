@@ -95,20 +95,6 @@ function checkAnswer() {
         return;
     }
 
-    console.log(required_box);
-    if(required_box.length>0){
-        for(var i=0;i<required_box.length;i++){
-            var r = required_box[i];
-            var val = r.value;
-            var name = r.name;
-            if(code.indexOf(val)==-1){
-                popupNotGood("Il manque le bloc \""+name+"\" !");
-                document.querySelector("#btn_run").style.display="block";
-                document.querySelector("#btn_next_exercise").style.display="none";
-                return;
-            }
-        }
-    }
 
     console.log(code);
 
@@ -125,6 +111,21 @@ function checkAnswer() {
         document.querySelector("#btn_run").style.display="block";
         document.querySelector("#btn_next_exercise").style.display="none";
         return;
+    }
+
+    console.log(required_box);
+    if(required_box.length>0){
+        for(var i=0;i<required_box.length;i++){
+            var r = required_box[i];
+            var val = r.value;
+            var name = r.name;
+            if(code.indexOf(val)==-1){
+                popupNotGood("Il manque le bloc \""+name+"\" !");
+                document.querySelector("#btn_run").style.display="block";
+                document.querySelector("#btn_next_exercise").style.display="none";
+                return;
+            }
+        }
     }
 
     popupGood();
