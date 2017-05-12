@@ -4,11 +4,14 @@ popupInfo("Comme tu as vu précédemment, les ordinateurs ne savent compter \n q
 
 const nb_min_tries = 5;
 var nb_tries = 0;
+var numbers_found = [1, 2, 4, 8, 16, 32];
 var number_to_find;
 
 function chooseNumber() {
-    number_to_find = Math.floor((Math.random() * 63) + 1);
-    document.getElementById("number").innerHTML = number_to_find;
+    do {
+        number_to_find = Math.floor((Math.random() * 62) + 1);
+        document.getElementById("number").innerHTML = number_to_find;
+    } while (numbers_found.includes(number_to_find) && numbers_found.length < 62);
 }
 
 function changeBit(elem) {
@@ -36,6 +39,7 @@ function convertBit() {
     document.getElementById("res").innerHTML = res;
 
     if (res == number_to_find) {
+        numbers_found.push(number_to_find);
         nb_tries++;
 
         if (nb_tries < nb_min_tries) {

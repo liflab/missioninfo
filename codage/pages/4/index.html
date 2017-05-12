@@ -33,95 +33,81 @@
 
 </head>
 
-<body onload="allLoaded();">
+<body onload="allLoaded();chooseWord();">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false"
                     aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Communique avec le continent</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="loader" class="body-content"></div>
+
+<div id="page" style="display:none">
+    <div id="topPage" class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="title">
+                    <h3>Code une lettre en nombre</h3>
+                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
+                            class="glyphicon glyphicon-info-sign"></span> INFO
                     </button>
-                <a class="navbar-brand" href="#">Communique avec le continent</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../../../index.html">Accueil</a></li>
-                    <li><a href="../../index.html">Retour</a></li>
-                    <li><a href="#" onclick="showHelp()">Aide</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="loader" class="body-content"></div>
-
-    <div id="page" style="display:none">
-        <div id="topPage" class="container-fluid body-content">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div id="title">
-                        <h3>Code une lettre en nombre</h3>
-                        <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span class="glyphicon glyphicon-info-sign"></span> INFO</button>
-                    </div>
-                </div>
-                <div class="col-sm-6 text-center">
-                    <h1>Progression</h1>
-                    <div id="button_place"></div>
-                </div>
-                <div class="col-sm-3">
-                    <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;" class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT</button>
-                    <button type="button" onclick="verifiyString()" id="btn_run_prog" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-play"></span> VERIFIER</button>
-                    <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid" id="bodyPage">
-            <div class="text-center">
-                <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
+            <div class="col-sm-6 text-center">
+                <h1>Progression</h1>
+                <div id="button_place"></div>
             </div>
-            <div style="margin: 5vh 20px 0 20px;">
-                <div class="row text-center" style="font-family:monospace; font-weight: bold;  font-size: 48px; color: crimson">
-                    <div id="ASCII_1" class="col-sm-1">83</div>
-                    <div id="ASCII_2" class="col-sm-1">65</div>
-                    <div id="ASCII_3" class="col-sm-1">76</div>
-                    <div id="ASCII_4" class="col-sm-1">85</div>
-                    <div id="ASCII_5" class="col-sm-1">84</div>
-                    <div id="ASCII_6" class="col-sm-1">32</div>
-                    <div id="ASCII_7" class="col-sm-1">65</div>
-                    <div id="ASCII_8" class="col-sm-1">32</div>
-                    <div id="ASCII_9" class="col-sm-1">84</div>
-                    <div id="ASCII_10" class="col-sm-1">79</div>
-                    <div id="ASCII_11" class="col-sm-1">85</div>
-                    <div id="ASCII_12" class="col-sm-1">83</div>
-                </div>
-                <div class="row" style="font-family:monospace;font-size: 48px;">
-                    <input style="text-align:center;" id="letter_1" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_2" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_3" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_4" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_5" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_6" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_7" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_8" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_9" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_10" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_11" size="1" maxlength="1" class="col-sm-1"></input>
-                    <input style="text-align:center;" id="letter_12" size="1" maxlength="1" class="col-sm-1"></input>
-                </div>
+            <div class="col-sm-3">
+                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;"
+                        class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
+                </button>
+                <button type="button" onclick="verifiyString()" id="btn_run_prog" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-play"></span> VERIFIER
+                </button>
+                <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span
+                        class="glyphicon glyphicon-trash"></span> EFFACER
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Javascript custom functions -->
-    <script src="../../../assets/js/globals.js"></script>
-    <script src="../../assets/js/functions.js"></script>
-    <script src="script.js"></script>
-    <!--##########################################################################################################-->
+    <div class="container-fluid" id="bodyPage">
+        <div class="text-center">
+            <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
+        </div>
+        <div style="text-align:center;margin: 5vh auto 0 auto;width:90%;">
+            <div style="text-align:center;margin-top: 2vh; font-size: 36px; word-wrap: break-word;">Converti ce code :
+                <span id="code" style="font-weight: bold;font-family: monospace">32</span>
+            </div>
+            <textarea id="ASCII_text" style="text-align:center;font-family:monospace; font-size: 48px;" rows="1"
+                      cols="50"></textarea>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript custom functions -->
+<script src="../../../assets/js/globals.js"></script>
+<script src="../../assets/js/functions.js"></script>
+<script src="script.js"></script>
+<!--##########################################################################################################-->
 
 </body>
 

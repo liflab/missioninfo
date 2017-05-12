@@ -1,29 +1,44 @@
 //
 
-popupInfo("Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres \n pour coder les lettres comme les agents secrets. Entraine-toi à ecrire \n des messages codés en retrouvant les lettres qui correspondent \n à chaque nombre. <tspan style=\"font-weight:bold\">Ecrit chaque lettre dans la case associée.</tspan>");
+popupInfo("Les ordinateurs ne connaissent pas les lettres! Ils utilisent des nombres \n pour coder les lettres comme les agents secrets. Entraine-toi à ecrire \n des messages codés en retrouvant les mots qui correspondent \n au code donné. <tspan style=\"font-weight:bold\">Ecrit les lettres qui correspondent dans la case.</tspan>");
+
+const word_allowed = ["SALUT", "CODAGE", "NOMBRE", "LETTRE", "TU ES UN ROBOT", "MESSAGE", "ORDINATEUR", "PROGRAMME", "BINAIRE", "JE SUIS UN PIRATE"];
+const nb_min_tries = 5;
+var nb_tries = 0;
+var word_to_find;
+
+function chooseWord() {
+    word_to_find = word_allowed[nb_tries % 10];
+
+    asciiCode = "";
+    for (var i = 0; i < word_to_find.length; i++) {
+        asciiCode += word_to_find.charCodeAt(i) + " ";
+    }
+
+    document.getElementById("code").innerHTML = asciiCode;
+}
 
 function verifiyString() {
 
-    var isValid = true;
+    var res = document.getElementById("ASCII_text").value;
 
-    for (var i = 1; i <= 12; i++) {
-        var code_ASCII = parseInt(document.getElementById("ASCII_" + i).innerHTML);
-        var letter = document.getElementById("letter_" + i).value.toUpperCase();
+    if (res.toUpperCase() === word_to_find) {
+        nb_tries++;
 
-        if (letter === "") {
-            letter = " ";
+        if (nb_tries < nb_min_tries) {
+            bootbox.alert({
+                message: '<div class="text-center">Bravo !!! Tu as trouvé <strong>"' + word_to_find + '</strong>"<br><br><img src="../../../assets/img/good.svg" alt="Robot goodface" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> mots à trouver et tu seras prêt pour la prochaine étape</div>',
+                backdrop: true
+            });
+        }
+        else {
+            document.getElementById("btn_next_exercise").style.display = "block";
+            popupGood();
         }
 
-        if (!(String.fromCharCode(code_ASCII) === letter)) {
-            isValid = false;
-            break;
-        }
-    }
+        chooseWord();
+        reinit_text();
 
-    if (isValid) {
-        popupGood();
-        document.getElementById("btn_run_prog").style.display = "none";
-        document.getElementById("btn_next_exercise").style.display = "block";
     }
     else {
         popupNotGood();
@@ -31,8 +46,6 @@ function verifiyString() {
 }
 
 function reinit_text() {
-    for (var i = 1; i <= 12; i++) {
-        document.getElementById("letter_" + i).value = "";   
-    }
+    document.getElementById("ASCII_text").value = "";
 }
 //------------------------------------------------//
