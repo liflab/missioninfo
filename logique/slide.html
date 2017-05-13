@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Contexte</title>
+
+    <meta name="description" content="Mise en contexte'">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+
+    <meta name="viewport"
+          content="width=device-width, height=device-height initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../modules/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../modules/reveal/css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/bulles.css">
+</head>
+
+<body>
+
+<div class="reveal scrollable">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h3>Il était une fois ...</h3>
+            <div style="width: 80vw; margin: 20px auto 0px auto; color:gray; border-width: thick; border: gray; border-style: dashed; border-radius: 25px; overflow: auto;">
+                <img class="plain" src="../assets/img/Livre.svg" style="height:20vh; float:left; margin-left: 5px;">
+                <p style="vertical-align: middle; height: 20vh; display: table-cell;margin:auto;padding: 15px 15px 15px 15px">
+                    <i>Utilise les flèches du clavier (ou fais glisser avec tes doigts) pour faire défiler le diaporama.
+                        N'hésite pas à poser des
+                        questions à l'animateur !</i></p>
+            </div>
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
+            <div style="position: absolute; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+                <p><strong>Voici ma nouvelle fusée ! C'est le tout dernier modèle. Je l'ai fait installée hier.</strong></p>
+            </div>
+            <img class="plain" src="../assets/img/robotino/happy-1296588.svg" style="height: 35vh;margin-left: 550px;margin-top:250px;">
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
+            <div style="position: absolute; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+                <p><strong>Voici ma nouvelle fusée ! C'est le tout dernier modèle. Je l'ai fait installée hier.</strong></p>
+            </div>
+            <img class="plain" src="../assets/img/robotino/happy-1296588.svg" style="height: 35vh;margin-left: 550px;margin-top:250px;">
+            <img class="plain" src="assets/img/slide/boom.png" style="position:absolute;left: 55vw;top: 29vh;">
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
+            <div style="position: absolute; left: 25vw; width: 45vw;top:-20vh; background-color: rgba(255,255,255,1); color:black; overflow: auto;border:3px solid black;">
+                <p><strong>Robotino a eu un petit soucis. Il semblerait que sa nouvelle fusée n’était pas très stable.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
+            <div style="position: absolute; left: 25vw; width: 45vw;top:-20vh; background-color: rgba(255,255,255,1); color:black; overflow: auto;border:3px solid black;">
+                <p><strong>Il s’est séparé en différents morceaux qui sont atterris dans un tas de débris.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
+            <div style="position: absolute; left: 25vw; width: 45vw;top:-20vh; background-color: rgba(255,255,255,1); color:black; overflow: auto;border:3px solid black;">
+                <p><strong>Nous avons une machine qui permet de trier les débris, mais c’est Robotino qui la faisait fonctionner normalement.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
+            <div style="position: absolute; left: 25vw; width: 45vw;top:-20vh; background-color: rgba(255,255,255,1); color:black; overflow: auto;border:3px solid black;">
+                <p><strong>Robotino a laissé des notes. Tu vas devoir programmer la machine pour accomplir ce qu’il te demandera.</strong></p>
+            </div>
+        </section>
+
+        <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
+            <div style="position: absolute; left: 25vw; width: 45vw;top:-20vh; background-color: rgba(255,255,255,1); color:black; overflow: auto;border:3px solid black;">
+                <p><strong>À toi de jouer!</strong></p>
+                <p><strong>Il faut reconstruire Robotino.</strong></p>
+            </div>
+        </section>
+
+
+
+
+        <section>
+            <h3>Chargement ...</h3>
+        </section>
+    </div>
+
+</div>
+
+
+<script src="../modules/reveal/lib/js/head.min.js"></script>
+<script src="../modules/reveal/js/reveal.js"></script>
+<script src="../assets/js/globals.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        width: "100%",
+        height: "100%",
+        controls: false,
+        progress: true,
+        history: false,
+        center: true,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        backgroundTransition: 'fade',
+    });
+
+    // Let the top-level application know that Reveal is ready.
+    try {
+        window.parent.reveal_loaded(Reveal);
+        window.parent.setSlideFocus();
+    }
+    catch (err) {
+        console.log("Launch without parent page")
+    }
+
+</script>
+
+</body>
+
+</html>
