@@ -235,8 +235,8 @@ function drawArc(x,y,taille,rad_start_rotation,rad_end_rotation,reversed){
 }
 
 const SIZE_CURSOR = 60;
-const ADDR_ROBOTINO_LAND = "../../../assets/img/robotino/drive-1296591.svg";
-const ADDR_ROBOTINO_AIR = "../../../assets/img/robotino/happy-1296589.svg";
+const ADDR_ROBOTINO_LAND = "../../../assets/img/Content.svg";
+const ADDR_ROBOTINO_AIR = "../../../assets/img/Roule.svg";
 
 var image_robotino;
 var x;

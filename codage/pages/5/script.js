@@ -35,7 +35,7 @@ function ASCII2String() {
         if (nb_tries < nb_min_tries) {
 
             bootbox.alert({
-                message: '<div class="text-center">Bravo !!! Voici le code de <strong>"' + res + '</strong>" : ' + str_ASCII_number + '<br><br><img src="../../../assets/img/good.svg" alt="Robot goodface" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> code à écrire et tu seras prêt pour la prochaine étape</div>',
+                message: '<div class="text-center">Bravo !!! Voici le code de <strong>"' + res + '"</strong> : ' + str_ASCII_number + '<br><br><img src="../../../assets/img/Fou.svg" alt="Robot qui attend" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> code à écrire et tu seras prêt pour la prochaine étape</div>',
                 backdrop: true
             });
         }

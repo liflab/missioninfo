@@ -1,14 +1,14 @@
-#<center>Aide : Suppression de blocs</center>
+#Aide : Suppression de blocs
 
-<center>Pour réussir cette page, il te suffit d’avoir un espace de travail vide!!!</center>
-
-***
-
-<center>Tu dois jeter le bloc à la poubelle.</center>
-<center>![Corbeille][corbeille]<center>
+Pour réussir cette page, il te suffit d’avoir un espace de travail vide!!!
 
 ***
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+Tu dois jeter le bloc à la poubelle.
+![Corbeille][corbeille]
+
+***
+
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [corbeille]: img/corbeille.png

@@ -44,7 +44,7 @@ function convertBit() {
 
         if (nb_tries < nb_min_tries) {
             bootbox.alert({
-                message: '<div class="text-center">Bravo !!! Tu as trouvé le nombre <strong>' + number_to_find + '</strong> en binaire<br><br><img src="../../../assets/img/good.svg" alt="Robot goodface" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> nombres à trouver et tu seras prêt pour la prochaine étape</div>',
+                message: '<div class="text-center">Bravo !!! Tu as trouvé le nombre <strong>' + number_to_find + '</strong> en binaire<br><br><img src="../../../assets/img/Fou.svg" alt="Robot qui attend" height="200px"><br><br>Encore <strong>' + Math.max(nb_min_tries - nb_tries, 0) + '</strong> nombres à trouver et tu seras prêt pour la prochaine étape</div>',
                 backdrop: true
             });
         }

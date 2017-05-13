@@ -1,9 +1,9 @@
-#<center>Aide : Bloc - Pour chaque image Faire</center>
+#Aide : Bloc - Pour chaque image Faire
 
-<center>Ce bloc sert de moteur à l’animation. C’est celui qui dicte au programme de faire quelque chose pour chaque valeur du temps.</center>
+Ce bloc sert de moteur à l’animation. C’est celui qui dicte au programme de faire quelque chose pour chaque valeur du temps.
 
-<center>Il faut que tu mettes à l’intérieur de ce bloc, les blocs qui devront être executés à chaque image.</center>
+Il faut que tu mettes à l’intérieur de ce bloc, les blocs qui devront être executés à chaque image.
 
-<center>![Bloc pour chaque image][pour_image]</center>
+![Bloc pour chaque image][pour_image]
 
 [pour_image]: img/pour_image.png

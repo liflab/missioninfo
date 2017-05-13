@@ -1,10 +1,10 @@
-#<center>Aide : Bloc - Bonhomme</center>
+#Aide : Bloc - Bonhomme
 
-<center>Ce bloc permet de créer facilement un bonhomme.</center>
+Ce bloc permet de créer facilement un bonhomme.
 
-<center>Il suffit d’indiquer les couleurs de vêtements que tu veux voir et la position à laquelle tu veux qu’il soit, comme pour les autres formes.</center>
+Il suffit d’indiquer les couleurs de vêtements que tu veux voir et la position à laquelle tu veux qu’il soit, comme pour les autres formes.
 
-<center>![Bloc bonhomme][bloc_bonhomme]</center>
+![Bloc bonhomme][bloc_bonhomme]
 
 [bloc_bonhomme]: img/bloc_bonhomme.png
 

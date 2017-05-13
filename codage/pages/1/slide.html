@@ -24,14 +24,8 @@
 			<section>
 				<h2>Sais-tu comment les ordinateurs pensent?</h2>
 				<p>
-					<small>Les ordinateurs transforment toutes les informations comme les images ou les mots en
-						nombres.
-					</small>
+					Les ordinateurs transforment toutes les informations comme les images ou les mots en nombres.
 				</p>
-				<div style="width: 80vw; margin: 20px auto 0px auto; color:gray; border-width: thick; border: gray; border-style: dashed; border-radius: 25px; overflow: auto;">
-				<img class="plain" src="../../../assets/img/Livre.svg" style="height:20vh; float:left; margin-left: 5px;">
-					<p style="vertical-align: middle; height: 20vh; display: table-cell;margin:auto;padding: 15px 15px 15px 15px"><i>Utilise les flèches du clavier pour faire défiler le diaporama. N'hésite pas à poser des questions à l'animateur !</i></p>
-				</div>
 			</section>
 			<section>
 				<h4>Ces nombres sont uniquement composés de <span style="color: #1b91ff">0</span> et de <span style="color: #1b91ff">1</span></h4>
@@ -231,7 +225,8 @@
 		// Let the top-level application know that Reveal is ready.
 		try {
 			window.parent.reveal_loaded(Reveal);
-		}
+            window.parent.setSlideFocus();
+        }
 		catch (err) {
 			console.log("Launch without parent page")
 		}

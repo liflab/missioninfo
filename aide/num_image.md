@@ -1,13 +1,13 @@
-#<center>Aide : Bloc - Valeur du Temps</center>
+#Aide : Bloc - Valeur du Temps
 
-<center>Ce bloc renvoi la valeur du temps (située à la droite de la barre de défilement).</center>
+Ce bloc renvoi la valeur du temps (située à la droite de la barre de défilement).
 
-<center>![Bloc valeur temps][val_temps]</center>
+![Bloc valeur temps][val_temps]
 
 ***
 
-####<center>Exemple</center>
-<center>Si ![Texte temps][text_temps], ce bloc donne alors la valeur `12`.</center>
+####Exemple
+Si ![Texte temps][text_temps], ce bloc donne alors la valeur `12`.
 
 
 [val_temps]: img/val_temps.png
