@@ -212,7 +212,13 @@ function showHelp(helpfile) {
         helpfile = activity + "_p" + currentPageNumber + "_aide.md";  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
     }
 
-    var url = "../../../aide/aide.html?file=" + helpfile;
+    var url;
+    if (currentPageNumber === 0) {
+        url = "../aide/aide.html?file=" + helpfile;
+    }
+    else {
+        url = "../../../aide/aide.html?file=" + helpfile;
+    }
 
     var win = window.open(url, '_blank');
     win.focus();
