@@ -15,11 +15,41 @@
     <link rel="stylesheet" href="../modules/reveal/css/reveal.css">
     <link rel="stylesheet" href="../modules/reveal/css/theme/night.css" id="theme">
     <link rel="stylesheet" href="../assets/css/bulles.css">
+    <style>
+        .slides > section{
+            height:100%;
+            margin-top:230px;
+        }
+
+        @keyframes slideUp {
+            from {  top:600px; opacity:0; }
+            66%  {  top:600px; opacity:0; }
+            to {    top:200px; opacity:1; }
+        }
+        @keyframes fadeIn-s3{
+            from {  opacity:0; }
+            50%  {  opacity:0; }
+            to   {  opacity:1; }
+        }
+        .fadeIn-3{
+            animation-name:fadeIn-s3;
+            animation-duration:4s;
+        }
+        .robotino{
+            position: absolute;
+            height: 35vh;
+            top: 200px;
+            right: 300px;
+
+            animation-name:slideUp;
+            animation-duration:2s;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="reveal scrollable">
+<div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
@@ -35,18 +65,18 @@
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
-            <div style="position: absolute; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+            <div class="fadeIn-3" style="position: absolute; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
                 <p><strong>Voici ma nouvelle fusée ! C'est le tout dernier modèle. Je l'ai fait installée hier.</strong></p>
             </div>
-            <img class="plain" src="../assets/img/robotino/happy-1296588.svg" style="height: 35vh;margin-left: 550px;margin-top:250px;">
+            <img class="plain robotino" src="../assets/img/robotino/happy-1296588_1280.png">
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
             <div style="position: absolute; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
                 <p><strong>Voici ma nouvelle fusée ! C'est le tout dernier modèle. Je l'ai fait installée hier.</strong></p>
             </div>
-            <img class="plain" src="../assets/img/robotino/happy-1296588.svg" style="height: 35vh;margin-left: 550px;margin-top:250px;">
-            <img class="plain" src="assets/img/slide/boom.png" style="position:absolute;left: 55vw;top: 29vh;">
+            <img class="plain robotino" src="../assets/img/robotino/happy-1296588.svg">
+            <img class="plain" src="assets/img/slide/boom.png" style="position:absolute;left: 58vw;top: 25vh;">
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background_debris.jpg">
