@@ -1,7 +1,7 @@
-#<center>Aide : Bloc - Nombre</center>
+#Aide : Bloc - Nombre
 
-<center>Ce bloc sert à placer un nombre précis à plusieurs endroits.</center>
+Ce bloc sert à placer un nombre précis à plusieurs endroits.
 
-<center>![Bloc nombre][math_number]</center>
+![Bloc nombre][math_number]
 
 [math_number]: img/num.png

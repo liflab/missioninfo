@@ -1,6 +1,6 @@
-#<center>Aide : Anime plusieurs figures</center>
+#Aide : Anime plusieurs figures
 
-<center>Ici, tu dois faire bouger deux lignes de façons différentes. Tu vas devoir utiliser les mêmes blocs que pour la page 5. Mais fais attention certaines parties restent fixes.</center>
+Ici, tu dois faire bouger deux lignes de façons différentes. Tu vas devoir utiliser les mêmes blocs que pour la page 5. Mais fais attention certaines parties restent fixes.
 
 ***
 #### Rappel
@@ -24,7 +24,7 @@ Tu n’es pas obligé d’utiliser des nombres entiers pour le déplacement du c
 Tu peux mettre des nombres décimaux comme `0.1; 0.2; 0.3…` ce qui aurait pour effet de faire de petits déplacement.  
 À l'inverse, si tu utilises un nombre entier plus grand que 1 (comme `2; 3; 4; 5…`) les déplacements seraient beaucoup plus grands.
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [curseur_tab]: img/curseur_tab.png
 [ex_p6]: img/ex_p6.png

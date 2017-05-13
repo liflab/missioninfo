@@ -1,10 +1,10 @@
-#<center>Aide : Anime une figure
+#Aide : Anime une figure
 
-###<center>Vidéo d'introduction</center>
+###Vidéo d'introduction
 
-<center><video class="text-center" height="480" loop autoplay>
+<video class="text-center" height="480" loop autoplay>
   <source src="vid/animation_p4.mp4" type="video/mp4">
-</video></center>
+</video>
 
 ***
 
@@ -28,7 +28,7 @@ Voici un exemple de ce à quoi ça doit ressembler :
 
 ![Exemple animation][ex_p4]
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_init_curseur]: img/init_curseur.png
 [bloc_xy]: img/XY.png

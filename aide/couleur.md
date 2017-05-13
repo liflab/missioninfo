@@ -1,11 +1,11 @@
-#<center>Aide : Bloc - Couleur</center>
+#Aide : Bloc - Couleur
 
-<center>Ce bloc permet d’attribuer une couleur à une forme ou à une ligne.</center>
+Ce bloc permet d’attribuer une couleur à une forme ou à une ligne.
 
-<center>Il doit être placé au-dessus de la forme.</center>
+Il doit être placé au-dessus de la forme.
 
-<center>Il attribue la couleur à tout ce qui se trouve en dessous, jusqu’à ce qu’une nouvelle couleur soit placée plus bas.</center>
+Il attribue la couleur à tout ce qui se trouve en dessous, jusqu’à ce qu’une nouvelle couleur soit placée plus bas.
 
-<center>![Bloc coordonnées][couleur]</center>
+![Bloc coordonnées][couleur]
 
 [couleur]: img/couleur.png

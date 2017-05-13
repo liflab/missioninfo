@@ -1,8 +1,8 @@
-#<center>Aide : Arriveras-tu à faire bouger un bonhomme ?
+#Aide : Arriveras-tu à faire bouger un bonhomme ?
 
-<center>Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.</center>
+Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.
 
-<center>C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut à droite.</center>
+C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut à droite.
 
 ***
 
@@ -23,11 +23,11 @@ Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir
 
 Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci : 
 
-<center>![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]</center>
+![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]
 
 
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [btn_suivant]: img/btn_suivant.png
 [bloc_bonhomme]: img/bloc_bonhomme.png

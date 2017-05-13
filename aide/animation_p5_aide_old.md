@@ -1,6 +1,6 @@
-#<center>Aide : Anime plusieurs figures</center>
+#Aide : Anime plusieurs figures
 
-<center>Comme tu as pu le remarquer, il faut faire bouger 3 cercles en même temps.</center>
+Comme tu as pu le remarquer, il faut faire bouger 3 cercles en même temps.
 
 ***
 
@@ -23,13 +23,13 @@ Ce qui veut dire que pour les autres cercles, tu vas devoir utiliser ce nouveau 
 
 Le décalage c’est la différence entre les coordonnées de deux centres par exemple.
 
-<center>![Exemple decalage formes][ex_p5_formes]</center>
+![Exemple decalage formes][ex_p5_formes]
 
 Ici, si on utilise les coordonnées du carré 1 pour le curseur, il faudra un décalage pour faire bouger le carré 2 de la même façon. 
 
 Puisque les coordonnées du centre du carré 1 sont (3,5), il faut faire un décalage de :  
 
-<center>X : +4<br>Y : +1</center>
+X : +4<br>Y : +1
 
 Pour arriver au centre du carré 2 (7,6).
 
@@ -46,7 +46,7 @@ Il faudrait bien sûr ajouter les autres blocs nécessaires pour concevoir l’a
 Je te donne un indice : Pour réussir cette page tu devrais utiliser un bloc ![Bloc position curseur][bloc_pos_curseur] et deux blocs ![Bloc position curseur avec décalage][bloc_pos_curseur_offset].
 
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_dep_curseur]: img/dep_curseur.png
 [bloc_init_curseur]: img/init_curseur.png

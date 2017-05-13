@@ -1,20 +1,20 @@
-#<center>Aide : Blocs - Logique</center>
+#Aide : Blocs - Logique
 
-<center>Le bloc si permet de faire vérifier une condition.</center>
+Le bloc si permet de faire vérifier une condition.
 
-<center>![Bloc si sinon][bloc_si_sinon]</center>
+![Bloc si sinon][bloc_si_sinon]
 
-<center>Il faut indiquer la condition `SI`, ce que le programme doit faire lorsqu’elle est respectée `FAIRE` et ce qu’il doit faire lorsqu’elle n’est plus respectée `SINON`.</center>
+Il faut indiquer la condition `SI`, ce que le programme doit faire lorsqu’elle est respectée `FAIRE` et ce qu’il doit faire lorsqu’elle n’est plus respectée `SINON`.
 
 ***
 
-<center>Une condition, c’est un énoncé qui est testé. Il y a deux valeurs possibles : `VRAI` et `FAUX`.</center>
-<center>Voici les blocs que tu peux utiliser pour créer des conditions :</center>
+Une condition, c’est un énoncé qui est testé. Il y a deux valeurs possibles : `VRAI` et `FAUX`.
+Voici les blocs que tu peux utiliser pour créer des conditions :
 
-<center>![Blocs conditions][conditions]</center>
+![Blocs conditions][conditions]
 
-<center>Le symbole `<` signifie «plus petit que». Exemple : `5 < 6` (5 est plus petit que 6).</center>
-<center>Le symbole `>` signifie «plus grand que». Exemple `6 > 5` (6 est plus grand que 5).</center>
+Le symbole `<` signifie «plus petit que». Exemple : `5 < 6` (5 est plus petit que 6).
+Le symbole `>` signifie «plus grand que». Exemple `6 > 5` (6 est plus grand que 5).
 
 [bloc_si_sinon]: img/bloc_si_sinon.png
 [conditions]: img/conditions.png

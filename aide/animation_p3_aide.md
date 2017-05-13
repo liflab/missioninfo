@@ -1,4 +1,4 @@
-#<center>Aide : Dessine un bonhomme</center>
+#Aide : Dessine un bonhomme
 
 Sur cette page, tu as plusieurs formes à faire. Voici donc une astuce : 
 
@@ -11,7 +11,7 @@ Voici un exemple :
 
 Ainsi tu vas avoir un programme qui va utiliser moins de blocs!
 
-##<span style="color: #800080"><center>À ton tour d'essayer</center></span>
+##<span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_couleur]: img/couleur.png
 [ex_gr_couleur]: img/ex_gr_couleur.png
