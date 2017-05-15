@@ -66,7 +66,7 @@ Blockly.Blocks['block_help'] = {
             .appendField(new Blockly.FieldDropdown([[{ "src": "../../assets/img/unicorn.png", "width": 32, "height": 32, "alt": "unicorn" }, "UNICORN"], [{ "src": "../../assets/img/cat.png", "width": 32, "height": 32, "alt": "chat" }, "CHAT"], [{ "src": "../../assets/img/dog.png", "width": 32, "height": 32, "alt": "chien" }, "CHIEN"]]), "choix");
         this.setColour(230);
         this.setTooltip('Clique-droit sur moi pour avoir de l\'aide');
-        this.setHelpUrl('../../../aide/aide.html?file=block_help.md');
+        this.setHelpUrl('../../../aide/aide.html?file=decouverte_block_help.md');
     }
 };
 
