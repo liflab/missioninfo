@@ -53,23 +53,23 @@ function preload() {
         "S": loadImage("../../assets/img/player_S.png")
     };
 
+    img_treasure = loadImage("../../assets/img/tresor.png");
     img_bg = loadImage("../../assets/img/p" + currentPageNumber + "_bg.png");
 }
 
 function createMap() {
-    cityMap.init(page_map);
+    cityMap.init(page_map.slice());
     cityMap.draw();
 }
 
 function reinitMap() {
-    cityMap.init(page_map);
+    cityMap.init(page_map.slice());
     cityMap.draw();
 }
 
 // Objects used in this section
 function Map() {
 
-    // this.background = bg;
     this.player = {};
     this.roads = new Array(ROWS);
     for (var row = 0; row < ROWS; row++) {
@@ -78,7 +78,7 @@ function Map() {
 
     this.init = function (listRoads) {
         for (var i = 0; i < listRoads.length; i++) {
-            this.roads[listRoads[i].row][listRoads[i].col] = listRoads[i].data;
+            this.roads[listRoads[i].row][listRoads[i].col] = Object.assign({}, listRoads[i].data);
 
             // Init player with deb tile
             if (listRoads[i].data.style === "deb") {
@@ -228,7 +228,25 @@ function Map() {
         this.draw();
     };
 
+    this.isOnTreasure = function () {
+        if (this.roads[this.player.row][this.player.col].treasure) {
+            this.roads[this.player.row][this.player.col].treasure = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+
+    this.checkTreasure = function () {
+        if (this.roads[this.player.row][this.player.col].treasure) {
+            this.roads[this.player.row][this.player.col].treasure = false;
+        }
+    };
+
     this.movePlayer = function () {
+        this.isOnTreasure();
+
         if (this.roadAvailable(this.player.dir)) {
             if (this.player.dir === "N") {
                 this.player.row = this.player.row - 1;
@@ -287,6 +305,10 @@ function Map() {
                     }
                     else if (road.style === "fin") {
                         image(img_road_fin[road.type], col * (WIDTH / COLS), row * (HEIGHT / ROWS));
+                    }
+
+                    if (road.treasure) {
+                        image(img_treasure, col * (WIDTH / COLS), row * (HEIGHT / ROWS));
                     }
                 }
             }
@@ -348,7 +370,7 @@ function checkAnswer() {
         }
         else {
             bootbox.alert({
-                message: '<div class="text-center">Attention tu as mis trop de blocs!<br><h3>Il faut mettre au maximum : ' + maxBlocks + ' blocs.</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
+                message: '<div class="text-center">Attention tu as mis trop de blocs!<br><h3>Il faut mettre au maximum : <strong>' + maxBlocks + '</strong> blocs.</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
                 backdrop: true
             });
         }
@@ -361,7 +383,7 @@ function checkAnswer() {
 
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(10);
+    createButtons(13);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();

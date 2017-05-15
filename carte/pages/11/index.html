@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page FIN de l'activité carte">
+    <meta name="description" content="Page 8 de l'activité carte'">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Fin de la découverte</title>
+    <title>Carte aux trésors</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -31,6 +31,12 @@
     <link href="../../assets/css/page.css" rel="stylesheet">
     <!--##########################################################################################################-->
 
+    <!-- p5js -->
+    <script language="javascript" type="text/javascript" src="../../../modules/p5js/p5.js"></script>
+    <!--<script language="javascript" src="modules/p5js/p5.dom.js"></script>
+    <script language="javascript" src="modules/p5js/p5.sound.js"></script>-->
+    <!--##########################################################################################################-->
+
 </head>
 
 <body onload="allLoaded();">
@@ -46,12 +52,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Carte aux trésors</a>
+            <a class="navbar-brand" href="#">Répare ton matériel</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../../../index.html">Accueil</a></li>
                 <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
             </ul>
         </div>
     </div>
@@ -64,10 +71,10 @@
         <div class="row">
             <div class="col-sm-3">
                 <div id="title">
-                    <h1>Fin de la 1° partie</h1>
-
-                    <p>Bravo tu as terminé cette activité !!!<br>
-                        Mais tu peux continuer avec des pages plus dures en cliquant sur <code>SUIVANT</code>!</p>
+                    <h2>Carte aux trésors</h2>
+                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
+                            class="glyphicon glyphicon-info-sign"></span> INFO
+                    </button>
                 </div>
             </div>
             <div class="col-sm-6 text-center">
@@ -75,19 +82,30 @@
                 <div id="button_place"></div>
             </div>
             <div class="col-sm-3">
-                <button type="button" onclick="location.href='../../../index.html';" id="btn_home"
-                        class="btn btn-primary btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR
-                </button>
-                <button type="button" onclick="next_page();" id="btn_next_exercise"
+                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none"
                         class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
+                </button>
+                <button type="button" onclick="runCode();" id="btn_run" class="btn btn-success btn-block"><span
+                        class="glyphicon glyphicon-play"></span> DEMARRER
+                </button>
+                <button type="button" onclick="saveCode();" class="btn btn-info btn-block"><span
+                        class="glyphicon glyphicon-save"></span> SAUVEGARDER
+                </button>
+                <button type="button" onclick="reinitMap();" class="btn btn-danger btn-block"><span
+                        class="glyphicon glyphicon-trash"></span> EFFACER
                 </button>
             </div>
         </div>
     </div>
 
     <div class="container-fluid" id="bodyPage">
-        <div class="text-center" id="imgFin" style="height:100%;">
-            <img src="../../assets/img/diplome_1.svg" alt="fin" style="height:100%;">
+        <div class="row">
+            <div class="col-sm-5" id="sketch-col">
+                <div id="sketch-holder"></div>
+            </div>
+            <div class="col-sm-7">
+                <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+            </div>
         </div>
     </div>
 </div>
@@ -95,6 +113,7 @@
 <!-- Javascript custom functions -->
 <script src="../../../assets/js/globals.js"></script>
 <script src="../../assets/js/functions.js"></script>
+<script src="script.js"></script>
 <!--##########################################################################################################-->
 
 </body>
