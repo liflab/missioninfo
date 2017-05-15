@@ -1,4 +1,4 @@
-#Aide : Bloc - Couleur
+# Aide : Bloc - Couleur
 
 Ce bloc permet d’attribuer une couleur à une forme ou à une ligne.
 

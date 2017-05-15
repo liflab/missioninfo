@@ -1,4 +1,4 @@
-#Aide : Ajout de lignes
+# Aide : Ajout de lignes
 
 Maintenant tu vas apprendre à tracer des lignes.
 
@@ -10,7 +10,7 @@ N'oublie pas de lui mettre une couleur!
 
 ![Bloc couleur][bloc_couleur]
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_ligne]: img/ligne.png
 [bloc_couleur]: img/couleur.png

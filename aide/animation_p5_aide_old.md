@@ -1,4 +1,4 @@
-#Aide : Anime plusieurs figures
+# Aide : Anime plusieurs figures
 
 Comme tu as pu le remarquer, il faut faire bouger 3 cercles en même temps.
 
@@ -6,7 +6,7 @@ Comme tu as pu le remarquer, il faut faire bouger 3 cercles en même temps.
 
 La première chose à savoir, c’est que tu peux mettre dans le bloc ![Bloc déplacement curseur][bloc_dep_curseur] une valeur négative. 
 
-####Exemple :  
+#### Exemple :
 Si je met -1 comme valeur à X, cela aura pour effet de faire déplacer une forme vers la gauche.  
 Si la valeur de X initiale était de 5, on reculerait pour prendre les valeurs : 4, 3, 2, 1. Tout ça en faisant -1 à chaque fois.
 
@@ -46,7 +46,7 @@ Il faudrait bien sûr ajouter les autres blocs nécessaires pour concevoir l’a
 Je te donne un indice : Pour réussir cette page tu devrais utiliser un bloc ![Bloc position curseur][bloc_pos_curseur] et deux blocs ![Bloc position curseur avec décalage][bloc_pos_curseur_offset].
 
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_dep_curseur]: img/dep_curseur.png
 [bloc_init_curseur]: img/init_curseur.png

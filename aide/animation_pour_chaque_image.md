@@ -1,4 +1,4 @@
-#Aide : Bloc - Pour chaque image Faire
+# Aide : Bloc - Pour chaque image Faire
 
 Ce bloc sert de moteur à l’animation. C’est celui qui dicte au programme de faire quelque chose pour chaque valeur du temps.
 

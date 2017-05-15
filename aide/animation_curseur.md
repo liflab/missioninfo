@@ -1,12 +1,12 @@
-#Aide : Blocs - Curseur
+# Aide : Blocs - Curseur
 
-###Qu’est-ce qu’un curseur?
+### Qu’est-ce qu’un curseur?
 
 Un curseur c’est un point invisible que l’on va pouvoir déplacer d’une image à l’autre selon les valeurs qu’on lui donne. Si on attache le curseur au centre d’une forme, c’est ce qui nous permet de la faire bouger. Le centre bougerait en suivant la valeur du curseur. Ce qui nous permet de faire une translation.
 
 ***
 
-###Utilisation
+### Utilisation
 
 
 Tu dois d'abord initialiser la position du curseur au tout début de ton programme.

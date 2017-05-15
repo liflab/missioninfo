@@ -1,6 +1,6 @@
-#Aide : Décode des nombres en lettres
+# Aide : Décode des nombres en lettres
 
-###Pour réussir cette activité, il faut que tu décodes au moins `5` messages.
+### Pour réussir cette activité, il faut que tu décodes au moins `5` messages.
 
 ***
 
@@ -24,7 +24,7 @@ Quand tu penses avoir trouvé le message, clique sur `VÉRIFIER`.
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [codage_ex_p4_1]: img/codage_ex_p4_1.png
 [codage_ex_p4_2]: img/codage_ex_p4_2.png

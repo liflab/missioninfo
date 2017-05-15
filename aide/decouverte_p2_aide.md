@@ -1,4 +1,4 @@
-#Aide : Ajout de blocs
+# Aide : Ajout de blocs
 
 Regarde bien ce que dit Robotino
 
@@ -9,6 +9,6 @@ Utilise ces **DEUX** blocs disponibles pour créer un programme, mais fais atten
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [decouverte_blocs_p2]: img/decouverte_blocs_p2.png

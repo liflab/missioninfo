@@ -1,4 +1,4 @@
-#Aide : Anime plusieurs figures
+# Aide : Anime plusieurs figures
 
 Ici, tu dois faire bouger trois cercles en même temps. Tu ne peux donc pas utiliser la même technique que pour la page 4.
 
@@ -18,7 +18,7 @@ Voici un exemple de ce à quoi ça peut ressembler :
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [curseur_tab]: img/curseur_tab.png
 [ex_p6]: img/ex_p6.png

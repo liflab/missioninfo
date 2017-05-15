@@ -1,6 +1,6 @@
-#Utilisation de l'aide
+# Utilisation de l'aide
 
-###<span style="color: #20B020">Bravo tu as réussi à afficher l'aide</span>
+### <span style="color: #20B020">Bravo tu as réussi à afficher l'aide</span>
 
 ***
 

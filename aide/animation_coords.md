@@ -1,4 +1,4 @@
-#Aide : Bloc - Coordonnées
+# Aide : Bloc - Coordonnées
 
 Ce bloc permet d’indiquer une coordonnée à différents éléments : formes, lignes ou curseur.
 
@@ -10,7 +10,7 @@ Il faut remplir le bloc avec les valeurs selon l'axe X et l'axe Y
 
 ![Exemple coordonnées][ex_p5_formes]
 
-####Exemples
+#### Exemples
 
 Le carré 1 a pour coordonnées `X=3` et `Y=5`
 Le carré 2 a pour coordonnées `X=7` et `Y=6`

@@ -1,4 +1,4 @@
-#Aide : Bloc - Valeur du Temps
+# Aide : Bloc - Valeur du Temps
 
 Ce bloc renvoi la valeur du temps (située à la droite de la barre de défilement).
 
@@ -6,7 +6,7 @@ Ce bloc renvoi la valeur du temps (située à la droite de la barre de défileme
 
 ***
 
-####Exemple
+#### Exemple
 Si ![Texte temps][text_temps], ce bloc donne alors la valeur `12`.
 
 
