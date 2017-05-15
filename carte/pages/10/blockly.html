@@ -20,17 +20,16 @@
 <body onload="initBlockly(1.0,true,false)">
 <xml id="toolbox" style="display: none;">
     <block type="avance"></block>
-    <block type="jusque_condition"></block>
-    <block type="fin"></block>
-    <block type="tresor"></block>
+    <block type="jusque_fin"></block>
     <block type="virage_dir">
         <field name="dir">L</field>
     </block>
     <block type="tourne_dir">
         <field name="dir">L</field>
     </block>
-    <block type="demi_tour"></block>
-    <block type="controls_if"></block>
+    <block type="controls_if">
+        <mutation else="1"></mutation>
+    </block>
 </xml>
 </xml>
 
