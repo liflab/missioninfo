@@ -31,7 +31,7 @@ function setup() {
 function _preload(){
     items.push({"img_url":"../../assets/img/wheel.png"             ,"shape":"wheel"       ,"color":"#c0c0c0"});
     items.push({"img_url":"../../assets/img/prop.png"              ,"shape":"prop"        ,"color":"#c0c0c0"});
-    items.push({"img_url":"../../assets/img/hat_blue.png"          ,"shape":"hat"         ,"color":"#0000ff"});
+    items.push({"img_url":"../../assets/img/hat_blue.svg"          ,"shape":"hat"         ,"color":"#0000ff"});
     items.push({"img_url":"../../assets/img/hat_red.png"           ,"shape":"hat"         ,"color":"#ff0000"});
     items.push({"img_url":"../../assets/img/hat_graduation.png"    ,"shape":"hat"         ,"color":"#000000"});
     items.push({"img_url":"../../assets/img/hat_green.png"         ,"shape":"hat"         ,"color":"#00ff00"});

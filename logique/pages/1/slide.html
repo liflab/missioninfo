@@ -13,6 +13,64 @@
 
     <link rel="stylesheet" href="../../../modules/reveal/css/reveal.css">
     <link rel="stylesheet" href="../../../modules/reveal/css/theme/night.css" id="theme">
+    <style>
+        section.section > p{
+            position: absolute;
+            top: -25vh;
+            width: 30vw;
+            right: 10vw;
+            color:black;
+            font-weight:bold;
+        }
+        section .cadre{
+            height:27px;
+            width:125px;
+            border:5px solid red;
+            position:absolute;
+        }
+        section .cadre img{
+            position:absolute;
+            top:20px;
+            width:97px;
+            min-height:139px;
+        }
+        section:nth-child(3) .cadre{
+            top:-35vh;
+            left:9vw;
+        }
+        section:nth-child(4) .cadre{
+            width:130px;
+            top:-35vh;
+            left:18vw;
+        }
+        section:nth-child(5) p{
+            top:12vh;
+        }
+        section:nth-child(5) .cadre{
+            height:200px;
+            width:150px;
+            left:19.5vw;
+            top:10vh;
+        }
+        section:nth-child(5) .cadre img{
+            left:12vw;
+            transform: rotate(-55deg);
+        }
+
+        section:nth-child(5) .cadre.blue{
+            left:10vw;
+            top:65vh;
+            height:150px;
+            width:480px;
+            border-color:#00f;
+        }
+        section:nth-child(5) .cadre.blue img{
+            top:-20vh;
+            left:25vw;
+            min-width:137px;
+            min-height:97px;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,11 +80,50 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h2>Présentation ...</h2>
+            <h2>Comment programmer une machine</h2>
+            <h2>pour trier les morceaux de robot?</h2>
         </section>
 
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/background.png">
+            <p>Voici à quoi ressemble ton espace de travail pour cette activité.</p>
+        </section>
+
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/background.png">
+            <p>Tu pourras consulter les instructions de Robotino en cliquant <span style="color:#f00;">ici</span>.</p>
+            <div class="cadre">
+                <img class="plain" src="../../assets/img/presentation/arrow.png" alt="Arrow" />
+            </div>
+        </section>
+
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/background.png">
+            <p>Tu peux regarder les pièces qu’il faut trier en cliquant <span style="color:#f00;">ici</span>.</p>
+            <div class="cadre">
+                <img class="plain" src="../../assets/img/presentation/arrow.png" alt="Arrow" />
+            </div>
+        </section>
+
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/background.png">
+            <p><span style="color:#f00;">Ici</span>, c’est la machine qui va trier les pièces. Il faut la programmer pour que les pièces se rendent dans le bon <span style="color:#00f;">seau</span>.</p>
+            <div class="cadre">
+                <img class="plain" src="../../assets/img/presentation/arrow.png" alt="Arrow" />
+            </div>
+            <div class="cadre blue">
+                <img class="plain" src="../../assets/img/presentation/arrow2.png" alt="Arrow" />
+            </div>
+        </section>
+
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/use_if_1.png"></section>
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/use_if_2.png"></section>
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/use_if_3.png"></section>
+
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/et_ou_1.png"></section>
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/et_ou_2.png"></section>
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/et_ou_3.png"></section>
+        <section class="section" data-background-size="contain" data-background-image="../../assets/img/presentation/et_ou_4.png"></section>
+
+
         <section>
-            <h2>FIN</h2>
+            <h2>C’est à toi d’essayer !!</h2>
         </section>
     </div>
 
