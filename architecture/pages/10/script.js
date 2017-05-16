@@ -29,6 +29,7 @@ var draw_gen_saved = [];
 function preload(){
     image_robotino = loadImage(ADDR_ROBOTINO_LAND);
     image_background = loadImage(ADDR_BACKGROUND_IMAGE_3);
+    image_robotino_out = loadImage(ADDR_ROBOTINO_OUT);
     setup();
 }
 function setup() {

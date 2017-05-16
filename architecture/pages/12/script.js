@@ -47,6 +47,7 @@ function two_imbriqued(past_code){
 function preload(){
     image_robotino = loadImage(ADDR_ROBOTINO_AIR);
     image_background = loadImage(ADDR_BACKGROUND_IMAGE_3);
+    image_robotino_out = loadImage(ADDR_ROBOTINO_OUT);
     setup();
 }
 function setup() {
