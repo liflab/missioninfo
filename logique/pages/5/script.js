@@ -6,7 +6,7 @@ required_box.push({"name":"ET","value":"&&"});
 
 bucketsExercise = {
     elems: [
-        new TextShape("Bras et Main", "#ffa500"),
+        new TextShape("Bras ou Main", "#ffa500"),
         new TextShape("Corps Bleu",  "#0000ff"),
         new TextShape("Autre Corps", "#c0c0c0"),
     ],

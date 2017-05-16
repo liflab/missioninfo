@@ -6,7 +6,7 @@ required_box.push({"name":"OU","value":"||"});
 
 bucketsExercise = {
     elems: [
-        new TextShape("Roue et Fusée", "#c0c0c0"),
+        new TextShape("Roue ou Fusée", "#c0c0c0"),
         new TextShape("Collection",  "#ffffff"),
         new TextShape("Inutile", "#ffffff"),
     ],
