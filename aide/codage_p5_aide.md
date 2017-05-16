@@ -1,6 +1,6 @@
-#Aide : Code des lettres en nombres
+# Aide : Code des lettres en nombres
 
-###Pour réussir cette activité, il faut que tu codes au moins `5` messages.
+### Pour réussir cette activité, il faut que tu codes au moins `5` messages.
 
 ***
 
@@ -28,7 +28,7 @@ Quand tu as terminer clique `DÉCODER` et l'ordinateur t'affichera ton message s
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [codage_ex_p5_1]: img/codage_ex_p5_1.png
 [codage_ex_p5_2]: img/codage_ex_p5_2.png

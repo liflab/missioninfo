@@ -51,7 +51,7 @@ function ASCII2String() {
 }
 
 function checkInput(ob) {
-    var invalidChars = /[^0-9\s]/gi
+    var invalidChars = /[^0-9\s]/gi;
     if (invalidChars.test(ob.value)) {
         ob.value = ob.value.replace(invalidChars, "");
     }

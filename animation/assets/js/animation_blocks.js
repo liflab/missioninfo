@@ -15,7 +15,7 @@ Blockly.Blocks['cercle'] = {
         this.setNextStatement(true, null);
         this.setColour(135);
         this.setTooltip('Dessine un cercle');
-        this.setHelpUrl('../../../aide/aide.html?file=formes.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
     }
 };
 
@@ -47,7 +47,7 @@ Blockly.Blocks['carre'] = {
         this.setNextStatement(true, null);
         this.setColour(135);
         this.setTooltip('Dessine un carré');
-        this.setHelpUrl('../../../aide/aide.html?file=formes.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
     }
 };
 
@@ -71,7 +71,7 @@ Blockly.Blocks['couleur'] = {
         this.setNextStatement(true, null);
         this.setColour(60);
         this.setTooltip('Change la couleur');
-        this.setHelpUrl('../../../aide/aide.html?file=couleur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_couleur.md');
     }
 };
 
@@ -103,7 +103,7 @@ Blockly.Blocks['ligne'] = {
         this.setNextStatement(true, null);
         this.setColour(135);
         this.setTooltip('Ajoute une ligne');
-        this.setHelpUrl('../../../aide/aide.html?file=formes.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
     }
 };
 
@@ -130,7 +130,7 @@ Blockly.Blocks['coords'] = {
         this.setOutput(true, "coordonnees");
         this.setColour(180);
         this.setTooltip('Position sur le plan');
-        this.setHelpUrl('../../../aide/aide.html?file=coords.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_coords.md');
     }
 };
 
@@ -167,7 +167,7 @@ Blockly.Blocks['rectangle'] = {
         this.setNextStatement(true, null);
         this.setColour(135);
         this.setTooltip('Dessine un rectangle');
-        this.setHelpUrl('../../../aide/aide.html?file=formes.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
     }
 };
 
@@ -193,7 +193,7 @@ Blockly.Blocks['pour_chaque_image'] = {
         this.setNextStatement(true, null);
         this.setColour(0);
         this.setTooltip('Execute les blocs pour chaque image');
-        this.setHelpUrl('../../../aide/aide.html?file=pour_chaque_image.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_pour_chaque_image.md');
     }
 };
 
@@ -213,7 +213,7 @@ Blockly.Blocks['num_image'] = {
         this.setOutput(true, "Number");
         this.setColour(270);
         this.setTooltip('Renvoie le numéro de l\'image');
-        this.setHelpUrl('../../../aide/aide.html?file=num_image.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_num_image.md');
     }
 };
 
@@ -233,7 +233,7 @@ Blockly.Blocks['init_curseur'] = {
         this.setNextStatement(true, null);
         this.setColour(270);
         this.setTooltip('Initialise le curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -253,7 +253,7 @@ Blockly.Blocks['recup_curseur'] = {
         this.setOutput(true, "coordonnees");
         this.setColour(270);
         this.setTooltip('Récupère la position du curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -272,7 +272,7 @@ Blockly.Blocks['recup_curseur_offset'] = {
         this.setOutput(true, "coordonnees");
         this.setColour(270);
         this.setTooltip('Récupère la position du curseur et ajoute un décalage');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -299,7 +299,7 @@ Blockly.Blocks['deplace_curseur'] = {
         this.setNextStatement(true, null);
         this.setColour(270);
         this.setTooltip('Déplace le curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -327,7 +327,7 @@ Blockly.Blocks['init_curseur_tab'] = {
         this.setNextStatement(true, null);
         this.setColour(270);
         this.setTooltip('Initialise le curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -349,7 +349,7 @@ Blockly.Blocks['recup_curseur_tab'] = {
         this.setOutput(true, "coordonnees");
         this.setColour(270);
         this.setTooltip('Récupère la position du curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -371,7 +371,7 @@ Blockly.Blocks['recup_curseur_offset_tab'] = {
         this.setOutput(true, "coordonnees");
         this.setColour(270);
         this.setTooltip('Récupère la position du curseur et ajoute un décalage');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -401,7 +401,7 @@ Blockly.Blocks['deplace_curseur_tab'] = {
         this.setNextStatement(true, null);
         this.setColour(270);
         this.setTooltip('Déplace le curseur');
-        this.setHelpUrl('../../../aide/aide.html?file=curseur.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_curseur.md');
     }
 };
 
@@ -445,7 +445,7 @@ Blockly.Blocks['bonhomme'] = {
         this.setNextStatement(true, null);
         this.setColour(135);
         this.setTooltip('Dessine un bonhomme');
-        this.setHelpUrl('../../../aide/aide.html?file=bonhomme.md');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_bonhomme.md');
     }
 };
 

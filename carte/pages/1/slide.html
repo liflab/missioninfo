@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Microbit</title>
+    <title>Comment guider le robot</title>
 
     <meta name="description" content="Explique le fonctionnement d'un ordinateur'">
     <meta name="author" content="Vincent PORTA-SCARTA">
@@ -23,11 +23,137 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h2>Présentation ...</h2>
+            <h2>Comment guider {ROBOT_NAME}?</h2>
         </section>
 
         <section>
-            <h2>FIN</h2>
+            <table style="height: 100%">
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="../../assets/img/slides_p1/bg_1.png" style="height: 80vh;">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <p>
+                            Voici à quoi ressemble ta carte.
+                        </p>
+                        <p style="color: #43e000">
+                            Tu as une rose des vents qui t’indique l’orientation de la carte.
+                        </p>
+                        <p style="color: #0094ff">
+                            Tu as le trajet qui doit être accompli par Robotino. Le segment vert avec le trésor indique
+                            le point d’arrivée.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <table style="height: 100%">
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="../../assets/img/slides_p1/bg_2.png" style="height: 80vh;">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <p>
+                            {ROBOT_NAME} avance dans ce sens.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <table style="height: 100%">
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="../../assets/img/slides_p1/bg_3.png" style="height: 80vh;">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <p>
+                            À chaque fois que tu utilises un bloc <img class="plain"
+                                                                       src="../../assets/img/slides_p1/bloc_avancer.png"
+                                                                       style="vertical-align: middle;">, {ROBOT_NAME}
+                            effectue un déplacement d’un espace vers un autre.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <table style="height: 100%">
+                <col width="50%">
+                <col width="50%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="../../assets/img/slides_p1/bg.png" style="height: 80vh;">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <p>
+                            Tu peux indiquer à Robotino de tourner vers l’un des points cardinaux (Nord, Sud, Est ou
+                            Ouest), à l’aide de ce bloc : <img class="plain"
+                                                               src="../../assets/img/slides_p1/bloc_direction.png"
+                                                               style="vertical-align: middle;"></p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <p>
+                Ce bloc va pouvoir te servir à simplifier ton programme.
+            </p>
+            <img class="plain" src="../../assets/img/slides_p1/bloc_jusqua_fin.png">
+            <p>
+                Tu peux placer à l’intérieur <span style="color:#ff4050">plusieurs actions</span> que {ROBOT_NAME}
+                pourra répéter <span style="color:#ff4050">jusqu’à ce qu’il arrive au trésor</span>.
+            </p>
+            <p>
+                <span style="color:#0094ff">Exemple:</span> Si tu places un bloc <img class="plain"
+                                                                                      src="../../assets/img/slides_p1/bloc_avancer.png"
+                                                                                      style="vertical-align: middle;"> à
+                l’intérieur, {ROBOT_NAME} avancera jusqu’à la fin.
+            </p>
+        </section>
+
+        <section>
+            <p>
+                Porte une attention particulière aux informations que {ROBOT_NAME} te donne.
+            </p>
+            <p>
+                Il peut parfois te donner un <span style="color:#ff4050">nombre maximum</span> de blocs que tu peux
+                utiliser.<br>
+                <span style="color:#0094ff">Exemple:</span> utilises maximum 6 blocs...
+            </p>
+            <img class="plain" src="../../../assets/img/Lettre.svg" style="height: 30vh;">
+        </section>
+
+        <section>
+            <p>
+                Une dernière chose avant de partir à la chasse aux trésors.
+            </p>
+            <p>
+                Si tu fais une erreur, tu peux replacer {ROBOT_NAME} au point de départ avec ce bouton:
+            </p>
+            <img class="plain" src="../../assets/img/slides_p1/btn_effacer.png">
+        </section>
+
+        <section>
+            <h2>A toi de jouer !</h2>
+            <div style="width: 60vw; margin: 20px auto 0px auto; color:gray; border-width: thick; border: gray; border-style: dashed; border-radius: 25px; overflow: auto;">
+                <img class="plain" src="../../../assets/img/Content2.svg"
+                     style="height:20vh; float:left; margin-left: 5px;">
+                <p style="vertical-align: middle; height: 20vh; display: table-cell; padding: 15px 15px 15px 15px">
+                    <i>Clique sur le bouton SUIVANT en haut pour continuer</i>
+                </p>
+            </div>
         </section>
     </div>
 
@@ -35,6 +161,7 @@
 
 <script src="../../../modules/reveal/lib/js/head.min.js"></script>
 <script src="../../../modules/reveal/js/reveal.js"></script>
+<script src="../../../assets/js/globals.js"></script>
 
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration

@@ -1,6 +1,6 @@
-#Aide : Ajout de figures
+# Aide : Ajout de figures
 
-###Vidéo d'introduction
+### Vidéo d'introduction
 
 <video class="text-center" height="480" loop autoplay>
   <source src="vid/animation_p1.mp4" type="video/mp4">
@@ -27,7 +27,7 @@ N'oublie pas de mettre une couleur à ta forme!
 
 ![Bloc couleur][bloc_couleur]
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [bloc_xy]: img/XY.png
 [bloc_xy_num]: img/XY_num.png

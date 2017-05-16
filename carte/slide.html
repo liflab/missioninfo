@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Contexte</title>
+
+    <meta name="description" content="Mise en contexte'">
+    <meta name="author" content="Vincent PORTA-SCARTA">
+
+    <meta name="viewport"
+          content="width=device-width, height=device-height initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../modules/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../modules/reveal/css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="../assets/css/bulles.css">
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-background-image="assets/img/cover_bg.svg">
+            <blockquote class="oval-thought-border">
+                <p>
+                    Salut! J’ai un jeu à te proposer. J’ai trouvé une carte qui semble indiquer l’emplacement d’un
+                    trésor.
+                </p>
+            </blockquote>
+            <img class="plain" src="../assets/img/Roule.svg"
+                 style="height: 35vh;-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);">
+        </section>
+
+        <section data-background-image="assets/img/cover_bg.svg" style="height: 100%;">
+            <table style="height: 100%">
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <blockquote class="oval-thought-border">
+                            <p>
+                                J’aimerais que tu me guides jusqu’à celui-ci. Afin de voir ce qu'il contient!
+                            </p>
+                        </blockquote>
+                        <img class="plain" src="../assets/img/Roule.svg"
+                             style="height: 35vh;-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="assets/img/cover_map.svg">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section data-background-image="assets/img/cover_bg.svg" style="height: 100%;">
+            <table style="height: 100%;">
+                <col width="70%">
+                <col width="30%">
+                <tr>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <blockquote class="oval-thought-border">
+                            <p>
+                                Étant donné que je suis un robot, tu devras utiliser un programme pour me donner des
+                                instructions.
+                            </p>
+                        </blockquote>
+                        <img class="plain" src="../assets/img/Roule.svg"
+                             style="height: 35vh;-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);">
+                    </td>
+                    <td style="vertical-align: middle; border-bottom: 0">
+                        <img class="plain" src="assets/img/cover_map.svg">
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section data-background-image="assets/img/cover_bg.svg">
+            <blockquote class="oval-thought-border">
+                <p>Allons-y!!!</p>
+            </blockquote>
+            <img class="plain" src="../assets/img/Roule.svg"
+                 style="height: 35vh;-moz-transform: scaleX(-1);-o-transform: scaleX(-1);-webkit-transform: scaleX(-1);transform: scaleX(-1);">
+        </section>
+
+        <section>
+            <h3>Chargement ...</h3>
+        </section>
+    </div>
+
+</div>
+
+<script src="../modules/reveal/lib/js/head.min.js"></script>
+<script src="../modules/reveal/js/reveal.js"></script>
+<script src="../assets/js/globals.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        width: "100%",
+        height: "100%",
+        controls: false,
+        progress: true,
+        history: false,
+        center: true,
+
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        backgroundTransition: 'fade',
+    });
+
+    // Let the top-level application know that Reveal is ready.
+    try {
+        window.parent.reveal_loaded(Reveal);
+        window.parent.setSlideFocus();
+    }
+    catch (err) {
+        console.log("Launch without parent page")
+    }
+
+</script>
+
+</body>
+
+</html>

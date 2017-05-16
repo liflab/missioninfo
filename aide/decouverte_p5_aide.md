@@ -1,4 +1,4 @@
-#Aide : Afficher du texte
+# Aide : Afficher du texte
 
 Tu as deux blocs disponibles. Pour réussir cette page, il te faudra en utiliser **UN** seul de chaque.
 
@@ -12,6 +12,6 @@ N’oublie pas d’écrire quelque chose dans le bloc vert (du texte) que le pro
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [decouverte_blocs_p5]: img/decouverte_blocs_p5.png

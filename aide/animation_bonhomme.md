@@ -1,4 +1,4 @@
-#Aide : Bloc - Bonhomme
+# Aide : Bloc - Bonhomme
 
 Ce bloc permet de créer facilement un bonhomme.
 

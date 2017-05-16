@@ -1,6 +1,6 @@
-#Aide : Code un nombre binaire
+# Aide : Code un nombre binaire
 
-###Pour réussir cette activité, il faut que tu trouve au moins `5` nombres.
+### Pour réussir cette activité, il faut que tu trouve au moins `5` nombres.
 
 ***
 
@@ -33,7 +33,7 @@ Une fois tes 5 nombres trouvés, tu peux essayer n'importe quel nombre comme ton
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [codage_ex_p2_1]: img/codage_ex_p2_1.png
 [codage_ex_p2_2]: img/codage_ex_p2_2.png

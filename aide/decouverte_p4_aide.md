@@ -1,4 +1,4 @@
-#Aide : Utilisation de l’aide
+# Aide : Utilisation de l’aide
 
 Chaque bloc possède aussi sa propre page d'aide!
 
@@ -9,6 +9,6 @@ Tu dois faire un «clic droit» ou appuyer longtemps (puis relâcher) sur le blo
 
 ---
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+## <span style="color: #800080">À ton tour d'essayer</span>
 
 [context_bloc]: img/context_bloc.png

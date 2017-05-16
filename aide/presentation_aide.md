@@ -1,4 +1,4 @@
-#Aide : Présentation
+# Aide : Présentation
 
 Pour pouvoir passer à la page suivante, tu dois avoir regardé toute la présentation.
 
@@ -14,6 +14,6 @@ Une fois arrivé à la fin, tu pourras cliquer sur le bouton `SUIVANT` pour pass
 
 ***
 
-##<span style="color: #800080">À ton tour d'essayer</span>
+##  <span style="color: #800080">À ton tour d'essayer</span>
 
 [btn_suivant]: img/btn_suivant.png
