@@ -237,7 +237,7 @@ function drawArc(x,y,taille,rad_start_rotation,rad_end_rotation,reversed){
 const SIZE_CURSOR = 60;
 const ADDR_ROBOTINO_LAND = "../../../assets/img/Content.svg";
 const ADDR_ROBOTINO_AIR = "../../../assets/img/Roule.svg";
-const ADDR_ROBOTINO_OUT = "../../../assets/img/Inquiet_c.svg";
+const ADDR_ROBOTINO_OUT = "../../assets/img/arrow_out.png";//"../../../assets/img/Inquiet_c.svg";
 
 var image_robotino;
 var image_robotino_out;
@@ -258,21 +258,23 @@ Crayon = {
 function drawCursor(x_sent,y_sent) {
 
     var image_to_draw;
+    var rotation;
 
     if(x < 0 || y < 0 || x > 16 || y > 14){
         image_to_draw = image_robotino_out;
-        if(x<0){    x_sent = 0.5;}
-        if(y<0){    y_sent = 0.5;}
-        if(x>16){    x_sent = 15.5;}
-        if(y>14){    y_sent = 13.5;}
+        if(x<0){    x_sent = 0.5;       rotation = radians(0);  }
+        if(y<0){    y_sent = 0.5;       rotation = radians(0);  }
+        if(x>16){    x_sent = 15.5;     rotation = radians(90);  }
+        if(y>14){    y_sent = 13.5;     rotation = radians(0);  }
     }else{
         image_to_draw = image_robotino;
+        rotation = radians(Crayon["rotation"]);
     }
     x_sent = x_sent * pxUnit;
     y_sent = (axisHeightLength - y_sent) * pxUnit;
 
     translate(x_sent,y_sent);
-    rotate(radians(Crayon["rotation"]));
+    rotate(rotation);
 
     image(image_to_draw, -(0.921875 * SIZE_CURSOR)/2, -(SIZE_CURSOR)/2, 0.921875 * SIZE_CURSOR, SIZE_CURSOR);
     /*
@@ -286,7 +288,7 @@ function drawCursor(x_sent,y_sent) {
     );
     */
 
-    rotate(radians(-Crayon["rotation"]));
+    rotate(-rotation);
     translate(-x_sent,-y_sent);
 }
 

@@ -13,6 +13,68 @@
 
     <link rel="stylesheet" href="../../../modules/reveal/css/reveal.css">
     <link rel="stylesheet" href="../../../modules/reveal/css/theme/night.css" id="theme">
+
+    <style>
+
+        section:not(:first-child):not(:last-child){
+            height:100%;
+            width:100%;
+        }
+
+        section > img{
+            position:absolute;
+        }
+        section > img.robotino {
+            min-width:150px;
+            min-height:150px;
+            max-width:150px;
+            max-height:150px;
+            left:8vw;
+            top:32vh;
+            z-index:99;
+        }
+        section > img.robotino.rotated{
+            transform:rotate(90deg);
+        }
+        section > img.arrow_top{
+            min-width:50px;
+            min-height:150px;
+            max-width:50px;
+            max-height:150px;
+            left:12vw;
+            top:10vh;
+        }
+        section:not(.full-text) p{
+            position:absolute;
+            width:50vw;
+            right:0;
+            top:0;
+        }
+        section > div.rect{
+            background:blue;
+            position:absolute;
+            left:12vw;
+            min-width:3vw;
+            max-width:3vw;
+            min-height:15vh;
+            max-height:15vh;
+        }
+        section img.tourner{
+            min-width:304px;
+            min-height:100px;
+            max-width:304px;
+            max-height:100px;
+        }
+        section.full-text{
+            text-align:left;
+        }
+        section.full-text img{
+            text-align:center;
+            min-height:47px;
+            max-height:47px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -20,13 +82,221 @@
 <div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
+    <div class="slides scrollable">
         <section>
-            <h2>Présentation ...</h2>
+            <h2>Comment dessiner ?</h2>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>C’est Robotino lui-même qui vas réaliser les instructions que tu vas lui donner.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>C’est Robotino lui-même qui vas réaliser les instructions que tu vas lui donner.</p>
+            <p style="top:20vh;">Robotino va tracer une ligne vers le haut de sa tête. (Regarde la <span style="color:red;">flèche</span> à gauche)</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <img class="plain arrow_top" src="../../assets/img/presentation/arrow_top.png" alt="Arrow" />
+            <p>C’est Robotino lui-même qui vas réaliser les instructions que tu vas lui donner.</p>
+            <p style="top:20vh;">Robotino va tracer une ligne vers le haut de sa tête. (Regarde la <span style="color:red;">flèche</span> à gauche)</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <img class="plain arrow_top" src="../../assets/img/presentation/arrow_top.png" alt="Arrow" />
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>Tu pourras donc lui dire d’avancer.<br/>Tu pourras lui préciser le nombre de cases qu’il doit parcourir.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:32vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>Tu pourras donc lui dire d’avancer.<br/>Tu pourras lui préciser le nombre de cases qu’il doit parcourir.</p>
+            <p style="top:50vh;">
+                En utilisant ce bloc: <br/>
+                <img class="plain" src="../../assets/img/presentation/avancer_2.png" alt="Avancer"/>
+            </p>
+        </section>
+
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:25vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <div class="rect" style="top:47vh;"></div>
+            <p>Tu pourras donc lui dire d’avancer.<br/>Tu pourras lui préciser le nombre de cases qu’il doit parcourir.</p>
+            <p style="top:50vh;">
+                En utilisant ce bloc: <br/>
+                <img class="plain" src="../../assets/img/presentation/avancer_2.png" alt="Avancer"/>
+            </p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:18vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <div class="rect" style="top:47vh;"></div>
+            <div class="rect" style="top:35vh;"></div>
+            <p>Tu pourras donc lui dire d’avancer.<br/>Tu pourras lui préciser le nombre de cases qu’il doit parcourir.</p>
+            <p style="top:50vh;">
+                En utilisant ce bloc: <br/>
+                <img class="plain" src="../../assets/img/presentation/avancer_2.png" alt="Avancer"/>
+            </p>
+        </section>
+
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner1.png" alt="Tourner"/>
+            </p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner1.png" alt="Tourner"/>
+            </p>
+            <p style="top:35vh;">Tu peux choisir le sens.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner1.png" alt="Tourner"/>
+            </p>
+            <p style="top:35vh;">Tu peux choisir le sens.</p>
+            <p style="top:55vh;">Selon la page où tu es, tu peux choisir le nombre de degrés.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner2.png" alt="Tourner"/>
+            </p>
+            <p style="top:35vh;">Tu peux choisir le sens.</p>
+            <p style="top:55vh;">Selon la page où tu es, tu peux choisir le nombre de degrés.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner2.png" alt="Tourner"/>
+            </p>
+            <p style="top:35vh;">Tu peux choisir le sens.</p>
+            <p style="top:55vh;">Selon la page où tu es, tu peux choisir le nombre de degrés.</p>
+            <p style="top:75vh;color:red;">Voici ce que ça donnerait ici.</p>
+        </section>
+
+        <section data-background-image="../../assets/img/presentation/grid.png" data-background-size="contain" data-background-position="left">
+            <img style="top:10vh;" class="plain robotino rotated" src="../../../assets/img/Roule.svg" alt="Robotino" />
+            <p>
+                Tu peux aussi le faire changer de direction avec ce bloc : <br/>
+                <img class="plain tourner" src="../../assets/img/presentation/tourner2.png" alt="Tourner"/>
+            </p>
+            <p style="top:35vh;">Tu peux choisir le sens.</p>
+            <p style="top:55vh;">Selon la page où tu es, tu peux choisir le nombre de degrés.</p>
+            <p style="top:75vh;color:red;">Voici ce que ça donnerait ici.</p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                Tu peux cependant lui demander de ne pas tracer de ligne en lui indiquant de «lever son crayon» à l’aide de ce bloc :<br/>
+                <img class="plain" src="../../../aide/img/lever_crayon.png" alt="Lever Crayon" />
+            </p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                Tu peux cependant lui demander de ne pas tracer de ligne en lui indiquant de «lever son crayon» à l’aide de ce bloc :
+                <br/>
+                <img class="plain" src="../../../aide/img/lever_crayon.png" alt="Lever Crayon" />
+            </p>
+            <p>
+                N’oublie pas de lui dire de «reposer son crayon» quand tu voudras qu’il se remette à tracer une ligne. Pour ce faire, utilise ce bloc :
+                <br/>
+                <img class="plain" src="../../../aide/img/poser_crayon.png" alt="Poser Crayon" />
+            </p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                Tu peux cependant lui demander de ne pas tracer de ligne en lui indiquant de «lever son crayon» à l’aide de ce bloc :
+                <br/>
+                <img class="plain" src="../../../aide/img/lever_crayon.png" alt="Lever Crayon" />
+            </p>
+            <p>
+                N’oublie pas de lui dire de «reposer son crayon» quand tu voudras qu’il se remette à tracer une ligne. Pour ce faire, utilise ce bloc :
+                <br/>
+                <img class="plain" src="../../../aide/img/poser_crayon.png" alt="Poser Crayon" />
+            </p>
+            <p>
+                Tu peux changer la couleur de la ligne en plaçant ce bloc au début de la portion du programme que tu veux voir d’une couleur précise.
+                <br/>
+                <img class="plain" src="../../assets/img/presentation/crayon_couleur.png" alt="Crayon de couleur" />
+            </p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                1- Tu peux visualiser le trajet que tu dois réaliser en utilisant cette barre :<br/>
+                <img class="plain" src="../../assets/img/presentation/time.png" alt="Temps" />
+            </p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                1- Tu peux visualiser le trajet que tu dois réaliser en utilisant cette barre :<br/>
+                <img class="plain" src="../../assets/img/presentation/time.png" alt="Temps" />
+            </p>
+            <p>
+                2- Tu peux modifier la vitesse à laquelle Robotino trace ses lignes avec cette barre :
+                <img class="plain" src="../../assets/img/presentation/speed.png" alt="Vitesse" />
+            </p>
+        </section>
+
+        <section class="full-text">
+            <p>Dans tous ses déplacements, Robotino trace une ligne derrière lui.</p>
+            <p>
+                1- Tu peux visualiser le trajet que tu dois réaliser en utilisant cette barre :<br/>
+                <img class="plain" src="../../assets/img/presentation/time.png" alt="Temps" />
+            </p>
+            <p>
+                2- Tu peux modifier la vitesse à laquelle Robotino trace ses lignes avec cette barre :
+                <img class="plain" src="../../assets/img/presentation/speed.png" alt="Vitesse" />
+            </p>
+            <p>
+                3- Pour réinitialiser Robotino (effacer les traits et le replacer à l'endroit initial), tu peux cliquer sur le bouton "Réinitialiser" :<br/>
+                <img class="plain" src="../../assets/img/presentation/reinit.png" alt="Reinit" />
+            </p>
         </section>
 
         <section>
-            <h2>FIN</h2>
+            <h2>C’est à toi d’essayer !!</h2>
         </section>
     </div>
 
