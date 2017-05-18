@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:cc="http://creativecommons.org/ns#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        width="50.865379mm"
+        height="7.9375134mm"
+        viewBox="0 0 50.865379 7.9375134"
+        version="1.1"
+        id="svg7786"
+        inkscape:version="0.92.1 r15371"
+        sodipodi:docname="carte_tourner.svg">
+    <defs
+            id="defs7780"/>
+    <sodipodi:namedview
+            id="base"
+            pagecolor="#ffffff"
+            bordercolor="#666666"
+            borderopacity="1.0"
+            inkscape:pageopacity="0.0"
+            inkscape:pageshadow="2"
+            inkscape:zoom="5.6"
+            inkscape:cx="132.81212"
+            inkscape:cy="-14.781667"
+            inkscape:document-units="mm"
+            inkscape:current-layer="g4596"
+            showgrid="false"
+            fit-margin-top="0"
+            fit-margin-left="0"
+            fit-margin-right="0"
+            fit-margin-bottom="0"
+            inkscape:window-width="1536"
+            inkscape:window-height="801"
+            inkscape:window-x="-8"
+            inkscape:window-y="-8"
+            inkscape:window-maximized="1"/>
+    <metadata
+            id="metadata7783">
+        <rdf:RDF>
+            <cc:Work
+                    rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                        rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                <dc:title/>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <g
+            inkscape:label="Calque 1"
+            inkscape:groupmode="layer"
+            id="layer1"
+            transform="translate(118.41483,-21.644339)">
+        <g
+                style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Times New Roman';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-indent:0px;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0px;stroke-opacity:1;marker-start:none;marker-mid:none;marker-end:none;paint-order:fill stroke markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto"
+                id="g4598"
+                transform="matrix(0.26458333,0,0,0.26458333,-118.41469,21.644352)"
+                class="blocklyDraggable">
+            <path
+                    style="fill:#844970"
+                    inkscape:connector-curvature="0"
+                    id="path4582"
+                    d="M 0,8 A 8,8 0 0 1 8,0 h 7 l 6,4 h 3 L 30,0 H 191.24658 V 25 H 29.5 l -6,4 h -3 l -6,-4 H 8 A 8,8 0 0 1 0,17 Z"
+                    transform="translate(1,1)"
+                    class="blocklyPathDark"/>
+            <path
+                    style="fill:#a55b8c"
+                    inkscape:connector-curvature="0"
+                    id="path4584"
+                    d="M 0,8 A 8,8 0 0 1 8,0 h 7 l 6,4 h 3 L 30,0 H 191.24658 V 25 H 29.5 l -6,4 h -3 l -6,-4 H 8 A 8,8 0 0 1 0,17 Z"
+                    class="blocklyPath"/>
+            <path
+                    style="fill:none;stroke:#c08caf;stroke-width:1;stroke-linecap:round"
+                    inkscape:connector-curvature="0"
+                    id="path4586"
+                    d="M 0.5,7.5 A 7.5,7.5 0 0 1 8,0.5 h 7 l 6,4 h 3 l 6,-4 h 160.74658 m 0,0 M 2.6966991,22.303301 A 7.5,7.5 0 0 1 0.5,17 V 8"
+                    class="blocklyPathLight"/>
+            <text
+                    style="font-size:14.66666698px;font-family:monospace;fill:#ffffff"
+                    id="text4588"
+                    transform="translate(10,5)"
+                    y="12.5"
+                    class="blocklyText">Tourner à : 
+            </text>
+            <g
+                    id="g4596"
+                    transform="translate(116.74795,5)"
+                    class="blocklyEditableText">
+                <rect
+                        style="fill:#ffffff;fill-opacity:0.6"
+                        id="rect4590"
+                        width="74.498634"
+                        height="16"
+                        y="0"
+                        x="-5"
+                        ry="4"
+                        rx="4"/>
+                <text
+                        style="font-size:14.66666698px;font-family:monospace;text-anchor:start;fill:#000000"
+                        id="text4594"
+                        x="0"
+                        y="12.5"
+                        class="blocklyText">Gauche
+                    <tspan
+                            id="tspan4592"
+                            style="fill:#a55b8c">▾
+                    </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

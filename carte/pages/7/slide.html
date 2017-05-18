@@ -23,11 +23,63 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h2>Présentation ...</h2>
+            <h2>Voici une nouveauté</h2>
         </section>
 
         <section>
-            <h2>FIN</h2>
+            <img class="plain" style="height: 20vh" src="../../assets/img/slides_p7/blockly_si_faire.svg"><br>
+            <img class="plain" style="height: 10vh" src="../../assets/img/slides_p7/carte_capteur_chemin.svg"><br>
+            <img class="plain" style="height: 10vh" src="../../assets/img/slides_p7/carte_tourner.svg">
+            <p>Avec ces blocs, tu peux te concevoir un <span style="font-weight: bold" class="fragment highlight-green">GPS</span>
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" style="height: 20vh" src="../../assets/img/slides_p7/ex_si_faire.svg">
+            <p>Ce bloc va vérifier si ce que tu places <span style="font-weight: bold" class="fragment highlight-red">ici</span>
+                est vrai ou faux.<br>
+                Si c’est vrai, il va exécuter ce que tu vas placer comme action(s) <span style="font-weight: bold"
+                                                                                         class="fragment highlight-green">ici</span>.
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" style="height: 10vh" src="../../assets/img/slides_p7/carte_capteur_chemin.svg">
+            <p>
+                Ce bloc <span style="font-weight: bold" class="fragment highlight-cyan">vérifie</span> s’il y a une
+                intersection contenant un chemin qui va vers la gauche, la droite ou tout droit, selon ce que tu places
+                comme information.
+            </p>
+            <img class="plain" style="height: 30vh" src="../../assets/img/slides_p7/carte_chemin_capteur.svg">
+        </section>
+
+        <section>
+            <img class="plain" style="height: 10vh" src="../../assets/img/slides_p7/carte_tourner.svg">
+            <p>
+                Ce bloc <span style="font-weight: bold" class="fragment highlight-cyan">indique</span> à {ROBOT_NAME} de
+                prendre le chemin qui va vers la gauche (ou vers la droite selon ce que tu places).
+            </p>
+            <img class="plain" style="height: 30vh" src="../../assets/img/slides_p7/carte_chemin_tourner.svg">
+        </section>
+
+        <section>
+            <img class="plain" style="height: 20vh" src="../../assets/img/slides_p7/carte_ex_si_faire.svg">
+            <p>
+                Dans cet exemple, si {ROBOT_NAME} arrive à une intersection contenant un chemin allant vers la gauche,
+                il prendrait alors le chemin et continuerait d’avancer vers la gauche.
+            </p>
+            <img class="plain" style="height: 20vh" src="../../assets/img/slides_p7/carte_chemin_ex.svg">
+        </section>
+
+        <section>
+            <h2>A toi de jouer !</h2>
+            <div style="width: 60vw; margin: 20px auto 0px auto; color:gray; border-width: thick; border: gray; border-style: dashed; border-radius: 25px; overflow: auto;">
+                <img class="plain" src="../../../assets/img/Content2.svg"
+                     style="height:20vh; float:left; margin-left: 5px;">
+                <p style="vertical-align: middle; height: 20vh; display: table-cell; padding: 15px 15px 15px 15px">
+                    <i>Clique sur le bouton SUIVANT en haut pour continuer</i>
+                </p>
+            </div>
         </section>
     </div>
 
@@ -35,6 +87,7 @@
 
 <script src="../../../modules/reveal/lib/js/head.min.js"></script>
 <script src="../../../modules/reveal/js/reveal.js"></script>
+<script src="../../../assets/js/globals.js"></script>
 
 <script>
     // More info https://github.com/hakimel/reveal.js#configuration
