@@ -53,7 +53,7 @@ var autoResize = function () {
         document.getElementById("blockly-holder").style.height = height + 'px';
     }
 };
-if (activity !== "accueil") {
+if (document.getElementById('bodyPage')) {
     window.addEventListener('resize', autoResize, false);
     //console.log("Resize OK");
 }
