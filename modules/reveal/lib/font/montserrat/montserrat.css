@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('montserrat_bold.eot');
+    src: url('montserrat_bold.eot?#iefix') format('embedded-opentype'),
+    url('montserrat_bold.woff') format('woff'),
+    url('montserrat_bold.ttf') format('truetype');
+
+    font-weight: 700;
+    font-style: normal;
+}
