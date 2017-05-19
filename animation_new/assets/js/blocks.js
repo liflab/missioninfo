@@ -72,7 +72,7 @@ Blockly.JavaScript['carre'] = function (block) {
     var value_coord_center = Blockly.JavaScript.valueToCode(block, 'coord_center', Blockly.JavaScript.ORDER_ATOMIC);
     var value_taille = Blockly.JavaScript.valueToCode(block, 'taille', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'exBoard.answer[currentFrame].push(new Square(currentColor,' + value_coord_center + ',' + value_taille + ',0));';
+    var code = 'exBoard.answer[currentFrame].push(new Square(currentColor,' + value_coord_center + ',' + value_taille + '));';
 
     return code;
 };
@@ -109,7 +109,7 @@ Blockly.JavaScript['rectangle'] = function (block) {
     var value_hauteur = Blockly.JavaScript.valueToCode(block, 'hauteur', Blockly.JavaScript.ORDER_ATOMIC);
     var value_largeur = Blockly.JavaScript.valueToCode(block, 'largeur', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'exBoard.answer[currentFrame].push(new Rectangle(currentColor,' + value_coord_center + ',' + value_hauteur + ',' + value_largeur + ',0));';
+    var code = 'exBoard.answer[currentFrame].push(new Rectangle(currentColor,' + value_coord_center + ',' + value_hauteur + ',' + value_largeur + '));';
 
 
     return code;
@@ -437,7 +437,7 @@ Blockly.JavaScript['bonhomme'] = function (block) {
     var checkbox_hands_up = block.getFieldValue('hands_up') == 'TRUE';
     var value_coord_center = Blockly.JavaScript.valueToCode(block, 'coord_center', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'drawMan(' + value_coord_center + ',\'' + colour_shirt + '\',\'' + colour_pants + '\',' + checkbox_hands_up + ');\n';
+    var code = 'exBoard.answer[currentFrame].push(new Man(' + value_coord_center + ', "' + colour_shirt + '", "' + colour_pants + '", ' + checkbox_hands_up + '));';
 
     return code;
 };

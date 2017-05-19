@@ -157,23 +157,16 @@ function convertSize(size) {
 }
 
 // Shape objects
-function Square(shape_color, coord, taille, coins) {
-    var test = typeof shape_color === "string";
-    test = coord instanceof Coord;
-    test = typeof taille === "number";
-    test = typeof coins === "number";
-
+function Square(shape_color, coord, taille) {
     assert(
         typeof shape_color === "string" &&
         coord instanceof Coord &&
-        typeof taille === "number" &&
-        typeof coins === "number"
+        typeof taille === "number"
     );
 
     this.shape_color = shape_color;
     this.coord = coord;
     this.taille = taille;
-    this.coins = coins;
 
     this.isEqualTo = function (other) {
         if (other instanceof Square) {
@@ -199,24 +192,22 @@ function Square(shape_color, coord, taille, coins) {
         let sketch_coord = convertCoord(this.coord);
         let sketch_taille = convertSize(this.taille);
 
-        rect(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille, this.coins);
+        rect(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
     }
 }
 
-function Rectangle(shape_color, coord, height, width, coins) {
+function Rectangle(shape_color, coord, height, width) {
     assert(
         typeof shape_color === "string" &&
         coord instanceof Coord &&
         typeof height === "number" &&
-        typeof width === "number" &&
-        typeof coins === "number"
+        typeof width === "number"
     );
 
     this.shape_color = shape_color;
     this.coord = coord;
     this.height = height;
     this.width = width;
-    this.coins = coins;
 
     this.isEqualTo = function (other) {
         if (other instanceof Rectangle) {
@@ -244,7 +235,7 @@ function Rectangle(shape_color, coord, height, width, coins) {
         let sketch_height = convertSize(this.height);
         let sketch_width = convertSize(this.width);
 
-        rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, this.coins);
+        rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height);
     }
 }
 
@@ -406,6 +397,109 @@ function Triangle(shape_color, coord_1, coord_2, coord_3) {
     }
 }
 
+function Man(coord, color_shirt, color_pents, hands_up) {
+    assert(
+        coord instanceof Coord &&
+        typeof color_shirt === "string" &&
+        typeof color_pents === "string" &&
+        typeof hands_up === "boolean"
+    );
+
+    this.coord = coord;
+    this.color_shirt = color_shirt;
+    this.color_pents = color_pents;
+    this.shape_color = "#ffc83d";
+    this.hands_up = hands_up;
+
+    this.isEqualTo = function (other) {
+        if (other instanceof Man) {
+            return (
+                /*this.color_shirt === other.color_shirt &&
+                 this.color_pents === other.color_pents &&*/
+                this.shape_color === other.shape_color &&
+                this.coord.isEqualTo(other.coord) &&
+                this.hands_up === other.hands_up
+            );
+        }
+        return false;
+    };
+
+    this.draw = function (isAnswer) {
+        let draw_color = color(this.shape_color);
+
+        if (!isAnswer) {
+            draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
+        }
+
+        // Draw head
+        fill(draw_color).noStroke();
+
+        let sketch_coord = convertCoord(this.coord.add(new Coord(0, 0.75)));
+        let sketch_taille = convertSize(0.5);
+
+        ellipse(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
+
+        // Draw arms
+        stroke(draw_color).strokeWeight(10);
+
+        let sketch_coord_1 = convertCoord(this.coord.add(new Coord(-0.375, 0.375)));
+        let sketch_coord_2 = convertCoord(this.coord.add(new Coord(-0.625, -0.125)));
+
+        line(sketch_coord_1.x, sketch_coord_1.y, sketch_coord_2.x, sketch_coord_2.y);
+
+        if (this.hands_up) {
+            sketch_coord_1 = convertCoord(this.coord.add(new Coord(0.375, 0.375)));
+            sketch_coord_2 = convertCoord(this.coord.add(new Coord(0.625, 0.875)));
+        }
+        else {
+            sketch_coord_1 = convertCoord(this.coord.add(new Coord(0.375, 0.375)));
+            sketch_coord_2 = convertCoord(this.coord.add(new Coord(0.625, -0.125)));
+        }
+        line(sketch_coord_1.x, sketch_coord_1.y, sketch_coord_2.x, sketch_coord_2.y);
+
+
+        // Draw pents
+        draw_color = color(this.color_pents);
+
+        if (!isAnswer) {
+            draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
+        }
+
+        stroke(draw_color).strokeWeight(10);
+
+        sketch_coord_1 = convertCoord(this.coord.add(new Coord(-0.25, -0.5)));
+        sketch_coord_2 = convertCoord(this.coord.add(new Coord(-0.25, -1.25)));
+        line(sketch_coord_1.x, sketch_coord_1.y, sketch_coord_2.x, sketch_coord_2.y);
+
+        sketch_coord_1 = convertCoord(this.coord.add(new Coord(0.25, -0.5)));
+        sketch_coord_2 = convertCoord(this.coord.add(new Coord(0.25, -1.25)));
+        line(sketch_coord_1.x, sketch_coord_1.y, sketch_coord_2.x, sketch_coord_2.y);
+
+        // Draw t-shirt
+        draw_color = color(this.color_shirt);
+
+        if (!isAnswer) {
+            draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
+        }
+
+        fill(draw_color).noStroke();
+        rectMode(CENTER);
+
+        sketch_coord = convertCoord(this.coord);
+        let sketch_height = convertSize(1);
+        let sketch_width = convertSize(0.75);
+        rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, 5);
+
+        sketch_coord = convertCoord(this.coord.add(new Coord(-0.375, 0.375)));
+        sketch_height = convertSize(0.25);
+        sketch_width = convertSize(0.25);
+        rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, 5);
+
+        sketch_coord = convertCoord(this.coord.add(new Coord(0.375, 0.375)));
+        rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, 5);
+    }
+}
+
 // To draw the grid
 function drawSpaceIndicators() {
     let sizeSpaceIndicators = 20;
@@ -503,7 +597,7 @@ function checkAnswer() {
 
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(4);
+    createButtons(8);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();

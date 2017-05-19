@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="../../../modules/blockly/blockly_uncompressed.js"></script>
+    <script src="../../../modules/blockly/msg/js/fr.js"></script>
+    <script src="../../../modules/blockly/blocks_compressed.js"></script>
+    <script src="../../../modules/blockly/javascript_compressed.js"></script>
+    <script src="../../../modules/blockly/blockly_init.js"></script>
+    <script src="../../assets/js/blocks.js"></script>
+    <link href="../../assets/css/blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ['#ff0000', '#00ff00', '#0000ff', '#ff9966'];
+        Blockly.FieldColour.COLUMNS = 4;
+    </script>
+
+</head>
+
+<body onload="initBlockly(1.0,true,false)">
+<xml id="toolbox" style="display: none">
+    <category name="Formes">
+        <block type="ligne"></block>
+        <block type="cercle"></block>
+        <block type="carre"></block>
+        <block type="rectangle"></block>
+    </category>
+    <category name="Couleur">
+        <block type="couleur"></block>
+    </category>
+    <category name="Nombre">
+        <block type="math_number"></block>
+    </category>
+    <category name="Position">
+        <block type="coords">
+            <value name="x">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="y">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>
+
+<xml id="workspace" style="display: none">
+</xml>
+</body>
+
+</html>
