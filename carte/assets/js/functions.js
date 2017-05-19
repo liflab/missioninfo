@@ -10,7 +10,6 @@ var img_road_deb, img_road_1, img_road_2, img_road_3, img_road_4, img_road_fin, 
 
 var answer;
 
-var num_item = 0;
 var isPlaying = false;
 var animator;
 
