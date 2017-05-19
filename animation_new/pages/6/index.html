@@ -9,7 +9,7 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 2 de l'activité animation'">
+    <meta name="description" content="Page 1 de l'activité animation'">
     <meta name="author" content="Vincent PORTA-SCARTA">
     <title>Silence, on tourne</title>
     <!--##########################################################################################################-->
@@ -71,10 +71,10 @@
         <div class="row">
             <div class="col-sm-3">
                 <div id="title">
-                    <h2>Ajout de figures</h2>
-                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
+                    <h2>Silence, on tourne</h2>
+                    <!--<button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
                             class="glyphicon glyphicon-info-sign"></span> INFO
-                    </button>
+                    </button>-->
                 </div>
             </div>
             <div class="col-sm-6 text-center">
@@ -85,28 +85,13 @@
                 <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none"
                         class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
                 </button>
-                <button type="button" onclick="runCode();" id="btn_run" class="btn btn-success btn-block"><span
-                        class="glyphicon glyphicon-play"></span> DEMARRER
-                </button>
-                <button type="button" onclick="saveCode();" class="btn btn-info btn-block"><span
-                        class="glyphicon glyphicon-save"></span> SAUVEGARDER
-                </button>
-                <button type="button" onclick="reinitBoard();" class="btn btn-danger btn-block"><span
-                        class="glyphicon glyphicon-trash"></span> EFFACER
-                </button>
             </div>
         </div>
     </div>
 
     <div class="container-fluid" id="bodyPage">
-        <div class="row">
-            <div class="col-sm-6" id="sketch-col">
-                <div id="sketch-holder"></div>
-            </div>
-            <div class="col-sm-6">
-                <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
-            </div>
-        </div>
+        <object id="slide-holder" name="slide" onload="addEndListener()" type="text/html" data="slide.html"
+                style="height: 100%; width: 100%;"></object>
     </div>
 </div>
 

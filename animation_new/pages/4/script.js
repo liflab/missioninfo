@@ -8,8 +8,8 @@ page_shapes = page_shapes = {
     bg: [],
     ex: [
         [
-            new Rectangle("#ff0000", new Coord(1, 5), 2, 3, 0),
-            new Rectangle("#00ff00", new Coord(6, 4), 3, 1, 0)
+            new Line("#ff0000", new Coord(1, 2), new Coord(3, 4)),
+            new Line("#00ff00", new Coord(4, 5), new Coord(7, 1))
         ]
     ]
 };
