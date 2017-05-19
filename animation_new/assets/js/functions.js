@@ -80,6 +80,9 @@ function Board(listShapes) {
                     res = res && res_tmp;
                 }
             }
+            else {
+                res = false;
+            }
         }
         return res;
     };
