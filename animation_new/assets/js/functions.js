@@ -40,19 +40,24 @@ function reinitBoard() {
 
 // Objects used in this section
 function Board(listShapes) {
-    this.shapes = new Array(listShapes.length);
-    for (let i = 0; i < listShapes.length; i++) {
+    this.shapes_bg = [];
+    for (let i = 0; i < listShapes.bg.length; i++) {
+        this.shapes_bg.push(Object.assign({}, listShapes.bg[i]));
+    }
+
+    this.shapes = new Array(listShapes.ex.length);
+    for (let i = 0; i < listShapes.ex.length; i++) {
         this.shapes[i] = [];
     }
 
-    for (let i = 0; i < listShapes.length; i++) {
-        for (let j = 0; j < listShapes[i].length; j++) {
-            this.shapes[i].push(Object.assign({}, listShapes[i][j]));
+    for (let i = 0; i < listShapes.ex.length; i++) {
+        for (let j = 0; j < listShapes.ex[i].length; j++) {
+            this.shapes[i].push(Object.assign({}, listShapes.ex[i][j]));
         }
     }
 
-    this.answer = new Array(listShapes.length);
-    for (let i = 0; i < listShapes.length; i++) {
+    this.answer = new Array(listShapes.ex.length);
+    for (let i = 0; i < listShapes.ex.length; i++) {
         this.answer[i] = [];
     }
 
@@ -90,6 +95,10 @@ function Board(listShapes) {
     this.draw = function (nb_frame) {
         clear();
         background(255);
+
+        for (let i = 0; i < this.shapes_bg.length; i++) {
+            this.shapes_bg[i].draw(true);
+        }
 
         drawSpaceIndicators();
 
@@ -179,10 +188,10 @@ function Square(shape_color, coord, taille) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -221,10 +230,10 @@ function Rectangle(shape_color, coord, height, width) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -261,10 +270,10 @@ function Circle(shape_color, coord, taille) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -307,10 +316,10 @@ function Line(shape_color, coord_1, coord_2) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -380,10 +389,10 @@ function Triangle(shape_color, coord_1, coord_2, coord_3) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -424,10 +433,10 @@ function Man(coord, color_shirt, color_pents, hands_up) {
         return false;
     };
 
-    this.draw = function (isAnswer) {
+    this.draw = function (softColor) {
         let draw_color = color(this.shape_color);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -461,7 +470,7 @@ function Man(coord, color_shirt, color_pents, hands_up) {
         // Draw pents
         draw_color = color(this.color_pents);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
@@ -478,7 +487,7 @@ function Man(coord, color_shirt, color_pents, hands_up) {
         // Draw t-shirt
         draw_color = color(this.color_shirt);
 
-        if (!isAnswer) {
+        if (!softColor) {
             draw_color = lerpColor(draw_color, color(colorEx), blendColorEx);
         }
 
