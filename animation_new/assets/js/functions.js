@@ -114,16 +114,46 @@ function Board(listShapes) {
     };
 
     this.launchAnimation = async function () {
-        isPlaying = true;
-        await sleep(200);
-        for (let i = 0; i < this.shapes.length; i++) {
-            if (!isPlaying) {
-                return;
+        if (!isPlaying) {
+            isPlaying = true;
+
+            if (document.getElementById("anim-play")) {
+                document.getElementById("anim-play").className = "glyphicon glyphicon-pause";
             }
-            this.draw(i);
+
+            await sleep(200);
+            for (let i = 0; i < this.shapes.length; i++) {
+                if (!isPlaying) {
+                    return;
+                }
+
+                if (document.getElementById("anim-text")) {
+                    document.getElementById("anim-text").innerHTML = i;
+                }
+
+                this.draw(i);
+                await sleep(500);
+            }
+
             await sleep(500);
+
+            if (document.getElementById("anim-text")) {
+                document.getElementById("anim-text").innerHTML = "0";
+            }
+
+            this.draw(0);
+            isPlaying = false;
+
+            if (document.getElementById("anim-play")) {
+                document.getElementById("anim-play").className = "glyphicon glyphicon-play";
+            }
         }
-        isPlaying = false;
+        else {
+            isPlaying = false;
+            if (document.getElementById("anim-play")) {
+                document.getElementById("anim-play").className = "glyphicon glyphicon-play";
+            }
+        }
     };
 }
 
