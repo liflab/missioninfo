@@ -1,3 +1,5 @@
+const DEBUG = false;
+
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
 };
@@ -5,7 +7,7 @@ Math.radians = function(degrees) {
 // Converts from radians to degrees.
 Math.degrees = function(radians) {
     return radians * 180 / Math.PI;
-};
+}
 var play_show = true;
 
 //##########################################################################################################
@@ -152,10 +154,11 @@ function custom_validation(drawing_gen, solution){
     }
     var t_result = [];
     for(var i=0;i<solution.length;i++){
-        var draw_done = solution[i];
+        var solution_step = solution[i];
         //console.log("Looking for "+str_draw(draw_done));
         for(var j=0;j<drawing_gen.length;j++){
-            if(is_equivalent(draw_done,drawing_gen[j])){
+            if(DEBUG){  console.log("COMPARAISON "+(i)+" ["+j+"]")}
+            if(is_equivalent(solution_step,drawing_gen[j])){
                 //console.log("OUI");
                 t_result.push(true);
                 break;
@@ -174,39 +177,102 @@ function custom_validation(drawing_gen, solution){
 };
 
 function is_equivalent(d1,d2){
-    //console.log("Is it "+str_draw(d2)+" ?");
+    if(DEBUG){  console.log("==> Is Equivalent");}
+    if(DEBUG){  console.log("--D1-->"); console.log(d1); }
+    if(DEBUG){  console.log("--D2-->"); console.log(d2); }
+        //console.log("Is it "+str_draw(d2)+" ?");
     if(d1["type"]!=d2["type"]){
+        if(DEBUG){  console.log("<== false"); }
         return false;
     }
+    console.log(d1["type"]);
     switch(d1["type"]){
         case "line":
             var v_coord = (
                 (
-                    d1["coord1"]["x"]==d2["coord1"]["x"] && d1["coord1"]["y"]==d2["coord1"]["y"] &&
-                    d1["coord2"]["x"]==d2["coord2"]["x"] && d1["coord2"]["y"]==d2["coord2"]["y"]
+                    value_equivalent(d1["coord1"]["x"],d2["coord1"]["x"]) && value_equivalent(d1["coord1"]["y"],d2["coord1"]["y"]) &&
+                    value_equivalent(d1["coord2"]["x"],d2["coord2"]["x"]) && value_equivalent(d1["coord2"]["y"],d2["coord2"]["y"])
                 ) ||
                 (
-                    d1["coord1"]["x"]==d2["coord2"]["x"] && d1["coord1"]["y"]==d2["coord2"]["y"] &&
-                    d1["coord2"]["x"]==d2["coord1"]["x"] && d1["coord2"]["y"]==d2["coord1"]["y"]
+                    value_equivalent(d1["coord1"]["x"],d2["coord2"]["x"]) && value_equivalent(d1["coord1"]["y"],d2["coord2"]["y"]) &&
+                    value_equivalent(d1["coord2"]["x"],d2["coord1"]["x"]) && value_equivalent(d1["coord2"]["y"],d2["coord1"]["y"])
                 )
             );
-            return v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]));
+            var ret = v_coord && (d1["color"]===undefined || (d1["color"]==d2["color"]));
+            if(DEBUG){  console.log("<== "+ret); }
+            return ret;
         break;
         case "arc":
-            if(d1["size"]!=d2["size"] || d1["color"]!=d2["color"] || d1["middle"]["x"]!=d2["middle"]["x"] || d1["middle"]["y"]!=d2["middle"]["y"]){
+            if(d1["size"]!=d2["size"] || d1["color"]!=d2["color"] || !value_equivalent(d1["middle"]["x"],d2["middle"]["x"]) || !value_equivalent(d1["middle"]["y"],d2["middle"]["y"])){
+                if(DEBUG){  console.log("<== false"); }
                 return false;
             }
+            var d1_start;
+            var d1_end;
+            var d2_start;
+            var d2_end;
+            if(d1["reversed"]==d2["reversed"]){
+                d1_start = d1["start_angle"];
+                d1_end   = d1["end_angle"];
+                d2_start = d2["start_angle"];
+                d2_end   = d2["end_angle"];
+            }else{
+                d1_start = d1["start_angle"];
+                d1_end   = d1["end_angle"];
+                d2_start = d2["end_angle"];
+                d2_end   = d2["start_angle"];
+            }
+            var value_sub = value_equivalent(Math.abs(d2_end-d2_start),Math.abs(d1_end-d1_start));
+            if(DEBUG){  console.log("<== "+value_sub); }
+            return value_sub;
+            /*
             if(
-                d1["reversed"]==d2["reversed"] && d1["start_angle"]==d2["start_angle"] && d1["end_angle"]==d2["end_angle"] ||
-                d1["reversed"]!=d2["reversed"] && d1["start_angle"]==d2["end_angle"] && d1["end_angle"]==d2["start_angle"]
+                d1["reversed"]==d2["reversed"] && value_equivalent(d1["start_angle"],d2["start_angle"]) && value_equivalent(d1["end_angle"],d2["end_angle"]) ||
+                d1["reversed"]!=d2["reversed"] && value_equivalent(d1["start_angle"],d2["end_angle"]) && value_equivalent(d1["end_angle"],d2["start_angle"])
             ){
+                if(DEBUG){  console.log("<== true"); }
                 return true;
             }
-            return false;
+            if(DEBUG){  console.log("<== false"); }
+            return false;*/
         break;
         default:
+            if(DEBUG){  console.log("<== false"); }
             return false;
     }
+}
+
+function value_equivalent(v1,v2){
+    if(DEBUG){ console.log("-->Value_equivalent("+v1+"//"+v2+")");}
+    if(v1==v2){
+        if(DEBUG){  console.log("<-- true");}
+        return true;
+    }
+    if(v1>0 && v2 <0 || v1 <0 && v2>0){
+        if(DEBUG){  console.log("<-- false");}
+        return false;
+    }
+    var r = false;
+    var v1_min = v1*0.95;
+    var v1_max = v1*1.05;
+    var v2_min = v2*0.95;
+    var v2_max = v2*1.05;
+
+    if(v1>0){
+        r = v1 >= v2_min && v1 <= v2_max || v2 >= v1_min && v2 <=v1_max;
+    }else{
+        console.log("////////////");
+        console.log(v1_min);
+        console.log(v1_max);
+        console.log(v2_min);
+        console.log(v2_max);
+        console.log("////////////");
+        r = false;
+    }
+    if(DEBUG){
+        console.log("<-- "+r);
+    }
+    return r;
 }
 
 function str_draw(d){
