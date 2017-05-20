@@ -181,6 +181,43 @@ Blockly.JavaScript['ligne'] = function (block) {
 
 ///////////////////////////////////////////////////////////////////
 
+Blockly.Blocks['triangle'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("Triangle");
+        this.appendDummyInput();
+        this.appendValueInput("coord_1")
+            .setCheck("coordonnees")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Coin 1");
+        this.appendValueInput("coord_2")
+            .setCheck("coordonnees")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Coin 2");
+        this.appendValueInput("coord_3")
+            .setCheck("coordonnees")
+            .setAlign(Blockly.ALIGN_RIGHT)
+            .appendField("Coin 3");
+        this.setPreviousStatement(true, null);
+        this.setNextStatement(true, null);
+        this.setColour(135);
+        this.setTooltip('Ajoute une ligne');
+        this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
+    }
+};
+
+Blockly.JavaScript['triangle'] = function (block) {
+    var value_coord_1 = Blockly.JavaScript.valueToCode(block, 'coord_1', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_coord_2 = Blockly.JavaScript.valueToCode(block, 'coord_2', Blockly.JavaScript.ORDER_ATOMIC);
+    var value_coord_3 = Blockly.JavaScript.valueToCode(block, 'coord_3', Blockly.JavaScript.ORDER_ATOMIC);
+
+    var code = 'exBoard.answer[currentFrame].push(new Triangle(currentColor,' + value_coord_1 + ',' + value_coord_2 + ',' + value_coord_3 + '));';
+
+    return code;
+};
+
+///////////////////////////////////////////////////////////////////
+
 Blockly.Blocks['pour_chaque_image'] = {
     init: function () {
         this.appendDummyInput()

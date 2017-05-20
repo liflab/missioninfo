@@ -596,15 +596,7 @@ function runCode() {
             eval(code);
             saveCode();
             document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-pause"></span> ARRETER';
-
-            let e = window.event;
-            if (e.altKey) {
-                exBoard.launchAnimation(true);
-            }
-            else {
-                exBoard.launchAnimation(false);
-            }
-
+            exBoard.launchAnimation(false);
             checkAnswer();
         }
         catch (err) {
@@ -655,9 +647,19 @@ function checkAnswer() {
     }
 }
 
+function play_anim() {
+    let e = window.event;
+    if (e.altKey) {
+        exBoard.launchAnimation(true);
+    }
+    else {
+        exBoard.launchAnimation(false);
+    }
+}
+
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(10);
+    createButtons(11);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
