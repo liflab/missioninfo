@@ -4,7 +4,7 @@ axisWidthLength = 8;
 axisHeightLength = 6;
 pxUnit = 100;
 
-page_shapes = page_shapes = {
+page_shapes = {
     bg: [
         new Rectangle("#52d8ff", new Coord(0, 6), 4, 8),
         new Rectangle("#02bf08", new Coord(0, 1.5), 1.5, 8),

@@ -113,7 +113,7 @@ function Board(listShapes) {
         }
     };
 
-    this.launchAnimation = async function () {
+    this.launchAnimation = async function (saveImages) {
         if (!isPlaying) {
             isPlaying = true;
 
@@ -132,6 +132,11 @@ function Board(listShapes) {
                 }
 
                 this.draw(i);
+
+                if (saveImages) {
+                    saveCanvas("animation_p" + currentPageNumber + "_" + i, 'png');
+                }
+
                 await sleep(500);
             }
 
@@ -536,6 +541,14 @@ function Man(coord, color_shirt, color_pents, hands_up) {
 
         sketch_coord = convertCoord(this.coord.add(new Coord(0.375, 0.375)));
         rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, 5);
+
+        // Draw center indicator
+        fill("#ffffff").stroke("#000000").strokeWeight(2);
+
+        sketch_coord = convertCoord(this.coord);
+        sketch_taille = convertSize(0.0625);
+
+        ellipse(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
     }
 }
 
@@ -583,7 +596,15 @@ function runCode() {
             eval(code);
             saveCode();
             document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-pause"></span> ARRETER';
-            exBoard.launchAnimation();
+
+            let e = window.event;
+            if (e.altKey) {
+                exBoard.launchAnimation(true);
+            }
+            else {
+                exBoard.launchAnimation(false);
+            }
+
             checkAnswer();
         }
         catch (err) {
@@ -636,7 +657,7 @@ function checkAnswer() {
 
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(8);
+    createButtons(9);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
