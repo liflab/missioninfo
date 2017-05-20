@@ -4,15 +4,17 @@ axisWidthLength = 8;
 axisHeightLength = 6;
 pxUnit = 100;
 
-page_shapes = page_shapes = {
+page_shapes = {
     bg: [],
-    ex: [
-        [
-            new Rectangle("#ff0000", new Coord(1, 3), 2, 3, 0),
-            new Rectangle("#00ff00", new Coord(6, 1), 3, 1, 0)
-        ]
-    ]
+    ex: []
 };
+for (let i = 0; i < 4; i++) {
+    page_shapes.ex.push([
+        new Rectangle("#ff0000", new Coord(i + 1, 2), 1, 2),
+        new Square("#00ff00", new Coord(4, i + 1), 1),
+        new Circle("#0000ff", new Coord(7 - (i * 2), 4), 1),
+    ])
+}
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);

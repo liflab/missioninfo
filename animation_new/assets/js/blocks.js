@@ -201,7 +201,7 @@ Blockly.Blocks['triangle'] = {
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(135);
-        this.setTooltip('Ajoute une ligne');
+        this.setTooltip('Ajoute un triangle');
         this.setHelpUrl('../../../aide/aide.html?file=animation_formes.md');
     }
 };
@@ -362,7 +362,7 @@ Blockly.JavaScript['init_curseur_tab'] = function (block) {
     var number_idx = block.getFieldValue('idx');
     var value_pos = Blockly.JavaScript.valueToCode(block, 'pos', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'cursors[' + (number_idx - 1) + '] = ' + value_pos + ';\n';
+    var code = 'cursors[' + (number_idx - 1) + '] = ' + value_pos + ';';
     return code;
 };
 
@@ -432,7 +432,7 @@ Blockly.JavaScript['deplace_curseur_tab'] = function (block) {
     var number_idx = block.getFieldValue('idx');
     var value_mouvement = Blockly.JavaScript.valueToCode(block, 'mouvement', Blockly.JavaScript.ORDER_ATOMIC);
 
-    var code = 'cursors[' + (number_idx - 1) + '] = cursors[' + (number_idx - 1) + '].add(' + value_mouvement + ')';
+    var code = 'cursors[' + (number_idx - 1) + '] = cursors[' + (number_idx - 1) + '].add(' + value_mouvement + ');';
 
     return code;
 };
@@ -447,11 +447,11 @@ Blockly.Blocks['bonhomme'] = {
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Couleur du T-shirt")
-            .appendField(new Blockly.FieldColour("#000000"), "shirt");
+            .appendField(new Blockly.FieldColour("#202020"), "shirt");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Couleur du Pantalon")
-            .appendField(new Blockly.FieldColour("#3366ff"), "pants");
+            .appendField(new Blockly.FieldColour("#909090"), "pants");
         this.appendDummyInput()
             .setAlign(Blockly.ALIGN_RIGHT)
             .appendField("Bras levé")

@@ -14,6 +14,7 @@ var axisHeightLength;
 var pxUnit;
 
 var currentColor = '#000000';
+var indWhite = false;
 const colorEx = '#ffffff';
 const blendColorEx = 0.8;
 
@@ -233,7 +234,7 @@ function Square(shape_color, coord, taille) {
         fill(draw_color).noStroke();
         rectMode(CORNER);
 
-        let sketch_coord = convertCoord(this.coord);
+        let sketch_coord = convertCoord(this.coord.add(new Coord(0, this.taille)));
         let sketch_taille = convertSize(this.taille);
 
         rect(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
@@ -275,7 +276,7 @@ function Rectangle(shape_color, coord, height, width) {
         fill(draw_color).noStroke();
         rectMode(CORNER);
 
-        let sketch_coord = convertCoord(this.coord);
+        let sketch_coord = convertCoord(this.coord.add(new Coord(0, this.height)));
         let sketch_height = convertSize(this.height);
         let sketch_width = convertSize(this.width);
 
@@ -555,28 +556,35 @@ function Man(coord, color_shirt, color_pents, hands_up) {
 // To draw the grid
 function drawSpaceIndicators() {
     let sizeSpaceIndicators = 20;
+    let indColor = [0, 0, 0];
+    if (indWhite) {
+        indColor = [255, 255, 255];
+    }
+    let indColorAlpha = indColor.slice();
+    indColorAlpha.push(20);
+
     textAlign(CENTER);
     for (let i = 1; i < axisHeightLength; i++) {
-        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4);
+        fill(indColor).stroke(indColor).strokeWeight(4);
         line(0, i * pxUnit, sizeSpaceIndicators, i * pxUnit);
         line((axisWidthLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
 
-        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1);
+        fill(indColor).stroke(indColorAlpha).strokeWeight(1);
         line(0, i * pxUnit, axisWidthLength * pxUnit, i * pxUnit);
 
-        fill(0, 0, 0).strokeWeight(0).textSize(18);
+        fill(indColor).strokeWeight(0).textSize(18);
         text((axisHeightLength - i), 35, i * pxUnit + 8);
 
     }
     for (let i = 1; i < axisWidthLength; i++) {
-        fill(0, 0, 0).stroke(0, 0, 0).strokeWeight(4);
+        fill(indColor).stroke(indColor).strokeWeight(4);
         line(i * pxUnit, 0, i * pxUnit, sizeSpaceIndicators);
         line(i * pxUnit, (axisHeightLength * pxUnit) - sizeSpaceIndicators, i * pxUnit, axisHeightLength * pxUnit);
 
-        fill(0, 0, 0).stroke(0, 0, 0, 20).strokeWeight(1);
+        fill(indColor).stroke(indColorAlpha).strokeWeight(1);
         line(i * pxUnit, 0, i * pxUnit, axisHeightLength * pxUnit);
 
-        fill(0, 0, 0).strokeWeight(0).textSize(18);
+        fill(indColor).strokeWeight(0).textSize(18);
         text(i, i * pxUnit, (axisHeightLength * pxUnit) - 30);
     }
     fill(50, 50, 255).strokeWeight(0).textSize(24).textStyle(BOLD);
@@ -659,7 +667,7 @@ function play_anim() {
 
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(11);
+    createButtons(15);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();

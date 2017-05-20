@@ -6,9 +6,9 @@ pxUnit = 100;
 
 page_shapes = {
     bg: [
-        new Rectangle("#52d8ff", new Coord(0, 6), 4, 8),
-        new Rectangle("#02bf08", new Coord(0, 1.5), 1.5, 8),
-        new Rectangle("#8c594c", new Coord(0, 2), 0.5, 8),
+        new Rectangle("#52d8ff", new Coord(0, 2), 4, 8),
+        new Rectangle("#02bf08", new Coord(0, 0), 1.5, 8),
+        new Rectangle("#8c594c", new Coord(0, 1.5), 0.5, 8),
         new Circle("#ff9d28", new Coord(8, 6), 3),
 
     ],

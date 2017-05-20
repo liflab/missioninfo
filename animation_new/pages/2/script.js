@@ -9,7 +9,7 @@ page_shapes = {
     ex: [
         [
             new Circle("#ff0000", new Coord(2, 2), 2),
-            new Square("#00ff00", new Coord(4, 5), 3, 0)
+            new Square("#00ff00", new Coord(4, 2), 3, 0)
         ]
     ]
 };
