@@ -1,20 +1,24 @@
+popupInfo("\nInformations à venir\n !!!");
+
 // Constants
 const NB_CURSORS = 10;
 
 // Globals variables
 var isPlaying = false;
+var speed = 500;
 
 var exBoard;
-var page_shapes;
-var maxBlocks;
 var code = "";
 
-var axisWidthLength;
-var axisHeightLength;
-var pxUnit;
+var axisWidthLength = 24;
+var axisHeightLength = 8;
+var pxUnit = 100;
 
 var currentColor = '#000000';
 var indWhite = false;
+var isGridShown = true;
+var isBGShown = false;
+var img_bg;
 const colorEx = '#ffffff';
 const blendColorEx = 0.8;
 
@@ -26,8 +30,8 @@ function createBoard() {
         cursors[i] = new Coord(0, 0);
     }
 
-    exBoard = new Board(page_shapes);
-    exBoard.draw(0);
+    exBoard = new Board();
+    //exBoard.draw(0);
 }
 
 function reinitBoard() {
@@ -36,79 +40,36 @@ function reinitBoard() {
     }
 
     exBoard.clearAnswer();
-    exBoard.draw(0);
+    //exBoard.draw(0);
 }
 
 // Objects used in this section
-function Board(listShapes) {
-    this.shapes_bg = [];
-    for (let i = 0; i < listShapes.bg.length; i++) {
-        this.shapes_bg.push(Object.assign({}, listShapes.bg[i]));
-    }
-
-    this.shapes = new Array(listShapes.ex.length);
-    for (let i = 0; i < listShapes.ex.length; i++) {
-        this.shapes[i] = [];
-    }
-
-    for (let i = 0; i < listShapes.ex.length; i++) {
-        for (let j = 0; j < listShapes.ex[i].length; j++) {
-            this.shapes[i].push(Object.assign({}, listShapes.ex[i][j]));
-        }
-    }
-
-    this.answer = new Array(listShapes.ex.length);
-    for (let i = 0; i < listShapes.ex.length; i++) {
+function Board() {
+    this.answer = new Array(30);
+    for (let i = 0; i < 30; i++) {
         this.answer[i] = [];
     }
 
     this.clearAnswer = function () {
-        for (let i = 0; i < this.shapes.length; i++) {
+        for (let i = 0; i < 30; i++) {
             this.answer[i] = [];
         }
-    };
-
-    this.isAnswerCorrect = function () {
-        let res = true;
-        for (let i = 0; i < this.shapes.length; i++) {
-            if (this.shapes[i].length === this.answer[i].length) {
-                let answer_tmp = this.answer[i].slice(0);
-
-                for (let j = 0; j < this.shapes[i].length; j++) {
-                    let res_tmp = false;
-                    for (let k = 0; k < answer_tmp.length; k++) {
-                        if (this.shapes[i][j].isEqualTo(answer_tmp[k])) {
-                            res_tmp = true;
-                            answer_tmp.splice(k, 1);
-                            break;
-                        }
-                    }
-                    res = res && res_tmp;
-                }
-            }
-            else {
-                res = false;
-            }
-        }
-        return res;
     };
 
     this.draw = function (nb_frame) {
         clear();
         background(255);
 
-        for (let i = 0; i < this.shapes_bg.length; i++) {
-            this.shapes_bg[i].draw(true);
+        if (isBGShown) {
+            image(img_bg, 0, 0);
         }
 
-        drawSpaceIndicators();
+        if (isGridShown) {
+            drawSpaceIndicators();
+        }
 
-        let frame_shapes = this.shapes[nb_frame];
         let frame_answer = this.answer[nb_frame];
 
-        for (let i = 0; i < frame_shapes.length; i++) {
-            frame_shapes[i].draw(false);
-        }
         for (let i = 0; i < frame_answer.length; i++) {
             frame_answer[i].draw(true);
         }
@@ -123,7 +84,8 @@ function Board(listShapes) {
             }
 
             await sleep(200);
-            for (let i = 0; i < this.shapes.length; i++) {
+            let i = 0;
+            while (i < this.answer.length && this.answer[i].length > 0) {
                 if (!isPlaying) {
                     return;
                 }
@@ -138,10 +100,11 @@ function Board(listShapes) {
                     saveCanvas("animation_p" + currentPageNumber + "_" + i, 'png');
                 }
 
-                await sleep(500);
+                await sleep(speed);
+                i++;
             }
 
-            await sleep(500);
+            await sleep(speed);
 
             if (document.getElementById("anim-text")) {
                 document.getElementById("anim-text").innerHTML = "0";
@@ -542,14 +505,6 @@ function Man(coord, color_shirt, color_pents, hands_up) {
 
         sketch_coord = convertCoord(this.coord.add(new Coord(0.375, 0.375)));
         rect(sketch_coord.x, sketch_coord.y, sketch_width, sketch_height, 5);
-
-        // Draw center indicator
-        fill("#ffffff").stroke("#000000").strokeWeight(2);
-
-        sketch_coord = convertCoord(this.coord);
-        sketch_taille = convertSize(0.0625);
-
-        ellipse(sketch_coord.x, sketch_coord.y, sketch_taille, sketch_taille);
     }
 }
 
@@ -594,6 +549,10 @@ function drawSpaceIndicators() {
 
 // Functions for blocks coding
 function runCode() {
+    document.getElementById("blockly-div").style.display = "none";
+    document.getElementById("btn_run_prog").style.display = "none";
+    document.getElementById("sketch-div").style.display = "block";
+    document.getElementById("btn_change_code").style.display = "block";
     // Wait to finish animation before another run
     if (!isPlaying) {
         reinitBoard();
@@ -603,17 +562,25 @@ function runCode() {
             console.log(code);
             eval(code);
             saveCode();
-            document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-pause"></span> ARRETER';
             exBoard.launchAnimation(false);
-            checkAnswer();
         }
         catch (err) {
-            popupNotGood();
+            bootbox.alert({
+                message: '<div class="text-center">Il y a un problème avec les blocs<br><h3>Verifie ton programme!</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
+                backdrop: true
+            });
             console.log(err);
         }
     } else {
         isPlaying = false;
     }
+}
+
+function changeCode() {
+    document.getElementById("blockly-div").style.display = "block";
+    document.getElementById("btn_run_prog").style.display = "block";
+    document.getElementById("sketch-div").style.display = "none";
+    document.getElementById("btn_change_code").style.display = "none";
 }
 
 function saveCode() {
@@ -622,36 +589,6 @@ function saveCode() {
     }
     catch (err) {
         console.log("Local Storage not available")
-    }
-}
-
-function checkAnswer() {
-    if (exBoard === undefined) {
-        return;
-    }
-
-    if (isPlaying) {
-        setTimeout(checkAnswer, 500);
-        return;
-    }
-
-    document.getElementById("btn_run").innerHTML = '<span class="glyphicon glyphicon-play"></span> DEMARRER';
-    if (exBoard.isAnswerCorrect()) {
-        if (maxBlocks === undefined || maxBlocks >= Blockly.getMainWorkspace().getAllBlocks().length) {
-            popupGood();
-            document.getElementById("btn_run").style.display = "none";
-            document.getElementById("btn_next_exercise").style.display = "block";
-        }
-        else {
-            bootbox.alert({
-                message: '<div class="text-center">Attention tu as mis trop de blocs!<br><h3>Il faut mettre au maximum : <strong>' + maxBlocks + '</strong> blocs.</h3><br><br><img src="../../../assets/img/bad.svg" alt="Robot badface" height="200px"></div>',
-                backdrop: true
-            });
-        }
-
-    }
-    else {
-        popupNotGood();
     }
 }
 
@@ -665,11 +602,43 @@ function playAnim() {
     }
 }
 
+function changeGrid(checkbox) {
+    isGridShown = checkbox.checked
+}
+
+function changeBG(checkbox) {
+    isBGShown = checkbox.checked
+}
+
+function changeSpeed(checkbox) {
+    if (checkbox.value === "slow") {
+        speed = 1000;
+    }
+    else if (checkbox.value === "fast") {
+        speed = 250;
+    }
+    else {
+        speed = 500;
+    }
+
+}
+
 // Function execute when all things are loaded
 function allLoaded() {
-    createButtons(15);
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
-    //popupInfo(text_info);
+}
+
+// Functions to load assets
+function preload() {
+    img_bg = loadImage("../../assets/img/plage_final.svg");
+}
+
+function setup() {
+    var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);
+    canvas.parent('sketch-holder');
+    noLoop();
+
+    createBoard();
 }

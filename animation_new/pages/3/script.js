@@ -4,7 +4,7 @@ axisWidthLength = 8;
 axisHeightLength = 6;
 pxUnit = 100;
 
-page_shapes = page_shapes = {
+page_shapes = {
     bg: [],
     ex: [
         [
