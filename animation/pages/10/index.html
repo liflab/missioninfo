@@ -5,13 +5,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page FIN de l'activité animation">
+    <meta name="description" content="Page 2 de l'activité animation'">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Fin de l'activité</title>
+    <title>Silence, on tourne</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -28,76 +28,98 @@
     <script src="../../../modules/bootbox/bootbox.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="../../assets/css/animation.css" rel="stylesheet">
+    <link href="../../assets/css/page.css" rel="stylesheet">
+    <!--##########################################################################################################-->
+
+    <!-- p5js -->
+    <script language="javascript" type="text/javascript" src="../../../modules/p5js/p5.js"></script>
+    <!--<script language="javascript" src="modules/p5js/p5.dom.js"></script>
+    <script language="javascript" src="modules/p5js/p5.sound.js"></script>-->
     <!--##########################################################################################################-->
 
 </head>
 
 <body onload="allLoaded();">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false"
                     aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Silence, on tourne</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="loader" class="body-content"></div>
+
+<div id="page" style="display:none">
+    <div id="topPage" class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="title">
+                    <h2>Ajout de figures</h2>
+                    <button type="button" onclick="popupInfo();" id="btn_popup" style="width:60%"
+                            class="btn btn-default"><span
+                            class="glyphicon glyphicon-info-sign"></span> INFO
                     </button>
-                    <a class="navbar-brand" href="#">Activité Animation</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../../../index.html">Accueil</a></li>
-                    <li><a href="../../index.html">Retour</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="loader" class="body-content"></div>
-
-    <div id="page" style="display:none">
-        <div id="topPage" class="container-fluid body-content">
-            <div class="row vertical-align">
-                <div class="col-sm-3 vertical-align">
-                    <div id="title">
-                        <h1>Fin</h1>
-
-                        <p>Bravo tu as terminé cette activité !!!<br>Tu es prêt pour faire ton propre film.</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 vertical-align">
-                    <h1>Progression</h1>
-                    <break></break>
-                    <div class="btn-group">
-                        <button type="button" id="progress_1" onclick="change_page(this.id);">01</button>
-                        <button type="button" id="progress_2" onclick="change_page(this.id);">02</button>
-                        <button type="button" id="progress_3" onclick="change_page(this.id);">03</button>
-                        <button type="button" id="progress_4" onclick="change_page(this.id);">04</button>
-                        <button type="button" id="progress_5" onclick="change_page(this.id);">05</button>
-                        <button type="button" id="progress_6" onclick="change_page(this.id);">06</button>
-                        <button type="button" id="progress_7" onclick="change_page(this.id);">07</button>
-                        <button type="button" id="progress_8" onclick="change_page(this.id);">08</button>
-                        <button type="button" id="progress_9" onclick="change_page(this.id);">09</button>
-                        <button type="button" id="progress_10" onclick="change_page(this.id);">FIN</button>
-                    </div>
-                </div>
-                <div class="col-sm-3 vertical-align">
-                    <button type="button" onclick="location.href='../final/index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-facetime-video"></span> SUITE</button>
+                    <button onclick="playAnim();" style="width:35%" class="btn btn-primary">
+                        <span id="anim-play" class="glyphicon glyphicon-play"></span> LANCER
+                        <span id="anim-text" class="badge">0</span>
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid text-center" id="bodyPage">
-                <img src="../../assets/img/animation_diplome.svg" alt="diplome" style="height: 100%">
+            <div class="col-sm-6 text-center">
+                <h1>Progression</h1>
+                <div id="button_place"></div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none"
+                        class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
+                </button>
+                <button type="button" onclick="runCode();" id="btn_run" class="btn btn-success btn-block"><span
+                        class="glyphicon glyphicon-play"></span> DEMARRER
+                </button>
+                <button type="button" onclick="saveCode();" class="btn btn-info btn-block"><span
+                        class="glyphicon glyphicon-save"></span> SAUVEGARDER
+                </button>
+                <button type="button" onclick="reinitBoard();" class="btn btn-danger btn-block"><span
+                        class="glyphicon glyphicon-trash"></span> EFFACER
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Javascript custom functions -->
-    <script src="../../assets/js/animation_functions.js"></script>
-    <!--##########################################################################################################-->
+    <div class="container-fluid" id="bodyPage">
+        <div class="row">
+            <div class="col-sm-6" id="sketch-col">
+                <div id="sketch-holder"></div>
+            </div>
+            <div class="col-sm-6">
+                <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript custom functions -->
+<script src="../../../assets/js/globals.js"></script>
+<script src="../../assets/js/functions.js"></script>
+<script src="script.js"></script>
+<!--##########################################################################################################-->
 
 </body>
 

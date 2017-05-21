@@ -8,64 +8,68 @@
     <script src="../../../modules/blockly/blocks_compressed.js"></script>
     <script src="../../../modules/blockly/javascript_compressed.js"></script>
     <script src="../../../modules/blockly/blockly_init.js"></script>
-    <script src="../../assets/js/animation_blocks.js"></script>
-    <link href="../../assets/css/animation_blockly.css" rel="stylesheet">
+    <script src="blocks.js"></script>
+    <link href="../../assets/css/blockly.css" rel="stylesheet">
 </head>
 
 <body onload="initBlockly(1.0,true,false)">
-    <xml id="toolbox" style="display: none">
-        <category name="Animation">
-            <block type="pour_chaque_image"></block>
-            <block type="num_image"></block>
-        </category>
-        <category name="Couleur">
-            <block type="couleur"></block>
-        </category>
-        <category name="Formes">
-            <block type="bonhomme"></block>
-            <block type="ligne"></block>
-            <block type="cercle"></block>
-            <block type="carre"></block>
-            <block type="rectangle"></block>
-        </category>
-        <category name="Logique">
-            <block type="controls_if">
-                <mutation else="1"></mutation>
-            </block>
-            <block type="logic_compare">
-                <field name="OP">EQ</field>
-            </block>
-            <block type="logic_compare">
-                <field name="OP">LT</field>
-            </block>
-            <block type="logic_compare">
-                <field name="OP">GT</field>
-            </block>
-        </category>
-        <category name="Nombre & Math">
-            <block type="math_number"></block>
-        </category>
-        <category name="Position">
-            <block type="coords">
-                <value name="x">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="y">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="init_curseur_tab"></block>
-            <block type="recup_curseur_tab"></block>
-            <block type="deplace_curseur_tab"></block>
-        </category>
-    </xml>
+<xml id="toolbox" style="display: none">
+    <category name="Animation">
+        <block type="pour_chaque_image"></block>
+        <block type="num_image"></block>
+    </category>
+    <category name="Couleur">
+        <block type="couleur"></block>
+    </category>
+    <category name="Formes">
+        <block type="bonhomme"></block>
+        <block type="ligne"></block>
+        <block type="cercle"></block>
+        <block type="carre"></block>
+        <block type="rectangle"></block>
+        <block type="triangle"></block>
+    </category>
+    <category name="Logique">
+        <block type="controls_if">
+            <mutation else="1"></mutation>
+        </block>
+        <block type="logic_compare">
+            <field name="OP">EQ</field>
+        </block>
+        <block type="logic_compare">
+            <field name="OP">LT</field>
+        </block>
+        <block type="logic_compare">
+            <field name="OP">GT</field>
+        </block>
+    </category>
+    <category name="Nombre">
+        <block type="math_number">
+            <field name="NUM">1</field>
+        </block>
+    </category>
+    <category name="Position">
+        <block type="coords">
+            <value name="x">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="y">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="init_curseur_tab"></block>
+        <block type="recup_curseur_tab"></block>
+        <block type="recup_curseur_offset_tab"></block>
+        <block type="deplace_curseur_tab"></block>
+    </category>
+</xml>
 
-    <xml id="workspace" style="display: none">
-    </xml>
+<xml id="workspace" style="display: none">
+</xml>
 </body>
 
 </html>

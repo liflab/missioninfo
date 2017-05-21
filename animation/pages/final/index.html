@@ -11,7 +11,7 @@
     <!-- Description -->
     <meta name="description" content="Page finale de l'activité animation">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Crée ton propre film</title>
+    <title>Silence, on tourne</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -28,7 +28,7 @@
     <script src="../../../modules/bootbox/bootbox.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="../../assets/css/animation.css" rel="stylesheet">
+    <link href="../../assets/css/page.css" rel="stylesheet">
     <!--##########################################################################################################-->
 
     <!-- p5js -->
@@ -41,94 +41,119 @@
 
 <body onload="allLoaded();">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false"
                     aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Activité Animation</a>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Silence, on tourne</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
+            </ul>
+            <p class="navbar-text navbar-right">N'hésite pas à afficher l'aide (bouton à gauche, clic-droit sur le bloc
+                ou appuie longtemps sur un bloc)</a></p>
+        </div>
+    </div>
+</nav>
+
+<div id="loader" class="body-content"></div>
+
+<div id="page" style="display:none">
+    <div id="topPage" class="container-fluid body-content">
+        <div class="row vertical-align">
+            <div class="col-sm-3 vertical-align">
+                <div id="title">
+                    <h2>Crée ton propre film</h2>
+
+                    <p>But : Utilise tous les blocs pour faire ton film!</p>
+                </div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../../../index.html">Accueil</a></li>
-                    <li><a href="../../index.html">Retour</a></li>
-                    <li><a href="#" onclick="showHelp()">Aide</a></li>
-                </ul>
-                <p class="navbar-text navbar-right">N'hésite pas à afficher l'aide (bouton à gauche, clic-droit sur le bloc ou appuie longtemps sur un bloc)</a></p>
+            <div class="col-sm-3 vertical-align">
+                <button type="button" onclick="changeCode();" id="btn_change_code" style="display:none; margin: 0"
+                        class="btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-list-alt"></span>
+                    RETOUR AU CODE
+                </button>
+                <button type="button" onclick="runCode()" id="btn_run_prog" style="margin: 0"
+                        class="btn btn-success btn-block  btn-lg"><span class="glyphicon glyphicon-play"></span>
+                    DEMARRER
+                </button>
+            </div>
+            <div class="col-sm-3 vertical-align">
+                <button type="button" onclick="saveCode()" class="btn btn-info btn-block btn-lg"><span
+                        class="glyphicon glyphicon-save"></span> SAUVEGARDER
+                </button>
+            </div>
+            <div class="col-sm-3 vertical-align">
+                <button type="button" onclick="reinitBoard()" class="btn btn-danger btn-block btn-lg"><span
+                        class="glyphicon glyphicon-trash"></span> EFFACER
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <div id="loader" class="body-content"></div>
+    <div class="container-fluid" id="bodyPage">
+        <div id="sketch-div" style="display:none">
+            <div style="margin-bottom: 5px">
+                <button onclick="playAnim();" class="btn btn-primary">
+                    <span id="anim-play" class="glyphicon glyphicon-play"></span> LANCER
+                    <span id="anim-text" class="badge">0</span>
+                </button>
 
-    <div id="page" style="display:none">
-        <div id="topPage" class="container-fluid body-content">
-            <div class="row vertical-align">
-                <div class="col-sm-3 vertical-align">
-                    <div id="title">
-                        <h2>Crée ton propre film</h2>
-
-                        <p>But : Utilise tous les blocs pour faire ton film!</p>
-                    </div>
-                </div>
-                <div class="col-sm-3 vertical-align">
-                    <button type="button" onclick="change_code();" id="btn_change_code" style="display:none; margin: 0" class="btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-list-alt"></span> RETOUR AU CODE</button>
-                    <button type="button" onclick="run_code()" id="btn_run_prog" style="margin: 0" class="btn btn-success btn-block  btn-lg"><span class="glyphicon glyphicon-play"></span> DEMARRER</button>
-                </div>
-                <div class="col-sm-3 vertical-align">
-                    <button type="button" onclick="save_code()" class="btn btn-info btn-block btn-lg"><span class="glyphicon glyphicon-save"></span> SAUVEGARDER</button>
-                </div>
-                <div class="col-sm-3 vertical-align">
-                    <button type="button" onclick="reinit_code()" class="btn btn-danger btn-block btn-lg"><span class="glyphicon glyphicon-trash"></span> EFFACER</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-fluid" id="bodyPage">
-            <div id="sketch-div" style="display:none">
-                <div class="anim-area">
-                    <span id="anim-play" onclick="playAnim();" class="anim label label-primary"><span class="glyphicon glyphicon-play"></span></span>
-                    
-                    <span class="checkbox checkbox-primary checkbox-circle">
+                <span class="checkbox checkbox-primary checkbox-circle">
                         <input class="styled" id="checkbox-grid" type="checkbox" checked onclick="changeGrid(this)">
                         <label for="checkbox-grid">
                             Activer la grille
                         </label>
                     </span>
-                    
-                    <span class="anim divider-vertical"></span>
 
-                    <span class="radio radio-primary radio-inline">
+                <span class="divider-vertical"></span>
+
+                <span class="checkbox checkbox-primary checkbox-circle">
+                        <input class="styled" id="checkbox-bg" type="checkbox" onclick="changeBG(this)">
+                        <label for="checkbox-bg">
+                            Activer le fond
+                        </label>
+                    </span>
+
+                <span class="divider-vertical"></span>
+
+                <span class="radio radio-primary radio-inline">
                         <input name="speed" id="inlineRadio-slow" type="radio" value="slow" onclick="changeSpeed(this)">
                         <label for="inlineRadio-slow"> Vitesse Lente </label>
                     </span>
-                    <span class="radio radio-primary radio-inline">
-                        <input name="speed" id="inlineRadio-normal" type="radio" checked value="normal" onclick="changeSpeed(this)">
+                <span class="radio radio-primary radio-inline">
+                        <input name="speed" id="inlineRadio-normal" type="radio" checked value="normal"
+                               onclick="changeSpeed(this)">
                         <label for="inlineRadio-normal"> Vitesse Normale </label>
                     </span>
-                    <span class="radio radio-primary radio-inline">
+                <span class="radio radio-primary radio-inline">
                         <input name="speed" id="inlineRadio-fast" type="radio" value="fast" onclick="changeSpeed(this)">
                         <label for="inlineRadio-fast"> Vitesse Rapide </label>
                     </span>
-                    
-                    <span id="anim-text" class="anim align-right label label-primary">Temps = 00</span>
-                </div>
-                <div id="sketch-holder"></div>
+
             </div>
-            <div id="blockly-div">
-                <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
-            </div>
+            <div id="sketch-holder"></div>
+        </div>
+        <div id="blockly-div">
+            <object id="blockly-holder" name="blockly" type="text/html" data="blockly.html"></object>
         </div>
     </div>
+</div>
 
-    <!-- Javascript custom functions -->
-    <script src="script.js"></script>
-    <!--##########################################################################################################-->
+<!-- Javascript custom functions -->
+<script src="../../../assets/js/globals.js"></script>
+<script src="functions.js"></script>
+<!--##########################################################################################################-->
 
 </body>
 
