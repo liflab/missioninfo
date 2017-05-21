@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page 4 de l'activité codage : Codage des lettres'">
+    <meta name="description" content="Page FIN de l'activité codage">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Décode des nombres en lettresr</title>
+    <title>Fin de l'activité</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -33,7 +33,7 @@
 
 </head>
 
-<body onload="allLoaded();chooseWord();">
+<body onload="allLoaded();">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -52,7 +52,6 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../../../index.html">Accueil</a></li>
                 <li><a href="../../index.html">Retour</a></li>
-                <li><a href="#" onclick="showHelp()">Aide</a></li>
             </ul>
         </div>
     </div>
@@ -65,10 +64,9 @@
         <div class="row">
             <div class="col-sm-3">
                 <div id="title">
-                    <h3>Décode des nombres en lettres</h3>
-                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
-                            class="glyphicon glyphicon-info-sign"></span> INFO
-                    </button>
+                    <h1>Fin</h1>
+
+                    <p>Bravo tu as terminé cette activité !!!</p>
                 </div>
             </div>
             <div class="col-sm-6 text-center">
@@ -76,29 +74,16 @@
                 <div id="button_place"></div>
             </div>
             <div class="col-sm-3">
-                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;"
-                        class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
-                </button>
-                <button type="button" onclick="verifiyString()" id="btn_run_prog" class="btn btn-primary btn-block">
-                    <span class="glyphicon glyphicon-check"></span> VERIFIER
-                </button>
-                <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span
-                        class="glyphicon glyphicon-trash"></span> EFFACER
+                <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise"
+                        class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR
                 </button>
             </div>
         </div>
     </div>
 
     <div class="container-fluid" id="bodyPage">
-        <div class="text-center">
-            <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
-        </div>
-        <div style="text-align:center;margin: 5vh auto 0 auto;width:90%;">
-            <div style="text-align:center;margin-top: 2vh; font-size: 36px; word-wrap: break-word;">Converti ce code :
-                <span id="code" style="font-weight: bold;font-family: monospace">32</span>
-            </div>
-            <textarea id="ASCII_text" style="text-align:center;font-family:monospace; font-size: 48px;" rows="1"
-                      cols="50"></textarea>
+        <div class="text-center" id="imgFin" style="height:100%;">
+            <img src="../../assets/img/diplome.svg" alt="fin" style="height:100%;">
         </div>
     </div>
 </div>
@@ -106,7 +91,6 @@
 <!-- Javascript custom functions -->
 <script src="../../../assets/js/globals.js"></script>
 <script src="../../assets/js/functions.js"></script>
-<script src="script.js"></script>
 <!--##########################################################################################################-->
 
 </body>
