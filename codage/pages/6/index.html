@@ -9,9 +9,9 @@
     <!--##########################################################################################################-->
 
     <!-- Description -->
-    <meta name="description" content="Page FIN de l'activité codage">
+    <meta name="description" content="Page 4 de l'activité codage : Codage des lettres'">
     <meta name="author" content="Vincent PORTA-SCARTA">
-    <title>Fin de l'activité</title>
+    <title>Code des lettres en nombres</title>
     <!--##########################################################################################################-->
 
     <!-- Favicon -->
@@ -35,60 +35,91 @@
 
 <body onload="allLoaded();">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false"
                     aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Communique avec le continent</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="../../../index.html">Accueil</a></li>
+                <li><a href="../../index.html">Retour</a></li>
+                <li><a href="#" onclick="showHelp()">Aide</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="loader" class="body-content"></div>
+
+<div id="page" style="display:none">
+    <div id="topPage" class="container-fluid body-content">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="title">
+                    <h3>Décode le message</h3>
+                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
+                            class="glyphicon glyphicon-info-sign"></span> INFO
                     </button>
-                    <a class="navbar-brand" href="#">Communique avec le continent</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="../../../index.html">Accueil</a></li>
-                    <li><a href="../../index.html">Retour</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="loader" class="body-content"></div>
-
-    <div id="page" style="display:none">
-        <div id="topPage" class="container-fluid body-content">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div id="title">
-                        <h1>Fin</h1>
-
-                        <p>Bravo tu as terminé cette activité !!!</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 text-center">
-                    <h1>Progression</h1>
-                    <div id="button_place"></div>
-                </div>
-                <div class="col-sm-3">
-                    <button type="button" onclick="location.href='../../../index.html';" id="btn_next_exercise" class="btn btn-success btn-block"><span class="glyphicon glyphicon-home"></span> RETOUR</button>
                 </div>
             </div>
-        </div>
-
-        <div class="container-fluid" id="bodyPage">
-            <div class="text-center" id="imgFin" style="height:100%;">
-                <img src="../../assets/img/diplome.svg" alt="fin" style="height:100%;">
+            <div class="col-sm-6 text-center">
+                <h1>Progression</h1>
+                <div id="button_place"></div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" onclick="next_page();" id="btn_next_exercise" style="display: none;"
+                        class="btn btn-success btn-block"><span class="glyphicon glyphicon-ok"></span> SUIVANT
+                </button>
+                <button type="button" onclick="verify()" id="btn_run_prog" class="btn btn-primary btn-block"><span
+                        class="glyphicon glyphicon-check"></span> VERIFIER
+                </button>
+                <button type="button" onclick="reinit_text()" class="btn btn-danger btn-block"><span
+                        class="glyphicon glyphicon-trash"></span> EFFACER
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Javascript custom functions -->
-    <script src="../../../assets/js/globals.js"></script>
-    <script src="../../assets/js/functions.js"></script>
-    <!--##########################################################################################################-->
+    <div class="container-fluid" id="bodyPage">
+        <div class="row" style="display: flex;align-items: center;height: 100%">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <img src="../../assets/img/ASCII.png" alt="ASCII codes" style="padding-top:10px; height:45vh">
+                </div>
+            </div>
+            <div class="col-sm-8"
+                 style="text-align:justify;font-family:monospace; font-weight: bold; font-size: 2.5vh; word-wrap: break-word;">
+                Un ordinateur est une <span class="coded">machine</span> capable de manipuler automatiquement des <span
+                    class="coded">informations</span> et de les <span class="coded">mémoriser</span>, et que l'on peut
+                <span class="coded">programmer</span>.
+
+                Bien que le mot «ordinateur» soit souvent associé à l'image de nos <span class="coded">ordinateurs personnels</span>,
+                avec écran et clavier, les ordinateurs au sens large sont aujourd'hui présents dans de <span
+                    class="coded">très nombreux objets quotidiens</span> sous la forme de processeurs «embarqués» dans
+                ces objets : <span class="coded">téléphones</span>, tablettes, montres électroniques, voitures, avions,
+                <span class="coded">feux de circulation</span>, caméras, appareils photo, télévision et bien d'autres.
+
+                Il y a environ <span class="coded">dix fois</span> plus d'ordinateurs «embarqués» que d'ordinateurs
+                «classiques» (avec écran, clavier, …) dans le monde.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript custom functions -->
+<script src="../../../assets/js/globals.js"></script>
+<script src="../../assets/js/functions.js"></script>
+<script src="script.js"></script>
+<!--##########################################################################################################-->
 
 </body>
 

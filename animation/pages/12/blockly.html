@@ -8,40 +8,32 @@
     <script src="../../../modules/blockly/blocks_compressed.js"></script>
     <script src="../../../modules/blockly/javascript_compressed.js"></script>
     <script src="../../../modules/blockly/blockly_init.js"></script>
-    <script src="blocks.js"></script>
+    <script src="../../assets/js/blocks.js"></script>
     <link href="../../assets/css/blockly.css" rel="stylesheet">
+
+    <script>
+        Blockly.FieldColour.COLOURS = ["#FF0000", "#FF8500", "#FFFF00", "#FF00FF", "#800080", "#00FF00", "#808000", "#2EF0FF", "#0000FF", "#BC8F8F", "#800000", "#808080"];
+        Blockly.FieldColour.COLUMNS = 3;
+    </script>
+
 </head>
 
 <body onload="initBlockly(1.0,true,false)">
 <xml id="toolbox" style="display: none">
     <category name="Animation">
         <block type="pour_chaque_image"></block>
-        <block type="num_image"></block>
+        <!--<block type="num_image"></block>-->
     </category>
     <category name="Couleur">
         <block type="couleur"></block>
     </category>
     <category name="Formes">
         <block type="bonhomme"></block>
+        <block type="triangle"></block>
         <block type="ligne"></block>
         <block type="cercle"></block>
         <block type="carre"></block>
         <block type="rectangle"></block>
-        <block type="triangle"></block>
-    </category>
-    <category name="Logique">
-        <block type="controls_if">
-            <mutation else="1"></mutation>
-        </block>
-        <block type="logic_compare">
-            <field name="OP">EQ</field>
-        </block>
-        <block type="logic_compare">
-            <field name="OP">LT</field>
-        </block>
-        <block type="logic_compare">
-            <field name="OP">GT</field>
-        </block>
     </category>
     <category name="Nombre">
         <block type="math_number">

@@ -10,8 +10,8 @@ var word_to_find;
 function chooseWord() {
     word_to_find = word_allowed[nb_tries % 10];
 
-    asciiCode = "";
-    for (var i = 0; i < word_to_find.length; i++) {
+    let asciiCode = "";
+    for (let i = 0; i < word_to_find.length; i++) {
         asciiCode += word_to_find.charCodeAt(i) + " ";
     }
 
@@ -20,7 +20,7 @@ function chooseWord() {
 
 function verifiyString() {
 
-    var res = document.getElementById("ASCII_text").value;
+    let res = document.getElementById("ASCII_text").value;
 
     if (res.toUpperCase() === word_to_find) {
         nb_tries++;

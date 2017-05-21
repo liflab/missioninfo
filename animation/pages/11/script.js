@@ -16,10 +16,10 @@ page_shapes = {
     ],
     ex: []
 };
-for (let i = 1; i < 7; i++) {
+for (let i = 1; i < 8; i++) {
     page_shapes.ex.push([
-        new Man(new Coord(i, 2), "#2a5222", "#0000ff", false),
-        new Man(new Coord(i + 1, 3), "#563a23", "#0000ff", false)
+        new Man(new Coord(8 - i, 3), "#ff0000", "#0000ff", true),
+        new Man(new Coord(i, 2), "#00ff00", "#0000ff", true)
     ])
 }
 
