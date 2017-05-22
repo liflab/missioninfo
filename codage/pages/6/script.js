@@ -28,7 +28,14 @@ function verify() {
     let res = true;
     let elems = document.getElementsByClassName("textToVerify");
     for (let i = 0; i < elems.length; i++) {
-        res = res && elems[i].value.toUpperCase() === elems[i].id;
+        if (elems[i].value.toUpperCase() === elems[i].id) {
+            elems[i].style.backgroundColor = "lightgreen";
+            res = res && true;
+        }
+        else {
+            elems[i].style.backgroundColor = "pink";
+            res = res && false;
+        }
     }
 
     if (res) {
@@ -45,6 +52,7 @@ function reinit_text() {
     let elems = document.getElementsByClassName("textToVerify");
     for (let i = 0; i < elems.length; i++) {
         elems[i].value = "";
+        elems[i].style.backgroundColor = "white";
     }
 }
 //------------------------------------------------//
