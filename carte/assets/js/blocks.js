@@ -7,7 +7,6 @@ Blockly.Blocks['change_direction'] = {
         this.setNextStatement(true, null);
         this.setColour(320);
         this.setTooltip('Change la direction');
-        this.setHelpUrl('');
     }
 };
 
@@ -28,7 +27,6 @@ Blockly.Blocks['avance'] = {
         this.setNextStatement(true, null);
         this.setColour(50);
         this.setTooltip('');
-        this.setHelpUrl('');
     }
 };
 
@@ -48,7 +46,6 @@ Blockly.Blocks['jusque_fin'] = {
         this.setPreviousStatement(true, null);
         this.setColour(120);
         this.setTooltip('Execute les blocs jusqu\'à l\'arrivée');
-        this.setHelpUrl('');
     }
 };
 
@@ -72,7 +69,6 @@ Blockly.Blocks['jusque_condition'] = {
         this.setNextStatement(true, null);
         this.setColour(120);
         this.setTooltip('Execute les blocs jusqu\'à ce que la condition soit vraie');
-        this.setHelpUrl('');
     }
 };
 
@@ -94,7 +90,6 @@ Blockly.Blocks['virage_dir'] = {
         this.setOutput(true, "Boolean");
         this.setColour(0);
         this.setTooltip('Retourne VRAI si un virage est possible dans se sens');
-        this.setHelpUrl('');
     }
 };
 
@@ -114,7 +109,6 @@ Blockly.Blocks['tresor'] = {
         this.setOutput(true, "Boolean");
         this.setColour(0);
         this.setTooltip('Retourne VRAI si le robot se trouve sur un trésor');
-        this.setHelpUrl('');
     }
 };
 
@@ -132,7 +126,6 @@ Blockly.Blocks['fin'] = {
         this.setOutput(true, "Boolean");
         this.setColour(0);
         this.setTooltip('Retourne VRAI si le robot a fini');
-        this.setHelpUrl('');
     }
 };
 
@@ -152,7 +145,6 @@ Blockly.Blocks['tourne_dir'] = {
         this.setNextStatement(true, null);
         this.setColour(320);
         this.setTooltip('Tourne vers le sens indiqué');
-        this.setHelpUrl('');
     }
 };
 
@@ -173,7 +165,6 @@ Blockly.Blocks['demi_tour'] = {
         this.setNextStatement(true, null);
         this.setColour(320);
         this.setTooltip('Fait un demi-tour au robot');
-        this.setHelpUrl('');
     }
 };
 

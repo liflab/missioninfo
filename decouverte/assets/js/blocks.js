@@ -6,7 +6,6 @@ Blockly.Blocks['block_1'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Place-moi sur le plan de travail');
-        this.setHelpUrl('');
     }
 };
 
@@ -27,7 +26,6 @@ Blockly.Blocks['block_2'] = {
         this.setNextStatement(true, null);
         this.setColour(345);
         this.setTooltip('Place-moi sur le plan de travail');
-        this.setHelpUrl('');
     }
 };
 
@@ -44,7 +42,6 @@ Blockly.Blocks['block_delete'] = {
             .appendField("Supprime-moi");
         this.setColour(230);
         this.setTooltip('Supprime moi du plan de travail');
-        this.setHelpUrl('');
     }
 };
 
@@ -66,7 +63,6 @@ Blockly.Blocks['block_help'] = {
             .appendField(new Blockly.FieldDropdown([[{ "src": "../../assets/img/unicorn.png", "width": 32, "height": 32, "alt": "unicorn" }, "UNICORN"], [{ "src": "../../assets/img/cat.png", "width": 32, "height": 32, "alt": "chat" }, "CHAT"], [{ "src": "../../assets/img/dog.png", "width": 32, "height": 32, "alt": "chien" }, "CHIEN"]]), "choix");
         this.setColour(230);
         this.setTooltip('Clique-droit sur moi pour avoir de l\'aide');
-        this.setHelpUrl('../../../aide/aide.html?file=decouverte_block_help.md');
     }
 };
 
@@ -87,7 +83,6 @@ Blockly.Blocks['affiche'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Affiche du texte à l\'écran');
-        this.setHelpUrl('');
     }
 };
 

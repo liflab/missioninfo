@@ -32,7 +32,6 @@ Blockly.Blocks['test_shape'] = {
         this.setOutput(true, "Boolean");
         this.setColour(230);
         this.setTooltip('Test le type de forme');
-        this.setHelpUrl('');
     }
 };
 
@@ -54,7 +53,6 @@ Blockly.Blocks['test_color'] = {
         this.setOutput(true, "Boolean");
         this.setColour(230);
         this.setTooltip('Test la couleur');
-        this.setHelpUrl('');
     }
 };
 
@@ -76,7 +74,6 @@ Blockly.Blocks['bucket'] = {
         this.setNextStatement(true, null);
         this.setColour(345);
         this.setTooltip('Choisit le seau dans lequel mettre l\'objet');
-        this.setHelpUrl('');
     }
 };
 Blockly.JavaScript['bucket'] = function (block) {

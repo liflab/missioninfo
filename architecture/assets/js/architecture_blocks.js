@@ -263,7 +263,6 @@ Blockly.Blocks['avancer'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Avancer de ...');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['tourner'] = {
@@ -281,7 +280,6 @@ Blockly.Blocks['tourner'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Tourner de ... degrés');
-        this.setHelpUrl('');
     }
 };
 
@@ -296,7 +294,6 @@ Blockly.Blocks['tourner_arc'] = {
         this.setPreviousStatement(true, null);
         this.setColour(230);
         this.setTooltip('');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['lever_le_crayon'] = {
@@ -307,7 +304,6 @@ Blockly.Blocks['lever_le_crayon'] = {
         this.setNextStatement(true, null);
         this.setColour(30);
         this.setTooltip('Lever le crayon');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['poser_le_crayon'] = {
@@ -318,7 +314,6 @@ Blockly.Blocks['poser_le_crayon'] = {
         this.setNextStatement(true, null);
         this.setColour(30);
         this.setTooltip('Poser le crayon');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['crayon_de_couleur'] = {
@@ -330,7 +325,6 @@ Blockly.Blocks['crayon_de_couleur'] = {
         this.setNextStatement(true, null);
         this.setColour(30);
         this.setTooltip('Crayon de couleur');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['boucle'] = {
@@ -345,7 +339,6 @@ Blockly.Blocks['boucle'] = {
         this.setNextStatement(true, null);
         this.setColour(150);
         this.setTooltip('Boucle ');
-        this.setHelpUrl('');
     }
 };
 Blockly.Blocks['arc_de_cercle'] = {
@@ -362,7 +355,6 @@ Blockly.Blocks['arc_de_cercle'] = {
         this.setNextStatement(true, null);
         this.setColour(230);
         this.setTooltip('Courbe');
-        this.setHelpUrl('');
     }
 };
 /*

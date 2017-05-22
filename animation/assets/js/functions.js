@@ -221,6 +221,14 @@ function Square(shape_color, coord, taille) {
                 this.taille === other.taille
             );
         }
+        if (other instanceof Rectangle) {
+            return (
+                this.shape_color === other.shape_color &&
+                this.coord.isEqualTo(other.coord) &&
+                this.taille === other.height &&
+                this.taille === other.width
+            );
+        }
         return false;
     };
 
