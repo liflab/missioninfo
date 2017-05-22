@@ -1,4 +1,4 @@
-text_info = "\nUtilise plusieurs fois le bloc direction \npour faire des virages et arriver au bon endroit.";
+popupInfo("\nUtilise plusieurs fois le bloc direction \npour faire des virages et arriver au bon endroit.");
 
 page_map = [
     {row: 3, col: 2, data: {style: "deb", type: 1}},

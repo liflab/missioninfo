@@ -1,4 +1,4 @@
-text_info = "\nUtilise le nouveau bloc pour raccourcir ton programme. \nAttention ! Tu n'as le droit qu'à 2 blocs.";
+popupInfo("\nUtilise le nouveau bloc pour raccourcir ton programme. \nAttention ! Tu n'as le droit qu'à 2 blocs.");
 
 page_map = [
     {row: 4, col: 2, data: {style: "deb", type: 1}},

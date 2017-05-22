@@ -9,9 +9,9 @@ var solution_example = [{"type":"crayon_color","value":"#0000ff"},{"type":"boucl
 var Crayon;
 
 
-var text_info = "Il faut retourner à la création de notre cabane !\n" +
+popupInfo("Il faut retourner à la création de notre cabane !\n" +
     "Nous avions fait une première fondation rouge au début.\n" +
-    "Il faut dresser les premiers murs et le toit en bleu !";
+    "Il faut dresser les premiers murs et le toit en bleu !");
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////

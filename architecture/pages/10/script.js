@@ -10,9 +10,9 @@ var solution_example = [{"type":"crayon_color","value":"#ff0000"},{"type":"boucl
 var Crayon;
 
 
-var text_info = "Pour te familiariser avec le concept des arcs de cercles, \n" +
+popupInfo("Pour te familiariser avec le concept des arcs de cercles, \n" +
     "Essaies de dessiner ce défi. \n" +
-    "Il faut utiliser les arcs de cercle, et les boucles !";
+    "Il faut utiliser les arcs de cercle, et les boucles !");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

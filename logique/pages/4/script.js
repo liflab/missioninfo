@@ -1,4 +1,4 @@
-text_info = "J'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\nMon chapeau est constité de petits ronds oranges.\nMes yeux sont bleus, retrouves-les !\n**Utilises le bloc \"OU\" et le bloc \"ET\" !**";
+popupInfo("J'ai ma tête, mais il me manque mon petit chapeau, et mes yeux !\nMon chapeau est constité de petits ronds oranges.\nMes yeux sont bleus, retrouves-les !\n**Utilises le bloc \"OU\" et le bloc \"ET\" !**");
 
 required_box.push({"name":"OU","value":"||"});
 required_box.push({"name":"ET","value":"&&"});

@@ -1,4 +1,4 @@
-text_info = "\nC'est la carte la plus difficile. Arriveras-tu à trouver le bon programme? \nAttention ! Tu n'as le droit qu'à 5 blocs.";
+popupInfo("\nC'est la carte la plus difficile. Arriveras-tu à trouver le bon programme? \nAttention ! Tu n'as le droit qu'à 5 blocs.");
 
 page_map = [
     {row: 8, col: 7, data: {style: "deb", type: 1}},

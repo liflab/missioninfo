@@ -679,5 +679,4 @@ function allLoaded() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
-    //popupInfo(text_info);
 }

@@ -4,9 +4,6 @@ function allLoaded() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
     autoResize();
-    if(text_info !== undefined && text_info!=null){
-        popupInfo(text_info);
-    }
 }
 
 var img_background;

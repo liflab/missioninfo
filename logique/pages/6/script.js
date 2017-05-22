@@ -1,4 +1,4 @@
-text_info = "Je suis quasiment entier, il ne me manque plus que de quoi me déplacer !\nTrouve ma fusée et ma roue !\nDe plus, je me suis lancé une collection de chapeaux.\nJ'ai déjà un bleu, peux-tu me prendre les autres ?";
+popupInfo("Je suis quasiment entier, il ne me manque plus que de quoi me déplacer !\nTrouve ma fusée et ma roue !\nDe plus, je me suis lancé une collection de chapeaux.\nJ'ai déjà un bleu, peux-tu me prendre les autres ?");
 
 required_box.push({"name":"PAS","value":"(!("});
 required_box.push({"name":"OU","value":"||"});

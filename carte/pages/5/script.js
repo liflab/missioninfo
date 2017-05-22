@@ -1,4 +1,4 @@
-text_info = "\nCelui là est plus dur !!! \nAttention ! Tu n'as le droit qu'à 5 blocs.";
+popupInfo("\nCelui là est plus dur !!! \nAttention ! Tu n'as le droit qu'à 5 blocs.");
 
 page_map = [
     {row: 8, col: 8, data: {style: "deb", type: 3}},
