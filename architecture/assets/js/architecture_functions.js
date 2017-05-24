@@ -1,4 +1,5 @@
 const DEBUG = false;
+console.log("FUNCTIONS LOADED... DEBUG="+DEBUG);
 
 Math.radians = function(degrees) {
     return degrees * Math.PI / 180;
@@ -141,8 +142,13 @@ function checkAnswer() {
 }
 
 function custom_validation(drawing_gen, solution){
+    if(DEBUG){
+        console.log(" <-- custom_validation()");
+        console.log("Len(A1) = "+drawing_gen.length);
+        console.log("Len(A2) = "+solution.length);
+    }
     var str = "";
-    if(drawing_gen.length!=solution.length){
+    if(drawing_gen.length<solution.length){
         str += ("++++++++++++++++++++++++++++++++++++++<br />");
         str += (JSON.stringify(drawing_gen)+"<br />");
         str += ("======================================<br />");
