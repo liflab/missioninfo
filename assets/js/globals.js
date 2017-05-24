@@ -317,6 +317,7 @@ function showCredits() {
                 <li><a href="https://p5js.org/">p5.js</a></li>
                 <li><a href="http://lab.hakim.se/reveal-js">reveal</a></li>
                 <li><a href="http://showdownjs.github.io/demo/">showdown</a></li>
+                <li><a href="http://www.glyphicons.com/">Glyphicons</a></li>
             </ul>
             
             <h3>Administration</h3>
