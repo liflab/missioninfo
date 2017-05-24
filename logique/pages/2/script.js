@@ -1,4 +1,4 @@
-text_info = "\nIl y a beaucoup de choses à trier ... \nRépartis les objets en fonction de leur forme !";
+popupInfo("\nIl y a beaucoup de choses à trier ... \nRépartis les objets en fonction de leur forme !");
 
 bucketsExercise = {
     elems: [

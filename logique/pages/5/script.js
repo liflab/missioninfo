@@ -1,4 +1,4 @@
-text_info = "Bravo pour avoir récupérer mes deux objets !\nIl faudrait cette fois trouver mon corps, mes bras et mes mains !\nJ'ai un corps bleu, des bras oranges et des mains blanches !\n**Utilises le bloc \"ET\" et le \"OU\" !**";
+popupInfo("Bravo pour avoir récupérer mes deux objets !\nIl faudrait cette fois trouver mon corps, mes bras et mes mains !\nJ'ai un corps bleu, des bras oranges et des mains blanches !\n**Utilises le bloc \"ET\" et le \"OU\" !**");
 
 required_box.push({"name":"OU","value":"||"});
 required_box.push({"name":"ET","value":"&&"});

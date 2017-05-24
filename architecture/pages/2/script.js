@@ -19,7 +19,7 @@ var solution_example = [
     {"type":"avancer","value":4}
 ];
 
-var text_info = "Toute maison ou cabane a besoin d'une fondation pour construire !\n\nUtilises les blocs disponibles pour dessiner la première !";
+popupInfo("Toute maison ou cabane a besoin d'une fondation pour construire !\n\nUtilises les blocs disponibles pour dessiner la première !");
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////

@@ -1,14 +1,20 @@
-# Aide : Utilisation de l’aide
+# Aide : Utilisation de l'aide
 
-Chaque bloc possède aussi sa propre page d'aide!
+### <span style="color: #20B020">Bravo tu as réussi à afficher l'aide</span>
 
----
+***
 
-Tu dois faire un «clic droit» ou appuyer longtemps (puis relâcher) sur le bloc pour consulter l’aide et avoir l’information qui va te permettre de terminer cette page.
-![Menu contextuel][context_bloc]
+N'oublie pas que sur chaque page tu as aussi un bouton d'aide en haut si tu es coincé !
 
----
+![navbar aide][navbar_aide]
 
-## <span style="color: #800080">À ton tour d'essayer</span>
+***
 
-[context_bloc]: img/context_bloc.png
+Utilise l'icone ![img chien][chien] sur le bloc `Besoin d'aide ?` pour valider l'exercice
+
+***
+
+Appuie sur le bouton ci-dessous pour fermer l'aide
+
+[navbar_aide]: img/navbar_aide.png
+[chien]: img/dog.png

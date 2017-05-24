@@ -1,6 +1,3 @@
-/**
- * Created by Janna on 21/04/2017.
- */
 var FACTORY_WIDTH;
 var FACTORY_HEIGHT;
 var FACTORY_X;

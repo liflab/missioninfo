@@ -38,10 +38,10 @@ var solution_example = [
 ];
 var Crayon;
 
-var text_info = "Pour dessiner, tu as un crayon. \n" +
+popupInfo("Pour dessiner, tu as un crayon. \n" +
     "Tu peux le lever pour arrêter d'écrire, et le poser pour continuer. \n" +
     "Tu as différentes couleurs disponibles également. \n" +
-    "Les blocs ont été répartis dans deux catégories\"Mouvements\", et \"Crayon\".";
+    "Les blocs ont été répartis dans deux catégories\"Mouvements\", et \"Crayon\".");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

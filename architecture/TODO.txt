@@ -28,5 +28,5 @@ Page 5 :  Relier des points pour faire un dessin simple
 Page 6 : Relier des points afin de faire un dessin complexe
 Page 7 : Tracer une étoile (trop difficile?)
 Page 8 : Tracer un cercle avec une boucle 360 et les 1 degrés?
-Page 9 : Activité défi : Tracer 4 carrés en utilisant des boucles
+Page 9 : défi : Tracer 4 carrés en utilisant des boucles
 Page 10 : Libre (Dessine ce que tu veux / dessine la pièce dans laquelle tu te trouves)

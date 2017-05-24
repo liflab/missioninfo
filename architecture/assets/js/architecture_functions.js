@@ -28,7 +28,6 @@ function allLoaded() {
     document.getElementById("page").style.display = "block";
     autoResize();
     setup();
-    popupInfo(text_info);
 }
 //##########################################################################################################
 

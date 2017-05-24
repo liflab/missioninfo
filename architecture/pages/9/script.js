@@ -9,9 +9,9 @@ var solution_example = [{"type":"crayon_leve","value":true},{"type":"avancer","v
 
 var Crayon;
 
-var text_info = "Une fois les murs dressés, un toit arrondi serait plaisant, non ?\n" +
+popupInfo("Une fois les murs dressés, un toit arrondi serait plaisant, non ?\n" +
     "Essaies d'en faire un en utilisant \n" +
-    "le nouveau bloc \"Dessin d'un Arc de Cercle\".";
+    "le nouveau bloc \"Dessin d'un Arc de Cercle\".");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

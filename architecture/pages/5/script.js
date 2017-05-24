@@ -41,10 +41,9 @@ var solution_example = [
 var Crayon;
 
 
-
-var text_info = "Dans le dernier schéma, tu devais faire deux fondations.\n" +
+popupInfo("Dans le dernier schéma, tu devais faire deux fondations.\n" +
     "Essaies maintenant de les faire en utilisant une boucle !\n" +
-    "N'oublie pas que celle-ci exécute son contenu plusieurs fois !";
+    "N'oublie pas que celle-ci exécute son contenu plusieurs fois !");
 
 
 function checkAnswer() {

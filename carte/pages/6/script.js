@@ -1,4 +1,4 @@
-text_info = "\nDes fois, il ne faut pas tout mettre dans le bloc vert !!! \nAttention ! Tu n'as le droit qu'à 7 blocs.";
+popupInfo("\nDes fois, il ne faut pas tout mettre dans le bloc vert !!! \nAttention ! Tu n'as le droit qu'à 7 blocs.");
 
 page_map = [
     {row: 7, col: 1, data: {style: "deb", type: 1}},

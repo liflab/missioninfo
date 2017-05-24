@@ -6,7 +6,6 @@
 
     <title>Bienvenue sur l'île</title>
 
-    <meta name="description" content="Explique le fonctionnement d'un ordinateur'">
     <meta name="author" content="Vincent PORTA-SCARTA">
 
     <meta name="viewport" content="width=device-width, height=device-height initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -79,7 +78,7 @@
 
 <body>
 
-<div class="reveal">
+<div class="reveal scrollable">
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides scrollable">
@@ -321,6 +320,7 @@
     // Let the top-level application know that Reveal is ready.
     try {
         window.parent.reveal_loaded(Reveal);
+        window.parent.setSlideFocus();
     }
     catch (err) {
         console.log("Launch without parent page")

@@ -4217,9 +4217,9 @@
 				// j, down
 				case 74: case 40: navigateDown(); break;
 				// home
-				case 36: slide( 0 ); break;
+                /*case 36: slide( 0 ); break;
 				// end
-				case 35: slide( Number.MAX_VALUE ); break;
+                 case 35: slide( Number.MAX_VALUE ); break;*/
 				// space
 				case 32: isOverview() ? deactivateOverview() : event.shiftKey ? navigatePrev() : navigateNext(); break;
 				// return

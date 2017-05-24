@@ -6,7 +6,6 @@
 
     <title>Microbit</title>
 
-    <meta name="description" content="Explique le fonctionnement d'un ordinateur'">
     <meta name="author" content="Vincent PORTA-SCARTA">
 
     <meta name="viewport"
@@ -105,6 +104,7 @@
     // Let the top-level application know that Reveal is ready.
     try {
         window.parent.reveal_loaded(Reveal);
+        window.parent.setSlideFocus();
     }
     catch (err) {
         console.log("Launch without parent page")

@@ -1,4 +1,4 @@
-text_info = "Le but est de récupérer tous les trésors. \n Tu as le droit à autant de blocs que tu veux mais tu dois en utiliser \n le moins possible! Pour cela, tu as de nouveaux blocs! \n A toi de les découvrir.";
+popupInfo("Le but est de récupérer tous les trésors. \n Tu as le droit à autant de blocs que tu veux mais tu dois en utiliser \n le moins possible! Pour cela, tu as de nouveaux blocs! \n A toi de les découvrir.");
 
 page_map = [
     {row: 8, col: 7, data: {style: "deb", type: 1}},

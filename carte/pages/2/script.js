@@ -1,4 +1,4 @@
-text_info = "\nTrouve le bon chemin pour arriver sur la zone verte.\n Utilise le bloc Avancer!";
+popupInfo("\nTrouve le bon chemin pour arriver sur la zone verte.\n Utilise le bloc Avancer!");
 
 page_map = [
     {row: 4, col: 2, data: {style: "deb", type: 1}},

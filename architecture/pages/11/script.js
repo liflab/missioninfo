@@ -9,8 +9,8 @@ var solution_example = [{"type":"crayon_color","value":"#ff0000"},{"type":"boucl
 
 var Crayon;
 
-var text_info = "\nLa deuxième fondation que tu avais faite, essaie de la modifier.\n" +
-    "Ca pourrait faire un beau jardin, d'avoir des bords arrondis !";
+popupInfo("\nLa deuxième fondation que tu avais faite, essaie de la modifier.\n" +
+    "Ca pourrait faire un beau jardin, d'avoir des bords arrondis !");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;

@@ -9,8 +9,8 @@ var solution_example = [{"type":"crayon_color","value":"#0000ff"},{"type":"tourn
 
 var Crayon;
 
-var text_info = "\nEssaies aussi cet autre type de fondations !\n" +
-    "Attention, il faut utiliser des boucles dans des boucles !";
+popupInfo("\nEssaies aussi cet autre type de fondations !\n" +
+    "Attention, il faut utiliser des boucles dans des boucles !");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
