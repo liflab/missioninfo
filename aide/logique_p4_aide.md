@@ -1,6 +1,6 @@
-# Aide : Logique
+# Aide: Logique
 
-Regarde bien l’information donnée par Robotino. Il s’y trouve un élément important.
+Regarde bien l'information donnée par Robotino. Il s'y trouve un élément important.
 
 Pour le premier seau, tu devrais utiliser une combinaison de blocs **<span style="color: #ff0000">ET</span>** et **<span style="color: #ff0000">OU</span>**.
 

@@ -1,4 +1,4 @@
-# Aide : Bloc - Nombre
+# Aide: Bloc - Nombre
 
 Ce bloc sert à placer un nombre précis à plusieurs endroits.
 

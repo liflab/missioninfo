@@ -1,10 +1,10 @@
-# Aide : Change le mouvement
+# Aide: Change le mouvement
 
 Cette page fonctionne exactement comme la page précédente (7).
 
 ***
 
-#### Astuce :
+#### Astuce:
 Tu devras utiliser deux curseurs pour générer les mouvements.
 
 ![Blocs multiples curseurs][curseur_tab]

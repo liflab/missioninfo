@@ -1,4 +1,4 @@
-# Aide : Code un nombre binaire
+# Aide: Code un nombre binaire
 
 ### Pour réussir cette activité, il faut que tu trouve au moins `5` nombres.
 
@@ -17,13 +17,13 @@ Par exemple, si je clique sur le `1` vis-à-vis la valeur 16, le nombre en bleu 
 
 ![Exercice codage page 2 16][codage_ex_p2_2]
 
-Si j’ajoute une autre valeur, par exemple en plaçant un `1` vis-à-vis le 4. Le nombre en bleu prendra la valeur `16+4 = 20`
+Si j'ajoute une autre valeur, par exemple en plaçant un `1` vis-à-vis le 4. Le nombre en bleu prendra la valeur `16+4 = 20`
 
 ![Exercice codage page 2 20][codage_ex_p2_3]
 
 ***
 
-À l’aide de ces `0` et de ces `1`, trouve comment le nombre indiqué ici s’écrit en binaire.
+À l'aide de ces `0` et de ces `1`, trouve comment le nombre indiqué ici s'écrit en binaire.
 
 ![Exercice codage page 2 nombre][codage_ex_p2_4]
 

@@ -1,12 +1,12 @@
-# Aide : Ajout de lignes
+# Aide: Ajout de lignes
 
-Maintenant tu vas apprendre à tracer des lignes.
+Maintenant, tu vas apprendre à tracer des lignes.
 
-Le bloc `Ligne` est très simple, il suffit d’indiquer les coordonnées des extrémités de ta ligne.
+Le bloc `Ligne` est très simple, il suffit d'indiquer les coordonnées des extrémités de ta ligne.
 
 ![Bloc ligne][bloc_ligne]
 
-N'oublie pas de lui mettre une couleur!
+N'oublie pas de lui donner une couleur!
 
 ![Bloc couleur][bloc_couleur]
 

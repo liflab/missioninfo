@@ -1,4 +1,4 @@
-# Aide : Code des lettres en nombres
+# Aide: Code des lettres en nombres
 
 ### Pour réussir cette activité, il faut que tu codes au moins `5` messages.
 
@@ -8,7 +8,7 @@ Tout d'abord, choisi un mot ou une phrase que tu voudrais coder!
 
 Utilise ensuite les nombres associés aux lettres du tableau `Codage des lettres` pour trouver quelle nombre est associé à quelle lettre.
 
-Une fois que tu as trouvé le nombre associé à une lettre, vient l’écrire à l’aide du clavier, dans l’encadré.
+Une fois que tu as trouvé le nombre associé à une lettre, vient l'écrire à l'aide du clavier, dans l'encadré.
 
 ![Exercice codage page 5][codage_ex_p5_1]
 

@@ -1,4 +1,4 @@
-# Aide : Change le mouvement
+# Aide: Change le mouvement
 
 <video class="text-center" height="480" loop autoplay>
   <source src="vid/animation_p7.mp4" type="video/mp4">
@@ -8,8 +8,8 @@
 
 #### Tu as besoin d'aide supplémentaire?
 
-Demande toi à partir de quelle valeur de temps est-ce que la forme change de couleur et de direction.  
-Demande toi aussi quel est le nouveau déplacement qu'elle effectue.
+Demande-toi à partir de quel moment (c'est-à-dire, à quelle valeur de temps) la forme change de couleur et de direction.  
+Demande-toi aussi quel est le nouveau déplacement qu'elle effectue.
 
 ***
 

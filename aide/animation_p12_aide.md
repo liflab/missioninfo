@@ -1,4 +1,4 @@
-# Aide : Arriveras-tu à faire bouger un bonhomme ?
+# Aide: Arriveras-tu à faire bouger un bonhomme ?
 
 Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.
 
@@ -6,7 +6,7 @@ C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut 
 
 ***
 
-Dans la section «formes» tu as un nouveau bloc : 
+Dans la section «formes» tu as un nouveau bloc: 
 
 ![Bloc bonhomme][bloc_bonhomme]
 
@@ -16,12 +16,12 @@ Comme position, indique la coordonnée de l'endroit où tu veux qu'il soit.
 
 ***
 
-#### Astuce :
+#### Astuce:
 Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir plusieurs mouvements ce qui veut dire que tu vas devoir utiliser un bloc logique «si».
 
 ![Bloc Si Sinon][bloc_si_sinon]
 
-Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci : 
+Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci: 
 
 ![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]
 
