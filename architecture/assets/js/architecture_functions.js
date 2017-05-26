@@ -157,12 +157,14 @@ function custom_validation(drawing_gen, solution){
     }
     var str = "";
     if(drawing_gen.length<solution.length){
-        str += ("++++++++++++++++++++++++++++++++++++++<br />");
-        str += (JSON.stringify(drawing_gen)+"<br />");
-        str += ("======================================<br />");
-        str += (JSON.stringify(solution)+"<br />");
-        str += ("++++++++++++++++++++++++++++++++++++++<br />");
-        document.querySelector("#logging").innerHTML=str;
+        if(DEBUG){
+            str += ("++++++++++++++++++++++++++++++++++++++<br />");
+            str += (JSON.stringify(drawing_gen)+"<br />");
+            str += ("======================================<br />");
+            str += (JSON.stringify(solution)+"<br />");
+            str += ("++++++++++++++++++++++++++++++++++++++<br />");
+            document.querySelector("#logging").innerHTML=str;
+        }
         return false;
     }
     var t_result = [];
@@ -178,11 +180,13 @@ function custom_validation(drawing_gen, solution){
             }
         }
         if(t_result.length!=i+1){
-            str += ("++++++++++++++++++++++++++++++++++++++");
-            str += (JSON.stringify(drawing_gen));
-            str += (JSON.stringify(solution));
-            str += ("--------------------------------------");
-            document.querySelector("#logging").innerHTML=str;
+            if(DEBUG){
+                str += ("++++++++++++++++++++++++++++++++++++++");
+                str += (JSON.stringify(drawing_gen));
+                str += (JSON.stringify(solution));
+                str += ("--------------------------------------");
+                document.querySelector("#logging").innerHTML=str;
+            }
             return false;
         }
     }
