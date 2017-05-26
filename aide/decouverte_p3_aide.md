@@ -1,6 +1,6 @@
 # Aide: Suppression de blocs
 
-Pour réussir cette page, il te suffit d'avoir un espace de travail vide!!!
+Pour réussir cette page, il te suffit d'avoir un espace de travail vide!
 
 ***
 

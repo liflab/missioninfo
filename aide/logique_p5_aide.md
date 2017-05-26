@@ -1,6 +1,6 @@
 # Aide: Logique
 
-tu devrais utiliser une combinaison de blocs ET et OU.
+Tu devrais utiliser une combinaison de blocs ET et OU.
 
 ![Bloc ET][bloc_et_]
 ![Bloc OU][bloc_ou_]

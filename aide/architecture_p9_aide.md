@@ -1,5 +1,5 @@
 # Aide: Un toit arrondi
-Tu dois tracer uniquement les lignes rouge pâle. Les deux arcs ainsi que la ligne les reliant.<br>
+Tu dois tracer uniquement les lignes rouge pâle: les deux arcs ainsi que la ligne qui les relie.<br>
 
 Tu auras besoin de deux blocs «dessin d'un arc de cercle».<br>
 

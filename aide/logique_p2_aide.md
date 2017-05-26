@@ -1,5 +1,5 @@
-
 # Aide: Logique
+
 Pour réussir cette page, tu dois utiliser un bloc 
 ![Si][bloc_si_]
 pour chacun des seaux.<br>

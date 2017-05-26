@@ -4,11 +4,11 @@
 
 ***
 
-Tout d'abord, choisi un mot ou une phrase que tu voudrais coder!
+Tout d'abord, choisis un mot ou une phrase que tu voudrais coder!
 
-Utilise ensuite les nombres associés aux lettres du tableau `Codage des lettres` pour trouver quelle nombre est associé à quelle lettre.
+Utilise ensuite les nombres associés aux lettres du tableau `Codage des lettres` pour trouver quel nombre est associé à quelle lettre.
 
-Une fois que tu as trouvé le nombre associé à une lettre, vient l'écrire à l'aide du clavier, dans l'encadré.
+Une fois que tu as trouvé le nombre associé à une lettre, écris-la dans l'encadré à l'aide du clavier.
 
 ![Exercice codage page 5][codage_ex_p5_1]
 
@@ -20,7 +20,7 @@ Recommence pour tous les lettres de ton message en séparant bien les nombres pa
 
 ***
 
-Quand tu as terminer clique `DÉCODER` et l'ordinateur t'affichera ton message si tu ne t'es pas trompé.
+Quand tu as terminé, clique sur `DÉCODER` et l'ordinateur affichera ton message si tu ne t'es pas trompé.
 
 ![Bouton décoder][btn_decoder]
 

@@ -2,7 +2,7 @@
 
 Maintenant, tu vas apprendre à tracer des lignes.
 
-Le bloc `Ligne` est très simple, il suffit d'indiquer les coordonnées des extrémités de ta ligne.
+Le bloc `Ligne` est très simple, il suffit de lui indiquer les coordonnées des extrémités de ta ligne.
 
 ![Bloc ligne][bloc_ligne]
 

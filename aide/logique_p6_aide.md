@@ -1,12 +1,12 @@
 # Aide: Logique
 
-Robotino a déjà le chapeau bleu dans sa collection, donne lui un coup de main pour la compléter. <br>
+Robotino a déjà le chapeau bleu dans sa collection, donne-lui un coup de main pour la compléter. <br>
 Cependant, étant donné qu'il a déjà le chapeau bleu, tu ne dois pas le remettre dans le seau «Collection».<br>
 
 
 Pour ce faire, tu devras utiliser le bloc: ![PAS][bloc_not_]<br>
 
-Voici un exemple de ce que ça te permet de faire. 
+Voici un exemple de ce que tu peux faire. 
 
 <hr>
 

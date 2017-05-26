@@ -6,7 +6,7 @@
 
 Utilise les lettres associées aux nombres du tableau `Codage des lettres` pour trouver quelle lettre est associée à quel nombre.
 
-Une fois que tu as trouvé la lettre associée à un nombre, vient l'écrire à l'aide du clavier, dans l'encadré situé sous le nombre en rouge.
+Une fois que tu as trouvé la lettre associée à un nombre, écris-là à l'aide du clavier, dans l'encadré situé sous le nombre en rouge.
 
 ![Exercice codage page 4][codage_ex_p4_1]
 

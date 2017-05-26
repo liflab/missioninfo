@@ -1,10 +1,10 @@
 # Aide: Blocs - Logique
 
-Le bloc si permet de faire vérifier une condition.
+Le bloc «si» permet de vérifier une condition.
 
 ![Bloc si sinon][bloc_si_sinon]
 
-Il faut indiquer la condition `SI`, ce que le programme doit faire lorsqu'elle est respectée `FAIRE` et ce qu'il doit faire lorsqu'elle n'est plus respectée `SINON`.
+Il faut indiquer la condition (`SI`), ce que le programme doit faire lorsqu'elle est vraie (`FAIRE`) et ce qu'il doit faire lorsqu'elle est fausse (`SINON`).
 
 ***
 

@@ -1,27 +1,27 @@
 # Aide: Arriveras-tu à faire bouger un bonhomme ?
 
-Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.
+Cette page est un DÉFI! Tu n'es pas obligé de le réussir pour passer à la page suivante.
 
 C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut à droite.
 
 ***
 
-Dans la section «formes» tu as un nouveau bloc: 
+Dans la section «formes», tu as un nouveau bloc: 
 
 ![Bloc bonhomme][bloc_bonhomme]
 
-Tu peux choisir toi-même la couleur de son T-shirt et de son pantalon.
+Tu peux choisir toi-même la couleur de son t-shirt et de son pantalon.
 
-Comme position, indique la coordonnée de l'endroit où tu veux qu'il soit.
+Comme position, indique la coordonnée de l'endroit où tu veux qu'il soit placé.
 
 ***
 
 #### Astuce:
-Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir plusieurs mouvements ce qui veut dire que tu vas devoir utiliser un bloc logique «si».
+Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir plusieurs mouvements. Pour ce faire, tu devras utiliser un bloc logique «si».
 
 ![Bloc Si Sinon][bloc_si_sinon]
 
-Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci: 
+Tu peux ajouter plusieurs conditions à ce bloc en cliquant sur l'engrenage en haut de celui-ci: 
 
 ![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]
 

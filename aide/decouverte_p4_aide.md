@@ -4,13 +4,13 @@
 
 ***
 
-N'oublie pas que sur chaque page tu as aussi un bouton d'aide en haut si tu es coincé !
+N'oublie pas que sur chaque page tu as aussi un bouton d'aide en haut si tu es coincé!
 
 ![navbar aide][navbar_aide]
 
 ***
 
-Utilise l'icone ![img chien][chien] sur le bloc `Besoin d'aide ?` pour valider l'exercice
+Utilise l'icone ![img chien][chien] sur le bloc `Besoin d'aide ?` pour valider l'exercice.
 
 ***
 

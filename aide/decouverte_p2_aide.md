@@ -1,11 +1,11 @@
 # Aide: Ajout de blocs
 
-Regarde bien ce que dit Robotino
+Regarde bien ce que dit Robotino.
 
 ![Blocs découverte p2][decouverte_blocs_p2]
 
 
-Utilise ces **DEUX** blocs disponibles pour créer un programme, mais fais attention, ils doivent être mis dans un certain ordre.
+Utilise ces **DEUX** blocs disponibles pour créer un programme, mais fais attention, ils doivent être placés dans un certain ordre.
 
 ***
 

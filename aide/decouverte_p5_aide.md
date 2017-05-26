@@ -1,14 +1,12 @@
 # Aide: Afficher du texte
 
-Tu as deux blocs disponibles. Pour réussir cette page, il te faudra en utiliser **UN** seul de chaque.
+Tu as deux blocs disponibles. Pour réussir cette page, il te faudra en utiliser **UN** seul de chaque sorte.
 
 ![Blocs découverte p5][decouverte_blocs_p5]
 
-
 Ces deux blocs peuvent se joindre ensemble. Je te laisse trouver comment.
 
-
-N'oublie pas d'écrire quelque chose dans le bloc vert (du texte) que le programme pourra afficher!
+N'oublie pas d'écrire quelque chose (du texte) dans le bloc vert que le programme pourra afficher!
 
 ***
 
