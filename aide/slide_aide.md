@@ -8,6 +8,12 @@ Pour avancer dans la présentation, utilise les flèches du clavier (ou fais gli
 
 ***
 
+Une fois arrivé à la fin, tu pourras cliquer sur le bouton `SUIVANT` pour passer à la page suivante.
+
+![Bouton suivant][btn_suivant]
+
+***
+
 ##  <span style="color: #800080">À ton tour d'essayer</span>
 
 [btn_suivant]: img/btn_suivant.png
