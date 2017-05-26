@@ -17,13 +17,15 @@
     <style>
         .slides > section{
             height:100%;
-            margin-top:230px;
+        }
+        .slides > section.dec{
+            margin-top:30vh;
         }
 
         @keyframes slideLeft {
-            from {  right:-300px; opacity:0; }
-            25%  {  right:-300px; opacity:0; }
-            to {    right: 300px; opacity:1; }
+            from {  right:-25vw; opacity:0; }
+            25%  {  right:-25vw; opacity:0; }
+            to {    right: 25vw; opacity:1; }
         }
         @keyframes fadeIn-s3{
             from {  opacity:0; }
@@ -41,25 +43,35 @@
         .robotino{
             position: absolute;
             height: 35vh;
-            top: 300px;
-            right: 300px;
+            top: 55vh;
+            right: 25vw;
         }
-        .emoji1{
+        .emoji{
             position:absolute;
-            top:5vh;
+            top:0;
             right:0;
         }
-
+        .textBubble{
+            position: absolute;
+            top:30vh;
+            left: 25vw;
+            width: 40vw;
+            background-color: rgba(255,255,255,1);
+            color:black;
+            border-radius: 25px;
+            overflow: auto;
+            border:3px solid black;
+        }
     </style>
 </head>
 
 <body>
 
-<div class="reveal scrollable">
+<div class="reveal">
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
-        <section>
+        <section class="dec">
             <h3>Il était une fois ...</h3>
             <div style="width: 80vw; margin: 20px auto 0px auto; color:gray; border-width: thick; border: gray; border-style: dashed; border-radius: 25px; overflow: auto;">
                 <img class="plain" src="../assets/img/Livre.svg" style="height:20vh; float:left; margin-left: 5px;">
@@ -71,37 +83,37 @@
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
-            <div class="fadeIn-3" style="position: absolute; top:15vh; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+            <div class="fadeIn-3 textBubble">
                 <p><strong>Tu as passé une longue journée sur l'île, tu dois commencer à être fatigué.</strong></p>
             </div>
             <img class="plain robotino slideLeft" src="../assets/img/Roule.svg">
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
-            <div style="position: absolute; top:15vh; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+            <div class="textBubble">
                 <p><strong>Que dirais-tu d’aller te reposer dans une cabane qui serait seulement à toi?</strong></p>
             </div>
             <img class="plain robotino" src="../assets/img/Roule.svg">
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
-            <div style="position: absolute; top:15vh; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+            <div class="textBubble">
                 <p><strong>Cependant, tu vas devoir concevoir les plans de cette cabane toi-même.</strong></p>
-                <img class="plain emoji1" src="assets/img/slide/emoji1.png">
+                <img class="plain emoji" src="assets/img/slide/emoji1.png" style="top:14vh;">
             </div>
             <img class="plain robotino" src="../assets/img/Roule.svg">
         </section>
 
         <section data-background-size="contain" data-background-image="assets/img/slide/background.jpg">
-            <div style="position: absolute; top:15vh; left: 25vw; width: 40vw; background-color: rgba(255,255,255,1); color:black; border-radius: 25px; overflow: auto;border:3px solid black;">
+            <div class="textBubble" style="top:20vh;">
                 <p><strong>Ne t’inquiète pas, je vais te montrer comment un programme pourrait concevoir les plans à ta place!!!</strong></p>
-                <img class="plain emoji1" src="assets/img/slide/emoji2.png">
+                <img class="plain emoji" src="assets/img/slide/emoji2.png" style="top:10vh;">
             </div>
             <img class="plain robotino" src="../assets/img/Roule.svg">
         </section>
 
 
-        <section>
+        <section class="dec">
             <h3>Chargement ...</h3>
         </section>
     </div>
