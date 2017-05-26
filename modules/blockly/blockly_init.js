@@ -12,14 +12,18 @@ function initBlockly(initZoom,loadSauv,loadWorkspace) {
         scrollbars: true
     });
 
-    if(loadSauv) {
-        // Restore previous blocks
-        window.setTimeout(Blockly.Storage.restoreBlocks, 500);
+    var url = window.location.href.split('#')[0];
+    if ('localStorage' in window && window.localStorage[url]) {
+        if (loadSauv) {
+            // Restore previous blocks
+            window.setTimeout(Blockly.Storage.restoreBlocks, 500);
+        }
     }
-
-    if (loadWorkspace) {
-        // Load workspace
-        Blockly.Xml.domToWorkspace(document.getElementById('workspace'), Blockly.getMainWorkspace());
+    else {
+        if (loadWorkspace) {
+            // Load workspace
+            Blockly.Xml.domToWorkspace(document.getElementById('workspace'), Blockly.getMainWorkspace());
+        }
     }
 
     // Let the top-level application know that Blockly is ready.

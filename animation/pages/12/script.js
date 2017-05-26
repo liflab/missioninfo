@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Tu dois faire la même chose avec ces 3 formes.\nUtilise 3 curseurs différents pour animer ces 3 formes\nCette fois, tu devras t'occuper de tous les blocs.\nEt regarde bien comment chaque forme se déplace!!!");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Cette fois, tu dois animer le bonhomme.\nVoici comment tu dois utiliser les nouveaux blocs pour que ça fonctionne!\nPour valider l'exercice, corrige les nombres pour faire en sorte que\nle bonhomme se déplace de gauche à droite, comme demandé.");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

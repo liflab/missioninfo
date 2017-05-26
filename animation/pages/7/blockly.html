@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="initBlockly(1.0,true,false)">
+<body onload="initBlockly(1.0,true,true)">
 <xml id="toolbox" style="display: none">
     <block type="bonhomme"></block>
     <block type="pour_chaque_image"></block>
@@ -40,6 +40,54 @@
 </xml>
 
 <xml id="workspace" style="display: none">
+    <block type="init_curseur" id="TEe*uIDEbm$YT_sHPis0" x="10" y="0">
+        <value name="pos">
+            <block type="coords" id="v`BJ-PcGe}]fTOH$a/6f">
+                <value name="x">
+                    <shadow type="math_number" id="{Ko6|E/;Z*W,GixZFEO3">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+                <value name="y">
+                    <shadow type="math_number" id="N6O8*C6l7J$;DiN/1r8,">
+                        <field name="NUM">0</field>
+                    </shadow>
+                </value>
+            </block>
+        </value>
+        <next>
+            <block type="pour_chaque_image" id="~q4:2t9_7duAV6kRMOA$">
+                <statement name="image">
+                    <block type="bonhomme" id="C@8.r[iGYEeP}QO;UV#u">
+                        <field name="shirt">#ff8500</field>
+                        <field name="pants">#0000ff</field>
+                        <field name="hands_up">TRUE</field>
+                        <value name="coord_center">
+                            <block type="recup_curseur" id="L^_?~YPQy9kG5k4*V|A$"></block>
+                        </value>
+                        <next>
+                            <block type="deplace_curseur" id="pPv1dp%y.I5Lon(Rik4K">
+                                <value name="mouvement">
+                                    <block type="coords" id="yF]eQ^Cqz3VDk/^#-P|~">
+                                        <value name="x">
+                                            <shadow type="math_number" id="L;PI3k;cJ(Y#.=NFi~Pk">
+                                                <field name="NUM">0</field>
+                                            </shadow>
+                                        </value>
+                                        <value name="y">
+                                            <shadow type="math_number" id="zmqE_BFtcKFpTl(ontOr">
+                                                <field name="NUM">0</field>
+                                            </shadow>
+                                        </value>
+                                    </block>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
+                </statement>
+            </block>
+        </next>
+    </block>
 </xml>
 </body>
 

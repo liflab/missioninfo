@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Dernière chose à t'apprendre avant de te laisser faire ce que tu veux.\nTu vas devoir changer le déplacement en cours de route.\n Pour cela tu as de nouveaux blocs!\n Complète le programme avec les blocs manquants.");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

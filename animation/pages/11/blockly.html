@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="initBlockly(1.0,true,false)">
+<body onload="initBlockly(1.0,true,true)">
 <xml id="toolbox" style="display: none">
     <block type="bonhomme"></block>
     <block type="pour_chaque_image"></block>
@@ -40,6 +40,32 @@
 </xml>
 
 <xml id="workspace" style="display: none">
+    <block type="pour_chaque_image" id="C[cZyWb[C}0c7R}Y(Tm!" x="10" y="0">
+        <statement name="image">
+            <block type="bonhomme" id=";c9*GRokKs!K:}U)$[xC">
+                <field name="shirt">#00ff00</field>
+                <field name="pants">#ff00ff</field>
+                <field name="hands_up">TRUE</field>
+                <value name="coord_center">
+                    <block type="recup_curseur_tab" id="CDT+AHIN#6V}DIlJufMH">
+                        <field name="idx">1</field>
+                    </block>
+                </value>
+                <next>
+                    <block type="bonhomme" id="mLgs7J.rG(k8gI09~~37">
+                        <field name="shirt">#808000</field>
+                        <field name="pants">#800080</field>
+                        <field name="hands_up">TRUE</field>
+                        <value name="coord_center">
+                            <block type="recup_curseur_tab" id="a))HyUEf_P2@6[L`vj5J">
+                                <field name="idx">2</field>
+                            </block>
+                        </value>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
 </xml>
 </body>
 
