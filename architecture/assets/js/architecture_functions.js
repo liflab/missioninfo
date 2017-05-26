@@ -1,4 +1,9 @@
 const DEBUG = false;
+const STROKE_WEIGHT_DEFAULT = 14;
+
+var Stroke_Weight = STROKE_WEIGHT_DEFAULT;
+var __StrokeWeight;
+
 console.log("FUNCTIONS LOADED... DEBUG="+DEBUG);
 
 Math.radians = function(degrees) {
@@ -24,6 +29,9 @@ var blocklyDiv = document.getElementById('blockly-holder');
 
 // Function execute when all things are loaded
 function allLoaded() {
+    if(__StrokeWeight !== undefined){
+        Stroke_Weight = __StrokeWeight;
+    }
     activateButtons();
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
@@ -583,9 +591,9 @@ function action(current_step){
                 }else{
                     stroke(color_red,color_green,color_blue,OPACITY_EXAMPLE*255);
                 }
-                strokeWeight(14);
+                strokeWeight(Stroke_Weight);
                 line(start_x*pxUnit,(axisHeightLength-start_y)*pxUnit,x*pxUnit,(axisHeightLength-y)*pxUnit);
-                var cmd = "stroke("+color_red+","+color_green+","+color_blue+","+(opacity*255)+");strokeWeight(14);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);strokeWeight(0);";
+                var cmd = "stroke("+color_red+","+color_green+","+color_blue+","+(opacity*255)+");strokeWeight(Stroke_Weight);line("+start_x+"*pxUnit,(axisHeightLength-"+start_y+")*pxUnit,"+x+"*pxUnit,(axisHeightLength-"+y+")*pxUnit);strokeWeight(0);";
                 draw_saved.push(cmd);
                 draw_gen_saved.push({"type":"line","color":Crayon["color"],"coord1":{"x":start_x,"y":start_y},"coord2":{"x": x,"y":y}});
                 strokeWeight(0);
@@ -618,10 +626,10 @@ function action(current_step){
                     stroke(color_red,color_green,color_blue,OPACITY_EXAMPLE*255);
                 }
                 noFill();
-                strokeWeight(14);
+                strokeWeight(Stroke_Weight);
                 drawArc(x,y,taille,rad_start_rotation,rad_end_rotation,reversed);
                 var cmd = "stroke("+color_red+","+color_green+","+color_blue+","+(opacity*255)+").noFill();";
-                cmd+= "strokeWeight(14);";
+                cmd+= "strokeWeight(Stroke_Weight);";
                 cmd+= "drawArc("+x+", "+y+", "+(taille)+", "+(rad_start_rotation)+", "+(rad_end_rotation)+","+(reversed?("true"):("false"))+");";
                 cmd+= "strokeWeight(0);";
                 draw_saved.push(cmd);

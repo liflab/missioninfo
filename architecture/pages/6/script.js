@@ -3,22 +3,9 @@ var stringAnswer;
 var canvas;
 var past_code;
 var past_code_generated;
-/*
- -----------------------------------
-4,5         => 4,7.5
-4,7.5       => 6.38,8.27
-6.38,8.27   => 7.85,6.25
-7.85,6.25   => 6.38,4.23
-6.38,4.23   => 4,5
 
------------------------------------
-9,9         => 12,9
-12,9        => 9.57,7.24
-9.57,7.24   => 10.5,10.09
-10.5,10.09  => 11.43,7.24
-11.43,7.24  => 9,9
+__StrokeWeight = 8;
 
- */
 var solution = [
     {"type":"line","color":"#ffff00","coord1":{"x":2,"y":9},"coord2":{"x":2,"y":10}},
     {"type":"line","color":"#ffff00","coord1":{"x":2,"y":10},"coord2":{"x":2.59,"y":9.19}},
@@ -148,7 +135,7 @@ function drawSpaceIndicators() {
 }
 
 function drawExercise() {
-    strokeWeight(8);
+    strokeWeight(__StrokeWeight);
     stroke(255, 255, 0, 45).noFill();
     drawLine(2,9,2,10);
     drawLine(2,10,2,9);
