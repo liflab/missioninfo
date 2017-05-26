@@ -1,5 +1,6 @@
 # Aide: Première fondation
-N'oublie pas que Robotino trace un trait derrière lui. Il avance dans vers le haut de sa tête.<br>
+
+N'oublie pas que Robotino trace un trait derrière lui en se déplaçant et qu'il avance vers le haut de sa tête.<br>
 ![Direction][robotino_avancer]<br>
 
 Pour avancer de deux cases, tu dois dire à Robotino d'avancer de deux cases avec ce bloc: <br>

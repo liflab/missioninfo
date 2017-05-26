@@ -4,8 +4,9 @@ var canvas;
 var past_code;
 var past_code_generated;
 
-var solution = [{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":5,"y":5.5}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":5.5},"coord2":{"x":3.7,"y":6.25}},{"type":"line","color":"#0000ff","coord1":{"x":3.7,"y":6.25},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":5.5},"coord2":{"x":5,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":4},"coord2":{"x":3.7,"y":4.75}},{"type":"line","color":"#0000ff","coord1":{"x":3.7,"y":4.75},"coord2":{"x":5,"y":5.5}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":4},"coord2":{"x":6.5,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":4},"coord2":{"x":5.75,"y":2.7}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":2.7},"coord2":{"x":5,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":4},"coord2":{"x":8,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":4},"coord2":{"x":7.25,"y":2.7}},{"type":"line","color":"#0000ff","coord1":{"x":7.25,"y":2.7},"coord2":{"x":6.5,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":4},"coord2":{"x":8,"y":5.5}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":5.5},"coord2":{"x":9.3,"y":4.75}},{"type":"line","color":"#0000ff","coord1":{"x":9.3,"y":4.75},"coord2":{"x":8,"y":4}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":5.5},"coord2":{"x":8,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":7},"coord2":{"x":9.3,"y":6.25}},{"type":"line","color":"#0000ff","coord1":{"x":9.3,"y":6.25},"coord2":{"x":8,"y":5.5}},{"type":"line","color":"#0000ff","coord1":{"x":8,"y":7},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":7.25,"y":8.3}},{"type":"line","color":"#0000ff","coord1":{"x":7.25,"y":8.3},"coord2":{"x":8,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":5.75,"y":8.3}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":8.3},"coord2":{"x":6.5,"y":7}}];
-var solution_example = [{"type":"crayon_color","value":"#0000ff"},{"type":"tourner","value":180},{"type":"boucle","nb_iteration":4,"value":[ {"type":"boucle","nb_iteration":2,"value":[ {"type":"crayon_leve","value":false},{"type":"boucle","nb_iteration":3,"value":[ {"type":"avancer","value":1.5},{"type":"tourner","value":120}]},{"type":"crayon_leve","value":true},{"type":"avancer","value":1.5}]},{"type":"tourner","value":-90}]}];
+var solution = [{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":5.75,"y":8.3}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":8.3},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.95,"y":7.39}},{"type":"line","color":"#0000ff","coord1":{"x":7.95,"y":7.39},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":8.86,"y":5.19}},{"type":"line","color":"#0000ff","coord1":{"x":8.86,"y":5.19},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":7.95,"y":2.99}},{"type":"line","color":"#0000ff","coord1":{"x":7.95,"y":2.99},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":5.75,"y":2.08}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":2.08},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.55,"y":2.99}},{"type":"line","color":"#0000ff","coord1":{"x":3.55,"y":2.99},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":2.64,"y":5.19}},{"type":"line","color":"#0000ff","coord1":{"x":2.64,"y":5.19},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":3.55,"y":7.39}},{"type":"line","color":"#0000ff","coord1":{"x":3.55,"y":7.39},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":5,"y":7}}];
+var solution_example = [{"type":"tourner","value":90},{"type":"crayon_color","value":"#0000ff"},{"type":"crayon_leve","value":false},{"type":"boucle","nb_iteration":8,"value":[ {"type":"boucle","nb_iteration":3,"value":[ {"type":"avancer","value":1.5},{"type":"tourner","value":-120}]},{"type":"avancer","value":1.5},{"type":"tourner","value":45}]}];
+
 
 var Crayon;
 
@@ -83,6 +84,40 @@ function drawExercise() {
     strokeWeight(14);
     stroke(0,0,255,45).noFill();
 
+    drawLine(6.5,7,5,7);
+    drawLine(5.75,8.3,6.5,7);
+    drawLine(5,7,5.75,8.3);
+    drawLine(6.5,7,5,7);
+    drawLine(7.56,5.94,6.5,7);
+    drawLine(7.95,7.39,7.56,5.94);
+    drawLine(6.5,7,7.95,7.39);
+    drawLine(7.56,5.94,6.5,7);
+    drawLine(7.56,4.44,7.56,5.94);
+    drawLine(8.86,5.19,7.56,4.44);
+    drawLine(7.56,5.94,8.86,5.19);
+    drawLine(7.56,4.44,7.56,5.94);
+    drawLine(6.5,3.38,7.56,4.44);
+    drawLine(7.95,2.99,6.5,3.38);
+    drawLine(7.56,4.44,7.95,2.99);
+    drawLine(6.5,3.38,7.56,4.44);
+    drawLine(5,3.38,6.5,3.38);
+    drawLine(5.75,2.08,5,3.38);
+    drawLine(6.5,3.38,5.75,2.08);
+    drawLine(5,3.38,6.5,3.38);
+    drawLine(3.94,4.44,5,3.38);
+    drawLine(3.55,2.99,3.94,4.44);
+    drawLine(5,3.38,3.55,2.99);
+    drawLine(3.94,4.44,5,3.38);
+    drawLine(3.94,5.94,3.94,4.44);
+    drawLine(2.64,5.19,3.94,5.94);
+    drawLine(3.94,4.44,2.64,5.19);
+    drawLine(3.94,5.94,3.94,4.44);
+    drawLine(5,7,3.94,5.94);
+    drawLine(3.55,7.39,5,7);
+    drawLine(3.94,5.94,3.55,7.39);
+    drawLine(5,7,3.94,5.94);
+    /*
+
     drawLine(5,5.5,5,7);
     drawLine(3.7,6.25,5,5.5);
     drawLine(5,7,3.7,6.25);
@@ -107,6 +142,6 @@ function drawExercise() {
     drawLine(5,7,6.5,7);
     drawLine(5.75,8.3,5,7);
     drawLine(6.5,7,5.75,8.3);
-
+*/
     strokeWeight(0);
 }

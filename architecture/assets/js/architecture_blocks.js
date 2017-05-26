@@ -62,6 +62,7 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
             ["180° degrés","180"],
             ["120° degrés","120"],
             ["90° degrés","90"],
+            ["45° degrés","45"],
         ];
     break;
     case 14:
