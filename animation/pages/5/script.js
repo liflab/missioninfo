@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("\nTu es maintenant prêt à assembler des formes ensembles\n Ajoute les bonnes formes pour dessiner un bonhomme!!!");
 
 axisWidthLength = 24;
 axisHeightLength = 18;

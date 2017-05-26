@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("\nMême chose avec des rectangles.\n Fais attention à la hauteur et la largeur!!!");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

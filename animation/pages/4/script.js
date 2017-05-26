@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("\nOh, des lignes! On dirait des sabres laser!!!\nFais attention aux couleurs.");
 
 axisWidthLength = 8;
 axisHeightLength = 6;
