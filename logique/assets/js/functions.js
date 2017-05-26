@@ -67,7 +67,6 @@ function run_code() {
         code = "(function(item){\n"+code+"\nreturn null;})";
 
         var f = eval(code);
-        save_code();
         playAnim(f);
         checkAnswer();
     }
