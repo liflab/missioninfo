@@ -70,9 +70,14 @@
         <div class="row">
             <div class="col-sm-3">
                 <div id="title">
-                    <h2>Ajout de lignes</h2>
-                    <button type="button" onclick="popupInfo();" id="btn_popup" class="btn btn-default btn-block"><span
+                    <h2>Ajout de figures</h2>
+                    <button type="button" onclick="popupInfo();" id="btn_popup" style="width:60%"
+                            class="btn btn-default"><span
                             class="glyphicon glyphicon-info-sign"></span> INFO
+                    </button>
+                    <button onclick="playAnim();" class="btn btn-primary">
+                        <span id="anim-play" class="glyphicon glyphicon-play"></span>
+                        <span id="anim-text" style="margin-left: 5px" class="badge">0</span>
                     </button>
                 </div>
             </div>

@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="initBlockly(1.0,true,false)">
+<body onload="initBlockly(1.0,true,true)">
 <xml id="toolbox" style="display: none">
     <block type="bonhomme"></block>
     <block type="pour_chaque_image"></block>
@@ -41,6 +41,43 @@
 </xml>
 
 <xml id="workspace" style="display: none">
+    <block type="pour_chaque_image" id=".vXm!FhkmmmzQ7d+8so9" x="10" y="0">
+        <statement name="image">
+            <block type="bonhomme" id="4t`8ANDD~iR`zHBD2TOo">
+                <field name="shirt">#ff0000</field>
+                <field name="pants">#800000</field>
+                <field name="hands_up">FALSE</field>
+                <value name="coord_center">
+                    <block type="recup_curseur" id="}.wyLtMAYuj1#h(vp~Mj"></block>
+                </value>
+                <next>
+                    <block type="bonhomme" id="jpbdhT`)!)t9FXYw_`ej">
+                        <field name="shirt">#00ff00</field>
+                        <field name="pants">#2ef0ff</field>
+                        <field name="hands_up">FALSE</field>
+                        <value name="coord_center">
+                            <block type="recup_curseur_offset" id="d%k9D?$L:5b_^}Y4+Yx*">
+                                <value name="relative_pos">
+                                    <block type="coords" id=",2xMlkineggyGwqF/S$O">
+                                        <value name="x">
+                                            <shadow type="math_number" id="*Xu+aT#uTPF@WeoO~cdu">
+                                                <field name="NUM">1</field>
+                                            </shadow>
+                                        </value>
+                                        <value name="y">
+                                            <shadow type="math_number" id="K-9]?KFq%$E](txU#hDd">
+                                                <field name="NUM">1</field>
+                                            </shadow>
+                                        </value>
+                                    </block>
+                                </value>
+                            </block>
+                        </value>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
 </xml>
 </body>
 

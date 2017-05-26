@@ -1,4 +1,4 @@
-popupInfo("\nOh, des lignes! On dirait des sabres laser!!!\nFais attention aux couleurs.");
+popupInfo("\nInformations à venir\n !!!");
 
 axisWidthLength = 8;
 axisHeightLength = 6;
@@ -6,13 +6,14 @@ pxUnit = 100;
 
 page_shapes = {
     bg: [],
-    ex: [
-        [
-            new Line("#ff0000", new Coord(1, 2), new Coord(3, 4)),
-            new Line("#00ff00", new Coord(4, 5), new Coord(7, 1))
-        ]
-    ]
+    ex: []
 };
+
+for (let i = 1; i < axisWidthLength; i++) {
+    page_shapes.ex.push([
+        new Man(new Coord(i, 10), "#000000", "#0000ff", true)
+    ])
+}
 
 function setup() {
     var canvas = createCanvas(axisWidthLength * pxUnit, axisHeightLength * pxUnit);

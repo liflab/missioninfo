@@ -18,7 +18,7 @@
 
 </head>
 
-<body onload="initBlockly(1.0,true,false)">
+<body onload="initBlockly(1.0,true,true)">
 <xml id="toolbox" style="display: none">
     <block type="bonhomme"></block>
     <block type="pour_chaque_image"></block>
@@ -50,6 +50,75 @@
 </xml>
 
 <xml id="workspace" style="display: none">
+    <block type="init_curseur_tab" id="Yj_9VQ$rP3|lKqAQ@rmv" x="10" y="0">
+        <field name="idx">1</field>
+        <next>
+            <block type="init_curseur_tab" id="htM@ET%B_|.pd[^9Y$`b">
+                <field name="idx">2</field>
+                <next>
+                    <block type="pour_chaque_image" id="u_)q~H~SJD{Eevs0.B]H">
+                        <statement name="image">
+                            <block type="bonhomme" id="bGMOxbA3#*I;s)}pU$wr">
+                                <field name="shirt">#202020</field>
+                                <field name="pants">#909090</field>
+                                <field name="hands_up">TRUE</field>
+                                <value name="coord_center">
+                                    <block type="recup_curseur_tab" id="3@y~S@34Mi$=df4%#9GK">
+                                        <field name="idx">1</field>
+                                    </block>
+                                </value>
+                                <next>
+                                    <block type="bonhomme" id=")F(;6.RNR;@^7996/Ub2">
+                                        <field name="shirt">#202020</field>
+                                        <field name="pants">#909090</field>
+                                        <field name="hands_up">TRUE</field>
+                                        <value name="coord_center">
+                                            <block type="recup_curseur_tab" id="V4#/I@1KI/Y=Ws^k$t^4">
+                                                <field name="idx">2</field>
+                                            </block>
+                                        </value>
+                                        <next>
+                                            <block type="controls_if" id="pORbjWq{A[(ul;1FgFQz">
+                                                <mutation else="1"></mutation>
+                                                <value name="IF0">
+                                                    <block type="logic_compare" id="-XkOrQTbt9lhvUXP]u}@">
+                                                        <field name="OP">LT</field>
+                                                        <value name="A">
+                                                            <block type="num_image" id="AMYc`YRlX/RT(zXofE*;"></block>
+                                                        </value>
+                                                    </block>
+                                                </value>
+                                                <statement name="DO0">
+                                                    <block type="deplace_curseur_tab" id="q9R5/iS2W~W4m3PKdw{P">
+                                                        <field name="idx">1</field>
+                                                        <next>
+                                                            <block type="deplace_curseur_tab" id=".A(KuUss@EBn.zR%2B(+">
+                                                                <field name="idx">2</field>
+                                                            </block>
+                                                        </next>
+                                                    </block>
+                                                </statement>
+                                                <statement name="ELSE">
+                                                    <block type="deplace_curseur_tab" id="[j+A90i|OZ|#@-ApNESd">
+                                                        <field name="idx">1</field>
+                                                        <next>
+                                                            <block type="deplace_curseur_tab" id="4G$]mL9s?{:UqhtG2cCZ">
+                                                                <field name="idx">2</field>
+                                                            </block>
+                                                        </next>
+                                                    </block>
+                                                </statement>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </next>
+                            </block>
+                        </statement>
+                    </block>
+                </next>
+            </block>
+        </next>
+    </block>
 </xml>
 </body>
 

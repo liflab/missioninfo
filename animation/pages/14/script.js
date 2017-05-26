@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Aide le bonhomme à échapper aux monstres en grimpant sur le rocher.\nPour cela tu dois faire comme la dernière page et utiliser le bloc SI\n avec le bloc VALEUR DU TEMPS pour changer le mouvement.\n C'est la dernière page avant de te laisser faire ce que tu veux!!!");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

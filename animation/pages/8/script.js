@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("\nMaintenant tu dois te débrouiller tout seul!\n Aide le bonhomme à grimper sur son échelle.");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

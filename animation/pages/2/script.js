@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("\nTu dois dessiner le carré et le cercle.\n Ils doivent être de la bonne taille et de la bonne couleur!!!");
 
 axisWidthLength = 8;
 axisHeightLength = 6;

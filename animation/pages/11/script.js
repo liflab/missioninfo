@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Le but est de faire bouger les deux bonhommes dans un sens différent!\nPour cela tu dois utiliser deux curseurs!\n Chaque curseur s'occupera d'un bonhomme.\n Complète le programme avec les blocs manquants.");
 
 axisWidthLength = 8;
 axisHeightLength = 6;
