@@ -302,26 +302,59 @@ window.blockly_loaded = function (blockly) {
 
 //-----------------------CREDITS-----------------------//
 function showCredits() {
-    bootbox.alert(`
-            <h3>Développement</h3>
-            <div class="text-center">
-                <p><b>CDT/CEE UQAC</b></p>
-                <p>Maxime BOIVIN - Marianne BOLDUC - Kévin CHAPRON - Laura COTE - Patrick GIROUX - Sylvain HALLE - Vincent PORTA-SCARTA</p>
+    bootbox.alert({
+        message: `
+            <div style="text-align: center">
+                <h3><b>Ce projet a été rendu possible grâce à la contribution de</b></h3>
+                <img src="assets/img/logo_mesiq.png">
+                <hr>
+                <h3><b>En collaboration des partenaires suivants</b></h3>
+                <table>
+                    <tr>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_cls.png"></td>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_ceeuqac.png"></td>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_lif.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_technoscience.png"></td>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_uqac.png"></td>
+                        <td><img style="width:95%; height: auto;" src="assets/img/logo_linumlab.png"></td>
+                    </tr>
+                </table>
+                <hr>
+                <h3><b>Equipe de développement</b></h3>
+                <p>Marianne BOLDUC ⋯ Patrick GIROUX ⋯ Sylvain HALLE<br>
+                 Maxime BOIVIN ⋯ Kévin CHAPRON ⋯ Laura COTE ⋯ Vincent PORTA-SCARTA</p>
             </div>
+`,
+        size: "large",
+        backdrop: true
+    });
+}
 
-            <h3>Librairies</h3>
+function showLibs() {
+    let txt = `
+            <h3>Librairies OPEN-SOURCE</h3>
             <ul>
                 <li><a href="http://getbootstrap.com/">bootstrap</a></li>
+                <li><a href="http://www.glyphicons.com/">glyphicons</a></li>
                 <li><a href="http://bootboxjs.com/">bootbox</a></li>
                 <li><a href="https://developers.google.com/blockly/">blockly</a></li>
                 <li><a href="https://p5js.org/">p5.js</a></li>
                 <li><a href="http://lab.hakim.se/reveal-js">reveal</a></li>
                 <li><a href="http://showdownjs.github.io/demo/">showdown</a></li>
-                <li><a href="http://www.glyphicons.com/">Glyphicons</a></li>
-            </ul>
-            
-            <h3>Administration</h3>
+            </ul>`;
+
+    let e = window.event;
+    if (e.ctrlKey) {
+        txt += `
+             <h3>Administration</h3>
             <p><a class="btn btn-info btn-block" href="#" onclick="getLogs();">Télécharger les logs</a></p>
-            <p><a class="btn btn-danger btn-block" href="#" onclick="clearLocalStorage();">Réinitialiser l'application</a></p>
-`);
+            <p><a class="btn btn-danger btn-block" href="#" onclick="clearLocalStorage();">Réinitialiser l'application</a></p>`;
+    }
+
+    bootbox.alert({
+        message: txt,
+        backdrop: true
+    });
 }

@@ -594,7 +594,7 @@ function saveCode() {
 
 function playAnim() {
     let e = window.event;
-    if (e.altKey) {
+    if (e.ctrlKey) {
         exBoard.launchAnimation(true);
     }
     else {
