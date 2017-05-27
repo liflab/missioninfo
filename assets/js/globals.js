@@ -357,4 +357,7 @@ function showLibs() {
         message: txt,
         backdrop: true
     });
+
+    e.preventDefault();
+    return false;
 }

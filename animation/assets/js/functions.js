@@ -671,6 +671,9 @@ function playAnim() {
     else {
         exBoard.launchAnimation(false);
     }
+
+    e.preventDefault();
+    return false;
 }
 
 // Function execute when all things are loaded

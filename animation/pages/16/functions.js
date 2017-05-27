@@ -600,6 +600,9 @@ function playAnim() {
     else {
         exBoard.launchAnimation(false);
     }
+
+    e.preventDefault();
+    return false;
 }
 
 function changeGrid(checkbox) {
