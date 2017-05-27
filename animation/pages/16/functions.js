@@ -1,4 +1,4 @@
-popupInfo("\nInformations à venir\n !!!");
+popupInfo("Voici le grand moment!\n Tu as accès à tous les blocs pour faire ce que tu veux.\n Tu verras le résultat en cliquant sur DEMARRER.\n Tu auras des options pour rajouter un fond à ton image.");
 
 // Constants
 const NB_CURSORS = 10;

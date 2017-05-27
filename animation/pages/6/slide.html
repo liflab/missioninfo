@@ -22,7 +22,137 @@
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <h2>Présentation</h2>
+            <h2>Bravo, tu as réussi la <span class="fragment highlight-green">1° partie!</span></h2>
+        </section>
+
+        <section data-background-size="contain" data-background-image="../../assets/img/slides_p6/1.png">
+            <div style="font-size:4vmin;position: absolute; top:45vh; left: 45vw; width: 40vw; background-color: #ffffff; color:black; border-width: thick; border-style: solid; border-radius: 25px; overflow: auto;">
+                <p>
+                    Tu as maintenant un nouveau bloc pour faire des bonhommes!<br>
+                    Tu peux choisir la couleur comme tu veux mais tu dois faire attention aux <span
+                        style="font-weight: bold" class="fragment highlight-red">deux paramètres</span> dans la
+                    flèche rouge.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Maintenant je vais t'expliquer comment faire
+                <span style="font-weight: bold" class="fragment highlight-blue">bouger</span> ces
+                formes.</h2>
+        </section>
+
+        <section data-background-size="contain" data-background-video-loop="loop"
+                 data-background-video="../../assets/img/slides_p6/2.mp4">
+            <div style="font-size:5vmin;position: absolute; top:10vh; left: 45vw; width: 40vw; background-color: #ffffff; color:black; border-width: thick; border-style: solid; border-radius: 25px; overflow: auto;">
+                <p>
+                    Tout d'abord, voici un nouveau <span style="font-weight: bold" class="fragment highlight-blue">bouton</span>.<br><br>
+                    Celui-ci te permet de voir ce qu'il faut faire.<br><br>
+                    Le chiffre à l'intérieur t'indique le
+                    <span style="font-weight: bold" class="fragment highlight-orange">numéro de l'image</span>.
+                    Tu peux le récupérer avec ce bloc: <img class="plain"
+                                                            src="../../assets/img/slides_p6/bloc_num_image.png">
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/bloc_boucle_images.png" style="vertical-align: middle;">
+            <p>
+                Pour cela, tu devras utiliser ce bloc.<br> Il s'agit d'une
+                <span style="font-weight: bold" class="fragment highlight-purple">boucle</span>
+                pour indiquer à l'ordinateur que tu veux mettre des figures sur
+                <span style="font-weight: bold" class="fragment highlight-cyan">toutes les images</span>.
+            </p>
+            <p>
+                Si tu ne le fais pas, l'ordinateur va alors afficher les formes que sur
+                <span style="font-weight: bold" class="fragment highlight-red">la première image</span>.
+            </p>
+        </section>
+
+        <section>
+            <h3>Tu te demande sûrement comment faire bouger les formes?</h3>
+        </section>
+
+        <section>
+            <h3>Pour cela nous allons utiliser des <span style="font-weight: bold" class="fragment highlight-green">CURSEURS</span>!
+            </h3>
+            <p>Un <span style="font-weight: bold" class="fragment highlight-green">CURSEUR</span> c’est un point
+                invisible que l’on va pouvoir déplacer d’une image à l’autre selon les valeurs qu’on lui donne.
+            </p>
+            <p>Si on attache le <span style="font-weight: bold" class="fragment highlight-green">CURSEUR</span> au
+                centre d’une forme et qu'on lui donne un déplacement, alors la forme se mettra à bouger. Ce qui nous
+                permet de réaliser une <span style="font-weight: bold" class="fragment highlight-red">ANIMATION</span>.
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/bloc_init_curseur.png" style="vertical-align: middle;">
+            <p>
+                En premier, tu dois indiquer à l'ordinateur où
+                <span style="font-weight: bold" class="fragment highlight-blue">commencer</span>?<br>
+                Pour cela tu dois utiliser ce bloc (avec le bloc XY que tu connais) en tout
+                <span style="font-weight: bold" class="fragment highlight-orange">premier</span> dans ton programme.<br><br>
+                <i>ex: Dans ce cas, le curseur commencera en X=1 et Y=1</i>
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/bloc_pos_curseur.png" style="vertical-align: middle;">
+            <p>
+                Ensuite, remplace
+                <img class="plain" src="../../assets/img/slides_p6/bloc_xy.png" style="vertical-align: middle;">
+                par ce bloc afin que la forme
+                <span style="font-weight: bold" class="fragment highlight-green">suivre</span> le curseur.
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/ex_carre.png" style="vertical-align: middle;">
+            <p>
+                Voici un exemple avec un carré!
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/bloc_dep_curseur.png" style="vertical-align: middle;">
+            <p>
+                Enfin, il faut que tu indiques à l'ordinateur le
+                <span style="font-weight: bold" class="fragment highlight-orange">déplacement entre chaque image</span>.
+                Plus les nombres en X et Y seront
+                <span style="font-weight: bold" class="fragment highlight-purple">grands</span>
+                plus la forme se déplacera
+                <span style="font-weight: bold" class="fragment highlight-purple">vite</span>.
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/ex_sens1.png" style="vertical-align: middle;">
+            <p>
+                Pour aller dans ce sens, il faudra que tu mettes des nombres plus
+                <span style="font-weight: bold" class="fragment highlight-green">grand</span> que 0.<br><br>
+                <i>ex: 4; 6; 21</i>
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/ex_sens2.png" style="vertical-align: middle;">
+            <p>
+                Pour aller dans l'autre sens, il faudra que tu mettes des nombres plus
+                <span style="font-weight: bold" class="fragment highlight-red">petit</span> que 0.<br><br>
+                <i>ex: -1; -3; -12</i>
+            </p>
+        </section>
+
+        <section>
+            <img class="plain" src="../../assets/img/slides_p6/blocs_curseur_idx.png" style="vertical-align: middle;">
+            <p>
+                Tu auras la possibilité sur certaines pages d'utiliser
+                <span style="font-weight: bold" class="fragment highlight-cyan">plusieurs curseurs</span>.<br><br>
+                Tu auras juste à changer le
+                <span style="font-weight: bold" class="fragment highlight-purple">numéro</span>
+                pour faire bouger plein de formes en même temps!
+            </p>
         </section>
 
         <section>
