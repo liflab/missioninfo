@@ -9,5 +9,5 @@ Quand tu lèves le crayon, n'oublie pas de le poser avant de continuer à dessin
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[lever_crayon]:img/lever_crayon.png
-[poser_crayon]:img/poser_crayon.png
+[lever_crayon]: img/architecture_lever_crayon.png
+[poser_crayon]: img/architecture_poser_crayon.png

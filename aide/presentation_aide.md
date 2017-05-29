@@ -10,4 +10,4 @@ Pour avancer dans la présentation, utilise les flèches du clavier (ou fais gli
 
 ##  <span style="color: #800080">À ton tour d'essayer</span>
 
-[btn_suivant]: img/btn_suivant.png
+[btn_suivant]: img/aide_btn_suivant.png

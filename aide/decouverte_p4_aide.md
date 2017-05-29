@@ -16,5 +16,5 @@ Utilise l'icone ![img chien][chien] sur le bloc `Besoin d'aide ?` pour valider l
 
 Appuie sur le bouton ci-dessous pour fermer l'aide
 
-[navbar_aide]: img/navbar_aide.png
-[chien]: img/dog.png
+[navbar_aide]: img/decouverte_navbar_aide.png
+[chien]: img/decouverte_dog.png

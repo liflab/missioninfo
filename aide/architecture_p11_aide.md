@@ -6,4 +6,4 @@ Il est possible d'utiliser une boucle, mais ce n'est pas obligatoire.
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[arc]:img/arc_de_cercle.png
+[arc]: img/architecture_arc_de_cercle.png

@@ -1,16 +1,27 @@
-# Aide: Ajout de lignes
+# Aide: Ajout de figures
 
-Maintenant, tu vas apprendre à tracer des lignes.
+Quand tu crées une forme, tu dois spécifier deux informations :
+- La position où sera mise la forme
+- La taille de la forme
 
-Le bloc `Ligne` est très simple, il suffit de lui indiquer les coordonnées des extrémités de ta ligne.
+Pour la position, il te faudra un bloc comme celui-ci :
 
-![Bloc ligne][bloc_ligne]
+![Bloc XY][bloc_xy]
 
-N'oublie pas de lui donner une couleur!
+Pour  mettre les valeurs, tu as deux choix :
+- Sois tu écris directement les nombres dans les cases :
+![Bloc XY nombre][bloc_xy_num]
+
+- Sois tu utilises des blocs comme celui-ci :
+![Bloc nombre][bloc_num]
+
+N'oublie pas de mettre une couleur à ta forme!
 
 ![Bloc couleur][bloc_couleur]
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[bloc_ligne]: img/ligne.png
-[bloc_couleur]: img/couleur.png
+[bloc_xy]: img/animation_XY.png
+[bloc_xy_num]: img/animation_XY_num.png
+[bloc_num]: img/animation_num.png
+[bloc_couleur]: img/animation_couleur.png

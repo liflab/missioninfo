@@ -32,5 +32,5 @@ Quand tu as terminé, clique sur `DÉCODER` et l'ordinateur affichera ton messag
 
 [codage_ex_p5_1]: img/codage_ex_p5_1.png
 [codage_ex_p5_2]: img/codage_ex_p5_2.png
-[btn_decoder]: img/btn_decoder.png
+[btn_decoder]: img/codage_btn_decoder.png
 [codage_ex_p5_3]: img/codage_ex_p5_3.png

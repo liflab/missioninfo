@@ -16,8 +16,8 @@ Voici les blocs que tu peux utiliser pour créer des conditions:
 Le symbole `<` signifie «plus petit que». Exemple: `5 < 6` (5 est plus petit que 6).
 Le symbole `>` signifie «plus grand que». Exemple `6 > 5` (6 est plus grand que 5).
 
-[bloc_si_sinon]: img/bloc_si_sinon.png
-[conditions]: img/conditions.png
+[bloc_si_sinon]: img/logique_bloc_si_sinon.png
+[conditions]: img/logique_conditions.png
 
 
 

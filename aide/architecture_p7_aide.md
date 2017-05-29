@@ -9,4 +9,4 @@ Elles y sont sûrement pour quelque chose...
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[tourner]:img/tourner.png
+[tourner]: img/architecture_tourner.png

@@ -1,24 +1,17 @@
-# Aide: Anime plusieurs figures
+# Aide : Dessine un bonhomme
 
-Ici, tu dois faire bouger trois cercles en même temps. Tu ne peux donc pas utiliser la même technique que pour la page 4.
+Sur cette page, tu as plusieurs formes à faire. Voici donc une astuce :
 
-***
+Tu n’as pas besoin de mettre un bloc `Couleur` (![Bloc couleur][bloc_couleur]) à chacun des blocs `Forme`.
 
-C'est pourquoi tes blocs `Curseur` sont différents: 
+Tu peux regrouper les formes d’une même couleur ensembles.  
+Voici un exemple :
 
-![Blocs multiples curseurs][curseur_tab]
+![Exemple groupes couleur][ex_gr_couleur]
 
-Tu vas devoir utiliser plus d'un curseur. N'oublie pas de référer au bon «curseur» lorsque tu feras ton animation. 
-
-***
-
-Voici un exemple: 
-
-![Exemple plusieurs curseurs][ex_p6]
-
-***
+Ainsi tu vas avoir un programme qui va utiliser moins de blocs!
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[curseur_tab]: img/curseur_tab.png
-[ex_p6]: img/ex_p6.png
+[bloc_couleur]: img/animation_couleur.png
+[ex_gr_couleur]: img/animation_ex_gr_couleur.png

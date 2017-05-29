@@ -1,36 +1,18 @@
-# Aide: Code des lettres en nombres
+# Aide: Décode le message
 
-### Pour réussir cette activité, il faut que tu codes au moins `5` messages.
-
-***
-
-Tout d'abord, choisi un mot ou une phrase que tu voudrais coder!
-
-Utilise ensuite les nombres associés aux lettres du tableau `Codage des lettres` pour trouver quelle nombre est associé à quelle lettre.
-
-Une fois que tu as trouvé le nombre associé à une lettre, vient l'écrire à l'aide du clavier, dans l'encadré.
-
-![Exercice codage page 5][codage_ex_p5_1]
+### Pour réussir cette activité, il faut que tu décodes toutes les parties manquantes.
 
 ***
 
-Recommence pour tous les lettres de ton message en séparant bien les nombres par un espace.
+Quand tu cliques sur
+![Bouton vérifier][btn_verifier]
+les réponses justes seront mises en <span style="color:lightgreen">verte</span>.
 
-![Exercice codage page 5][codage_ex_p5_2]
 
-***
-
-Quand tu as terminer clique `DÉCODER` et l'ordinateur t'affichera ton message si tu ne t'es pas trompé.
-
-![Bouton décoder][btn_decoder]
-
-![Exercice codage page 5][codage_ex_p5_3]
+Si jamais tu as des erreurs, regarde les réponses qui se seront mises en <span style="color:red">rouge</span>.
 
 ***
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[codage_ex_p5_1]: img/codage_ex_p5_1.png
-[codage_ex_p5_2]: img/codage_ex_p5_2.png
-[btn_decoder]: img/btn_decoder.png
-[codage_ex_p5_3]: img/codage_ex_p5_3.png
+[btn_verifier]: img/codage_btn_verifier.png

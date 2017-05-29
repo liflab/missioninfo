@@ -28,4 +28,4 @@ Quand tu penses avoir trouvé le message, clique sur `VÉRIFIER`.
 
 [codage_ex_p4_1]: img/codage_ex_p4_1.png
 [codage_ex_p4_2]: img/codage_ex_p4_2.png
-[btn_verifier]: img/btn_verifier.png
+[btn_verifier]: img/codage_btn_verifier.png

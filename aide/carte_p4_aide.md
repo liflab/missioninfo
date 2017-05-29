@@ -10,4 +10,4 @@ Au besoin, retourne voir la présentation de la page 1.
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[repeat]: img/repeat_end.png
+[repeat]: img/carte_repeat_end.png

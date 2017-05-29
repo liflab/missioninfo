@@ -14,4 +14,4 @@ Astuce: Tu dois commencer le dessin de chaque étoile sur un point qui se trouve
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[boucle]:img/boucle.png
+[boucle]: img/architecture_boucle.png

@@ -22,6 +22,6 @@ donc pour tous les autres objets.<br>
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 
-[bloc_si_forme_]:img/bloc_si_forme.png
-[bloc_si_pas_forme_]:img/bloc_si_pas_forme.png
-[bloc_not_]:img/bloc_not.png
+[bloc_si_forme_]: img/logique_bloc_si_forme.png
+[bloc_si_pas_forme_]: img/logique_bloc_si_pas_forme.png
+[bloc_not_]: img/logique_bloc_not.png

@@ -1,17 +1,27 @@
-# Aide: Dessine un bonhomme
+# Aide: Ajout de figures
 
-Sur cette page, tu as plusieurs formes à faire. Voici donc une astuce: 
+Quand tu crées une forme, tu dois spécifier deux informations :
+- La position où sera mise la forme
+- La taille de la forme
 
-Tu n'as pas besoin de mettre un bloc `Couleur` (![Bloc couleur][bloc_couleur]) à chacun des blocs `Forme`.
+Pour la position, il te faudra un bloc comme celui-ci :
 
-Tu peux regrouper les formes d'une même couleur ensemble.  
-Voici un exemple: 
+![Bloc XY][bloc_xy]
 
-![Exemple groupes couleur][ex_gr_couleur]
+Pour  mettre les valeurs, tu as deux choix :
+- Sois tu écris directement les nombres dans les cases :
+![Bloc XY nombre][bloc_xy_num]
 
-Ainsi tu vas avoir un programme qui va utiliser moins de blocs!
+- Sois tu utilises des blocs comme celui-ci :
+![Bloc nombre][bloc_num]
+
+N'oublie pas de mettre une couleur à ta forme!
+
+![Bloc couleur][bloc_couleur]
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[bloc_couleur]: img/couleur.png
-[ex_gr_couleur]: img/ex_gr_couleur.png
+[bloc_xy]: img/animation_XY.png
+[bloc_xy_num]: img/animation_XY_num.png
+[bloc_num]: img/animation_num.png
+[bloc_couleur]: img/animation_couleur.png

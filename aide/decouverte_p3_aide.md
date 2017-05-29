@@ -11,4 +11,4 @@ Tu dois jeter le bloc à la poubelle.
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[corbeille]: img/corbeille.png
+[corbeille]: img/decouverte_corbeille.png

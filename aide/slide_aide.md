@@ -16,4 +16,4 @@ Une fois arrivé à la fin, tu pourras cliquer sur le bouton `SUIVANT` pour pass
 
 ##  <span style="color: #800080">À ton tour d'essayer</span>
 
-[btn_suivant]: img/btn_suivant.png
+[btn_suivant]: img/aide_btn_suivant.png

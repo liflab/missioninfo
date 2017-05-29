@@ -12,6 +12,6 @@ Voici un exemple:
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[bloc_si_]:img/condition_if.png
-[bloc_si_expl_]:img/condition_if_expl.png
-[bloc_si_example_]:img/condition_if_example.png
+[bloc_si_]: img/logique_condition_if.png
+[bloc_si_expl_]: img/logique_condition_if_expl.png
+[bloc_si_example_]: img/logique_condition_if_example.png

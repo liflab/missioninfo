@@ -9,5 +9,5 @@ Tu devrais utiliser une combinaison de blocs ET et OU.
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 
-[bloc_et_]:img/bloc_et.png
-[bloc_ou_]:img/bloc_ou.png
+[bloc_et_]: img/logique_bloc_et.png
+[bloc_ou_]: img/logique_bloc_ou.png

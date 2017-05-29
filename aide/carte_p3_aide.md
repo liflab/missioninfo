@@ -8,5 +8,5 @@ Sert toi de la rose des vents pour savoir dans quelle direction tu dois aller.<b
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[bloc_changer_direction]: img/changer_direction.png
-[cadran]: img/cadran.png
+[bloc_changer_direction]: img/carte_changer_direction.png
+[cadran]: img/carte_cadran.png

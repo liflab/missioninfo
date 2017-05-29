@@ -13,5 +13,5 @@ Elles mesurent exactement 3,35 unités.
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[dboucle]:img/double_boucle.png
-[avancer_335]:img/avancer_335.png
+[dboucle]: img/architecture_double_boucle.png
+[avancer_335]: img/architecture_avancer_335.png

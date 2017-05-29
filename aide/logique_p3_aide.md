@@ -9,4 +9,4 @@ Ainsi, pour s'exécuter, les deux conditions devront être respectées.
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 
-[bloc_et_]:img/bloc_et.png
+[bloc_et_]: img/logique_bloc_et.png

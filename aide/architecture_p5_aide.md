@@ -7,4 +7,4 @@ Au besoin, retourne consulter la présentation de la page 4.<br>
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[boucle]:img/boucle.png
+[boucle]: img/architecture_boucle.png

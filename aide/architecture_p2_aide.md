@@ -11,6 +11,6 @@ Tu dois aussi lui indiquer quand tourner à l'aide de ce bloc:<br>
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[avancer_2]:img/avancer_2.png
-[robotino_avancer]:img/robotino_direction.png
-[tourner]:img/tourner.png
+[avancer_2]: img/architecture_avancer_2.png
+[robotino_avancer]: img/architecture_robotino_direction.png
+[tourner]: img/architecture_tourner.png

@@ -1,36 +1,48 @@
-# Aide : Arriveras-tu à faire bouger un bonhomme ?
+# Aide: Anime plusieurs figures
 
-Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.
-
-C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut à droite.
+Comme tu as pu le remarquer, il faut faire bouger plusieurs formes en même temps.
 
 ***
 
-Dans la section «formes» tu as un nouveau bloc : 
+Comment faire bouger plusieurs formes dans le même sens?
 
-![Bloc bonhomme][bloc_bonhomme]
+Tu dois utiliser un seul «curseur» (![Bloc Init Curseur][bloc_init_curseur]).
 
-Tu peux choisir toi-même la couleur de son T-shirt et de son pantalon.
-
-Comme position, indique la coordonnée de l'endroit où tu veux qu'il soit.
+Ce qui veut dire que pour les autres formes, tu vas devoir utiliser ce nouveau bloc :
+![Bloc position curseur avec décalage][bloc_pos_curseur_offset]
 
 ***
 
-#### Astuce :
-Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir plusieurs mouvements ce qui veut dire que tu vas devoir utiliser un bloc logique «si».
+Le décalage c’est la différence entre les coordonnées de deux formes par exemple.
 
-![Bloc Si Sinon][bloc_si_sinon]
+![Exemple decalage formes][ex_p5_formes]
 
-Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci : 
+Ici, si on utilise les coordonnées du carré 1 pour le curseur, il faudra un décalage pour faire bouger le carré 2 de la même façon.
 
-![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]
+Puisque les coordonnées du coin du carré 1 sont (2,4), il faut faire un décalage de :
 
+X : +4<br>Y : +1
+
+Pour arriver au coin du carré 2 (6,5).
+
+***
+
+Voilà ce que ça donnerait :
+
+![Exemple decalage blocs][ex_p5_blocs]
+
+Il faudrait bien sûr ajouter les autres blocs nécessaires pour concevoir l’animation.
+
+***
+
+Je te donne un indice : Pour réussir cette page tu devrais utiliser un bloc ![Bloc position curseur][bloc_pos_curseur] et un bloc ![Bloc position curseur avec décalage][bloc_pos_curseur_offset].
 
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[btn_suivant]: img/btn_suivant.png
-[bloc_bonhomme]: img/bloc_bonhomme.png
-[bloc_si_sinon]: img/bloc_si_sinon.png
-[bloc_si_sinon_ext]: img/bloc_si_sinon_ext.png
-[bloc_si_sinonsi_sinon]: img/bloc_si_sinonsi_sinon.png
+[bloc_dep_curseur]: img/animation_dep_curseur.png
+[bloc_init_curseur]: img/animation_init_curseur.png
+[bloc_pos_curseur_offset]: img/animation_pos_curseur_offset.png
+[bloc_pos_curseur]: img/animation_pos_curseur.png
+[ex_p5_formes]: img/animation_ex_2_formes.png
+[ex_p5_blocs]: img/animation_ex_2_blocs.png

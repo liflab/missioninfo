@@ -12,5 +12,5 @@ Au besoin, retourne voir la présentation de la page 1.
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 
-[bloc_et_]:img/bloc_et.png
-[bloc_ou_]:img/bloc_ou.png
+[bloc_et_]: img/logique_bloc_et.png
+[bloc_ou_]: img/logique_bloc_ou.png

@@ -1,36 +1,23 @@
-# Aide: Arriveras-tu à faire bouger un bonhomme ?
+# Aide : Anime avec plusieurs movements
 
-Cette page est un DÉFI! Tu n'es pas obligé de la réussir pour passer à la page suivante.
-
-C'est pourquoi tu as le bouton suivant (![Bouton suivant][btn_suivant]) en haut à droite.
+Ici, tu dois faire bouger deux lignes de façons différentes. Tu ne peux donc pas utiliser la même technique que pour la page précédentes.
 
 ***
 
-Dans la section «formes» tu as un nouveau bloc: 
+C’est pourquoi tes blocs `Curseur` sont différents :
 
-![Bloc bonhomme][bloc_bonhomme]
+![Blocs multiples curseurs][curseur_tab]
 
-Tu peux choisir toi-même la couleur de son T-shirt et de son pantalon.
-
-Comme position, indique la coordonnée de l'endroit où tu veux qu'il soit.
+Tu vas devoir utiliser plus d’un curseur. N’oublie pas de référer au bon «curseur» lorsque tu feras ton animation.
 
 ***
 
-#### Astuce:
-Tu dois concevoir une animation (utiliser un curseur). Tu devrais aussi prévoir plusieurs mouvements ce qui veut dire que tu vas devoir utiliser un bloc logique «si».
+Voici un exemple de ce à quoi ça peut ressembler :
 
-![Bloc Si Sinon][bloc_si_sinon]
-
-Tu peux ajouter plusieurs conditions à ce bloc en en cliquant sur l'engrenage en haut de celui-ci: 
-
-![Bloc Si Sinon extension][bloc_si_sinon_ext]  <span style="font-size: 80px">➡</span>  ![Bloc Si SinonSi Sinon][bloc_si_sinonsi_sinon]
+![Exemple plusieurs curseurs][ex_p6]
 
 
+## <span style="color: #800080"><center>À ton tour d'essayer</span>
 
-## <span style="color: #800080">À ton tour d'essayer</span>
-
-[btn_suivant]: img/btn_suivant.png
-[bloc_bonhomme]: img/bloc_bonhomme.png
-[bloc_si_sinon]: img/bloc_si_sinon.png
-[bloc_si_sinon_ext]: img/bloc_si_sinon_ext.png
-[bloc_si_sinonsi_sinon]: img/bloc_si_sinonsi_sinon.png
+[curseur_tab]: img/animation_curseur_tab.png
+[ex_p6]: img/animation_ex_3.png

@@ -11,4 +11,4 @@ Si tu utilises plusieurs de ces blocs, tu dois les emboiter les uns dans les aut
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
-[bloc_avancer]: img/avancer_carte.png
+[bloc_avancer]: img/carte_avancer.png
