@@ -1,5 +1,11 @@
 # Aide: Décode le message
 
+```
+CALMET, C., HIRTZIG, M. et WILGENBUS, D. (2016).
+1,2,3 codez! Enseigner l'informatique à l'école et au collègue (cycles 1, 2 et 3).
+Paris : Les éditions le Pommier. (p.25)
+```
+
 ### Pour réussir cette activité, il faut que tu décodes toutes les parties manquantes.
 
 ***
