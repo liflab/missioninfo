@@ -1,5 +1,6 @@
-const DEBUG = false;
+const DEBUG = true;
 const STROKE_WEIGHT_DEFAULT = 14;
+const DELTA = 0.025;
 
 var Stroke_Weight = STROKE_WEIGHT_DEFAULT;
 var __StrokeWeight;
@@ -170,8 +171,8 @@ function custom_validation(drawing_gen, solution){
     var t_result = [];
     for(var i=0;i<solution.length;i++){
         var solution_step = solution[i];
-        //console.log("Looking for "+str_draw(draw_done));
-        for(var j=0;j<drawing_gen.length;j++){
+            for(var j=0;j<drawing_gen.length;j++){
+            //console.log("Looking for "+str_draw(draw_done));
             if(DEBUG){  console.log("COMPARAISON "+(i)+" ["+j+"]")}
             if(is_equivalent(solution_step,drawing_gen[j])){
                 //console.log("OUI");
@@ -202,7 +203,9 @@ function is_equivalent(d1,d2){
         if(DEBUG){  console.log("<== false"); }
         return false;
     }
-    console.log(d1["type"]);
+    if(DEBUG){
+        console.log(d1["type"]);
+    }
     switch(d1["type"]){
         case "line":
             var v_coord = (
@@ -270,10 +273,10 @@ function value_equivalent(v1,v2){
         return false;
     }
     var r = false;
-    var v1_min = v1*0.95;
-    var v1_max = v1*1.05;
-    var v2_min = v2*0.95;
-    var v2_max = v2*1.05;
+    var v1_min = v1*(1-DELTA);
+    var v1_max = v1*(1+DELTA);
+    var v2_min = v2*(1-DELTA);
+    var v2_max = v2*(1+DELTA);
 
     if(v1>0){
         r = v1 >= v2_min && v1 <= v2_max || v2 >= v1_min && v2 <=v1_max;
