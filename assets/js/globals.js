@@ -153,7 +153,11 @@ function popupGood() {
 }
 
 var info_text_saved = "";
-function popupInfo(info_text) {
+
+function popupInfo(info_text, opt_line_red) {
+    if(opt_line_red===undefined){
+        opt_line_red = -1;
+    }
     if (info_text === undefined) {
         info_text = info_text_saved;  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
     }
@@ -162,13 +166,13 @@ function popupInfo(info_text) {
     }
 
     bootbox.alert({
-        message: '<div class="text-center">' + displayInfo(info_text, true) + '</div>',
+        message: '<div class="text-center">' + displayInfo(info_text, true, opt_line_red) + '</div>',
         size: "xlarge",
         backdrop: true
     });
 }
 
-function displayInfo(info_text, popup) {
+function displayInfo(info_text, popup, opt_line_red) {
     if (popup === undefined) {
         popup = false;  // Il faut le gérer comme ça pour du multi-navigateur, et pour éviter certaines erreurs d'IDE ;)
     }
@@ -185,6 +189,11 @@ function displayInfo(info_text, popup) {
     var svg_modify = svg_text;
     for (var ligne = 0; ligne < 4; ligne++) {
         if (typeof info_text_line[ligne] !== 'undefined') {
+            var color = "black";
+            if(opt_line_red==ligne+1){
+                color = "red";
+            }
+            svg_modify = svg_modify.replace("$c" + (ligne + 1) + "$", color);
             svg_modify = svg_modify.replace("$text" + (ligne + 1) + "$", info_text_line[ligne].trim());
         }
         else {

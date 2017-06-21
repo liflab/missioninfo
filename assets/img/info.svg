@@ -808,21 +808,21 @@
              id="tspan7248"
              x="-164.43625"
              y="250.59193"
-             style="font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px">$text1$</tspan><tspan
+             style="fill:$c1$;font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px">$text1$</tspan><tspan
              sodipodi:role="line"
              x="-164.43625"
              y="265.09497"
-             style="font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
+             style="fill:$c2$;font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
              id="tspan7252">$text2$</tspan><tspan
              sodipodi:role="line"
              x="-164.43625"
              y="279.59802"
-             style="font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
+             style="fill:$c3$;font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
              id="tspan7254">$text3$</tspan><tspan
              sodipodi:role="line"
              x="-164.43625"
              y="294.10104"
-             style="font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
+             style="fill:$c4$;font-size:11.6024313px;text-align:center;text-anchor:middle;stroke-width:0.48343462px"
              id="tspan7256">$text4$</tspan></text>
       </g>
     </g>
