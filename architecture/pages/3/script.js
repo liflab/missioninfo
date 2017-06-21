@@ -15,7 +15,8 @@ var solution = [
 ];
 
 var solution_example = [
-    {"type":"crayon_color","value":"#0000ff"},
+    {"type":"crayon_color","value":"#ff0000"},
+    {"type":"crayon_leve","value":false},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
@@ -26,8 +27,8 @@ var solution_example = [
     {"type":"avancer","value":4},
     {"type":"crayon_leve","value":true},
     {"type":"avancer","value":2},
+    {"type":"crayon_color","value":"#0000bb"},
     {"type":"crayon_leve","value":false},
-    {"type":"crayon_color","value":"#ffff00"},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},

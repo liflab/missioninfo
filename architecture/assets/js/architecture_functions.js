@@ -524,7 +524,6 @@ function updateTextRanger(){
 }
 
 function playAnim(){
-    invertButtons();
     reset(true);
     stopAnim(true);
     updateMaxRange(solution_length(solution_example));

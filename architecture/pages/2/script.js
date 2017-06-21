@@ -10,6 +10,8 @@ var solution = [
 ];
 
 var solution_example = [
+    {"type":"crayon_color","value":"#ff0000"},
+    {"type":"crayon_leve","value":false},
     {"type":"avancer","value":4},
     {"type":"tourner","value":90},
     {"type":"avancer","value":4},
