@@ -12,6 +12,10 @@ Pour dessiner une étoile, tu dois tourner d'un angle précis, je te laisse trou
 
 Astuce: Tu dois commencer le dessin de chaque étoile sur un point qui se trouve pile sur le quadrillé. <br>
 
+# Repère d'indication pour les angles
+![Repère][repere]<br>
+
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 [boucle]: img/architecture_boucle.png
+[repere]: img/repere.png

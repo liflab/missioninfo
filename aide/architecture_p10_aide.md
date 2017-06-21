@@ -7,6 +7,10 @@ Le nombre de degrés de chaque arc sera petit. C'est pour cela que tu dois absol
 
 Astuce: Augmente la vitesse de Robotino avant de démarrer le programme (déplace le curseur de la tortue vers le lièvre).<br>
 
+# Repère d'indication pour les angles
+![Repère][repere]<br>
+
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 [arc]: img/architecture_arc_de_cercle.png
+[repere]: img/repere.png

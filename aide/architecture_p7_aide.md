@@ -6,7 +6,11 @@ Porte une attention particulière aux valeurs d'angles qui te sont proposées da
 
 Elles y sont sûrement pour quelque chose...
 
+# Repère d'indication pour les angles
+![Repère][repere]<br>
+
 
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 [tourner]: img/architecture_tourner.png
+[repere]: img/repere.png

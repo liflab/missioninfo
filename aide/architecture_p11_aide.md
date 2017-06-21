@@ -4,6 +4,10 @@ Pour réussir cette page, tu dois utiliser une combinaison de lignes droites et 
 
 Il est possible d'utiliser une boucle, mais ce n'est pas obligatoire.
 
+# Repère d'indication pour les angles
+![Repère][repere]<br>
+
 ## <span style="color: #800080">À ton tour d'essayer</span>
 
 [arc]: img/architecture_arc_de_cercle.png
+[repere]: img/repere.png
