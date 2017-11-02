@@ -49,10 +49,12 @@ function verify() {
 }
 
 function reinit_text() {
-    let elems = document.getElementsByClassName("textToVerify");
-    for (let i = 0; i < elems.length; i++) {
-        elems[i].value = "";
-        elems[i].style.backgroundColor = "white";
+    if(confirm("Veux-tu vraiment supprimer TOUT ton texte ?")) {
+        let elems = document.getElementsByClassName("textToVerify");
+        for (let i = 0; i < elems.length; i++) {
+            elems[i].value = "";
+            elems[i].style.backgroundColor = "white";
+        }
     }
 }
 //------------------------------------------------//

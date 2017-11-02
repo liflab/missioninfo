@@ -46,6 +46,8 @@ function verifiyString() {
 }
 
 function reinit_text() {
-    document.getElementById("ASCII_text").value = "";
+    if(confirm("Veux-tu vraiment supprimer ton texte ?")){
+        document.getElementById("ASCII_text").value = "";
+    }
 }
 //------------------------------------------------//

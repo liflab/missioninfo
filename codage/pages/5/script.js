@@ -58,7 +58,9 @@ function checkInput(ob) {
 }
 
 function reinit_text() {
-    document.getElementById("ASCII_numbers").value = "";
-    document.getElementById("res").innerHTML = "Entre des nombres séparés par des espaces pour former un code et clique sur DECODER pour afficher le texte";
+    if(confirm("Veux-tu vraiment supprimer ton texte ?")) {
+        document.getElementById("ASCII_numbers").value = "";
+        document.getElementById("res").innerHTML = "Entre des nombres séparés par des espaces pour former un code et clique sur DECODER pour afficher le texte";
+    }
 }
 //------------------------------------------------//
