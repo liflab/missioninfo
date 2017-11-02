@@ -4,14 +4,13 @@ var canvas;
 var past_code;
 var past_code_generated;
 
-var solution = [{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":5.75,"y":8.3}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":8.3},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.95,"y":7.39}},{"type":"line","color":"#0000ff","coord1":{"x":7.95,"y":7.39},"coord2":{"x":6.5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":7},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":8.86,"y":5.19}},{"type":"line","color":"#0000ff","coord1":{"x":8.86,"y":5.19},"coord2":{"x":7.56,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":5.94},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":7.95,"y":2.99}},{"type":"line","color":"#0000ff","coord1":{"x":7.95,"y":2.99},"coord2":{"x":7.56,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":7.56,"y":4.44},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":5.75,"y":2.08}},{"type":"line","color":"#0000ff","coord1":{"x":5.75,"y":2.08},"coord2":{"x":6.5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":6.5,"y":3.38},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.55,"y":2.99}},{"type":"line","color":"#0000ff","coord1":{"x":3.55,"y":2.99},"coord2":{"x":5,"y":3.38}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":3.38},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":2.64,"y":5.19}},{"type":"line","color":"#0000ff","coord1":{"x":2.64,"y":5.19},"coord2":{"x":3.94,"y":4.44}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":4.44},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":5,"y":7}},{"type":"line","color":"#0000ff","coord1":{"x":5,"y":7},"coord2":{"x":3.55,"y":7.39}},{"type":"line","color":"#0000ff","coord1":{"x":3.55,"y":7.39},"coord2":{"x":3.94,"y":5.94}},{"type":"line","color":"#0000ff","coord1":{"x":3.94,"y":5.94},"coord2":{"x":5,"y":7}}];
-var solution_example = [{"type":"tourner","value":90},{"type":"crayon_color","value":"#0000ff"},{"type":"crayon_leve","value":false},{"type":"boucle","nb_iteration":8,"value":[ {"type":"boucle","nb_iteration":3,"value":[ {"type":"avancer","value":1.5},{"type":"tourner","value":-120}]},{"type":"avancer","value":1.5},{"type":"tourner","value":45}]}];
-
+var solution = [{"type":"arc","color":"#ff0000","middle":{"x":5,"y":7},"size":2,"start_angle":0,"end_angle":-4.71238898038469,"reversed":true},{"type":"line","color":"#ff0000","coord1":{"x":5,"y":6},"coord2":{"x":5,"y":4}},{"type":"arc","color":"#ff0000","middle":{"x":5,"y":3},"size":2,"start_angle":-7.853981633974483,"end_angle":-12.566370614359172,"reversed":true},{"type":"line","color":"#ff0000","coord1":{"x":6,"y":3},"coord2":{"x":8,"y":3}},{"type":"arc","color":"#ff0000","middle":{"x":9,"y":3},"size":2,"start_angle":-15.707963267948966,"end_angle":-20.420352248333657,"reversed":true},{"type":"line","color":"#ff0000","coord1":{"x":9,"y":4},"coord2":{"x":9,"y":6}},{"type":"arc","color":"#ff0000","middle":{"x":9,"y":7},"size":2,"start_angle":-23.56194490192345,"end_angle":-28.274333882308134,"reversed":true},{"type":"line","color":"#ff0000","coord1":{"x":8,"y":7},"coord2":{"x":6,"y":7}}];
+var solution_example = [{"type":"crayon_color","value":"#ff0000"},{"type":"boucle","nb_iteration":4,"value":[ {"type":"crayon_leve","value":false},{"type":"arc","taille":2,"rotation": {"type":"tourner","value":-270}},{"type":"crayon_leve","value":true},{"type":"avancer","value":1},{"type":"crayon_leve","value":false},{"type":"avancer","value":2},{"type":"crayon_leve","value":true},{"type":"avancer","value":1},{"type":"crayon_leve","value":false},{"type":"tourner","value":-180}]}];
 
 var Crayon;
 
-popupInfo("\nEssaies aussi cet autre type de fondations !\n" +
-    "Attention, il faut utiliser des boucles dans des boucles !");
+popupInfo("\nLa deuxième fondation que tu avais faite, essaie de la modifier.\n" +
+    "Ca pourrait faire un beau jardin, d'avoir des bords arrondis !");
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////
 var axisWidthLength = 16;
@@ -25,21 +24,16 @@ var draw_gen_saved = [];
 
 function checkAnswer() {
     console.log("custom overriden");
-    if(custom_validation(draw_gen_saved,solution) && two_imbriqued(past_code)){
+    if(custom_validation(draw_gen_saved,solution) && one_boucle(past_code)){
         enable_next();
     }else{
         not_good();
     }
 }
-function two_imbriqued(past_code){
+function one_boucle(past_code){
     for(var i=0;i<past_code.length;i++){
         if(past_code[i]["type"]=="boucle"){
-            var next_code = past_code[i]["value"];
-            for(var j=0;j<next_code.length;j++){
-                if(next_code[j]["type"]=="boucle"){
-                    return true;
-                }
-            }
+            return true;
         }
     }
     return false;
@@ -69,7 +63,7 @@ function reset(b){
         debug_generate_code(draw_gen_saved);
         x=START_COORD['x'];
         y=START_COORD['y'];
-        Crayon["rotation"] = 0;
+        Crayon["rotation"] = 90;
         Crayon["leve"] = true;
         Crayon["color"] = "#000000";
         drawCursor(x,y);
@@ -82,66 +76,16 @@ function reset(b){
 
 function drawExercise() {
     strokeWeight(14);
-    stroke(0,0,255,45).noFill();
+    stroke(255,0,0,45).noFill();
 
-    drawLine(6.5,7,5,7);
-    drawLine(5.75,8.3,6.5,7);
-    drawLine(5,7,5.75,8.3);
-    drawLine(6.5,7,5,7);
-    drawLine(7.56,5.94,6.5,7);
-    drawLine(7.95,7.39,7.56,5.94);
-    drawLine(6.5,7,7.95,7.39);
-    drawLine(7.56,5.94,6.5,7);
-    drawLine(7.56,4.44,7.56,5.94);
-    drawLine(8.86,5.19,7.56,4.44);
-    drawLine(7.56,5.94,8.86,5.19);
-    drawLine(7.56,4.44,7.56,5.94);
-    drawLine(6.5,3.38,7.56,4.44);
-    drawLine(7.95,2.99,6.5,3.38);
-    drawLine(7.56,4.44,7.95,2.99);
-    drawLine(6.5,3.38,7.56,4.44);
-    drawLine(5,3.38,6.5,3.38);
-    drawLine(5.75,2.08,5,3.38);
-    drawLine(6.5,3.38,5.75,2.08);
-    drawLine(5,3.38,6.5,3.38);
-    drawLine(3.94,4.44,5,3.38);
-    drawLine(3.55,2.99,3.94,4.44);
-    drawLine(5,3.38,3.55,2.99);
-    drawLine(3.94,4.44,5,3.38);
-    drawLine(3.94,5.94,3.94,4.44);
-    drawLine(2.64,5.19,3.94,5.94);
-    drawLine(3.94,4.44,2.64,5.19);
-    drawLine(3.94,5.94,3.94,4.44);
-    drawLine(5,7,3.94,5.94);
-    drawLine(3.55,7.39,5,7);
-    drawLine(3.94,5.94,3.55,7.39);
-    drawLine(5,7,3.94,5.94);
-    /*
+    drawArc(5,7,2,0,-4.71238898038469,true);
+    drawLine(5,4,5,6);
+    drawArc(5,3,2,-7.853981633974483,-12.566370614359172,true);
+    drawLine(8,3,6,3);
+    drawArc(9,3,2,-15.707963267948966,-20.420352248333657,true);
+    drawLine(9,6,9,4);
+    drawArc(9,7,2,-23.56194490192345,-28.274333882308134,true);
+    drawLine(6,7,8,7);
 
-    drawLine(5,5.5,5,7);
-    drawLine(3.7,6.25,5,5.5);
-    drawLine(5,7,3.7,6.25);
-    drawLine(5,4,5,5.5);
-    drawLine(3.7,4.75,5,4);
-    drawLine(5,5.5,3.7,4.75);
-    drawLine(6.5,4,5,4);
-    drawLine(5.75,2.7,6.5,4);
-    drawLine(5,4,5.75,2.7);
-    drawLine(8,4,6.5,4);
-    drawLine(7.25,2.7,8,4);
-    drawLine(6.5,4,7.25,2.7);
-    drawLine(8,5.5,8,4);
-    drawLine(9.3,4.75,8,5.5);
-    drawLine(8,4,9.3,4.75);
-    drawLine(8,7,8,5.5);
-    drawLine(9.3,6.25,8,7);
-    drawLine(8,5.5,9.3,6.25);
-    drawLine(6.5,7,8,7);
-    drawLine(7.25,8.3,6.5,7);
-    drawLine(8,7,7.25,8.3);
-    drawLine(5,7,6.5,7);
-    drawLine(5.75,8.3,5,7);
-    drawLine(6.5,7,5.75,8.3);
-*/
     strokeWeight(0);
 }

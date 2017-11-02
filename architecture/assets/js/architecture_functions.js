@@ -41,9 +41,34 @@ function allLoaded() {
 }
 //##########################################################################################################
 
+function addButtons(){
+    var html = "";
+        html+= '<button type="button" id="progress_1" onclick="change_page(this.id);">01</button>';
+        html+= '<button type="button" id="progress_2" onclick="change_page(this.id);">02</button>';
+        html+= '<button type="button" id="progress_3" onclick="change_page(this.id);">03</button>';
+        html+= '<button type="button" id="progress_4" onclick="change_page(this.id);">04</button>';
+        html+= '<button type="button" id="progress_5" onclick="change_page(this.id);">05</button>';
+        html+= '<button type="button" id="progress_6" onclick="change_page(this.id);">06</button>';
+        html+= '<button type="button" id="progress_7" onclick="change_page(this.id);">07</button>';
+        html+= '<button type="button" id="progress_8" onclick="change_page(this.id);">08</button>';
+        html+= '<button type="button" id="progress_9" onclick="change_page(this.id);">09</button>';
+        html+= '<button type="button" id="progress_10" onclick="change_page(this.id);">10</button>';
+        html+= '<button type="button" id="progress_11" onclick="change_page(this.id);">11</button>';
+        html+= '<button type="button" id="progress_12" onclick="change_page(this.id);">12</button>';
+        html+= '<button type="button" id="progress_13" onclick="change_page(this.id);">13</button>';
+        html+= '<button type="button" id="progress_14" onclick="change_page(this.id);">FIN</button>';
+        html+= '<button type="button" id="progress_15" onclick="change_page(this.id);">Suite</button>';
+
+    document.querySelector("#btn-group").innerHTML = html;
+}
+
 // Function to activate the right buttons in the progression bar 
 function activateButtons() {
     var nb_total_btn = document.querySelectorAll("#btn-group button").length;
+    if(nb_total_btn==0){
+        addButtons();
+        nb_total_btn = document.querySelectorAll("#btn-group button").length;
+    }
     var num = Math.max(currentPageNumber, savedPageNumber);
 
     for (var i = 1; i < num; i++) {
