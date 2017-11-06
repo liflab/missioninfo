@@ -37,7 +37,7 @@ function verifiyString() {
         }
 
         chooseWord();
-        reinit_text();
+        reinit_text(true);
 
     }
     else {
@@ -45,8 +45,11 @@ function verifiyString() {
     }
 }
 
-function reinit_text() {
-    if(confirm("Veux-tu vraiment supprimer ton texte ?")){
+function reinit_text(b) {
+    if(b===undefined){
+        b = false;
+    }
+    if(b || confirm("Veux-tu vraiment supprimer ton texte ?")){
         document.getElementById("ASCII_text").value = "";
     }
 }
