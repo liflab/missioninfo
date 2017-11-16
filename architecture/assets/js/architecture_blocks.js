@@ -28,14 +28,15 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
         ];
     break;
     case 6:
+    case 7:
         dropdown_angle = [
             ["36° degrés","36"],
             ["90° degrés","90"],
             ["144° degrés","144"]
         ];
     break;
-    case 7:
-    case 9:
+    case 8:
+    case 10:
         dropdown_angle = [
             ["90° degrés","90"],
             ["26.42° degrés","26.42"],
@@ -43,21 +44,21 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
             ["180° degrés","180"],
         ];
     break;
-    case 10:
+    case 11:
         dropdown_angle = [
             ["90° degrés","90"],
             ["10° degrés","10"],
             ["5° degrés","5"],
         ];
     break;
-    case 11:
+    case 12:
         dropdown_angle = [
             ["270° degrés","270"],
             ["180° degrés","180"],
             ["90° degrés","90"],
         ];
     break;
-    case 12:
+    case 13:
         dropdown_angle = [
             ["180° degrés","180"],
             ["120° degrés","120"],
@@ -65,7 +66,7 @@ switch(parseInt(window.location.href.match(new RegExp("[0-9]+", "g")).splice(-1)
             ["45° degrés","45"],
         ];
     break;
-    case 14:
+    case 15:
         dropdown_angle = [
             ["1° degrés","1"],
             ["2° degrés","2"],

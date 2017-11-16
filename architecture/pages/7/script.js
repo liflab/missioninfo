@@ -53,10 +53,9 @@ var solution_example = [
 var Crayon;
 
 
-popupInfo("Beau travail de fondations ! Tu t'asseois maintenant sur celle-ci.\n" +
-    "Tu peux voir les étoiles dans le ciel, cependant il n'y en a \n" +
-    "pas assez selon toi. Dessines les autres étoiles \n" +
-    "en t'aidant des boucles et des angles (Mouvements) !");
+popupInfo("Selon toi, il n'y a toujours pas assez d'étoiles ...\n" +
+            "Dessines d'autres étoiles en t'aidant de ce que tu\n" +
+            "as fait à la page précédente !");
 
 //------------------------------------------------//
 ///////////////// Create exercise /////////////////

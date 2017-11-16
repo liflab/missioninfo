@@ -28,7 +28,7 @@ var Crayon;
 
 popupInfo("Beau travail de fondations ! Tu t'asseois maintenant sur celle-ci.\n" +
     "Tu peux voir les étoiles dans le ciel, cependant il n'y en a \n" +
-    "pas assez selon toi. Dessines les autres étoiles \n" +
+    "pas assez selon toi. Dessine une autre étoile \n" +
     "en t'aidant des boucles et des angles (Mouvements) !");
 
 //------------------------------------------------//
