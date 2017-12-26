@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 const STROKE_WEIGHT_DEFAULT = 14;
 const DELTA = 0.025;
 

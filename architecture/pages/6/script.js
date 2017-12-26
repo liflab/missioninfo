@@ -111,8 +111,8 @@ function drawExercise() {
     strokeWeight(__StrokeWeight);
     stroke(255, 255, 0, 45).noFill();
     drawLine(2,9,2,10);
-    drawLine(2,10,2,9);
     drawLine(2.59,9.19,2,10);
     drawLine(1.64,9.5,2.59,9.19);
     drawLine(2.59,9.81,1.64,9.5);
+    drawLine(2,9,2.59,9.81);
 }
